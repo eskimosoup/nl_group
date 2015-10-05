@@ -80,7 +80,7 @@ RSpec.configure do |config|
   config.include ActionView::TestCase::Behavior, type: :presenter
   config.include Capybara::DSL, type: :feature
   config.include MailerMacros
-  config.include SiteSettingsMacros, type: :feature
+  config.include SiteSettingsMacros
   config.before(:each, type: :feature) { reset_email }
   config.before(:each, type: :feature) do
     create(:site_setting_name)
