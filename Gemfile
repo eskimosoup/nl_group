@@ -54,7 +54,8 @@ group :test do
   gem 'database_cleaner', '~> 1.5.0'
   gem 'capybara', '~> 2.5.0'
   gem 'launchy', '~> 2.4.3'
-  gem 'poltergeist', '~> 1.6.0'
+  # gem 'poltergeist', '~> 1.6.0'
+  gem 'selenium-webdriver'
 end
 
 group :development do

@@ -1,13 +1,14 @@
 GIT
   remote: git@github.com:eskimosoup/Optimadmin.git
-  revision: 5c5ce34c60df4e377ab6fb1c1c50d8bdd695a027
+  revision: f5765f3a8d55dff3919fee7c635547d257381d82
   branch: master
   specs:
-    optimadmin (0.0.7)
+    optimadmin (0.0.10)
       bcrypt
       cancancan
       carrierwave
       closure_tree
+      fastimage
       google-api-client
       jquery-rails
       jquery-ui-rails
@@ -75,7 +76,7 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.9.0)
     byebug (6.0.2)
-    cancancan (1.12.0)
+    cancancan (1.13.0)
     capybara (2.5.0)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -87,7 +88,8 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
-    cliver (0.3.2)
+    childprocess (0.5.6)
+      ffi (~> 1.0, >= 1.0.11)
     closure_tree (5.2.0)
       activerecord (>= 3.2.0)
       with_advisory_lock (>= 3.0.0)
@@ -110,11 +112,13 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
-    faraday (0.9.1)
+    faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
     fast_stack (0.1.0)
       rake
       rake-compiler
+    fastimage (1.7.0)
+      addressable (~> 2.3, >= 2.3.5)
     ffi (1.9.10)
     flamegraph (0.1.0)
       fast_stack
@@ -197,11 +201,6 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     pg (0.18.3)
-    poltergeist (1.6.0)
-      capybara (~> 2.1)
-      cliver (~> 0.3.1)
-      multi_json (~> 1.0)
-      websocket-driver (>= 0.2.0)
     pry (0.10.2)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -266,6 +265,7 @@ GEM
       rspec-mocks (~> 3.3.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
+    rubyzip (1.1.7)
     sass (3.4.18)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -276,6 +276,11 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    selenium-webdriver (2.48.0)
+      childprocess (~> 0.5)
+      multi_json (~> 1.0)
+      rubyzip (~> 1.0)
+      websocket (~> 1.0)
     shellany (0.0.1)
     shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)
@@ -287,7 +292,7 @@ GEM
       multi_json (~> 1.10)
     slop (3.6.0)
     spring (1.4.0)
-    sprockets (3.3.5)
+    sprockets (3.4.0)
       rack (> 1, < 3)
     sprockets-rails (2.3.3)
       actionpack (>= 3.0)
@@ -310,9 +315,7 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
-    websocket-driver (0.6.2)
-      websocket-extensions (>= 0.1.0)
-    websocket-extensions (0.1.2)
+    websocket (1.2.2)
     with_advisory_lock (3.0.0)
       activerecord (>= 3.2)
       thread_safe
@@ -337,13 +340,13 @@ DEPENDENCIES
   optimadmin!
   optimadmin_generators!
   pg
-  poltergeist (~> 1.6.0)
   quiet_assets (~> 1.1.0)
   rack-mini-profiler (~> 0.9.7)
   rails (= 4.2.4)
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  selenium-webdriver
   shoulda-matchers (~> 2.8.0)
   spring
   stackprof (~> 0.2.7)
