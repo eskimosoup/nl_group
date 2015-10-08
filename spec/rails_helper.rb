@@ -12,6 +12,7 @@ require 'shoulda-matchers'
 require 'database_cleaner'
 require 'support/mailer_macros'
 require 'support/site_settings_macros'
+require 'support/optimadmin_macros'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -81,11 +82,14 @@ RSpec.configure do |config|
   config.include Capybara::DSL, type: :feature
   config.include MailerMacros
   config.include SiteSettingsMacros
+  config.include OptimadminMacros, type: :feature
   config.before(:each, type: :feature) { reset_email }
   config.before(:each, type: :feature) do
+    create(:administrator)
     create(:site_setting_name)
     create(:site_setting_email)
   end
+
   config.before(:each, type: :mailer) do
     create(:site_setting_name)
     create(:site_setting_email)

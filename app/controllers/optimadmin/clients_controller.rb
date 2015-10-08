@@ -4,7 +4,7 @@ module Optimadmin
     edit_images_for Client, [[:logo, { show: ['fill', 250, 250] }]]
 
     def index
-      @clients = Optimadmin::BaseCollectionPresenter.new(collection: Client.where('title ILIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::ClientPresenter)
+      @clients = Optimadmin::BaseCollectionPresenter.new(collection: Client.page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::ClientPresenter)
     end
 
     def show
@@ -47,7 +47,7 @@ module Optimadmin
     end
 
     def client_params
-      params.require(:client).permit(:name, :logo, :website, :display)
+      params.require(:client).permit(:name, :logo, :remote_logo_url, :logo_cache, :website, :display)
     end
   end
 end
