@@ -3,16 +3,23 @@ module Optimadmin
     presents :client
     delegate :id, to: :client
 
-    def title
-      #client.title
+    def name
+      client.name
     end
 
-    def toggle_title
-      inline_detail_toggle_link(title)
+    def website_link
+      h.link_to website, target: "_blank" if website?
     end
 
-    def optimadmin_summary
-      #h.simple_format client.summary
+    private
+
+    def website?
+      website.present?
     end
+
+    def website
+      client.website
+    end
+
   end
 end
