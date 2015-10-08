@@ -7,7 +7,8 @@ require 'spec_helper'
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'capybara/rspec'
-require 'capybara/poltergeist'
+#require 'capybara/poltergeist'
+
 require 'shoulda-matchers'
 require 'database_cleaner'
 require 'support/mailer_macros'
@@ -33,7 +34,8 @@ require 'support/optimadmin_macros'
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
-Capybara.javascript_driver = :poltergeist
+# Capybara.javascript_driver = :poltergeist
+Capybara.javascript_driver = :selenium
 
 RSpec.configure do |config|
   config.include Rails.application.routes.url_helpers
@@ -95,7 +97,8 @@ RSpec.configure do |config|
     create(:site_setting_email)
   end
   config.before(:each, js: true) do
-    page.driver.browser.url_blacklist = ["https://maps.googleapis.com", "connect.facebook.net"]
+    # this is for poltergeist
+    # page.driver.browser.url_blacklist = ["https://maps.googleapis.com", "connect.facebook.net"]
   end
 
   # RSpec Rails can automatically mix in different behaviours to your tests
