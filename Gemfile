@@ -68,4 +68,6 @@ group :development do
   gem 'bullet', '~> 4.14.7'
 end
 
-gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git', branch: 'master'
+#gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git', branch: 'master'
+gem 'optimadmin', path: '../optimadmin'
+gem 'therubyracer'
