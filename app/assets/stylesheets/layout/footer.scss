@@ -1,0 +1,19 @@
+.primary-footer {
+  background: image-url('components/contact-us/squares.png') top left no-repeat;
+  padding: em(50px) 0;
+
+  h5 {
+    color: $primary-blue;
+    border-bottom: 3px solid $grey;
+    font-size: em(27px);
+    font-weight: $proxima-nova-light;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0 0 em(22px, 27px);
+    margin: 0 0 em(40px, 27px);
+  }
+
+  p {
+    font-size: em(16px);
+  }
+}

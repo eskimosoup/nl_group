@@ -336,3 +336,93 @@
     <%= image_tag 'placeholders/team-members.png' %>
   </div>
 </section>
+
+<section class="frequently-asked-questions">
+  <div class="row">
+    <div class="medium-12 columns text-center">
+      <h4>FAQs</h4>
+
+      <p>We know you will have questions. Here are answers to our most common.</p>
+      <p>If in doubt call <strong>0333 123 456</strong> we don't bite.</p>
+
+      <p class="frequently-asked-questions-reveal">
+        Click on a question to get the answer.
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-6 columns">
+      <ul class="frequently-asked-questions-list">
+        <li>
+          <%= link_to 'How much work is available?', '#' %>
+        </li>
+
+        <li>
+          <%= link_to 'How much work is available?', '#' %>
+        </li>
+      </ul>
+    </div>
+
+    <div class="medium-6 columns">
+      <ul class="frequently-asked-questions-list">
+        <li>
+          <%= link_to 'How much work is available?', '#' %>
+        </li>
+
+        <li>
+          <%= link_to 'How much work is available?', '#' %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="social">
+  <div class="row">
+    <div class="medium-12 columns text-center">
+      Follow Us
+
+      <%= social_media_link 'Facebook' %>
+      <%= social_media_link 'Twitter' %>
+      <%= social_media_link 'Google Plus' %>
+      <%= social_media_link 'Vimeo' %>
+    </div>
+  </div>
+</section>
+
+<footer class="primary-footer">
+  <div class="row">
+    <div class="medium-12 columns">
+      <h5>Contact Us</h5>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-6 columns">
+      <p>
+        If you would like to contact us about anything else, please use the form
+        opposite and a member of our friendly team will be right back to you:<br /><br />
+
+        <%= image_tag 'layout/header/logo.png', alt: 'NL Group' %><br /><br />
+
+
+        NL Group<br />
+        The Riverside Building<br />
+        Livingstone Road<br />
+        Hessle<br />
+        East Riding of Yorkshire<br />
+        HU13 0DZ<br /><br />
+
+        <%= link_to 'nlgroup.co.uk', 'http://nlgroup.co.uk' %><br /><br />
+
+        Email: <%= mail_to 'info@nlgroup.co.uk' %><br />
+        Tel: 01482 60 60 40 (Option 1)<br />
+        Fax: 01482 62 83 81
+    </div>
+
+    <div class="medium-6 columns">
+      <%#= render 'contacts/form' %>
+    </div>
+  </div>
+</footer>
