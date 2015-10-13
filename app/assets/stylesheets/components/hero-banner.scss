@@ -1,0 +1,20 @@
+.hero-banner {
+  background: $pale-blue image-url('layout/home/banner.png') no-repeat top right;
+}
+
+.hero-content-area {
+  background: $light-blue;
+  padding: em(57px);
+
+  p {
+    color: $white;
+    font-size: em(34px);
+    font-weight: $proxima-nova-light;
+    margin: em(30px, 34px) 0 em(47px, 34px);
+    padding: 0;
+  }
+
+  .light-action-button {
+    margin: 0 em(15px, 16px) 0 0;
+  }
+}

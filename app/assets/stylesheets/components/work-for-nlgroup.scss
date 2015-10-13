@@ -1,0 +1,63 @@
+.work-for-nlgroup {
+  background: image-url('components/home-content/bottom-squares.png') top left no-repeat;
+  padding: em(53px) 0 em(75px);
+  text-align: center;
+
+  h2 {
+    color: $primary-blue;
+    font-size: em(24px);
+    font-weight: $proxima-nova-light;
+    text-transform: uppercase;
+  }
+}
+
+// Let's keep it DRY
+$reason-colours: $green $dark-green $primary-blue $light-blue;
+$reason-colour-names: green dark-green primary-blue light-blue;
+@each $colour in $reason-colours {
+  $i: index($reason-colours, $colour);
+
+  .work-for-nlgroup-reason.#{nth($reason-colour-names, $i)} {
+    .reason-title {
+      background: nth($reason-colours, $i);
+    }
+
+    .reason-content {
+      border-color: nth($reason-colours, $i);
+    }
+  }
+}
+
+.work-for-nlgroup-reason {
+  margin: em(70px) em(2px) em(80px);
+  position: relative;
+
+  .reason-icon {
+    @include border-radius(50%);
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
+    background: $white;
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    margin-left: -45px;
+    line-height: 90px;
+    width: 90px;
+    height: 90px;
+  }
+
+  .reason-title {
+    color: $white;
+    font-size: em(21px);
+    font-weight: $proxima-nova-bold;
+    line-height: 1.1;
+    padding: em(88px, 21px) em(20px, 21px) em(40px, 21px);
+  }
+
+  .reason-content {
+    border-bottom-width: 6px;
+    border-bottom-style: solid;
+    padding: em(26px) 0 em(60px);
+  }
+}

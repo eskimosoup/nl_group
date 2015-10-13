@@ -1,0 +1,47 @@
+.rates-of-pay {
+  margin: em(45px) 0 em(70px);
+  text-align: center;
+
+  h3 {
+    color: $primary-blue;
+    border-bottom: 3px solid $grey;
+    font-size: em(27px);
+    font-weight: $proxima-nova-light;
+    text-transform: uppercase;
+    padding: 0 0 em(24px, 27px);
+    margin: 0 0 em(42px, 27px);
+  }
+}
+
+.rates-of-pay-introduction {
+  p {
+    font-size: em(19px);
+    margin: 0 0 em(42px, 19px);
+  }
+}
+
+.rate-title {
+  font-size: em(19px);
+  line-height: 1;
+  margin: em(80px, 19px) 0 em(20px, 19px);
+}
+
+.rate-amount {
+  font-size: em(32px);
+  font-weight: $proxima-nova-bold;
+  line-height: 1;
+}
+
+.rate-time {
+  font-size: em(12px);
+  line-height: 1;
+  margin: 0 0 em(100px, 12px);
+}
+
+.rate-small-print {
+  margin: em(40px) 0;
+
+  p {
+    font-weight: $proxima-nova-light;
+  }
+}

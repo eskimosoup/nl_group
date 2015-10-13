@@ -1,0 +1,21 @@
+.team {
+  margin: em(72px) 0;
+  position: relative;
+
+  h4 {
+    color: $primary-blue;
+    font-weight: $proxima-nova-bold;
+    font-size: em(38px);
+    margin:  0 0 em(28px, 38px);
+  }
+
+  .dark-action-button {
+    margin: em(38px) 0 0;
+  }
+}
+
+.home-team-members {
+  position: absolute;
+  right: 0;
+  top: -280px;
+}

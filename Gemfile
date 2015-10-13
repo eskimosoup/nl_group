@@ -69,3 +69,4 @@ group :development do
 end
 
 gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git', branch: 'master'
+gem 'therubyracer'

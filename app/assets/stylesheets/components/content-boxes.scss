@@ -1,0 +1,41 @@
+@include media('>1024px') {
+  .introduction-wrap {
+    background: image-url('layout/home/female-nurse.jpg') top left no-repeat,
+                image-url('layout/home/male-nurse.jpg') top right no-repeat;
+  }
+}
+
+.branded-content-box {
+  background: $dark-blue image-url('components/content-boxes/medium-border.jpg') bottom left repeat-x;
+  padding: em(57px) em(57px) em(68px);
+  margin: em(100px) 0 em(120px);
+
+  @include media('<tablet') {
+    padding: em(11px) em(11px) em(22px);
+    margin: em(10px) 0;
+  }
+
+  p {
+    color: $white;
+    font-size: em(24px);
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+.small-branded-content-box {
+  background: $dark-grey image-url('components/content-boxes/small-border.png') bottom left repeat-x;
+  color: $white;
+  padding: em(15px);
+}
+
+.plain-bordered-content-box {
+  border: 8px solid $white;
+  background: $grey;
+  padding: em(72px);
+  margin: em(56px) 0;
+
+  p {
+    margin: 0;
+  }
+}
