@@ -1,9 +1,17 @@
 .testimonials {
   padding: em(45px) 0 em(52px);
 
+  @include media('<tablet') {
+    padding: em(15px) 0;
+  }
+
   p {
     color: $white;
     font-size: em(18px);
+
+    @include media('<tablet') {
+      font-size: em(14px);
+    }
   }
 
   &.first {
@@ -11,6 +19,11 @@
     background: image-url('components/home-content/top-squares.png') bottom left no-repeat,
                 image-url('layout/home/plain-bokeh-background.jpg') top left no-repeat,
                 $light-blue;
+
+    @include media('<tablet') {
+      background: image-url('layout/home/plain-bokeh-background.jpg') top left no-repeat,
+                  $light-blue;
+    }
   }
 
   &.second {
@@ -19,6 +32,12 @@
                 image-url('layout/home/building-background.jpg') top left no-repeat,
                 $primary-blue;
     padding-top: em(68px);
+
+    @include media('<1200px') {
+      background: image-url('components/content-boxes/large-border.png') top left repeat-x,
+                  image-url('layout/home/building-background.jpg') top left no-repeat,
+                  $primary-blue;
+    }
   }
 
   &.third {

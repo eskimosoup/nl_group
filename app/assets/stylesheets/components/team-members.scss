@@ -19,4 +19,8 @@
   position: absolute;
   right: 0;
   top: -280px;
+
+  @include media('<1200px') {
+    position: static;
+  }
 }

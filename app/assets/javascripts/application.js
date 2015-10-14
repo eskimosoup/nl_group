@@ -18,5 +18,6 @@
 //= require slick.js/slick.js
 //= require vendor/onscreen.js
 //= require components/animate.js
+//= require components/toggle-class.js
 
 $(document).foundation();

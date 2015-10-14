@@ -17,7 +17,7 @@
 </section>
 
 <section class="introduction-wrap">
-  <div class="row collapse">
+  <div class="row collapse small-uncollapse">
     <div class="medium-6 columns">
       <div class="branded-content-box" data-animation-type='slideInLeft'>
         <p>
@@ -48,7 +48,7 @@
     </div>
   </div>
 
-  <div class="row collapse"  data-animation-type='fadeInUp'>
+  <div class="row collapse small-uncollapse"  data-animation-type='fadeInUp'>
     <div class="medium-2 columns">
       <%= link_to '#', class: 'testimonial-thumbnail', title: '' do %>
         <%= image_tag 'placeholders/testimonial-author.jpg', alt: '' %>
@@ -114,10 +114,13 @@
         </div>
 
         <div class="reason-title">
-          The money is great
+          <%= link_to '#reason-1', class: 'display-block toggle-class', data: { container: '#reason-1', class: 'hide-for-small', return: 'false' } do %>
+            <%= image_tag 'components/icons/reveal-arrow.png', alt: 'Reveal more', class: 'show-for-small' %>
+            The money is great
+          <% end %>
         </div>
 
-        <div class="reason-content">
+        <div class="reason-content hide-for-small" id="reason-1">
           <p>
             We offer excellent and competitive rates of pay which vary on shift
             type, all paid weekly by direct bank transfer. As well as providing
@@ -135,10 +138,13 @@
         </div>
 
         <div class="reason-title">
-          The money is great
+          <%= link_to '#reason-2', class: 'display-block toggle-class', data: { container: '#reason-2', class: 'hide-for-small', return: 'false' } do %>
+            <%= image_tag 'components/icons/reveal-arrow.png', alt: 'Reveal more', class: 'show-for-small' %>
+            The money is great
+          <% end %>
         </div>
 
-        <div class="reason-content">
+        <div class="reason-content hide-for-small" id="reason-2">
           <p>
             We offer excellent and competitive rates of pay which vary on shift
             type, all paid weekly by direct bank transfer. As well as providing
@@ -156,10 +162,13 @@
         </div>
 
         <div class="reason-title">
-          The money is great
+          <%= link_to '#reason-3', class: 'display-block toggle-class', data: { container: '#reason-3', class: 'hide-for-small', return: 'false' } do %>
+            <%= image_tag 'components/icons/reveal-arrow.png', alt: 'Reveal more', class: 'show-for-small' %>
+            The money is great
+          <% end %>
         </div>
 
-        <div class="reason-content">
+        <div class="reason-content hide-for-small" id="reason-3">
           <p>
             We offer excellent and competitive rates of pay which vary on shift
             type, all paid weekly by direct bank transfer. As well as providing
@@ -179,7 +188,7 @@
     </div>
   </div>
 
-  <div class="row collapse"  data-animation-type='fadeInUp'>
+  <div class="row collapse  small-uncollapse"  data-animation-type='fadeInUp'>
     <div class="medium-2 columns">
       <%= link_to '#', class: 'testimonial-thumbnail', title: '' do %>
         <%= image_tag 'placeholders/testimonial-author.jpg', alt: '' %>
@@ -291,7 +300,7 @@
     </div>
   </div>
 
-  <div class="row collapse" data-animation-type='fadeInUp'>
+  <div class="row collapse small-uncollapse" data-animation-type='fadeInUp'>
     <div class="medium-2 columns">
       <%= link_to '#', class: 'testimonial-thumbnail', title: '' do %>
         <%= image_tag 'placeholders/testimonial-author.jpg', alt: '' %>
@@ -330,6 +339,17 @@
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,
+    responsive: [
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      }
+    ]
   });
 </script>
 <% end %>
@@ -347,31 +367,6 @@
             <%= image_tag 'placeholders/client-logo.png', alt: 'Client preview' %>
           <% end %>
         </li>
-        <li>
-          <%= link_to '#', title: 'Client preview' do %>
-            <%= image_tag 'placeholders/client-logo.png', alt: 'Client preview' %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to '#', title: 'Client preview' do %>
-            <%= image_tag 'placeholders/client-logo.png', alt: 'Client preview' %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to '#', title: 'Client preview' do %>
-            <%= image_tag 'placeholders/client-logo.png', alt: 'Client preview' %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to '#', title: 'Client preview' do %>
-            <%= image_tag 'placeholders/client-logo.png', alt: 'Client preview' %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to '#', title: 'Client preview' do %>
-            <%= image_tag 'placeholders/client-logo.png', alt: 'Client preview' %>
-          <% end %>
-        </li>
       </ul>
     </div>
   </div>
@@ -379,7 +374,7 @@
 
 <section class="team">
   <div class="row">
-    <div class="medium-8 columns">
+    <div class="medium-12 large-10 columns">
       <div data-animation-type="slideInLeft">
         <h4>A friendly team you can rely on</h4>
 
@@ -417,19 +412,11 @@
         <li>
           <%= link_to 'How much work is available?', '#' %>
         </li>
-
-        <li>
-          <%= link_to 'How much work is available?', '#' %>
-        </li>
       </ul>
     </div>
 
     <div class="medium-6 columns" data-animation-type="fadeInUp" data-animation-delay="1000">
       <ul class="frequently-asked-questions-list">
-        <li>
-          <%= link_to 'How much work is available?', '#' %>
-        </li>
-
         <li>
           <%= link_to 'How much work is available?', '#' %>
         </li>

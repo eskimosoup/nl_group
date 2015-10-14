@@ -1,6 +1,9 @@
 .work-for-nlgroup {
-  background: image-url('components/home-content/bottom-squares.png') top left no-repeat;
-  padding: em(53px) 0 em(75px);
+  @include media('>1024px') {
+    background: image-url('components/home-content/bottom-squares.png') top left no-repeat;
+    padding: em(53px) 0 em(75px);
+  }
+  padding: em(26px) 0;
   text-align: center;
 
   h2 {
@@ -32,6 +35,10 @@ $reason-colour-names: green dark-green primary-blue light-blue;
   margin: em(70px) em(2px) em(80px);
   position: relative;
 
+  @include media('<desktop') {
+    margin: em(35px) em(2px) em(40px);
+  }
+
   .reason-icon {
     @include border-radius(50%);
     -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
@@ -53,6 +60,11 @@ $reason-colour-names: green dark-green primary-blue light-blue;
     font-weight: $proxima-nova-bold;
     line-height: 1.1;
     padding: em(88px, 21px) em(20px, 21px) em(40px, 21px);
+
+    a {
+      @include link-colors($white, $white, $white, $white);
+      text-decoration: none;
+    }
   }
 
   .reason-content {

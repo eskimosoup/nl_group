@@ -1,8 +1,33 @@
 .top-header {
   margin: em(40px) 0 em(32px);
+
+  @include media('<tablet') {
+    background: $white;
+    margin: 0;
+    padding: em(10px) 0;
+    top: 0;
+    position: fixed;
+    z-index: 9999;
+    border-bottom: 1px solid $dark-grey;
+  }
 }
 
 .telephone {
   font-size: em(16px);
   margin: em(21px, 16px) 0 0;
+
+  @include media('<tablet') {
+    margin: em(5px, 16px) 0 0;
+    text-align: right;
+  }
+}
+
+.hamburger-icon {
+  display: block;
+  text-align: right;
+
+  img {
+    width: 32px;
+    height: 32px;
+  }
 }
