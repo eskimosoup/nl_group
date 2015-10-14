@@ -2,13 +2,15 @@
   <div class="row collapse">
     <div class="medium-7 columns">
       <div class="hero-content-area">
-        <p>
-          Ethical Healthcare People Management.
-          15 years providing acute healthcare professionals.
-        </p>
+        <div data-animation-type='fadeInUp'>
+          <p>
+            Ethical Healthcare People Management.
+            15 years providing acute healthcare professionals.
+          </p>
+        </div>
 
-        <%= link_to 'Register Your Internest', '#', class: 'light-action-button', title: 'Register Your Internest' %>
-        <%= link_to 'Find Work Near You', '#', class: 'dark-action-button', title: 'Find work near you' %>
+        <%= link_to 'Register Your Internest', '#', class: 'light-action-button', title: 'Register Your Internest', data: { animation_type: 'fadeInUp', animation_delay: '500'} %>
+        <%= link_to 'Find Work Near You', '#', class: 'dark-action-button', title: 'Find work near you', data: { animation_type: 'fadeInUp', animation_delay: '500'} %>
       </div>
     </div>
   </div>
@@ -17,7 +19,7 @@
 <section class="introduction-wrap">
   <div class="row collapse">
     <div class="medium-6 columns">
-      <div class="branded-content-box">
+      <div class="branded-content-box" data-animation-type='slideInLeft'>
         <p>
           We provide brilliant nursing staff to cover nursing shortfalls
           for the NHS and private hospitals.
@@ -26,7 +28,7 @@
     </div>
 
     <div class="medium-6 columns">
-      <div class="plain-bordered-content-box">
+      <div class="plain-bordered-content-box"  data-animation-type='slideInRight'>
         <p>
           At NL Group our ethical way of doing things is of pivotal
           importance to us. It is not about what we do, it is about how we do it.
@@ -46,7 +48,7 @@
     </div>
   </div>
 
-  <div class="row collapse">
+  <div class="row collapse"  data-animation-type='fadeInUp'>
     <div class="medium-2 columns">
       <%= link_to '#', class: 'testimonial-thumbnail', title: '' do %>
         <%= image_tag 'placeholders/testimonial-author.jpg', alt: '' %>
@@ -85,7 +87,7 @@
 
   <div class="row collapse">
     <div class="medium-6 large-3 columns">
-      <div class="work-for-nlgroup-reason green">
+      <div class="work-for-nlgroup-reason green" data-animation-type='scaleIn'>
         <div class="reason-icon">
           <%= image_tag 'components/reasons/graph-icon', alt: '' %>
         </div>
@@ -106,7 +108,7 @@
     </div>
 
     <div class="medium-6 large-3 columns">
-      <div class="work-for-nlgroup-reason primary-blue">
+      <div class="work-for-nlgroup-reason primary-blue" data-animation-type='scaleIn' data-animation-delay="750">
         <div class="reason-icon">
           <%= image_tag 'components/reasons/graph-icon', alt: '' %>
         </div>
@@ -127,7 +129,7 @@
     </div>
 
     <div class="medium-6 large-3 columns">
-      <div class="work-for-nlgroup-reason dark-green">
+      <div class="work-for-nlgroup-reason dark-green" data-animation-type='scaleIn' data-animation-delay="1250">
         <div class="reason-icon">
           <%= image_tag 'components/reasons/graph-icon', alt: '' %>
         </div>
@@ -148,7 +150,7 @@
     </div>
 
     <div class="medium-6 large-3 columns">
-      <div class="work-for-nlgroup-reason light-blue">
+      <div class="work-for-nlgroup-reason light-blue" data-animation-type='scaleIn' data-animation-delay="2000">
         <div class="reason-icon">
           <%= image_tag 'components/reasons/graph-icon', alt: '' %>
         </div>
@@ -177,7 +179,7 @@
     </div>
   </div>
 
-  <div class="row collapse">
+  <div class="row collapse"  data-animation-type='fadeInUp'>
     <div class="medium-2 columns">
       <%= link_to '#', class: 'testimonial-thumbnail', title: '' do %>
         <%= image_tag 'placeholders/testimonial-author.jpg', alt: '' %>
@@ -222,7 +224,7 @@
 
   <div class="row">
     <div class="medium-4 columns">
-      <div class="small-branded-content-box">
+      <div class="small-branded-content-box"  data-animation-type='scaleIn'>
         <div class="rate-title">
           ODP rates
         </div>
@@ -238,7 +240,7 @@
     </div>
 
     <div class="medium-4 columns">
-      <div class="small-branded-content-box">
+      <div class="small-branded-content-box"  data-animation-type='scaleIn' data-animation-delay="750">
         <div class="rate-title">
           ODP rates
         </div>
@@ -254,7 +256,7 @@
     </div>
 
     <div class="medium-4 columns">
-      <div class="small-branded-content-box">
+      <div class="small-branded-content-box" data-animation-type='scaleIn' data-animation-delay="1250">
         <div class="rate-title">
           ODP rates
         </div>
@@ -289,7 +291,7 @@
     </div>
   </div>
 
-  <div class="row collapse">
+  <div class="row collapse" data-animation-type='fadeInUp'>
     <div class="medium-2 columns">
       <%= link_to '#', class: 'testimonial-thumbnail', title: '' do %>
         <%= image_tag 'placeholders/testimonial-author.jpg', alt: '' %>
@@ -319,27 +321,85 @@
   </div>
 </section>
 
+<%= content_for :footer do %>
+<script>
+  $('.clients-list').slick({
+    infinite: true,
+    dots: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000,
+  });
+</script>
+<% end %>
+
+<section class="clients">
+  <div class="row">
+    <div class="medium-12 columns text-center">
+      <h2>Our Clients</h2>
+
+      <p>Are you looking for an incredibly talented and flexible team?</p>
+
+      <ul class="clients-list" data-animation-type='fadeInUp'>
+        <li>
+          <%= link_to '#', title: 'Client preview' do %>
+            <%= image_tag 'placeholders/client-logo.png', alt: 'Client preview' %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '#', title: 'Client preview' do %>
+            <%= image_tag 'placeholders/client-logo.png', alt: 'Client preview' %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '#', title: 'Client preview' do %>
+            <%= image_tag 'placeholders/client-logo.png', alt: 'Client preview' %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '#', title: 'Client preview' do %>
+            <%= image_tag 'placeholders/client-logo.png', alt: 'Client preview' %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '#', title: 'Client preview' do %>
+            <%= image_tag 'placeholders/client-logo.png', alt: 'Client preview' %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '#', title: 'Client preview' do %>
+            <%= image_tag 'placeholders/client-logo.png', alt: 'Client preview' %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <section class="team">
   <div class="row">
     <div class="medium-8 columns">
-      <h4>A friendly team you can rely on</h4>
+      <div data-animation-type="slideInLeft">
+        <h4>A friendly team you can rely on</h4>
 
-      <p>
-        At NL Group our ethical way of doing things is of pivotal importance to us. It is not about what we do, it is about how we do it. We believe in providing flexible working conditions for highly trained professional healthcare workers who represent NL Group in the best possible fashion, at very competitive rates of pay.
-      </p>
+        <p>
+          At NL Group our ethical way of doing things is of pivotal importance to us. It is not about what we do, it is about how we do it. We believe in providing flexible working conditions for highly trained professional healthcare workers who represent NL Group in the best possible fashion, at very competitive rates of pay.
+        </p>
 
-      <%= link_to 'Speak to one of our friendly team', '#', class: 'dark-action-button' %>
+        <%= link_to 'Speak to one of our friendly team', '#', class: 'dark-action-button' %>
+      </div>
     </div>
   </div>
 
-  <div class="home-team-members">
+  <div class="home-team-members" data-animation-type="slideInRight">
     <%= image_tag 'placeholders/team-members.png' %>
   </div>
 </section>
 
 <section class="frequently-asked-questions">
   <div class="row">
-    <div class="medium-12 columns text-center">
+    <div class="medium-12 columns text-center" data-animation-type="fadeInUp">
       <h4>FAQs</h4>
 
       <p>We know you will have questions. Here are answers to our most common.</p>
@@ -352,7 +412,7 @@
   </div>
 
   <div class="row">
-    <div class="medium-6 columns">
+    <div class="medium-6 columns" data-animation-type="fadeInUp" data-animation-delay="500">
       <ul class="frequently-asked-questions-list">
         <li>
           <%= link_to 'How much work is available?', '#' %>
@@ -364,7 +424,7 @@
       </ul>
     </div>
 
-    <div class="medium-6 columns">
+    <div class="medium-6 columns" data-animation-type="fadeInUp" data-animation-delay="1000">
       <ul class="frequently-asked-questions-list">
         <li>
           <%= link_to 'How much work is available?', '#' %>
@@ -399,7 +459,7 @@
   </div>
 
   <div class="row">
-    <div class="medium-6 columns">
+    <div class="medium-6 columns" data-animation-type="slideInLeft">
       <p>
         If you would like to contact us about anything else, please use the form
         opposite and a member of our friendly team will be right back to you:<br /><br />
@@ -421,8 +481,8 @@
         Fax: 01482 62 83 81
     </div>
 
-    <div class="medium-6 columns">
-      <%#= render 'contacts/form' %>
+    <div class="medium-6 columns" data-animation-type="slideInRight">
+      <%= render 'contacts/form' %>
     </div>
   </div>
 </footer>

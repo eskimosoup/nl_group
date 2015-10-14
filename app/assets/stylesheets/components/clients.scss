@@ -1,0 +1,39 @@
+.clients {
+  padding: em(50px) 0;
+
+  h2 {
+    border-bottom: 3px solid $grey;
+    color: $primary-blue;
+    font-size: em(27px);
+    font-weight: $proxima-nova-light;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0 0 em(24px, 27px);
+    margin: 0 0 em(24px, 27px);
+  }
+
+  p {
+    font-weight: $proxima-nova-semibold;
+  }
+
+  .slick-slider {
+    margin: 0;
+  }
+
+  .slick-dots {
+    position: static;
+  }
+}
+
+.clients-list {
+  list-style: none;
+
+  img {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    -webkit-filter: grayscale(1);
+  }
+}

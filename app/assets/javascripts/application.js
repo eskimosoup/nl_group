@@ -15,5 +15,8 @@
 //= require_tree ./vendor/foundation/libraries
 //= require vendor/foundation/foundation.js
 //= requrie vendor/foundation/foundation.equalizer.js
+//= require slick.js/slick.js
+//= require vendor/onscreen.js
+//= require components/animate.js
 
 $(document).foundation();

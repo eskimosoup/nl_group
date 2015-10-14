@@ -2,6 +2,10 @@
   background: image-url('components/contact-us/squares.png') top left no-repeat;
   padding: em(50px) 0;
 
+  .columns {
+    background: $white;
+  }
+
   h5 {
     color: $primary-blue;
     border-bottom: 3px solid $grey;
