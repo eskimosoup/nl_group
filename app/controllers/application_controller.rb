@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   before_action :global_site_settings, :load_objects
 
   def index
-    @contact = Contact.new
   end
 
 
@@ -14,6 +13,7 @@ class ApplicationController < ActionController::Base
 
     def load_objects
       @header_menu = Optimadmin::Menu.new(name: "header")
+      @contact = Contact.new
     end
 
     def global_site_settings
