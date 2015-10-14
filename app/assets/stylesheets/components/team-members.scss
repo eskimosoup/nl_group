@@ -8,6 +8,10 @@
     font-weight: $proxima-nova-bold;
     font-size: em(38px);
     margin:  0 0 em(28px, 38px);
+    border: 0;
+    padding: 0;
+    text-transform: none;
+    text-align: left;
   }
 
   .dark-action-button {
@@ -16,11 +20,56 @@
 }
 
 .home-team-members {
+  background: image-url('placeholders/team-members.png') top right no-repeat;
   position: absolute;
   right: 0;
-  top: -280px;
+  top: -240px;
+  width: 684px;
+  height: 869px;
 
   @include media('<1200px') {
     position: static;
+  }
+
+  @include media('<tablet') {
+    margin-top: em(40px);
+    width: auto;
+    height: auto;
+  }
+
+  .row {
+    @include media('>=tablet') {
+      position: absolute;
+      left: 111px;
+      max-width: 573px;
+    }
+
+    @include media('<tablet') {
+      position: static;
+    }
+  }
+
+  .team-members-row-1 {
+    top: 186px;
+  }
+
+  .team-members-row-2 {
+    top: 279px;
+  }
+
+  .team-members-row-3 {
+    top: 372px;
+  }
+
+  .team-members-row-4 {
+    top: 467px;
+  }
+
+  .team-members-row-5 {
+    top: 562px;
+  }
+
+  .team-members-row-6 {
+    top: 657px;
   }
 }

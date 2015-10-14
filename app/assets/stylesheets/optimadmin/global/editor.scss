@@ -53,25 +53,67 @@ p {
 }
 
 h1 {
-
+  border-bottom: 3px solid $grey;
+  color: $primary-blue;
+  font-size: em(28px);
+  font-weight: $proxima-nova-light;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 0 0 em(14px, 28px);
+  margin: em(14px, 28px) 0;
 }
 
 h2 {
-
+  border-bottom: 3px solid $grey;
+  color: $primary-blue;
+  font-size: em(26px);
+  font-weight: $proxima-nova-light;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 0 0 em(14px, 26px);
+  margin: em(14px, 26px) 0;
 }
 
 h3 {
-
+  border-bottom: 3px solid $grey;
+  color: $primary-blue;
+  font-size: em(26px);
+  font-weight: $proxima-nova-light;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 0 0 em(14px, 26px);
+  margin: em(14px, 26px) 0;
 }
 
 h4 {
-
+  border-bottom: 3px solid $grey;
+  color: $primary-blue;
+  font-size: em(24px);
+  font-weight: $proxima-nova-light;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 0 0 em(14px, 24px);
+  margin: em(14px, 24px) 0;
 }
 
 h5 {
-
+  border-bottom: 3px solid $grey;
+  color: $primary-blue;
+  font-size: em(22px);
+  font-weight: $proxima-nova-light;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 0 0 em(14px, 22px);
+  margin: em(14px, 22px) 0;
 }
 
 h6 {
-
+  border-bottom: 3px solid $grey;
+  color: $primary-blue;
+  font-size: em(20px);
+  font-weight: $proxima-nova-light;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 0 0 em(14px, 20px);
+  margin: em(14px, 20px) 0;
 }
