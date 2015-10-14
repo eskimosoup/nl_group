@@ -6,9 +6,11 @@
 
   <body>
     <%= render 'layouts/shared/header' %>
-    
+
     <%= render 'shared/flash_messages' %>
 
     <%= yield %>
+    
+    <%= yield :footer %>
   </body>
 </html>

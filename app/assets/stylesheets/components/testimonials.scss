@@ -7,18 +7,22 @@
   }
 
   &.first {
-    background: $light-blue image-url('components/home-content/top-squares.png') bottom left no-repeat;
+    border-top: 6px  solid $lighter-blue;
+    background: image-url('components/home-content/top-squares.png') bottom left no-repeat,
+                image-url('layout/home/plain-bokeh-background.jpg') top left no-repeat,
+                $light-blue;
   }
 
   &.second {
     background: image-url('components/content-boxes/large-border.png') top left repeat-x,
                 image-url('layout/home/nlgroup-logo.png') top right no-repeat,
+                image-url('layout/home/building-background.jpg') top left no-repeat,
                 $primary-blue;
     padding-top: em(68px);
   }
 
   &.third {
-    background: $light-blue;
+    background: $light-blue image-url('layout/home/bokeh-background.jpg') center no-repeat;
   }
 }
 
@@ -43,7 +47,7 @@
 
 .testimonial-watch-video-link {
   background: image-url('components/icons/link-arrow.png') center left no-repeat;
-  @include link-colors($white);
+  @include link-colors($white, $white, $white, $white);
   color: $white;
   display: block;
   font-size: em(18px);

@@ -1,3 +1,8 @@
+/**
+  *= require slick.js/slick-theme.scss
+  *= require slick.js/slick.scss
+*/
+
 // Use this: http://dev.ghost.org/css-at-ghost/#namingthings
 // vendor: third-party styles
 // lib: SASS libraries, variables
@@ -8,6 +13,7 @@
 'vendor/normalize',
 'vendor/foundation',
 'vendor/include-media',
+'vendor/animate',
 'optimadmin/global/editor',
 'layout/header',
 'layout/footer',
@@ -20,4 +26,7 @@
 'components/team-members',
 'components/frequently-asked-questions',
 'components/social-media',
+'components/forms',
+'components/clients',
+'components/flash-messages',
 'components/hero-banner';

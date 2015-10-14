@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :global_site_settings, :load_objects
 
   def index
-
+    @contact = Contact.new
   end
 
 
