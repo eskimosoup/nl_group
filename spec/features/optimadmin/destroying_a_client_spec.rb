@@ -13,6 +13,8 @@ RSpec.feature "Destroying A Client", type: :feature do
     within("#item_#{ client.id }") do
       find("a[data-method='delete']").click
     end
+    # Click ok on confirm
+    page.driver.browser.switch_to.alert.accept
 
     expect(page).to have_content('Client was successfully destroyed.')
   end
