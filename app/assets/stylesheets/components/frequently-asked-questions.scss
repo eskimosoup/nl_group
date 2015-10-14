@@ -32,7 +32,11 @@
 .frequently-asked-questions-list {
   list-style: none;
   margin: em(32px) 0 0;
-  
+
+  @include media('<tablet') {
+    margin: 0;
+  }
+
   li {
     color: $white;
     position: relative;

@@ -2,6 +2,10 @@
   margin: em(45px) 0 em(70px);
   text-align: center;
 
+  @include media('<tablet') {
+    margin: em(22px) 0 em(35px);
+  }
+
   h3 {
     color: $primary-blue;
     border-bottom: 3px solid $grey;

@@ -10,7 +10,7 @@
   padding: em(57px) em(57px) em(68px);
   margin: em(100px) 0 em(120px);
 
-  @include media('<tablet') {
+  @include media('<desktop') {
     padding: em(11px) em(11px) em(22px);
     margin: em(10px) 0;
   }
@@ -27,6 +27,10 @@
   background: $dark-grey image-url('components/content-boxes/small-border.png') bottom left repeat-x;
   color: $white;
   padding: em(15px);
+
+  @include media('<tablet') {
+    margin: 0 0 em(15px);
+  }
 }
 
 .plain-bordered-content-box {
@@ -34,6 +38,11 @@
   background: $grey;
   padding: em(72px);
   margin: em(56px) 0;
+
+  @include media('<desktop') {
+    margin: em(14px) 0;
+    padding: em(15px);
+  }
 
   p {
     margin: 0;

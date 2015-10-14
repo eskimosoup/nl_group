@@ -8,15 +8,29 @@
   background: $light-blue;
   padding: em(57px);
 
+  @include media('<tablet') {
+    margin: em(100px) em(15px) 0;
+    padding: em(15px);
+  }
+
   p {
     color: $white;
     font-size: em(34px);
     font-weight: $proxima-nova-light;
     margin: em(30px, 34px) 0 em(47px, 34px);
     padding: 0;
+
+    @include media('<tablet') {
+      font-size: em(17px);
+      margin: em(15px, 34px) 0 em(23px, 34px);
+    }
   }
 
   .light-action-button {
     margin: 0 em(15px, 16px) 0 0;
+
+    @include media('<desktop') {
+      margin: 0 0 em(15px, 16px);
+    }
   }
 }
