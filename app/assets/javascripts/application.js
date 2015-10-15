@@ -16,8 +16,13 @@
 //= require vendor/foundation/foundation.js
 //= requrie vendor/foundation/foundation.equalizer.js
 //= require slick.js/slick.js
+//= require colorbox/jquery.colorbox.js
 //= require vendor/onscreen.js
 //= require components/animate.js
 //= require components/toggle-class.js
 
 $(document).foundation();
+
+$(function() {
+  $('.colorbox').colorbox();
+});
