@@ -15,17 +15,13 @@
   <div class="row">
     <div class="medium-6 columns" data-animation-type="fadeInUp" data-animation-delay="500">
       <ul class="frequently-asked-questions-list">
-        <li>
-          <%= link_to 'How much work is available?', '#' %>
-        </li>
+        <%= render partial: 'frequently_asked_questions/frequently_asked_question', collection: @presented_frequently_asked_questions[0..2], as: :frequently_asked_question_presenter %>
       </ul>
     </div>
 
     <div class="medium-6 columns" data-animation-type="fadeInUp" data-animation-delay="1000">
       <ul class="frequently-asked-questions-list">
-        <li>
-          <%= link_to 'How much work is available?', '#' %>
-        </li>
+        <%= render partial: 'frequently_asked_questions/frequently_asked_question', collection: @presented_frequently_asked_questions[3..5], as: :frequently_asked_question_presenter %>
       </ul>
     </div>
   </div>
