@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Destroying A Client", type: :feature do
   subject!(:client) { create(:client) }
-  it "should allow a client to be destroyed", js: true do
+  it "should allow a client to be destroyed" do
     login_with("optimised", "optipoipoip")
 
     click_link "Clients"
