@@ -1,0 +1,112 @@
+<section class="testimonials <%= cycle 'first', 'second', 'third' %>">
+  <div class="row">
+    <div class="medium-10 medium-offset-2">
+      <%= image_tag 'components/content-boxes/testimonial-open-quote.png', alt: 'Testimonials', class: 'testimonial-quote-mark' %>
+    </div>
+  </div>
+
+  <div class="row collapse small-uncollapse"  data-animation-type='fadeInUp'>
+    <div class="medium-2 columns">
+      <%= testimonial_presenter.author %>
+      <!--
+      <%= link_to '#', class: 'testimonial-thumbnail', title: '' do %>
+        <%= image_tag 'placeholders/testimonial-author.jpg', alt: '' %>
+      <% end %>
+      -->
+    </div>
+
+    <div class="medium-10 columns">
+      <%= testimonial_presenter.content %>
+
+      <div class="testimonial-author">
+        <%= testimonial_presenter.author %>
+        <!-- Neil Russell, Nurse (ICU) -->
+      </div>
+
+      <%= testimonial_presenter.video_link %>
+      <!-- <%= link_to "Watch Neil's Video", '#', class: 'testimonial-watch-video-link', title: 'Watch video' %> -->
+
+      <div class="testimonial-action-button">
+        <%= link_to 'Work full-time or pick up some extra shifts - Join our amazing team', '#', class: 'dark-action-button' %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--
+<section class="testimonials second">
+  <div class="row">
+    <div class="medium-10 medium-offset-2">
+      <%= image_tag 'components/content-boxes/testimonial-open-quote.png', alt: 'Testimonials', class: 'testimonial-quote-mark' %>
+    </div>
+  </div>
+
+  <div class="row collapse  small-uncollapse"  data-animation-type='fadeInUp'>
+    <div class="medium-2 columns">
+      <%= link_to '#', class: 'testimonial-thumbnail', title: '' do %>
+        <%= image_tag 'placeholders/testimonial-author.jpg', alt: '' %>
+      <% end %>
+    </div>
+
+    <div class="medium-10 columns">
+      <p>
+        I Relocated from Cardiff to Lincolnshire to continue my profession.
+        Organising my weekly shifts was becoming increasingly difficult.
+        I thought this was just part of the job. Until that is I was
+        recommended to speak to NL Group. Their friendly team were
+        immediately committed to developing my career and providing me
+        with the flexibility that I needed.
+      </p>
+
+      <div class="testimonial-author">
+        Neil Russell, Nurse (ICU)
+      </div>
+
+      <%= link_to "Watch Neil's Video", '#', class: 'testimonial-watch-video-link', title: 'Watch video' %>
+
+      <div class="testimonial-action-button">
+        <%= link_to 'You can keep your existing job and  pick up some extra shifts with us - Join our amazing team', '#', class: 'dark-action-button' %>
+      </div>
+    </div>
+  </div>
+</section>
+-->
+
+<!--
+<section class="testimonials third">
+  <div class="row">
+    <div class="medium-10 medium-offset-2">
+      <%= image_tag 'components/content-boxes/testimonial-open-quote.png', alt: 'Testimonials', class: 'testimonial-quote-mark' %>
+    </div>
+  </div>
+
+  <div class="row collapse small-uncollapse" data-animation-type='fadeInUp'>
+    <div class="medium-2 columns">
+      <%= link_to '#', class: 'testimonial-thumbnail', title: '' do %>
+        <%= image_tag 'placeholders/testimonial-author.jpg', alt: '' %>
+      <% end %>
+    </div>
+
+    <div class="medium-10 columns">
+      <p>
+        I Relocated from Cardiff to Lincolnshire to continue my profession.
+        Organising my weekly shifts was becoming increasingly difficult.
+        I thought this was just part of the job. Until that is I was
+        recommended to speak to NL Group. Their friendly team were
+        immediately committed to developing my career and providing me
+        with the flexibility that I needed.
+      </p>
+
+      <div class="testimonial-author">
+        Neil Russell, Nurse (ICU)
+      </div>
+
+      <%= link_to "Watch Neil's Video", '#', class: 'testimonial-watch-video-link', title: 'Watch video' %>
+
+      <div class="testimonial-action-button">
+        <%= link_to 'You can keep your existing job and  pick up some extra shifts with us - Join our amazing team', '#', class: 'dark-action-button' %>
+      </div>
+    </div>
+  </div>
+</section>
+-->
