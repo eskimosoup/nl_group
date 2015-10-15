@@ -9,6 +9,7 @@ class CreateTeamMembers < ActiveRecord::Migration
       t.string :phone
       t.string :role, null: false
       t.boolean :display, default: true
+      t.integer :position, default: 0
 
       t.timestamps null: false
     end
