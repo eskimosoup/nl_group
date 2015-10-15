@@ -13,74 +13,75 @@
     </div>
   </div>
 
+  <% # FIXME: All I can say to this is: EWWW %>
   <div class="home-team-members" data-animation-type="slideInRight">
-    <div class="row collapse team-members-row-1">
+    <div class="row collapse team-members-row-0">
       <div class="small-2 columns">
-        <%= @presented_team_members[0].profile_preview %>
+        <%= @presented_team_members[0].profile_preview if @presented_team_members[0].present? %>
       </div>
       <div class="small-2 small-offset-2 columns">
-        <%= render 'team_members/team_member' %>
+        <%= @presented_team_members[1].profile_preview if @presented_team_members[1].present? %>
       </div>
       <div class="small-2 columns">
-        <%= render 'team_members/team_member' %>
+        <%= @presented_team_members[2].profile_preview if @presented_team_members[2].present? %>
       </div>
       <div class="small-2 columns">
-        <%= render 'team_members/team_member' %>
+        <%= @presented_team_members[3].profile_preview if @presented_team_members[3].present? %>
       </div>
       <div class="small-2 columns">
-        <%= render 'team_members/team_member' %>
+        <%= @presented_team_members[4].profile_preview if @presented_team_members[4].present? %>
+      </div>
+    </div>
+    <div class="row collapse team-members-row-1">
+      <div class="small-2 columns">
+        <%= @presented_team_members[5].profile_preview if @presented_team_members[5].present? %>
+      </div>
+      <div class="small-2 small-offset-2 columns end">
+        <%= @presented_team_members[6].profile_preview if @presented_team_members[6].present? %>
       </div>
     </div>
     <div class="row collapse team-members-row-2">
+      <div class="small-2 small-offset-2 columns">
+        <%= @presented_team_members[7].profile_preview if @presented_team_members[7].present? %>
+      </div>
       <div class="small-2 columns">
-        <%= render 'team_members/team_member' %>
+        <%= @presented_team_members[8].profile_preview if @presented_team_members[8].present? %>
       </div>
       <div class="small-2 small-offset-2 columns end">
-        <%= render 'team_members/team_member' %>
+        <%= @presented_team_members[9].profile_preview if @presented_team_members[9].present? %>
+      </div>
+      <div class="small-2 columns end">
+        <%= @presented_team_members[10].profile_preview if @presented_team_members[10].present? %>
       </div>
     </div>
     <div class="row collapse team-members-row-3">
+      <div class="small-2 columns">
+        <%= @presented_team_members[11].profile_preview if @presented_team_members[11].present? %>
+      </div>
       <div class="small-2 small-offset-2 columns">
-        <%= render 'team_members/team_member' %>
+        <%= @presented_team_members[12].profile_preview if @presented_team_members[12].present? %>
       </div>
       <div class="small-2 columns">
-        <%= render 'team_members/team_member' %>
-      </div>
-      <div class="small-2 small-offset-2 columns end">
-        <%= render 'team_members/team_member' %>
+        <%= @presented_team_members[13].profile_preview if @presented_team_members[13].present? %>
       </div>
       <div class="small-2 columns end">
-        <%= render 'team_members/team_member' %>
+        <%= @presented_team_members[14].profile_preview if @presented_team_members[14].present? %>
       </div>
     </div>
     <div class="row collapse team-members-row-4">
       <div class="small-2 columns">
-        <%= render 'team_members/team_member' %>
-      </div>
-      <div class="small-2 small-offset-2 columns">
-        <%= render 'team_members/team_member' %>
+        <%= @presented_team_members[15].profile_preview if @presented_team_members[15].present? %>
       </div>
       <div class="small-2 columns">
-        <%= render 'team_members/team_member' %>
+        <%= @presented_team_members[16].profile_preview if @presented_team_members[16].present? %>
       </div>
-      <div class="small-2 columns end">
-        <%= render 'team_members/team_member' %>
+      <div class="small-2 small-offset-4 columns end">
+        <%= @presented_team_members[17].profile_preview if @presented_team_members[17].present? %>
       </div>
     </div>
     <div class="row collapse team-members-row-5">
-      <div class="small-2 columns">
-        <%= render 'team_members/team_member' %>
-      </div>
-      <div class="small-2 columns">
-        <%= render 'team_members/team_member' %>
-      </div>
-      <div class="small-2 small-offset-4 columns end">
-        <%= render 'team_members/team_member' %>
-      </div>
-    </div>
-    <div class="row collapse team-members-row-6">
       <div class="small-2 small-offset-6 columns">
-        <%= render 'team_members/team_member' %>
+        <%= @presented_team_members[18].profile_preview if @presented_team_members[18].present? %>
       </div>
     </div>
   </div>
