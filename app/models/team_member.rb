@@ -4,4 +4,5 @@ class TeamMember < ActiveRecord::Base
   validates :forename, :surname, :role, presence: true
 
   scope :displayed, -> { where(display: true) }
+  scope :positioned, -> { order(:position) }
 end
