@@ -8,4 +8,11 @@ module OptimadminMacros
     expect(current_path).to eq(optimadmin.root_path)
     expect(page).to have_content("Logged in!")
   end
+
+  def tiny_mce_fill_in(name, args)
+    within_frame("#{name}_ifr") do
+      editor = page.find_by_id('tinymce')
+      editor.native.send_keys(args[:with])
+    end
+  end
 end
