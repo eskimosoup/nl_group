@@ -2,6 +2,8 @@ module Optimadmin
   class TestimonialsController < Optimadmin::ApplicationController
     before_action :set_testimonial, only: [:show, :edit, :update, :destroy]
 
+    edit_images_for Testimonial, [[:image, { show: ['fill', 107, 107] }]]
+
     def index
       @testimonials = Optimadmin::BaseCollectionPresenter.new(collection: Testimonial.page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::TestimonialPresenter)
     end

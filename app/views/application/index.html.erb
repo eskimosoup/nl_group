@@ -41,7 +41,7 @@
   </div>
 </section>
 
-<%= render partial: 'testimonials/testimonial', presented_testimonial: @presented_testimonial.first if @presented_testimonial %>
+<%= render 'testimonials/testimonial', testimonial_presenter: @presented_testimonials.first if @presented_testimonials %>
 
 <section class="work-for-nlgroup">
   <div class="row">
@@ -146,11 +146,11 @@
   </div>
 </section>
 
-<%= render partial: 'testimonials/testimonial', presented_testimonial: @presented_testimonial.second if @presented_testimonial %>
+<%= render 'testimonials/testimonial', testimonial_presenter: @presented_testimonial.second if @presented_testimonial %>
 
 <%= render 'rates_of_pay/overview' %>
 
-<%= render partial: 'testimonials/testimonial', presented_testimonial: @presented_testimonial.last if @presented_testimonial %>
+<%= render 'testimonials/testimonial', testimonial_presenter: @presented_testimonial.last if @presented_testimonial %>
 
 <%= render 'clients/overview' %>
 
