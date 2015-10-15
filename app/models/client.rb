@@ -3,4 +3,6 @@ class Client < ActiveRecord::Base
 
   validates :name, :logo, presence: true
   validates :website, format: { with: URI.regexp }, if: Proc.new{|a| a.website.present? }
+
+  scope :displayed, -> { where(display: true) }
 end

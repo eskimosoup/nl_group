@@ -1,7 +1,8 @@
 module Optimadmin
   class ClientsController < Optimadmin::ApplicationController
     before_action :set_client, only: [:show, :edit, :update, :destroy]
-    edit_images_for Client, [[:logo, { show: ['fill', 250, 250] }]]
+    
+    edit_images_for Client, [[:logo, { show: ['fill', 132, 132] }]]
 
     def index
       @clients = Optimadmin::BaseCollectionPresenter.new(collection: Client.page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::ClientPresenter)

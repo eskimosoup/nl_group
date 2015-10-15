@@ -146,13 +146,13 @@
   </div>
 </section>
 
-<%= render 'testimonials/testimonial', testimonial_presenter: @presented_testimonial.second if @presented_testimonial %>
+<%= render 'testimonials/testimonial', testimonial_presenter: @presented_testimonials.second if @presented_testimonials %>
 
 <%= render 'rates_of_pay/overview' %>
 
-<%= render 'testimonials/testimonial', testimonial_presenter: @presented_testimonial.last if @presented_testimonial %>
+<%= render 'testimonials/testimonial', testimonial_presenter: @presented_testimonials.last if @presented_testimonials %>
 
-<%= render 'clients/overview' %>
+<%= render 'clients/overview', presented_clients: @presented_clients %>
 
 <%= render 'team_members/overview' %>
 
