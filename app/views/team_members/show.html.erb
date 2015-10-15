@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="medium-12 columns">
+    <h1><%= @presented_team_member.name %></h1>
+
+    <div class="row">
+      <div class="medium-4 columns">
+        <%= @presented_team_member.show_image(alt: @presented_team_member.name) %>
+      </div>
+
+      <div class="medium-4 columns">
+        <%= @presented_team_member.role %>
+        <%= @presented_team_member.phone %>
+      </div>
+
+      <div class="medium-4 columns">
+        <%= @presented_team_member.profile %>
+      </div>
+    </div>
+</div>

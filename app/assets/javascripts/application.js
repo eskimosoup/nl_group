@@ -24,5 +24,12 @@
 $(document).foundation();
 
 $(function() {
-  $('.colorbox').colorbox();
+  if (Modernizr.mq('only screen and (min-width: 768px)')) {
+    $('.colorbox').colorbox({
+      width: '70%',
+      height: '70%',
+    });
+  } else {
+    $('.home-team-members .colorbox').attr('href', '');
+  }
 });

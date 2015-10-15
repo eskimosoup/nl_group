@@ -2,6 +2,8 @@ module Optimadmin
   class TeamMembersController < Optimadmin::ApplicationController
     before_action :set_team_member, only: [:show, :edit, :update, :destroy]
 
+    edit_images_for Testimonial, [[:image, { index: ['fill', 96, 96], show: ['fill', 250, 250] }]]
+
     def index
       @team_members = Optimadmin::BaseCollectionPresenter.new(collection: TeamMember.order(position: :asc),
                                                               view_template: view_context, presenter: Optimadmin::TeamMemberPresenter)

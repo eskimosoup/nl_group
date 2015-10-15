@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :contacts, only: [:new, :create]
+  resources :team_members, only: [:show]
 
   mount Optimadmin::Engine => "/admin"
   root to: 'application#index'

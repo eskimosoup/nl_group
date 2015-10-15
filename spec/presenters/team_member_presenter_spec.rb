@@ -40,6 +40,10 @@ RSpec.describe TeamMemberPresenter, type: :presenter do
     expect(team_member_presenter.show_image).to eq(nil)
   end
 
+  it "should return nil for the profile" do
+    expect(team_member_presenter.profile_preview).to eq(nil)
+  end
+
   describe "team member has nil attributes" do
     let(:team_member) { build(:team_member, profile: nil, email: nil, phone: nil) }
     subject(:team_member_presenter) { TeamMemberPresenter.new(object: team_member, view_template: view) }
@@ -67,6 +71,9 @@ RSpec.describe TeamMemberPresenter, type: :presenter do
 
     it "should return the show image" do
       expect(team_member_presenter.show_image).to eq(image_tag(team_member.image.show))
+    end
+    it "should return image with click through" do
+      expect(team_member_presenter.profile_preview).to eq(link_to team_member_presenter.index_image(alt: team_member_presenter.name), team_member, class: 'colorbox')
     end
   end
 end
