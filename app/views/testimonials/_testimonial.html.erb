@@ -7,7 +7,7 @@
 
   <div class="row collapse small-uncollapse"  data-animation-type='fadeInUp'>
     <div class="medium-2 columns">
-      <%= testimonial_presenter.author %>
+      <%= testimonial_presenter.show_image(alt: testimonial_presenter.name, class: 'testimonial-thumbnail') %>
       <!--
       <%= link_to '#', class: 'testimonial-thumbnail', title: '' do %>
         <%= image_tag 'placeholders/testimonial-author.jpg', alt: '' %>
@@ -19,11 +19,11 @@
       <%= testimonial_presenter.content %>
 
       <div class="testimonial-author">
-        <%= testimonial_presenter.author %>
+        <%= testimonial_presenter.name %>, <%= testimonial_presenter.role %>
         <!-- Neil Russell, Nurse (ICU) -->
       </div>
 
-      <%= testimonial_presenter.video_link %>
+      <%#= testimonial_presenter.video_link %>
       <!-- <%= link_to "Watch Neil's Video", '#', class: 'testimonial-watch-video-link', title: 'Watch video' %> -->
 
       <div class="testimonial-action-button">

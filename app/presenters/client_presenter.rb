@@ -1,6 +1,14 @@
 class ClientPresenter < BasePresenter
   presents :client
 
+  def homepage
+    if website?
+      linked_logo
+    else
+      logo
+    end
+  end
+
   def name
     client.name
   end
