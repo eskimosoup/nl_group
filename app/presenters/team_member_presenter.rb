@@ -28,4 +28,8 @@ class TeamMemberPresenter < BasePresenter
   def email
     h.mail_to team_member.email if team_member.email
   end
+
+  def profile_preview
+    h.link_to index_image(alt: name), team_member, class: 'colorbox' if team_member.image.present?
+  end
 end
