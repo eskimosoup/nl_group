@@ -3,4 +3,5 @@ class FrequentlyAskedQuestion < ActiveRecord::Base
   validates :answer, presence: true
 
   scope :displayed, -> { where(display: true) }
+  scope :ordered, -> { order(:question) }
 end

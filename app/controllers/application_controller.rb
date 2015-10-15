@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   def index
     @presented_testimonials = BaseCollectionPresenter.new(collection: Testimonial.displayed.positioned, view_template: view_context, presenter: TestimonialPresenter)
     @presented_clients = BaseCollectionPresenter.new(collection: Client.displayed, view_template: view_context, presenter: ClientPresenter)
-    @presented_frequently_asked_questions = BaseCollectionPresenter.new(collection: FrequentlyAskedQuestion.displayed.limit(6), view_template: view_context, presenter: FrequentlyAskedQuestionPresenter)
+    @presented_frequently_asked_questions = BaseCollectionPresenter.new(collection: FrequentlyAskedQuestion.ordered.displayed.limit(6), view_template: view_context, presenter: FrequentlyAskedQuestionPresenter)
   end
 
 

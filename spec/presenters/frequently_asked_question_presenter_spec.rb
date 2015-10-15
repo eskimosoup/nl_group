@@ -17,6 +17,6 @@ RSpec.describe FrequentlyAskedQuestionPresenter, type: :presenter do
   end
 
   it "should return the toggle div" do
-    expect(faq_presenter.toggle_answer).to eq(content_tag(:div, faq.answer, id: "#faq-#{faq.id}", class: 'hide'))
+    expect(faq_presenter.toggle_answer).to eq(content_tag(:div, faq.answer, id: "faq-#{faq.id}", class: 'hide'))
   end
 end

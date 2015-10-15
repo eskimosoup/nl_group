@@ -10,7 +10,7 @@ class FrequentlyAskedQuestionPresenter < BasePresenter
   end
 
   def toggle_answer
-    h.content_tag :div, id: "#faq-#{frequently_asked_question.id}", class: 'hide' do
+    h.content_tag :div, id: "faq-#{frequently_asked_question.id}", class: 'hide' do
       answer
     end
   end
