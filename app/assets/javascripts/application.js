@@ -20,6 +20,7 @@
 //= require vendor/onscreen.js
 //= require components/animate.js
 //= require components/toggle-class.js
+//= require vendor/matchheight.js
 
 $(document).foundation();
 
@@ -32,4 +33,6 @@ $(function() {
   } else {
     $('.home-team-members .colorbox').attr('href', '');
   }
+  
+  $('.reason-content').matchHeight();
 });
