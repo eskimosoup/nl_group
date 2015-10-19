@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151015114153) do
+ActiveRecord::Schema.define(version: 20151019093011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "additional_content_rows", force: :cascade do |t|
+    t.integer  "position"
+    t.string   "name"
+    t.string   "style"
+    t.integer  "maximum_content_blocks"
+    t.boolean  "display",                default: true
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
 
   create_table "clients", force: :cascade do |t|
     t.string   "name",                      null: false
@@ -33,6 +43,36 @@ ActiveRecord::Schema.define(version: 20151015114153) do
     t.integer  "position",   default: 0
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+  end
+
+  create_table "job_locations", force: :cascade do |t|
+    t.integer  "job_id"
+    t.string   "country"
+    t.string   "country_coe"
+    t.string   "region"
+    t.string   "region_code"
+    t.string   "city"
+    t.string   "zip_code"
+    t.boolean  "telecommuting"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "job_locations", ["job_id"], name: "index_job_locations_on_job_id", using: :btree
+
+  create_table "jobs", force: :cascade do |t|
+    t.string   "workable_id"
+    t.string   "full_title"
+    t.string   "shortcode"
+    t.string   "code"
+    t.string   "state"
+    t.string   "department"
+    t.string   "url"
+    t.string   "application_url"
+    t.string   "shortlink"
+    t.datetime "workable_created_at"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "optimadmin_administrators", force: :cascade do |t|
@@ -154,4 +194,5 @@ ActiveRecord::Schema.define(version: 20151015114153) do
     t.datetime "updated_at",                      null: false
   end
 
+  add_foreign_key "job_locations", "jobs", on_delete: :cascade
 end
