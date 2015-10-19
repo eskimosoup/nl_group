@@ -1,0 +1,47 @@
+<%= render 'optimadmin/shared/header/main_title', title: 'Manage Additional Buttons' %>
+
+<div class="main-content">
+  <div class="row module-header collapse">
+    <%= render 'optimadmin/shared/module/form/back', path: additional_blocks_path(additional_block_id: params[:additional_block_id]), title: 'Additional Blocks' %>
+
+    <%= render 'optimadmin/shared/module/index/new_item', title: 'Additional Button', object: AdditionalButton, path: new_additional_button_path(additional_block_id: params[:additional_block_id]) %>
+    <%= render 'optimadmin/shared/search_form' %>
+    <%= render 'optimadmin/shared/module/index/pagination' %>
+    <!--
+      <%= render 'optimadmin/shared/module/index/order', options: [['Username', 'username']] %>
+    -->
+    <%= render 'optimadmin/shared/module/index/recycle_bin', items: @additional_buttons.size, path: root_url %>
+  </div>
+
+  <div class="row collapse module-list-index header">
+
+      <%= list_item 'large-1 hide-for-medium-down' do %>
+        <%= link_to octicon('settings') %>
+      <% end %>
+
+
+
+      <% # ADD TWO TO THE TITLE LARGE COLUMN SIZE BELOW TO ACCOUNT FOR NO IMAGE %>
+
+
+
+      <%= list_item 'large-7 small-8' do %>
+        Button text
+      <% end %>
+
+
+
+
+    <%= list_item { 'Display' } %>
+    <%= list_item { 'View' } %>
+    <%= list_item { 'Edit' } %>
+
+    <%= list_item('large-1 hide-for-medium-down text-center last'){ 'Delete' } %>
+  </div>
+
+  <div class='module-sortable' data-module="AdditionalButton">
+    <%= render partial: 'additional_button', collection: @additional_buttons, as: :additional_button_presenter %>
+  </div>
+
+  <%= paginate @additional_buttons %>
+</div>

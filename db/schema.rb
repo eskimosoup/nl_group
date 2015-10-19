@@ -11,10 +11,93 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151015114153) do
+ActiveRecord::Schema.define(version: 20151019122306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "additional_animations", force: :cascade do |t|
+    t.integer  "additional_block_id"
+    t.integer  "additional_title_id"
+    t.integer  "additional_paragraph_id"
+    t.integer  "additional_button_id"
+    t.string   "animation_type"
+    t.integer  "animation_delay",         default: 0
+    t.boolean  "active",                  default: true
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+  end
+
+  add_index "additional_animations", ["additional_block_id"], name: "index_additional_animations_on_additional_block_id", using: :btree
+  add_index "additional_animations", ["additional_button_id"], name: "index_additional_animations_on_additional_button_id", using: :btree
+  add_index "additional_animations", ["additional_paragraph_id"], name: "index_additional_animations_on_additional_paragraph_id", using: :btree
+  add_index "additional_animations", ["additional_title_id"], name: "index_additional_animations_on_additional_title_id", using: :btree
+
+  create_table "additional_blocks", force: :cascade do |t|
+    t.integer  "position"
+    t.string   "name"
+    t.string   "classes"
+    t.boolean  "display"
+    t.integer  "additional_row_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "additional_blocks", ["additional_row_id"], name: "index_additional_blocks_on_additional_row_id", using: :btree
+
+  create_table "additional_buttons", force: :cascade do |t|
+    t.integer  "additional_block_id"
+    t.string   "button_text"
+    t.string   "button_link"
+    t.boolean  "display",             default: true
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.integer  "position"
+  end
+
+  add_index "additional_buttons", ["additional_block_id"], name: "index_additional_buttons_on_additional_block_id", using: :btree
+
+  create_table "additional_content_rows", force: :cascade do |t|
+    t.integer  "position"
+    t.string   "name"
+    t.string   "style"
+    t.integer  "maximum_content_blocks"
+    t.boolean  "display",                default: true
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
+
+  create_table "additional_paragraphs", force: :cascade do |t|
+    t.integer  "additional_block_id"
+    t.string   "name"
+    t.text     "content"
+    t.boolean  "display",             default: true
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
+  add_index "additional_paragraphs", ["additional_block_id"], name: "index_additional_paragraphs_on_additional_block_id", using: :btree
+
+  create_table "additional_rows", force: :cascade do |t|
+    t.integer  "position"
+    t.integer  "additional_blocks_count"
+    t.string   "name"
+    t.string   "style"
+    t.integer  "maximum_content_blocks"
+    t.boolean  "display",                 default: true
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+  end
+
+  create_table "additional_titles", force: :cascade do |t|
+    t.integer  "additional_block_id"
+    t.string   "content"
+    t.boolean  "display",             default: true
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
+  add_index "additional_titles", ["additional_block_id"], name: "index_additional_titles_on_additional_block_id", using: :btree
 
   create_table "clients", force: :cascade do |t|
     t.string   "name",                      null: false
@@ -33,6 +116,36 @@ ActiveRecord::Schema.define(version: 20151015114153) do
     t.integer  "position",   default: 0
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+  end
+
+  create_table "job_locations", force: :cascade do |t|
+    t.integer  "job_id"
+    t.string   "country"
+    t.string   "country_coe"
+    t.string   "region"
+    t.string   "region_code"
+    t.string   "city"
+    t.string   "zip_code"
+    t.boolean  "telecommuting"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "job_locations", ["job_id"], name: "index_job_locations_on_job_id", using: :btree
+
+  create_table "jobs", force: :cascade do |t|
+    t.string   "workable_id"
+    t.string   "full_title"
+    t.string   "shortcode"
+    t.string   "code"
+    t.string   "state"
+    t.string   "department"
+    t.string   "url"
+    t.string   "application_url"
+    t.string   "shortlink"
+    t.datetime "workable_created_at"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "optimadmin_administrators", force: :cascade do |t|
@@ -154,4 +267,13 @@ ActiveRecord::Schema.define(version: 20151015114153) do
     t.datetime "updated_at",                      null: false
   end
 
+  add_foreign_key "additional_animations", "additional_blocks"
+  add_foreign_key "additional_animations", "additional_buttons"
+  add_foreign_key "additional_animations", "additional_paragraphs"
+  add_foreign_key "additional_animations", "additional_titles"
+  add_foreign_key "additional_blocks", "additional_rows"
+  add_foreign_key "additional_buttons", "additional_blocks"
+  add_foreign_key "additional_paragraphs", "additional_blocks"
+  add_foreign_key "additional_titles", "additional_blocks"
+  add_foreign_key "job_locations", "jobs", on_delete: :cascade
 end

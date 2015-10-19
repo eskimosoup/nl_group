@@ -24,6 +24,10 @@
       </div>
 
       <ul id="modules" class="content-category-list">
+<%#= module_link(model: Additional Paragraph, path: additional_paragraphs_path) %>
+<%#= module_link(model: Additional Button, path: additional_buttons_path) %>
+<%#= module_link(model: Additional Title, path: additional_titles_path) %>
+<%= module_link(content: "Additional Content", model: AdditionalRow, path: additional_rows_path) %>
 <%= module_link(model: Resource, path: resources_path) %>
         <%= module_link(model: FrequentlyAskedQuestion, path: frequently_asked_questions_path, content: "FAQs") %>
         <%= module_link(model: Testimonial, path: testimonials_path) %>

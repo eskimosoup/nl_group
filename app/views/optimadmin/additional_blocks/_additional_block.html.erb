@@ -1,0 +1,44 @@
+<div class="row collapse module-list-index <%= cycle('odd', 'even') %>" data-equalizer="module-list" id="item_<%= additional_block_presenter.id %>">
+
+
+
+    <div class="large-1 hide-for-medium-down columns" data-equalizer-watch="module-list">
+      <span class="drag-helper"></span>
+  </div>
+
+    <div class="large-3 small-4 columns" data-equalizer-watch="module-list">
+
+    <%= additional_block_presenter.name %>
+  </div>
+
+    <div class="large-1 small-4 columns" data-equalizer-watch="module-list">
+
+    <%= additional_block_presenter.edit_title %>
+    <%= additional_block_presenter.destroy_title %>
+  </div>
+
+    <div class="large-1 small-4 columns" data-equalizer-watch="module-list">
+
+    <%= additional_block_presenter.edit_paragraphs %>
+    <%= additional_block_presenter.destroy_paragraphs %>
+  </div>
+
+    <div class="large-3 small-4 columns" data-equalizer-watch="module-list">
+
+    <%= additional_block_presenter.manage_buttons %>
+  </div>
+
+
+
+  <div class="large-1 small-4 columns" data-equalizer-watch="module-list">
+    <%= additional_block_presenter.toggle_link %>
+  </div>
+
+  <div class="large-1 small-4 columns" data-equalizer-watch="module-list">
+    <%= additional_block_presenter.edit_link %>
+  </div>
+
+  <div class="large-1 hide-for-medium-down columns last" data-equalizer-watch="module-list">
+    <%= additional_block_presenter.delete_link %>
+  </div>
+</div>
