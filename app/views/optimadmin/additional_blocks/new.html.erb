@@ -1,0 +1,7 @@
+<%= render 'optimadmin/shared/header/main_title', title: 'New Additional Block' %>
+
+<div class="main-content">
+  <%= render 'optimadmin/shared/module/form/back', path: additional_blocks_path(additional_row_id: (params[:additional_block].present? ? params[:additional_block][:additional_row_id] : params[:additional_row_id])), title: 'Additional Block' %>
+
+  <%= render 'form' %>
+</div>

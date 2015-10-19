@@ -1,20 +1,4 @@
-<section class="hero-banner">
-  <div class="row collapse">
-    <div class="medium-7 columns">
-      <div class="hero-content-area">
-        <div data-animation-type='fadeInUp'>
-          <p>
-            Ethical Healthcare People Management.
-            15 years providing acute healthcare professionals.
-          </p>
-        </div>
-
-        <%= link_to 'Register Your Internest', '#', class: 'light-action-button', title: 'Register Your Internest', data: { animation_type: 'fadeInUp', animation_delay: '500'} %>
-        <%= link_to 'Find Work Near You', '#', class: 'dark-action-button', title: 'Find work near you', data: { animation_type: 'fadeInUp', animation_delay: '500'} %>
-      </div>
-    </div>
-  </div>
-</section>
+<%= render partial: 'additional_rows/additional_row', collection: @presented_additional_contents, as: :additional_row_presenter %>
 
 <section class="introduction-wrap">
   <div class="row collapse small-uncollapse">
@@ -52,7 +36,7 @@
 
   <div class="row collapse">
     <div class="medium-6 large-3 columns">
-      <div class="work-for-nlgroup-reason green" data-animation-type='scaleIn'>
+      <div class="work-for-nlgroup-reason green" data-animation-type='fadeInUp'>
         <div class="reason-icon">
           <%= image_tag 'components/reasons/graph-icon', alt: '' %>
         </div>
@@ -71,7 +55,7 @@
     </div>
 
     <div class="medium-6 large-3 columns">
-      <div class="work-for-nlgroup-reason primary-blue" data-animation-type='scaleIn' data-animation-delay="750">
+      <div class="work-for-nlgroup-reason primary-blue" data-animation-type='fadeInUp' data-animation-delay="750">
         <div class="reason-icon">
           <%= image_tag 'components/reasons/graph-icon', alt: '' %>
         </div>
@@ -95,7 +79,7 @@
     </div>
 
     <div class="medium-6 large-3 columns">
-      <div class="work-for-nlgroup-reason dark-green" data-animation-type='scaleIn' data-animation-delay="1250">
+      <div class="work-for-nlgroup-reason dark-green" data-animation-type='fadeInUp' data-animation-delay="1250">
         <div class="reason-icon">
           <%= image_tag 'components/reasons/graph-icon', alt: '' %>
         </div>
@@ -119,7 +103,7 @@
     </div>
 
     <div class="medium-6 large-3 columns">
-      <div class="work-for-nlgroup-reason light-blue" data-animation-type='scaleIn' data-animation-delay="2000">
+      <div class="work-for-nlgroup-reason light-blue" data-animation-type='fadeInUp' data-animation-delay="2000">
         <div class="reason-icon">
           <%= image_tag 'components/reasons/graph-icon', alt: '' %>
         </div>

@@ -7,6 +7,46 @@ Rails.application.routes.draw do
   root to: 'application#index'
 end
 Optimadmin::Engine.routes.draw do
+  resources :additional_paragraphs, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+    end
+  end
+  resources :additional_buttons, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+    end
+  end
+  resources :additional_titles, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+    end
+  end
+  resources :additional_blocks, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+    end
+  end
+  resources :additional_rows, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+    end
+  end
   resources :resources, except: [:show] do
     collection do
       post 'order'

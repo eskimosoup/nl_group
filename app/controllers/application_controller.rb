@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :global_site_settings, :load_objects
 
   def index
+    @presented_additional_contents = BaseCollectionPresenter.new(collection: AdditionalRow.displayed.positioned, view_template: view_context, presenter: AdditionalRowPresenter)
     @presented_testimonials = BaseCollectionPresenter.new(collection: Testimonial.displayed.positioned, view_template: view_context, presenter: TestimonialPresenter)
     @presented_clients = BaseCollectionPresenter.new(collection: Client.displayed, view_template: view_context, presenter: ClientPresenter)
     @presented_team_members = BaseCollectionPresenter.new(collection: TeamMember.displayed.positioned, view_template: view_context, presenter: TeamMemberPresenter)

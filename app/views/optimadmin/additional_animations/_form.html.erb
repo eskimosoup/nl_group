@@ -1,0 +1,16 @@
+<%= f.fields_for :additional_animation do |animation| %>
+  <div class="field">
+    <%= animation.label :animation_type %><br>
+    <%= animation.select :animation_type, AdditionalAnimation::ANIMATION_TYPES, include_blank: 'None' %>
+  </div>
+
+  <div class="field">
+    <%= animation.label :animation_delay %><br>
+    <%= animation.number_field :animation_delay %>
+  </div>
+
+  <div class="field">
+    <%= animation.label :active %><br>
+    <%= animation.check_box :active %>
+  </div>
+<% end %>

@@ -1,0 +1,43 @@
+<%= render 'optimadmin/shared/header/main_title', title: 'Manage Additional Rows' %>
+
+<div class="main-content">
+  <div class="row module-header collapse">
+    <%= render 'optimadmin/shared/module/index/new_item', title: 'Additional Row', object: AdditionalRow, path: new_additional_row_path %>
+    <%= render 'optimadmin/shared/search_form' %>
+    <%= render 'optimadmin/shared/module/index/pagination' %>
+    <!--
+      <%= render 'optimadmin/shared/module/index/order', options: [['Username', 'username']] %>
+    -->
+    <%= render 'optimadmin/shared/module/index/recycle_bin', items: @additional_rows.size, path: root_url %>
+  </div>
+
+  <div class="row collapse module-list-index header">
+
+
+
+      <%= list_item 'large-3 small-8' do %>
+        Name
+      <% end %>
+
+      <%= list_item 'large-3 small-8' do %>
+        Style
+      <% end %>
+
+            <%= list_item 'large-3 small-8' do %>
+              Content Blocks
+            <% end %>
+
+
+
+
+    <%= list_item { 'Display' } %>
+    <%= list_item { 'Edit' } %>
+
+    <%= list_item('large-1 hide-for-medium-down text-center last'){ 'Delete' } %>
+  </div>
+
+  <!-- <div class='module-sortable' data-module="AdditionalRow"> -->
+  <%= render partial: 'additional_row', collection: @additional_rows, as: :additional_row_presenter %>
+  <!-- </div> -->
+  <%= paginate @additional_rows %>
+</div>
