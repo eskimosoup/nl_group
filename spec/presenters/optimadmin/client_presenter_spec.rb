@@ -12,4 +12,5 @@ RSpec.describe Optimadmin::ClientPresenter, type: :presenter do
     puts client.website
     expect(client_presenter.website_link).to eq(link_to(client.website, client.website, target: "_blank"))
   end
+
 end

@@ -22,6 +22,17 @@ class BaseCollectionPresenter
     presented_collection.each(&block)
   end
 
+  def split_array(array, sizes)
+    grouped_array = []
+    array_index = 0
+    sizes.each do |array_size|
+      break if array[array_index, array_size].blank?
+      grouped_array << array[array_index, array_size]
+      array_index += array_size
+    end
+    grouped_array
+  end
+
   protected
 
   def present_item(item)
