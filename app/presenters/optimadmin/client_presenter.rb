@@ -8,7 +8,7 @@ module Optimadmin
     end
 
     def website_link
-      h.link_to website, target: "_blank" if website?
+      h.link_to website, website, target: "_blank" if website?
     end
 
     private
