@@ -4,7 +4,7 @@ FactoryGirl.define do
 additional_title
 additional_paragraph
 additional_button
-animation_type "value"
+animation_type "fadeInUp"
 animation_delay 1
 active false
   end
