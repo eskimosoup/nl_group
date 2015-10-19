@@ -15,4 +15,8 @@ module OptimadminMacros
       editor.native.send_keys(args[:with])
     end
   end
+
+  def current_host_and_port
+    [Capybara.current_host, Capybara.current_session.server.port].compact.join(":")
+  end
 end
