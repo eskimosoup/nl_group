@@ -32,7 +32,7 @@
       </div>
             <div class="field">
         <%= f.label :style %><br>
-        <%= f.text_field :style %>
+        <%= f.select :style, AdditionalRow::STYLES.map{|x| [x.humanize, x]}, prompt: 'Please select' %>
       </div>
             <div class="field">
         <%= f.label :maximum_content_blocks %><br>

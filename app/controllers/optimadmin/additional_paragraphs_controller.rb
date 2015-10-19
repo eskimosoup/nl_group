@@ -15,7 +15,7 @@ module Optimadmin
     end
 
     def edit
-      @additional_paragraph.build_additional_animation unless @additional_button.additional_animation.present?
+      @additional_paragraph.build_additional_animation unless @additional_paragraph.additional_animation.present?
     end
 
     def create

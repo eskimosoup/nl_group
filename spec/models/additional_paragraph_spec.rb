@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe AdditionalParagraph, type: :model, additional_content: true do
   describe "validations", :validation do
     subject(:additional_paragraph) { build(:additional_paragraph) }
-    it { should validate_presence_of(:name) }
+    #it { should validate_presence_of(:name) }
     it { should validate_presence_of(:content) }
     it { should validate_presence_of(:additional_block_id) }
   end

@@ -7,7 +7,7 @@ class AdditionalAnimation < ActiveRecord::Base
   scope :active, -> { where(active: true) }
 
 
-  ANIMATION_TYPES = ['value', 'value2']
+  ANIMATION_TYPES = ['fadeInUp']
 
   validates :animation_type, presence: true, allow_blank: true, inclusion: { in: ANIMATION_TYPES }
 end
