@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: git@github.com:eskimosoup/optimadmin_generators.git
-  revision: 853d8143f08b16a4c06c3fb0dce4818a61ca5726
+  revision: f7861ba483d248cdec2a70f3541ce08ab3386f03
   specs:
     optimadmin_generators (0.4.1)
 

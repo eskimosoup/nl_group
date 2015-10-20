@@ -4,6 +4,7 @@ FactoryGirl.define do
     position "MyString"
     name "MyString"
     classes "MyString"
+    style "hero_area"
     display false
     after(:create) do |block|
       create(:additional_paragraph, additional_block: block)

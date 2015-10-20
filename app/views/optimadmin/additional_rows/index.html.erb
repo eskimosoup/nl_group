@@ -5,37 +5,30 @@
     <%= render 'optimadmin/shared/module/index/new_item', title: 'Additional Row', object: AdditionalRow, path: new_additional_row_path %>
     <%= render 'optimadmin/shared/search_form' %>
     <%= render 'optimadmin/shared/module/index/pagination' %>
-    <!--
-      <%= render 'optimadmin/shared/module/index/order', options: [['Username', 'username']] %>
-    -->
-    <%= render 'optimadmin/shared/module/index/recycle_bin', items: @additional_rows.size, path: root_url %>
+
+    <p>
+      Each additional row is made up of one or more content block, unless it's a module.
+    </p>
   </div>
 
   <div class="row collapse module-list-index header">
+    <%= list_item ('large-1 hide-for-medium-down') { octicon('settings') } %>
 
+    <%= list_item 'large-3 small-8' do %>
+      Name
+    <% end %>
 
+    <%= list_item 'large-3 small-8' do %>
+      Style
+    <% end %>
 
-      <%= list_item ('large-1 hide-for-medium-down') { octicon('settings') } %>
-
-      <%= list_item 'large-3 small-8' do %>
-        Name
-      <% end %>
-
-      <%= list_item 'large-3 small-8' do %>
-        Style
-      <% end %>
-
-            <%= list_item 'large-2 small-8' do %>
-              Content Blocks
-            <% end %>
-
-
-
+    <%= list_item 'large-2 small-8' do %>
+      Content Blocks
+    <% end %>
 
     <%= list_item { 'Display' } %>
     <%= list_item { 'Edit' } %>
-
-    <%= list_item('large-1 hide-for-medium-down text-center last'){ 'Delete' } %>
+    <%= list_item('large-1 hide-for-medium-down text-center last') { 'Delete' } %>
   </div>
 
   <div class='module-sortable' data-module="AdditionalRow">

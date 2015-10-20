@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019122306) do
+ActiveRecord::Schema.define(version: 20151020105730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20151019122306) do
     t.integer  "additional_row_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.string   "style"
   end
 
   add_index "additional_blocks", ["additional_row_id"], name: "index_additional_blocks_on_additional_row_id", using: :btree
@@ -82,7 +83,6 @@ ActiveRecord::Schema.define(version: 20151019122306) do
     t.integer  "position"
     t.integer  "additional_blocks_count"
     t.string   "name"
-    t.string   "style"
     t.integer  "maximum_content_blocks"
     t.boolean  "display",                 default: true
     t.datetime "created_at",                             null: false
@@ -117,6 +117,19 @@ ActiveRecord::Schema.define(version: 20151019122306) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "job_locations", force: :cascade do |t|
     t.integer  "job_id"
@@ -230,6 +243,19 @@ ActiveRecord::Schema.define(version: 20151019122306) do
     t.string "key"
     t.string "value"
     t.string "environment"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "title",                        null: false
+    t.string   "slug"
+    t.string   "suggested_url"
+    t.string   "image"
+    t.string   "style",                        null: false
+    t.string   "layout",                       null: false
+    t.boolean  "display",       default: true
+    t.text     "content",                      null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "resources", force: :cascade do |t|

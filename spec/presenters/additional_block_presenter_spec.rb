@@ -6,6 +6,7 @@ RSpec.describe AdditionalBlockPresenter, type: :presenter, additional_content: t
 
   describe "delegations", :delegation do
     it { should delegate_method(:name).to(:additional_block) }
+    it { should delegate_method(:style).to(:additional_block) }
   end
 
   describe "non-animated additional blocks" do

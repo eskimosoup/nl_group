@@ -50,7 +50,7 @@ module Optimadmin
     end
 
     def additional_block_params
-      params.require(:additional_block).permit(:additional_row_id, :name, :classes, :display, additional_animation_attributes: [:animation_type, :animation_delay, :active])
+      params.require(:additional_block).permit(:additional_row_id, :style, :name, :classes, :display, additional_animation_attributes: [:animation_type, :animation_delay, :active])
     end
   end
 end

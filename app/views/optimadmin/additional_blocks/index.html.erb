@@ -3,43 +3,31 @@
 <div class="main-content">
   <div class="row module-header collapse">
     <%= render 'optimadmin/shared/module/form/back', path: additional_rows_path, title: 'Additional Rows' %>
-
     <%= render 'optimadmin/shared/module/index/new_item', title: 'Additional Block', object: AdditionalBlock, path: new_additional_block_path(additional_row_id: params[:additional_row_id]) if @additional_row.maximum_content_blocks.blank? || @additional_row.maximum_content_blocks > @additional_blocks.size %>
     <%= render 'optimadmin/shared/search_form' %>
     <%= render 'optimadmin/shared/module/index/pagination' %>
-    <!--
-      <%= render 'optimadmin/shared/module/index/order', options: [['Username', 'username']] %>
-    -->
-    <%= render 'optimadmin/shared/module/index/recycle_bin', items: @additional_blocks.size, path: root_url %>
   </div>
 
   <div class="row collapse module-list-index header">
+    <%= list_item 'large-1 hide-for-medium-down' do %>
+      <%= octicon('settings') %>
+    <% end %>
 
+    <%= list_item 'large-3 small-4' do %>
+      Name
+    <% end %>
 
+    <%= list_item 'large-1 small-4' do %>
+      Title
+    <% end %>
 
-      <% # ADD TWO TO THE TITLE LARGE COLUMN SIZE BELOW TO ACCOUNT FOR NO IMAGE %>
+    <%= list_item 'large-1 small-4' do %>
+      Content
+    <% end %>
 
-
-
-      <%= list_item 'large-1 hide-for-medium-down' do %>
-        <%= octicon('settings') %>
-      <% end %>
-
-      <%= list_item 'large-3 small-4' do %>
-        Name
-      <% end %>
-      <%= list_item 'large-1 small-4' do %>
-        Title
-      <% end %>
-      <%= list_item 'large-1 small-4' do %>
-        Content
-      <% end %>
-      <%= list_item 'large-3 small-4' do %>
-        Buttons
-      <% end %>
-
-
-
+    <%= list_item 'large-3 small-4' do %>
+      Buttons
+    <% end %>
 
     <%= list_item { 'Display' } %>
     <%= list_item { 'Edit' } %>

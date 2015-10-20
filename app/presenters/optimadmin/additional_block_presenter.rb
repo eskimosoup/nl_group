@@ -1,7 +1,11 @@
 module Optimadmin
   class AdditionalBlockPresenter < Optimadmin::BasePresenter
     presents :additional_block
-    delegate :name, :id, to: :additional_block
+    delegate :name, :id, :style, to: :additional_block
+
+    def style
+      additional_block.style.humanize
+    end
 
     def manage_buttons
       h.link_to 'Manage Buttons', h.additional_buttons_path(additional_block_id: id)

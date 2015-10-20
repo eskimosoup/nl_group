@@ -6,17 +6,16 @@ RSpec.describe AdditionalRowPresenter, type: :presenter, additional_content: tru
 
   describe "delegations", :delegation do
     it { should delegate_method(:name).to(:additional_row) }
-    it { should delegate_method(:style).to(:additional_row) }
     it { should delegate_method(:id).to(:additional_row) }
   end
 
   describe "standard additional blocks" do
-    it "returns the displayed, positioned blocks" do
-      expect(additional_row_presenter.additional_blocks).to eq(additional_row.additional_blocks.displayed.positioned)
+    it "returns the anchor friendly string" do
+      expect(additional_row_presenter.anchor).to eq("row-#{additional_row.id}")
     end
 
-    it "returns the anchor friendly string" do
-      expect(additional_row_presenter.anchor).to eq("#{additional_row.style.parameterize.gsub('_', '-')}-#{additional_row.id}")
+    it "returns the displayed, positioned blocks" do
+      expect(additional_row_presenter.additional_blocks).to eq(additional_row.additional_blocks.displayed.positioned)
     end
   end
 end
