@@ -1,3 +1,3 @@
 <div id="<%= additional_row_presenter.anchor %>">
-  <%= render 'testimonials/testimonial', testimonial_presenter: @presented_testimonials.send(cycle('first', 'second', 'third', name: 'object')) if @presented_testimonials %>
+  <%= render partial: "additional_rows/additional_block", collection: BaseCollectionPresenter.new(collection: additional_row_presenter.additional_blocks, view_template: self, presenter: AdditionalBlockPresenter), as: :additional_block_presenter, locals: { additional_row_presenter: additional_row_presenter } %>  
 </div>

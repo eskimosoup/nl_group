@@ -1,0 +1,1 @@
+<%= render 'testimonials/testimonial', testimonial_presenter: @presented_testimonials.send(cycle('first', 'second', 'third', name: 'object')) if @presented_testimonials %>
