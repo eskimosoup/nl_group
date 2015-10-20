@@ -10,6 +10,10 @@ RSpec.describe AdditionalRowPresenter, type: :presenter, additional_content: tru
   end
 
   describe "standard additional blocks" do
+    it "returns the style" do
+      expect(additional_row_presenter.style).to eq(additional_row.style)
+    end
+
     it "returns the anchor friendly string" do
       expect(additional_row_presenter.anchor).to eq("row-#{additional_row.id}")
     end

@@ -46,7 +46,7 @@ module Optimadmin
     end
 
     def additional_row_params
-      params.require(:additional_row).permit(:name, :display, :maximum_content_blocks)
+      params.require(:additional_row).permit(:name, :style, :display, :maximum_content_blocks)
     end
   end
 end

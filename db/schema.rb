@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 20151020105730) do
     t.boolean  "display",                 default: true
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.string   "style"
   end
 
   create_table "additional_titles", force: :cascade do |t|

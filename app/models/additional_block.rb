@@ -7,9 +7,8 @@ class AdditionalBlock < ActiveRecord::Base
 
   validates :additional_row_id, :name, presence: true
 
-  STYLES = ['hero_area', 'introduction', 'testimonial', 'why_work_for_us',
-            'rates_of_pay', 'clients', 'team_members', 'frequently_asked_questions']
-  validates :style, presence: true, inclusion: { in: STYLES }
+  STYLES = ['widget']
+  validates :style, allow_blank: true, inclusion: { in: STYLES }
 
   accepts_nested_attributes_for :additional_animation
   validates_associated :additional_animation

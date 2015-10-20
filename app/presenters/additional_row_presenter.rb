@@ -6,6 +6,10 @@ class AdditionalRowPresenter < BasePresenter
     additional_row.additional_blocks.displayed.positioned
   end
 
+  def style
+    additional_row.style.present? ? additional_row.style : 'default'
+  end
+
   def anchor
     "row-#{id}"
   end

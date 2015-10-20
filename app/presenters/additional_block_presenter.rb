@@ -1,6 +1,10 @@
 class AdditionalBlockPresenter < BasePresenter
   presents :additional_block
-  delegate :name, :style, to: :additional_block
+  delegate :name, to: :additional_block
+
+  def style
+    additional_block.style.present? ? additional_block.style : 'default'
+  end
 
   def presented_block(&content)
     animate_content additional_block do

@@ -6,10 +6,13 @@ RSpec.describe AdditionalBlockPresenter, type: :presenter, additional_content: t
 
   describe "delegations", :delegation do
     it { should delegate_method(:name).to(:additional_block) }
-    it { should delegate_method(:style).to(:additional_block) }
   end
 
   describe "non-animated additional blocks" do
+    it "returns the style" do
+      expect(additional_block_presenter.style).to eq(additional_block.style)
+    end
+
     it "returns the content wrapped in animation" do
       expect(additional_block_presenter.presented_button(0)).to eq(nil)
     end
