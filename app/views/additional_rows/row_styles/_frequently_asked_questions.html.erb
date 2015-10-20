@@ -1,14 +1,7 @@
-<section class="frequently-asked-questions">
+<section class="frequently-asked-questions" id="<%= additional_row_presenter.anchor %>">
   <div class="row">
     <div class="medium-12 columns text-center" data-animation-type="fadeInUp">
-      <h4>FAQs</h4>
-
-      <p>We know you will have questions. Here are answers to our most common.</p>
-      <p>If in doubt call <strong>0333 123 456</strong> we don't bite.</p>
-
-      <p class="frequently-asked-questions-reveal">
-        Click on a question to get the answer.
-      </p>
+      <%= render partial: "additional_rows/additional_block", collection: BaseCollectionPresenter.new(collection: additional_row_presenter.additional_blocks, view_template: self, presenter: AdditionalBlockPresenter), as: :additional_block_presenter, locals: { additional_row_presenter: additional_row_presenter } %>
     </div>
   </div>
 

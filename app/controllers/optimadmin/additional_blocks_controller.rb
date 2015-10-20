@@ -3,7 +3,8 @@ module Optimadmin
     before_action :set_additional_block, only: [:show, :edit, :update, :destroy]
 
     def index
-      @additional_blocks = Optimadmin::BaseCollectionPresenter.new(collection: AdditionalBlock.where('name ILIKE ?', "%#{params[:search]}%").positioned.page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::AdditionalBlockPresenter)
+      @additional_row = AdditionalRow.find(params[:additional_row_id])
+      @additional_blocks = Optimadmin::BaseCollectionPresenter.new(collection: AdditionalBlock.where('name ILIKE ? AND additional_row_id = ?', "%#{params[:search]}%", params[:additional_row_id]).positioned.page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::AdditionalBlockPresenter)
     end
 
     def show
@@ -49,7 +50,7 @@ module Optimadmin
     end
 
     def additional_block_params
-      params.require(:additional_block).permit(:additional_row_id, :name, :classes, :display, additional_animation_attributes: [:animation_type, :animation_delay, :active])
+      params.require(:additional_block).permit(:additional_row_id, :style, :name, :classes, :display, additional_animation_attributes: [:animation_type, :animation_delay, :active])
     end
   end
 end

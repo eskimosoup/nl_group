@@ -25,11 +25,9 @@
 <section class="clients">
   <div class="row">
     <div class="medium-12 columns text-center">
-      <h2>Our Clients</h2>
+      <%= render partial: "additional_rows/additional_block", collection: BaseCollectionPresenter.new(collection: additional_row_presenter.additional_blocks, view_template: self, presenter: AdditionalBlockPresenter), as: :additional_block_presenter, locals: { additional_row_presenter: additional_row_presenter } %>
 
-      <p>Are you looking for an incredibly talented and flexible team?</p>
-
-      <ul class="clients-list" data-animation-type='fadeInUp'>
+      <ul class="clients-list" data-animation-type="fadeInUp">
         <%= render partial: 'clients/client', collection: @presented_clients, as: :client_presenter %>
       </ul>
     </div>

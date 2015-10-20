@@ -35,15 +35,10 @@ if (Modernizr.mq('only screen and (min-width: 768px)') && !$('html').hasClass('i
 }
 
 // https://github.com/matthieua/WOW/issues/20
-/*
-$(document).on('mouseover', '.scroll-up', function () {
-  var $elem = $(this);
-  var effect = 'bounceIn';
-
-  $elem.addClass('animated ' + effect)
-       .on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
-      function () {
-        $elem.removeClass('animated ' + effect);
-      });
+$(document).on('mouseover', '.animate-hover', function () {
+  $(this).animate({
+    width: "95%"
+  }, 500, function() {
+    $(this).animate({ width: "100%" }, 500);
+  });
 });
-*/

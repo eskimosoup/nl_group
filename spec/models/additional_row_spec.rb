@@ -4,8 +4,7 @@ RSpec.describe AdditionalRow, type: :model, additional_content: true do
   describe "validations", :validation do
     subject(:additional_row) { build(:additional_row) }
     it { should validate_presence_of(:name) }
-    it { should validate_presence_of(:style) }
-    it { should validate_inclusion_of(:style).in_array(AdditionalRow::STYLES) }
+    it { should validate_inclusion_of(:style).allow_blank(true).in_array(AdditionalRow::STYLES) }
   end
 
   describe "associations", :association do

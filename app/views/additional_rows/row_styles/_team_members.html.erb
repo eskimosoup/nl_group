@@ -1,15 +1,7 @@
 <section class="team">
   <div class="row">
     <div class="medium-12 large-10 columns">
-      <div data-animation-type="slideInLeft">
-        <h4>A friendly team you can rely on</h4>
-
-        <p>
-          At NL Group our ethical way of doing things is of pivotal importance to us. It is not about what we do, it is about how we do it. We believe in providing flexible working conditions for highly trained professional healthcare workers who represent NL Group in the best possible fashion, at very competitive rates of pay.
-        </p>
-
-        <%= link_to 'Speak to one of our friendly team', '#', class: 'dark-action-button' %>
-      </div>
+      <%= render partial: "additional_rows/additional_block", collection: BaseCollectionPresenter.new(collection: additional_row_presenter.additional_blocks, view_template: self, presenter: AdditionalBlockPresenter), as: :additional_block_presenter, locals: { additional_row_presenter: additional_row_presenter } %>
     </div>
   </div>
 

@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151020104360) do
-
+ActiveRecord::Schema.define(version: 20151020105730) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,6 +40,7 @@ ActiveRecord::Schema.define(version: 20151020104360) do
     t.integer  "additional_row_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.string   "style"
   end
 
   add_index "additional_blocks", ["additional_row_id"], name: "index_additional_blocks_on_additional_row_id", using: :btree
@@ -82,11 +82,11 @@ ActiveRecord::Schema.define(version: 20151020104360) do
     t.integer  "position"
     t.integer  "additional_blocks_count"
     t.string   "name"
-    t.string   "style"
     t.integer  "maximum_content_blocks"
     t.boolean  "display",                 default: true
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.string   "style"
   end
 
   create_table "additional_titles", force: :cascade do |t|

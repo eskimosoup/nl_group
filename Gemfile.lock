@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:eskimosoup/Optimadmin.git
-  revision: c1af5639b6be1e93450ec6d134d6a8eac945ad1f
+  revision: e28190264dbc487a7b2638028a720bb3542db421
   branch: master
   specs:
     optimadmin (0.0.11)
@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: git@github.com:eskimosoup/optimadmin_generators.git
-  revision: 1fa11e2ede88523996537670c861236c37e6d633
+  revision: f7861ba483d248cdec2a70f3541ce08ab3386f03
   specs:
     optimadmin_generators (0.4.1)
 
@@ -102,7 +102,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
-    database_cleaner (1.5.0)
+    database_cleaner (1.5.1)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     erubis (2.7.0)
@@ -177,7 +177,7 @@ GEM
       activesupport (>= 3.0.0)
     launchy (2.4.3)
       addressable (~> 2.3)
-    libv8 (3.16.14.11)
+    libv8 (3.16.14.13)
     listen (3.0.3)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)

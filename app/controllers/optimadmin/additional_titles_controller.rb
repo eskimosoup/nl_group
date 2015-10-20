@@ -10,6 +10,7 @@ module Optimadmin
     end
 
     def new
+      @additional_block = AdditionalBlock.find(params[:additional_block_id])
       @additional_title = AdditionalTitle.new
       @additional_title.build_additional_animation
     end

@@ -6,7 +6,10 @@ class AdditionalBlock < ActiveRecord::Base
   has_one :additional_animation, dependent: :destroy
 
   validates :additional_row_id, :name, presence: true
-  
+
+  STYLES = ['testimonial']
+  validates :style, allow_blank: true, inclusion: { in: STYLES }
+
   accepts_nested_attributes_for :additional_animation
   validates_associated :additional_animation
 

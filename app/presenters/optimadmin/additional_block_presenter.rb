@@ -1,14 +1,18 @@
 module Optimadmin
   class AdditionalBlockPresenter < Optimadmin::BasePresenter
     presents :additional_block
-    delegate :name, :id, to: :additional_block
+    delegate :name, :id, :style, to: :additional_block
+
+    def style
+      additional_block.style.present? ? additional_block.style.humanize : 'Default'
+    end
 
     def manage_buttons
       h.link_to 'Manage Buttons', h.additional_buttons_path(additional_block_id: id)
     end
 
     def edit_title
-      additional_block.additional_title.present? ? (h.link_to octicon('pencil'), h.edit_additional_title_path(additional_block.additional_title, additional_block_id: id)) : (h.link_to octicon('pencil'), h.new_additional_title_path(additional_block_id: id))
+      additional_block.additional_title.present? ? (h.link_to octicon('pencil'), h.edit_additional_title_path(additional_block.additional_title, additional_block_id: id)) : (h.link_to octicon('diff'), h.new_additional_title_path(additional_block_id: id))
     end
 
     def destroy_title
@@ -22,7 +26,7 @@ module Optimadmin
     end
 
     def edit_paragraphs
-      additional_block.additional_paragraph.present? ? (h.link_to octicon('pencil'), h.edit_additional_paragraph_path(additional_block.additional_paragraph, additional_block_id: id)) : (h.link_to octicon('pencil'), h.new_additional_paragraph_path(additional_block_id: id))
+      additional_block.additional_paragraph.present? ? (h.link_to octicon('pencil'), h.edit_additional_paragraph_path(additional_block.additional_paragraph, additional_block_id: id)) : (h.link_to octicon('diff'), h.new_additional_paragraph_path(additional_block_id: id))
     end
   end
 end
