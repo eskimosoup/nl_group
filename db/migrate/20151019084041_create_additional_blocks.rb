@@ -4,7 +4,7 @@ class CreateAdditionalBlocks < ActiveRecord::Migration
       t.integer :position
       t.string :name
       t.string :classes
-      t.boolean :display, defalut: true
+      t.boolean :display, default: true
       t.belongs_to :additional_row, index: true, foreign_key: true
 
       t.timestamps null: false
