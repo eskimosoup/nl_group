@@ -1,5 +1,5 @@
 module OptimadminMacros
-  def login_with(username, password)
+  def login_to_admin_with(username, password)
     visit optimadmin.login_path
     expect(current_path).to eq(optimadmin.login_path)
     fill_in "Email or Username", with: username

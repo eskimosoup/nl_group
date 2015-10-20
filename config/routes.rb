@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :pages, only: :show
+
+
   resources :contacts, only: [:new, :create]
   resources :team_members, only: [:show]
 
@@ -7,6 +10,21 @@ Rails.application.routes.draw do
   root to: 'application#index'
 end
 Optimadmin::Engine.routes.draw do
+
+
+  resources :pages, except: :show do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'edit_images'
+      get 'toggle'
+      get 'edit_images'
+      post 'update_image_default'
+      post 'update_image_fill'
+      post 'update_image_fit'
+    end
+  end
   resources :additional_paragraphs, except: [:show] do
     collection do
       post 'order'

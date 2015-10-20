@@ -3,7 +3,7 @@ FactoryGirl.define do
     environment "test"
     trait :name do
       key 'Name'
-      value 'Chamber of Commerce'
+      value 'Site Name'
     end
 
     trait :email do
