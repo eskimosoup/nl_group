@@ -4,7 +4,7 @@ module Optimadmin
     delegate :name, :id, :style, to: :additional_block
 
     def style
-      additional_block.style.humanize if additional_block.style.present?
+      additional_block.style.present? ? additional_block.style.humanize : 'Default'
     end
 
     def manage_buttons

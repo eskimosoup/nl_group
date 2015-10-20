@@ -4,7 +4,7 @@ module Optimadmin
     delegate :maximum_content_blocks, :name, :id, to: :additional_row
 
     def style
-      additional_row.style.humanize if additional_row.style.present?
+      additional_row.style.present? ? additional_row.style.humanize : 'Default'
     end
 
     def edit_content_blocks
