@@ -1,0 +1,21 @@
+<section class="frequently-asked-questions" id="<%= additional_row_presenter.anchor %>">
+  <div class="row">
+    <div class="medium-12 columns text-center" data-animation-type="fadeInUp">
+      <%= render partial: "additional_rows/styles/#{additional_row_presenter.style}/additional_blocks", collection: BaseCollectionPresenter.new(collection: additional_row_presenter.additional_blocks, view_template: self, presenter: AdditionalBlockPresenter), as: :additional_block_presenter %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-6 columns" data-animation-type="fadeInUp" data-animation-delay="500">
+      <ul class="frequently-asked-questions-list">
+        <%= render partial: 'frequently_asked_questions/frequently_asked_question', collection: @presented_frequently_asked_questions[0..2], as: :frequently_asked_question_presenter %>
+      </ul>
+    </div>
+
+    <div class="medium-6 columns" data-animation-type="fadeInUp" data-animation-delay="1000">
+      <ul class="frequently-asked-questions-list">
+        <%= render partial: 'frequently_asked_questions/frequently_asked_question', collection: @presented_frequently_asked_questions[3..5], as: :frequently_asked_question_presenter %>
+      </ul>
+    </div>
+  </div>
+</section>

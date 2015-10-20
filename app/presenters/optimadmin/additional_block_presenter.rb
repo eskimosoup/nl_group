@@ -8,7 +8,7 @@ module Optimadmin
     end
 
     def edit_title
-      additional_block.additional_title.present? ? (h.link_to octicon('pencil'), h.edit_additional_title_path(additional_block.additional_title, additional_block_id: id)) : (h.link_to octicon('pencil'), h.new_additional_title_path(additional_block_id: id))
+      additional_block.additional_title.present? ? (h.link_to octicon('pencil'), h.edit_additional_title_path(additional_block.additional_title, additional_block_id: id)) : (h.link_to octicon('diff'), h.new_additional_title_path(additional_block_id: id))
     end
 
     def destroy_title
@@ -22,7 +22,7 @@ module Optimadmin
     end
 
     def edit_paragraphs
-      additional_block.additional_paragraph.present? ? (h.link_to octicon('pencil'), h.edit_additional_paragraph_path(additional_block.additional_paragraph, additional_block_id: id)) : (h.link_to octicon('pencil'), h.new_additional_paragraph_path(additional_block_id: id))
+      additional_block.additional_paragraph.present? ? (h.link_to octicon('pencil'), h.edit_additional_paragraph_path(additional_block.additional_paragraph, additional_block_id: id)) : (h.link_to octicon('diff'), h.new_additional_paragraph_path(additional_block_id: id))
     end
   end
 end

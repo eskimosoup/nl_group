@@ -1,7 +1,8 @@
 class AdditionalRow < ActiveRecord::Base
-  has_many :additional_blocks, -> { displayed }, dependent: :destroy
+  has_many :additional_blocks, dependent: :destroy
 
-  STYLES = ['hero_area', 'test']
+  STYLES = ['hero_area', 'introduction', 'testimonial', 'why_work_for_us',
+            'rates_of_pay', 'clients', 'team_members', 'frequently_asked_questions']
 
   validates :style, inclusion: { in: STYLES }
   validates :name, :style, presence: true

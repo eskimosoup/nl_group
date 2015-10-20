@@ -3,13 +3,14 @@ module Optimadmin
     before_action :set_additional_paragraph, only: [:show, :edit, :update, :destroy]
 
     def index
-      @additional_paragraphs = Optimadmin::BaseCollectionPresenter.new(collection: AdditionalParagraph.where('name ILIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::AdditionalParagraphPresenter)
+      @additional_paragraphs = Optimadmin::BaseCollectionPresenter.new(collection: AdditionalParagraph.where('name ILIKE ? AND additional_block_id = ?', "%#{params[:search]}%", params[:additional_block_id]).page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::AdditionalParagraphPresenter)
     end
 
     def show
     end
 
     def new
+      @additional_block = AdditionalBlock.find(params[:additional_block_id])
       @additional_paragraph = AdditionalParagraph.new
       @additional_paragraph.build_additional_animation
     end

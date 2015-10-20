@@ -1,0 +1,5 @@
+<%= content_tag :h3, additional_block_presenter.presented_title if additional_block_presenter.presented_title.present? %>
+
+<%= additional_block_presenter.presented_block do %>
+  <%= additional_block_presenter.presented_paragraph %>
+<% end %>

@@ -1,7 +1,7 @@
 <%= render 'optimadmin/shared/header/main_title', title: 'Edit Additional Paragraph' %>
 
 <div class="main-content">
-  <%= render 'optimadmin/shared/module/form/back', path: additional_paragraphs_path, title: 'Additional Paragraph' %>
+  <%= render 'optimadmin/shared/module/form/back', path: additional_blocks_path(additional_row_id: @additional_paragraph.additional_block.additional_row.id), title: 'Additional Blocks' %>
 
   <%= render 'form' %>
 </div>

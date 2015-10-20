@@ -2,6 +2,12 @@ class AdditionalBlockPresenter < BasePresenter
   presents :additional_block
   delegate :name, to: :additional_block
 
+  def presented_block(&content)
+    animate_content additional_block do
+      presented_block_wrap(additional_block, &content)
+    end
+  end
+
   def presented_title
     return unless additional_block.additional_title.present?
     animate_content additional_block.additional_title do
@@ -28,9 +34,9 @@ class AdditionalBlockPresenter < BasePresenter
     def animate_content(object, &block)
       animation = object.additional_animation if object.present?
       if animation.present? && animation.animation_type.present?
-        h.content_tag :div, yield, animation_data(animation)
+        h.content_tag :div, yield(:block), animation_data(animation)
       else
-        yield
+        yield :block
       end
     end
 
@@ -48,5 +54,13 @@ class AdditionalBlockPresenter < BasePresenter
         buttons.push(button)
       end
       buttons
+    end
+
+    def presented_block_wrap(additional_block, &content)
+      classes = {}
+      classes = { class: additional_block.classes } if additional_block.classes.present?
+      h.content_tag :div, classes.merge({data: { aria_label: additional_block.name }}) do
+        yield :content
+      end
     end
 end

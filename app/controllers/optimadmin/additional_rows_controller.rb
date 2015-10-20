@@ -3,7 +3,7 @@ module Optimadmin
     before_action :set_additional_row, only: [:show, :edit, :update, :destroy]
 
     def index
-      @additional_rows = Optimadmin::BaseCollectionPresenter.new(collection: AdditionalRow.where('name ILIKE ?', "%#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::AdditionalRowPresenter)
+      @additional_rows = Optimadmin::BaseCollectionPresenter.new(collection: AdditionalRow.where('name ILIKE ?', "%#{params[:search]}%").positioned.page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::AdditionalRowPresenter)
     end
 
     def show

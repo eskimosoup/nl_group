@@ -15,6 +15,8 @@
 
 
 
+      <%= list_item ('large-1 hide-for-medium-down') { octicon('settings') } %>
+
       <%= list_item 'large-3 small-8' do %>
         Name
       <% end %>
@@ -23,7 +25,7 @@
         Style
       <% end %>
 
-            <%= list_item 'large-3 small-8' do %>
+            <%= list_item 'large-2 small-8' do %>
               Content Blocks
             <% end %>
 
@@ -36,8 +38,8 @@
     <%= list_item('large-1 hide-for-medium-down text-center last'){ 'Delete' } %>
   </div>
 
-  <!-- <div class='module-sortable' data-module="AdditionalRow"> -->
-  <%= render partial: 'additional_row', collection: @additional_rows, as: :additional_row_presenter %>
-  <!-- </div> -->
+  <div class='module-sortable' data-module="AdditionalRow">
+    <%= render partial: 'additional_row', collection: @additional_rows, as: :additional_row_presenter %>
+  </div>
   <%= paginate @additional_rows %>
 </div>

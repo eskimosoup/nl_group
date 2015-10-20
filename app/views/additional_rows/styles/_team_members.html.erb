@@ -1,0 +1,21 @@
+<section class="team">
+  <div class="row">
+    <div class="medium-12 large-10 columns">
+      <%= render "additional_rows/styles/#{additional_row_presenter.style}/additional_blocks", additional_block_presenter: AdditionalBlockPresenter.new(object: additional_row_presenter.additional_blocks.first, view_template: self) %>        
+    </div>
+  </div>
+
+  <% unless @presented_team_members.blank? %>
+    <div class="home-team-members" data-animation-type="slideInRight">
+      <% @presented_team_members.split_array(@presented_team_members.presented_collection, [5,2,4,4,3,1]).each_with_index do |presented_team_member_array, i| %>
+        <div class="row collapse team-members-row-<%= i %>">
+          <% presented_team_member_array.each_with_index do |presented_team_member, j| %>
+            <div class="<%= presented_team_member.homepage_classes(outer_loop: i, inner_loop: j) %>">
+              <%= presented_team_member.profile_preview %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</section>

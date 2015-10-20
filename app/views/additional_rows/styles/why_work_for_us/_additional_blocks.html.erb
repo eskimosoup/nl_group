@@ -1,0 +1,100 @@
+<section class="work-for-nlgroup">
+  <div class="row">
+    <div class="medium-12 columns">
+      <h2><%= additional_block_presenter.presented_title %></h2>
+    </div>
+  </div>
+
+  <div class="row collapse">
+    <div class="medium-6 large-3 columns">
+      <div class="work-for-nlgroup-reason green" data-animation-type='fadeInUp'>
+        <div class="reason-icon">
+          <%= image_tag 'components/reasons/graph-icon', alt: '' %>
+        </div>
+
+        <div class="reason-title">
+          The money is great
+        </div>
+
+        <div class="reason-content">
+          <p>
+            We offer excellent and competitive rates of pay which vary on shift
+            type, all paid weekly by direct bank transfer.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="medium-6 large-3 columns">
+      <div class="work-for-nlgroup-reason primary-blue" data-animation-type='fadeInUp' data-animation-delay="750">
+        <div class="reason-icon">
+          <%= image_tag 'components/reasons/graph-icon', alt: '' %>
+        </div>
+
+        <div class="reason-title">
+          <%= link_to '#reason-1', class: 'display-block toggle-class', data: { container: '#reason-1', class: 'hide-for-small', return: 'false' } do %>
+            <%= image_tag 'components/icons/reveal-arrow.png', alt: 'Reveal more', class: 'show-for-small' %>
+            The money is great
+          <% end %>
+        </div>
+
+        <div class="reason-content hide-for-small" id="reason-1">
+          <p>
+            We offer excellent and competitive rates of pay which vary on shift
+            type, all paid weekly by direct bank transfer. As well as providing
+            free mandatory training, full uniform and company name badge, and
+            whenever you pop in to see us, as much coffee as you can drink.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="medium-6 large-3 columns">
+      <div class="work-for-nlgroup-reason dark-green" data-animation-type='fadeInUp' data-animation-delay="1250">
+        <div class="reason-icon">
+          <%= image_tag 'components/reasons/graph-icon', alt: '' %>
+        </div>
+
+        <div class="reason-title">
+          <%= link_to '#reason-2', class: 'display-block toggle-class', data: { container: '#reason-2', class: 'hide-for-small', return: 'false' } do %>
+            <%= image_tag 'components/icons/reveal-arrow.png', alt: 'Reveal more', class: 'show-for-small' %>
+            The money is great
+          <% end %>
+        </div>
+
+        <div class="reason-content hide-for-small" id="reason-2">
+          <p>
+            We offer excellent and competitive rates of pay which vary on shift
+            type, all paid weekly by direct bank transfer. As well as providing
+            free mandatory training, full uniform and company name badge, and
+            whenever you pop in to see us, as much coffee as you can drink.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="medium-6 large-3 columns">
+      <div class="work-for-nlgroup-reason light-blue" data-animation-type='fadeInUp' data-animation-delay="2000">
+        <div class="reason-icon">
+          <%= image_tag 'components/reasons/graph-icon', alt: '' %>
+        </div>
+
+        <div class="reason-title">
+          <%= link_to '#reason-3', class: 'display-block toggle-class', data: { container: '#reason-3', class: 'hide-for-small', return: 'false' } do %>
+            <%= image_tag 'components/icons/reveal-arrow.png', alt: 'Reveal more', class: 'show-for-small' %>
+            The money is great
+          <% end %>
+        </div>
+
+        <div class="reason-content hide-for-small" id="reason-3">
+          <p>
+            We offer excellent and competitive rates of pay which vary on shift
+            type, all paid weekly by direct bank transfer. As well as providing
+            free mandatory training, full uniform and company name badge, and
+            whenever you pop in to see us, as much coffee as you can drink.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
