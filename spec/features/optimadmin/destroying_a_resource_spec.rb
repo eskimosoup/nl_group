@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "Destroying A Resource", type: :feature, js: true do
   subject!(:resource) { create(:resource) }
   it "should allow a resource to be destroyed" do
-    login_with("optimised", "optipoipoip")
+    login_to_admin_with("optimised", "optipoipoip")
 
     click_link "Resources"
 

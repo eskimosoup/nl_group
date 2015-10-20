@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Creating A Testimonial", type: :feature, js: true do
   it "should allow a testimonial to be created" do
-    login_with("optimised", "optipoipoip")
+    login_to_admin_with("optimised", "optipoipoip")
     click_link "Testimonials"
     expect(current_path).to eq(optimadmin.testimonials_path)
     click_link "New Testimonial"
