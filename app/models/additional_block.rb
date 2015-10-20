@@ -7,7 +7,7 @@ class AdditionalBlock < ActiveRecord::Base
 
   validates :additional_row_id, :name, presence: true
 
-  STYLES = ['testimonial']
+  STYLES = ['testimonial', 'why_work_for_us']
   validates :style, allow_blank: true, inclusion: { in: STYLES }
 
   accepts_nested_attributes_for :additional_animation
