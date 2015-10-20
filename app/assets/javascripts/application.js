@@ -33,6 +33,14 @@ $(function() {
   } else {
     $('.home-team-members .colorbox').attr('href', '');
   }
-  
-  $('.reason-content').matchHeight();
+
+  $('.reason-title').matchHeight({
+    byRow: false,
+    proprety: 'height'
+  });
+
+  $('.reason-content').matchHeight({
+    byRow: false,
+    proprety: 'height'
+  });
 });

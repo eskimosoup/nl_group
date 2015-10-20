@@ -39,8 +39,8 @@
     <%= list_item('large-1 hide-for-medium-down text-center last'){ 'Delete' } %>
   </div>
 
-  <!-- <div class='module-sortable' data-module="AdditionalBlock"> -->
+  <div class='module-sortable' data-module="AdditionalBlock">
   <%= render partial: 'additional_block', collection: @additional_blocks, as: :additional_block_presenter %>
-  <!-- </div> -->
+  </div>
   <%= paginate @additional_blocks %>
 </div>
