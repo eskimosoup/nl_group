@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Creating a Resource", type: :feature, js: true do
   it "should allow creating of resources" do
-    login_with("optimised", "optipoipoip")
+    login_to_admin_with("optimised", "optipoipoip")
 
     click_link "Resources"
     expect(current_path).to eq(optimadmin.resources_path)

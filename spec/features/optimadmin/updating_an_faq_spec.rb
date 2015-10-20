@@ -2,8 +2,8 @@ require "rails_helper"
 
 RSpec.feature "Updating An FAQ", type: :feature, js: true do
   subject!(:faq) { create(:frequently_asked_question) }
-  it "should allow a faq to be destroyed" do
-    login_with("optimised", "optipoipoip")
+  it "should allow a faq to be updated" do
+    login_to_admin_with("optimised", "optipoipoip")
 
     click_link "FAQs"
 

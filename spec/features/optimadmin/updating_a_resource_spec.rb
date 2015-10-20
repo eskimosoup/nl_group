@@ -2,9 +2,8 @@ require "rails_helper"
 
 RSpec.feature "Updating A Resource", type: :feature, js: true do
   subject!(:resource) { create(:resource) }
-  it "should allow a resource to be destroyed" do
-    login_with("optimised", "optipoipoip")
-
+  it "should allow a resource to be updated" do
+    login_to_admin_with("optimised", "optipoipoip")
     click_link "Resources"
 
     expect(current_path).to eq(optimadmin.resources_path)

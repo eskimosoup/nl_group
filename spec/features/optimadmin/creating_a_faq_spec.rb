@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Creating a FAQ", type: :feature, js: true do
   it "should allow creating of faqs" do
-    login_with("optimised", "optipoipoip")
+    login_to_admin_with("optimised", "optipoipoip")
 
     click_link "FAQs"
     expect(current_path).to eq(optimadmin.frequently_asked_questions_path)

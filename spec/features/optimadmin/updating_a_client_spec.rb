@@ -2,8 +2,8 @@ require "rails_helper"
 
 RSpec.feature "Updating A Client", type: :feature, js: true do
   subject!(:client) { create(:client) }
-  it "should allow a client to be destroyed" do
-    login_with("optimised", "optipoipoip")
+  it "should allow a client to be updated" do
+    login_to_admin_with("optimised", "optipoipoip")
 
     click_link "Clients"
 

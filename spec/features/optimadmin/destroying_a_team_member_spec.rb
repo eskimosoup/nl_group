@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "Destroying A Team Member", type: :feature, js: true do
   subject!(:team_member) { create(:team_member) }
   it "should allow a team_member to be destroyed" do
-    login_with("optimised", "optipoipoip")
+    login_to_admin_with("optimised", "optipoipoip")
 
     click_link "Team Members"
 

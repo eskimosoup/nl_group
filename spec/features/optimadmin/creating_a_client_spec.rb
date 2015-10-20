@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Creating A Client", type: :feature, js: true do
   it "should allow a client to be created" do
-    login_with("optimised", "optipoipoip")
+    login_to_admin_with("optimised", "optipoipoip")
     click_link "Clients"
     expect(current_path).to eq(optimadmin.clients_path)
     click_link "New Client"

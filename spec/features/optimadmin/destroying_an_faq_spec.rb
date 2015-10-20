@@ -5,7 +5,7 @@ RSpec.describe "Destroying an FAQ", type: :feature, js: true do
   subject!(:faq){ create(:frequently_asked_question) }
 
   it "should allow faqs to be deleted" do
-    login_with "optimised", "optipoipoip"
+    login_to_admin_with "optimised", "optipoipoip"
     click_link "FAQs"
 
     expect(current_path).to eq(optimadmin.frequently_asked_questions_path)
