@@ -11,6 +11,6 @@ class AdditionalRowPresenter < BasePresenter
   end
 
   def anchor
-    "row-#{id}"
+    additional_row.name.parameterize.gsub('_', '-')
   end
 end
