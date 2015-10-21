@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151021072646) do
+ActiveRecord::Schema.define(version: 20151021145533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,16 +61,6 @@ ActiveRecord::Schema.define(version: 20151021072646) do
   end
 
   add_index "additional_buttons", ["additional_block_id"], name: "index_additional_buttons_on_additional_block_id", using: :btree
-
-  create_table "additional_content_rows", force: :cascade do |t|
-    t.integer  "position"
-    t.string   "name"
-    t.string   "style"
-    t.integer  "maximum_content_blocks"
-    t.boolean  "display",                default: true
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-  end
 
   create_table "additional_paragraphs", force: :cascade do |t|
     t.integer  "additional_block_id"
@@ -166,6 +156,14 @@ ActiveRecord::Schema.define(version: 20151021072646) do
     t.datetime "workable_created_at"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+  end
+
+  create_table "landing_pages", force: :cascade do |t|
+    t.string   "name",          null: false
+    t.string   "slug"
+    t.string   "suggested_url"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "optimadmin_administrators", force: :cascade do |t|

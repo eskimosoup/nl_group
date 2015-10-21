@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:eskimosoup/Optimadmin.git
-  revision: e28190264dbc487a7b2638028a720bb3542db421
+  revision: c1af5639b6be1e93450ec6d134d6a8eac945ad1f
   branch: master
   specs:
     optimadmin (0.0.11)
@@ -372,3 +372,6 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
   workable (~> 1.0)
+
+BUNDLED WITH
+   1.10.6
