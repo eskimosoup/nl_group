@@ -7,9 +7,20 @@ Rails.application.routes.draw do
   resources :team_members, only: [:show]
 
   mount Optimadmin::Engine => "/admin"
+
+  get "blah", to: "application#blah"
+
   root to: 'application#index'
 end
 Optimadmin::Engine.routes.draw do
+  resources :landing_pages, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+    end
+  end
 
 
   resources :pages, except: :show do

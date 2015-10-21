@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :global_site_settings, :load_objects
+  #before_action { raise request.path.to_yaml }
 
   def index
     @presented_additional_contents = BaseCollectionPresenter.new(collection: AdditionalRow.displayed.positioned, view_template: view_context, presenter: AdditionalRowPresenter)
@@ -10,6 +11,11 @@ class ApplicationController < ActionController::Base
     @presented_clients = BaseCollectionPresenter.new(collection: Client.displayed, view_template: view_context, presenter: ClientPresenter)
     @presented_team_members = BaseCollectionPresenter.new(collection: TeamMember.displayed.positioned, view_template: view_context, presenter: TeamMemberPresenter)
     @presented_frequently_asked_questions = BaseCollectionPresenter.new(collection: FrequentlyAskedQuestion.ordered.displayed, view_template: view_context, presenter: FrequentlyAskedQuestionPresenter)
+  end
+
+  def blah
+    raise request.parameters.to_yaml
+    raise request.public_methods.to_yaml
   end
 
 
