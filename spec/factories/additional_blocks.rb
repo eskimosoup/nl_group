@@ -3,8 +3,7 @@ FactoryGirl.define do
     additional_row
     position "MyString"
     name "MyString"
-    classes "MyString"
-    style "widget"
+    style "testimonial"
     display false
     after(:create) do |block|
       create(:additional_paragraph, additional_block: block)

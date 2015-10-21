@@ -1,35 +1,7 @@
-<%= content_for :footer do %>
-  <script>
-    $('.clients-list').slick({
-      infinite: true,
-      dots: true,
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 4000,
-      responsive: [
-        {
-          breakpoint: 767,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            infinite: true,
-            dots: true
-          }
-        }
-      ]
-    });
-  </script>
-<% end %>
-
 <section class="clients" id="<%= additional_row_presenter.anchor %>">
   <div class="row">
     <div class="medium-12 columns text-center">
       <%= render partial: "additional_rows/additional_block", collection: BaseCollectionPresenter.new(collection: additional_row_presenter.additional_blocks, view_template: self, presenter: AdditionalBlockPresenter), as: :additional_block_presenter, locals: { additional_row_presenter: additional_row_presenter } %>
-
-      <ul class="clients-list" data-animation-type="fadeInUp">
-        <%= render partial: 'clients/client', collection: @presented_clients, as: :client_presenter %>
-      </ul>
     </div>
   </div>
 </section>

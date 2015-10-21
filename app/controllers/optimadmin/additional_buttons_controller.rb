@@ -50,7 +50,7 @@ module Optimadmin
     end
 
     def additional_button_params
-      params.require(:additional_button).permit(:additional_block_id, :button_text, :button_link, :display, :position, additional_animation_attributes: [:animation_type, :animation_delay, :active])
+      params.require(:additional_button).permit(:additional_block_id, :button_text, :button_link, :display, :position, :classes, additional_animation_attributes: [:animation_type, :animation_delay, :active])
     end
   end
 end

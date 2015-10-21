@@ -35,6 +35,10 @@
         <%= f.label :content %><br>
         <%= f.text_area :content, class: 'tinymce' %>
       </div>
+      <div class="field">
+  <%= f.label :classes %><br>
+  <%= f.select :classes, AdditionalBlock::CLASSES.map{|x| [x[0], x[1]]}, include_blank: 'None' %>
+</div>
 
 
           <% end %>

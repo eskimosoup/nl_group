@@ -34,10 +34,12 @@
   <%= f.label :style %><br>
   <%= f.select :style, AdditionalRow::STYLES.map{|x| [x.humanize, x]}, include_blank: 'Default' %>
 </div>
-            <div class="field">
-        <%= f.label :maximum_content_blocks %><br>
-        <%= f.number_field :maximum_content_blocks %>
-      </div>
+  <% if @current_administrator.role == 'master' %>
+  <div class="field">
+    <%= f.label :maximum_content_blocks %><br>
+    <%= f.number_field :maximum_content_blocks %>
+  </div>
+  <% end %>
 
 
           <% end %>

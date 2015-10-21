@@ -6,6 +6,7 @@ RSpec.describe AdditionalButton, type: :model, additional_content: true do
     it { should validate_presence_of(:button_text) }
     it { should validate_presence_of(:button_link) }
     it { should validate_presence_of(:additional_block_id) }
+    it { should validate_inclusion_of(:classes).allow_blank(true).in_array(AdditionalBlock::CLASSES.map{|c| c[1].to_s}) }
   end
 
   describe "associations", :association do
