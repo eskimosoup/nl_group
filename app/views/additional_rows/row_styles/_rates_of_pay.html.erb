@@ -1,63 +1,7 @@
 <section class="rates-of-pay" id="<%= additional_row_presenter.anchor %>">
   <div class="row">
     <div class="medium-12 columns">
-      <%= render partial: "additional_rows/additional_block", locals: { additional_block_presenter: AdditionalBlockPresenter.new(object: additional_row_presenter.additional_blocks.first, view_template: self), additional_row_presenter: additional_row_presenter } %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="medium-4 columns">
-      <div class="small-branded-content-box"  data-animation-type='fadeInUp'>
-        <div class="rate-title">
-          ODP rates
-        </div>
-
-        <div class="rate-amount">
-          £26.00 ˜ £53.00*
-        </div>
-
-        <div class="rate-time">
-          per hour
-        </div>
-      </div>
-    </div>
-
-    <div class="medium-4 columns">
-      <div class="small-branded-content-box"  data-animation-type='fadeInUp' data-animation-delay="750">
-        <div class="rate-title">
-          ODP rates
-        </div>
-
-        <div class="rate-amount">
-          £26.00 ˜ £53.00*
-        </div>
-
-        <div class="rate-time">
-          per hour
-        </div>
-      </div>
-    </div>
-
-    <div class="medium-4 columns">
-      <div class="small-branded-content-box" data-animation-type='fadeInUp' data-animation-delay="1250">
-        <div class="rate-title">
-          ODP rates
-        </div>
-
-        <div class="rate-amount">
-          £26.00 ˜ £53.00*
-        </div>
-
-        <div class="rate-time">
-          per hour
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="small-12 large-8 large-centered columns">
-      <%= render partial: "additional_rows/additional_block", collection: BaseCollectionPresenter.new(collection: additional_row_presenter.additional_blocks[1..-1], view_template: self, presenter: AdditionalBlockPresenter), as: :additional_block_presenter, locals: { additional_row_presenter: additional_row_presenter } %>
+      <%= render partial: "additional_rows/additional_block", collection: BaseCollectionPresenter.new(collection: additional_row_presenter.additional_blocks, view_template: self, presenter: AdditionalBlockPresenter), as: :additional_block_presenter, locals: { additional_row_presenter: additional_row_presenter } %>
     </div>
   </div>
 </section>

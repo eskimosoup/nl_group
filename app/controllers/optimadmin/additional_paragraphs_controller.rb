@@ -50,7 +50,7 @@ module Optimadmin
     end
 
     def additional_paragraph_params
-      params.require(:additional_paragraph).permit(:additional_block_id, :name, :content, :display, additional_animation_attributes: [:animation_type, :animation_delay, :active])
+      params.require(:additional_paragraph).permit(:additional_block_id, :name, :content, :display, :classes, additional_animation_attributes: [:animation_type, :animation_delay, :active])
     end
   end
 end

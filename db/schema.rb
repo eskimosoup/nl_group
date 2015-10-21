@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151020105730) do
+ActiveRecord::Schema.define(version: 20151021072646) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -36,11 +37,14 @@ ActiveRecord::Schema.define(version: 20151020105730) do
     t.integer  "position"
     t.string   "name"
     t.string   "classes"
-    t.boolean  "display"
+    t.boolean  "display",           default: true
     t.integer  "additional_row_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "style"
+    t.boolean  "has_title",         default: true
+    t.boolean  "has_paragraph",     default: true
+    t.boolean  "has_buttons",       default: false
   end
 
   add_index "additional_blocks", ["additional_row_id"], name: "index_additional_blocks_on_additional_row_id", using: :btree
@@ -53,6 +57,7 @@ ActiveRecord::Schema.define(version: 20151020105730) do
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
     t.integer  "position"
+    t.string   "classes"
   end
 
   add_index "additional_buttons", ["additional_block_id"], name: "index_additional_buttons_on_additional_block_id", using: :btree
@@ -74,6 +79,7 @@ ActiveRecord::Schema.define(version: 20151020105730) do
     t.boolean  "display",             default: true
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
+    t.string   "classes"
   end
 
   add_index "additional_paragraphs", ["additional_block_id"], name: "index_additional_paragraphs_on_additional_block_id", using: :btree
@@ -95,6 +101,7 @@ ActiveRecord::Schema.define(version: 20151020105730) do
     t.boolean  "display",             default: true
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
+    t.string   "classes"
   end
 
   add_index "additional_titles", ["additional_block_id"], name: "index_additional_titles_on_additional_block_id", using: :btree

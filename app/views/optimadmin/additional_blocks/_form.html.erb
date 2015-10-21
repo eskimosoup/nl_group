@@ -38,7 +38,7 @@
       </div>
             <div class="field">
         <%= f.label :classes %><br>
-        <%= f.text_field :classes %>
+        <%= f.select :classes, AdditionalBlock::CLASSES.map{|x| [x[0], x[1]]}, include_blank: 'None' %>
       </div>
 
 
@@ -49,10 +49,24 @@
           <%# end %>
 
     <%= field_set_tag nil, id: 'tabs-3' do %>
-            <div class="field">
+    <% if @current_administrator.role == 'master' %>
+      <div class="field">
+        <%= f.label :has_title %><br>
+        <%= f.check_box :has_title %>
+      </div>
+      <div class="field">
+        <%= f.label :has_paragraph %><br>
+        <%= f.check_box :has_paragraph %>
+      </div>
+      <div class="field">
+        <%= f.label :has_buttons %><br>
+        <%= f.check_box :has_buttons %>
+      </div>
+      <div class="field">
         <%= f.label :display %><br>
         <%= f.check_box :display %>
       </div>
+    <% end %>
           <% end %>
 
     <%= field_set_tag nil, id: 'tabs-4' do %>

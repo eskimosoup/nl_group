@@ -15,21 +15,30 @@ class AdditionalBlockPresenter < BasePresenter
   def presented_title
     return unless additional_block.additional_title.present?
     animate_content additional_block.additional_title do
-      additional_block.additional_title.content
+      if additional_block.additional_title.classes.blank?
+        additional_block.additional_title.content
+      else
+        h.content_tag :span, additional_block.additional_title.content, class: additional_block.additional_title.classes
+      end
     end
   end
 
   def presented_paragraph
     return unless additional_block.additional_paragraph.present?
     animate_content additional_block.additional_paragraph do
-      h.raw additional_block.additional_paragraph.content
+      if additional_block.additional_paragraph.classes.blank?
+        h.raw additional_block.additional_paragraph.content
+      else
+        h.content_tag :div, (h.raw additional_block.additional_paragraph.content), class: additional_block.additional_paragraph.classes
+      end
     end
   end
 
-  def presented_button(index, options = {})
+  def presented_button(index, options = {}, classes = '')
     return nil if presented_buttons[index].blank?
     button = presented_buttons[index]
     options = options.merge({ title: button.button_text })
+    options = options.merge({ class: "#{"#{classes} " if classes.present?}#{"#{button.classes}" if button.classes.present?}" }) if classes.present? || button.classes.present?
     h.link_to button.button_text, button.button_link, options.merge(animation_data(button.additional_animation))
   end
 

@@ -20,6 +20,7 @@
 //= require vendor/onscreen.js
 //= require components/animate.js
 //= require components/toggle-class.js
+//= require components/clients-slider.js
 //= require vendor/matchheight.js
 
 $(document).foundation();
