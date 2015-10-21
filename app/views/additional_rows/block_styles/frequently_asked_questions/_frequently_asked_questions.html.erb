@@ -1,13 +1,13 @@
 <div class="row">
   <div class="medium-6 columns" data-animation-type="fadeInUp" data-animation-delay="500">
     <ul class="frequently-asked-questions-list">
-      <%= render partial: 'frequently_asked_questions/frequently_asked_question', collection: @presented_frequently_asked_questions[0..3], as: :frequently_asked_question_presenter %>
+      <%= render partial: 'frequently_asked_questions/frequently_asked_question', collection: @presented_frequently_asked_questions[0..4], as: :frequently_asked_question_presenter %>
     </ul>
   </div>
 
   <div class="medium-6 columns" data-animation-type="fadeInUp" data-animation-delay="1000">
     <ul class="frequently-asked-questions-list">
-      <%= render partial: 'frequently_asked_questions/frequently_asked_question', collection: @presented_frequently_asked_questions[4..-1], as: :frequently_asked_question_presenter %>
+      <%= render partial: 'frequently_asked_questions/frequently_asked_question', collection: @presented_frequently_asked_questions[5..-1], as: :frequently_asked_question_presenter %>
     </ul>
   </div>
 </div>

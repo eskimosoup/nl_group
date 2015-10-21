@@ -6,6 +6,7 @@ RSpec.describe AdditionalBlock, type: :model, additional_content: true do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:additional_row_id) }
     it { should validate_inclusion_of(:style).allow_blank(true).in_array(AdditionalBlock::STYLES) }
+    it { should validate_inclusion_of(:classes).allow_blank(true).in_array(AdditionalBlock::CLASSES.map{|c| c[1].to_s}) }
   end
 
   describe "associations", :association do

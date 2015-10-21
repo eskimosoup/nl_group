@@ -15,7 +15,7 @@ RSpec.describe AdditionalRowPresenter, type: :presenter, additional_content: tru
     end
 
     it "returns the anchor friendly string" do
-      expect(additional_row_presenter.anchor).to eq("row-#{additional_row.id}")
+      expect(additional_row_presenter.anchor).to eq(additional_row.name.parameterize.gsub('_', '-'))
     end
 
     it "returns the displayed, positioned blocks" do

@@ -3,7 +3,7 @@ class AdditionalButton < ActiveRecord::Base
   has_one :additional_animation, dependent: :destroy
 
   validates :additional_block_id, :button_text, :button_link, presence: true
-  validates :classes, allow_blank: true, inclusion: { in: AdditionalBlock::CLASSES }
+  validates :classes, allow_blank: true, inclusion: { in: AdditionalBlock::CLASSES.map{|c| c[1].to_s} }
 
   accepts_nested_attributes_for :additional_animation
   validates_associated :additional_animation
