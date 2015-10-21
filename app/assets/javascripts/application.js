@@ -21,6 +21,7 @@
 //= require components/animate.js
 //= require components/toggle-class.js
 //= require components/clients-slider.js
+//= require components/sticky-scroll.js
 //= require vendor/matchheight.js
 
 $(document).foundation();

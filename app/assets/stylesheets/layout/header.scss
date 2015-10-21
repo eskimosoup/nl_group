@@ -1,5 +1,6 @@
 .top-header {
-  margin: em(40px) 0 em(32px);
+  background: $white;
+  padding: em(40px) 0 em(32px);
 
   @include media('<tablet') {
     background: $white;
@@ -29,5 +30,30 @@
   img {
     width: 32px;
     height: 32px;
+  }
+}
+
+@include media('>=1200px') {
+  .fixed-wrap {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+
+    &.scroll {
+      .top-header {
+        margin: 0;
+        padding: em(10px) 0 em(8px);
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+      }
+
+      .primary-navigation {
+        padding: em(8px);
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+      }
+    }
   }
 }

@@ -1,5 +1,17 @@
-// Potential usage: data-animation-type='slideInUp', data-animation-delay='500'
-// https://daneden.github.io/animate.css/
+/*
+  Potential usage: data-animation-type="slideInUp" data-animation-delay="500"
+  e.g.
+    <div data-animation-type="slideInUp" data-animation-delay="500">Animate</div>
+  animation-delay is optional
+    <div data-animation-type="slideInUp">Animate</div>
+
+  Requirements:
+  jQuery onScreen:
+    https://github.com/silvestreh/onScreen
+
+  Animate.css
+    https://github.com/daneden/animate.css
+*/
 
 function animateIn() {
   var $elem = $(this);
