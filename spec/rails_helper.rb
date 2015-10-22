@@ -50,6 +50,7 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
+    #FactoryGirl.create(:landing_page)
   end
 
   config.before(:each) do |example|

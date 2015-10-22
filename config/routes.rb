@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
 
   resources :pages, only: :show
-
-
   resources :contacts, only: [:new, :create]
   resources :team_members, only: [:show]
+  get ":id", to: "landing_pages#show", as: :landing_page, constraints: LandingPageConstraint.new
 
   mount Optimadmin::Engine => "/admin"
-
-  get "blah", to: "application#blah"
 
   root to: 'application#index'
 end
