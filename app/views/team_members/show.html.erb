@@ -1,19 +1,36 @@
 <div class="row">
   <div class="medium-12 columns">
-    <h1><%= @presented_team_member.name %></h1>
+    <h1 class="team-member-name"><%= @presented_team_member.name %></h1>
+
+    <div class="team-member-role">
+      <%= @presented_team_member.role %>
+    </div>
 
     <div class="row">
-      <div class="medium-4 columns">
+      <div class="medium-3 columns">
         <%= @presented_team_member.show_image(alt: @presented_team_member.name) %>
+
+        <% if @presented_team_member.phone.present? %>
+          <div class="team-member-phone">
+            <strong class="display-block">Phone number</strong> <%= @presented_team_member.phone %>
+          </div>
+        <% end %>
+
+        <% if @presented_team_member.email.present? %>
+          <div class="team-member-email">
+            <strong class="display-block">
+              Email address
+            </strong>
+            
+            <%= @presented_team_member.email %>
+          </div>
+        <% end %>
       </div>
 
-      <div class="medium-4 columns">
-        <%= @presented_team_member.role %>
-        <%= @presented_team_member.phone %>
-      </div>
-
-      <div class="medium-4 columns">
-        <%= @presented_team_member.profile %>
+      <div class="medium-9 columns">
+        <div class="team-member-profile">
+          <%= @presented_team_member.profile %>
+        </div>
       </div>
     </div>
 </div>

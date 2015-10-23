@@ -73,3 +73,38 @@
     top: 657px;
   }
 }
+
+.team-member-name {
+  border-bottom: 0;
+  color: $primary-blue;
+  font-size: em(28px);
+  font-weight: $proxima-nova-light;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 0 0 em(14px, 28px);
+  margin: em(14px, 28px) 0 0;
+}
+
+.team-member-role {
+  border-bottom: 3px solid $grey;
+  color: $primary-blue;
+  font-size: em(14px);
+  font-weight: $proxima-nova-light;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 0 0 em(7px);
+  margin: 0 0 em(14px);
+}
+
+.team-member-phone,
+.team-member-email {
+  color: $primary-blue;
+  line-height: 1.25;
+  margin: em(7px) 0;
+}
+
+.team-member-profile {
+  p:first-of-type {
+    margin-top: 0;
+  }
+}

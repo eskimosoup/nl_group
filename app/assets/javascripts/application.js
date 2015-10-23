@@ -30,7 +30,9 @@ $(function() {
   if (Modernizr.mq('only screen and (min-width: 768px)')) {
     $('.colorbox').colorbox({
       width: '70%',
+      maxWidth: '960px',
       height: '70%',
+      maxHeight: '960px'
     });
   } else {
     $('.home-team-members .colorbox').attr('href', '');
