@@ -12,6 +12,10 @@
     @include media('<tablet') {
       font-size: em(14px);
     }
+
+    &:last-of-type {
+      margin: 0;
+    }
   }
 
   &.first {
@@ -24,6 +28,13 @@
       background: image-url('layout/home/plain-bokeh-background.jpg') top left no-repeat,
                   $light-blue;
     }
+  }
+
+  &.inner {
+    border-top: 6px  solid $lighter-blue;
+    background: image-url('layout/home/plain-bokeh-background.jpg') top left no-repeat,
+                $light-blue;
+    margin: em(10px) 0;
   }
 
   &.second {
@@ -45,10 +56,15 @@
   }
 }
 
-.testimonial-quote-mark {
-  background: $pale-blue;
-  padding: em(16px);
-  margin: 0 0 em(10px);
+.testimonial-content {
+  @extend %clearfix;
+  clear: left;
+  margin: em(5px) 0;
+
+  .testimonial-quote-mark {
+    float: right;
+    margin: 0 em(15px) 0 0;
+  }
 }
 
 .testimonial-thumbnail {

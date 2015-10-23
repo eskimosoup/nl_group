@@ -1,13 +1,33 @@
+<%= content_for :footer do %>
+<script>
+$(function() {
+  $('[data-animation-type]').each(function() {
+    var $elem = $(this);
+    var animationType  = $elem.attr('data-animation-type');
+    var animationDelay = $elem.attr('data-animation-delay');
+
+    if( animationDelay !== undefined )  {
+      setTimeout(function() {
+        $elem.removeClass('visibility-hidden').addClass('animated ' + animationType);
+      }, animationDelay);
+    } else {
+      $elem.removeClass('visibility-hidden').addClass('animated ' + animationType);
+    }
+  })
+})
+
+</script>
+<% end %>
 <div class="row">
   <div class="medium-12 columns">
-    <h1 class="team-member-name"><%= @presented_team_member.name %></h1>
+    <h1 class="team-member-name" data-animation-type="fadeIn"><%= @presented_team_member.name %></h1>
 
-    <div class="team-member-role">
+    <div class="team-member-role" data-animation-type="slideInUp" data-animation-delay="500">
       <%= @presented_team_member.role %>
     </div>
 
     <div class="row">
-      <div class="medium-3 columns">
+      <div class="medium-3 columns" data-animation-type="fadeIn">
         <%= @presented_team_member.show_image(alt: @presented_team_member.name) %>
 
         <% if @presented_team_member.phone.present? %>
@@ -21,13 +41,13 @@
             <strong class="display-block">
               Email address
             </strong>
-            
+
             <%= @presented_team_member.email %>
           </div>
         <% end %>
       </div>
 
-      <div class="medium-9 columns">
+      <div class="medium-9 columns" data-animation-type="fadeIn">
         <div class="team-member-profile">
           <%= @presented_team_member.profile %>
         </div>

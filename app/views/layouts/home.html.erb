@@ -11,7 +11,7 @@
   <body>
     <%= render 'layouts/shared/header' %>
 
-    <div class="inner-content">
+    <div class="home-content">
       <%= render 'shared/flash_messages' %>
 
       <%= yield %>
@@ -20,6 +20,8 @@
     </div>
 
     <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'vendor/onscreen' %>
+    <%= javascript_include_tag 'components/animate' %>
 
     <%= yield :footer %>
   </body>

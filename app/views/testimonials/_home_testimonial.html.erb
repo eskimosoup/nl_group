@@ -9,6 +9,6 @@
     })
   </script>
 <% end %>
-<section class="testimonials inner">
-  <%= render 'testimonials/shared/testimonial_content', testimonial_presenter: testimonial_presenter %>
+<section class="testimonials <%= cycle 'first', 'second', 'third' %>">
+  <%= render partial: 'testimonials/shared/testimonial_content', locals: { testimonial_presenter: testimonial_presenter, additional_block_presenter: additional_block_presenter } %>
 </section>
