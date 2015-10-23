@@ -3,13 +3,7 @@
   padding: em(40px) 0 em(32px);
 
   @include media('<tablet') {
-    background: $white;
-    margin: 0;
     padding: em(10px) 0;
-    top: 0;
-    position: fixed;
-    z-index: 9999;
-    border-bottom: 1px solid $dark-grey;
   }
 }
 
@@ -30,6 +24,20 @@
   img {
     width: 32px;
     height: 32px;
+  }
+}
+
+
+
+@include media('<tablet') {
+  .fixed-wrap {
+    background: $white;
+    margin: 0;
+    top: 0;
+    position: fixed;
+    z-index: 9999;
+    border-bottom: 1px solid $dark-grey;
+    width: 100%;
   }
 }
 
