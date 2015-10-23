@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-
   resources :pages, only: :show
   resources :contacts, only: [:new, :create]
   resources :team_members, only: [:show]
+  resources :testimonials, only: [:index]
+
   get ":id", to: "landing_pages#show", as: :landing_page, constraints: LandingPageConstraint.new
 
   namespace :member_area, path: "member-area" do
@@ -16,6 +17,14 @@ Rails.application.routes.draw do
   root to: 'application#index'
 end
 Optimadmin::Engine.routes.draw do
+  resources :team_member_teams, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+    end
+  end
   resources :landing_pages, except: [:show] do
     collection do
       post 'order'

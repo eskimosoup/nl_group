@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20151023121911) do
+=======
 ActiveRecord::Schema.define(version: 20151023121229) do
+>>>>>>> upstream/master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -296,19 +300,30 @@ ActiveRecord::Schema.define(version: 20151023121229) do
     t.datetime "updated_at",                null: false
   end
 
+  create_table "team_member_teams", force: :cascade do |t|
+    t.integer  "position"
+    t.string   "name",                      null: false
+    t.boolean  "display",    default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
   create_table "team_members", force: :cascade do |t|
-    t.string   "forename",                  null: false
-    t.string   "surname",                   null: false
+    t.string   "forename",                           null: false
+    t.string   "surname",                            null: false
     t.string   "image"
     t.text     "profile"
     t.string   "email"
     t.string   "phone"
-    t.string   "role",                      null: false
-    t.boolean  "display",    default: true
-    t.integer  "position",   default: 0
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "role",                               null: false
+    t.boolean  "display",             default: true
+    t.integer  "position",            default: 0
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.integer  "team_member_team_id"
   end
+
+  add_index "team_members", ["team_member_team_id"], name: "index_team_members_on_team_member_team_id", using: :btree
 
   create_table "testimonials", force: :cascade do |t|
     t.string   "forename",                        null: false
@@ -331,4 +346,5 @@ ActiveRecord::Schema.define(version: 20151023121229) do
   add_foreign_key "additional_paragraphs", "additional_blocks"
   add_foreign_key "additional_titles", "additional_blocks"
   add_foreign_key "job_locations", "jobs", on_delete: :cascade
+  add_foreign_key "team_members", "team_member_teams"
 end

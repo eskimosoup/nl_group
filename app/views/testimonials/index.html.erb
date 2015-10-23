@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="small-12 columns">
+    <h1>Testimonials</h1>
+
+    <%= render partial: 'testimonials/testimonial', collection: @presented_testimonials, as: :testimonial_presenter if @presented_testimonials %>
+
+    <%= paginate @presented_testimonials %>
+  </div>
+</div>

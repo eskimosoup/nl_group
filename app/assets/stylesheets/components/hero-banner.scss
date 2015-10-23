@@ -2,10 +2,6 @@
   background: image-url('layout/home/banner.png') no-repeat bottom right,
               image-url('layout/home/hero-background.jpg') no-repeat bottom,
               $pale-blue;
-
-  @include media('>=1200px') {
-    padding-top: em(182px);
-  }
 }
 
 .hero-content-area {

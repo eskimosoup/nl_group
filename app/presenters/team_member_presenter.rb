@@ -30,7 +30,7 @@ class TeamMemberPresenter < BasePresenter
   end
 
   def profile_preview
-    h.link_to index_image(alt: name), team_member, class: 'colorbox animate-hover', data: { animation_type: 'pulse' } if team_member.image.present?
+    h.link_to index_image(alt: name), team_member, class: 'colorbox css-animated-hover', data: { class: 'tada' } if team_member.image.present?
   end
 
   def homepage_classes(outer_loop: nil, inner_loop: nil)

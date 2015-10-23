@@ -372,6 +372,3 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
   workable (~> 1.0)
-
-BUNDLED WITH
-   1.10.6
