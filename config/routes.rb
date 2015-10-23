@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :pages, only: :show
   resources :contacts, only: [:new, :create]
-  resources :team_members, only: [:show]
+  resources :team_members, only: [:index, :show], path: 'team-members'
   resources :testimonials, only: [:index]
 
   get ":id", to: "landing_pages#show", as: :landing_page, constraints: LandingPageConstraint.new

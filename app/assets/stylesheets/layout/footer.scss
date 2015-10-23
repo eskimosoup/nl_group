@@ -1,20 +1,9 @@
-.home-content .primary-footer {
-  background: image-url('components/contact-us/squares.png') top left no-repeat;
-}
-.inner-content .primary-footer {
-  background: $grey image-url('components/content-boxes/small-border.png') top left repeat-x;
+.inner-content .social {
   margin: em(40px) 0 0;
-
-  .columns {
-    background: $grey;
-  }
-
-  h5 {
-    border-bottom-color: $white;
-  }
 }
 
 .primary-footer {
+  background: image-url('components/contact-us/squares.png') top left no-repeat;
   padding: em(50px) 0;
 
   .columns {

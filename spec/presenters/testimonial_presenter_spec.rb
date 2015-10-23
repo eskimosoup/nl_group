@@ -21,7 +21,7 @@ RSpec.describe TestimonialPresenter, type: :presenter do
   end
 
   it "should return an empty string for the video" do
-    expect(testimonial_presenter.video).to eq("")
+    expect(testimonial_presenter.video_embed_code).to eq("")
   end
 
   describe "with image" do
@@ -38,7 +38,7 @@ RSpec.describe TestimonialPresenter, type: :presenter do
     subject(:testimonial_presenter) { TestimonialPresenter.new(object: testimonial, view_template: view) }
 
     it "should return the escaped embed code" do
-      expect(testimonial_presenter.video).to eq(raw(testimonial.video_embed_code))
+      expect(testimonial_presenter.video_embed_code).to eq(raw(testimonial.video_embed_code))
     end
   end
 
