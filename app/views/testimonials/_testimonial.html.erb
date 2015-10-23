@@ -1,3 +1,14 @@
+<%= content_for :footer do %>
+  <script>
+    $(function() {
+      $(".testimonial-video-link-<%= testimonial_presenter.id %>").colorbox({
+        inline: true,
+        href: "#testimonial-video-<%= testimonial_presenter.id %>",
+        onOpen: function() { $('#testimonial-video-<%= testimonial_presenter.id %>').uncomment(); }
+      });
+    })
+  </script>
+<% end %>
 <section class="testimonials <%= cycle 'first', 'second', 'third' %>">
   <div class="row">
     <div class="medium-10 medium-offset-2">
@@ -7,7 +18,10 @@
 
   <div class="row collapse small-uncollapse"  data-animation-type='fadeInUp'>
     <div class="medium-2 columns">
-      <%= testimonial_presenter.show_image(alt: testimonial_presenter.name, class: 'testimonial-thumbnail') %>
+      <div class="testimonial-image">
+        <%= link_to (image_tag 'components/icons/play-icon.png', alt: 'Play video', class: 'testimonial-play-video'), '#', title: testimonial_presenter.name, class: "exclude-from-scroll css-animated-hover testimonial-video-link-#{testimonial_presenter.id}", data: { class: 'tada' } if testimonial_presenter.video_embed_code.present? %>
+        <%= testimonial_presenter.show_image(alt: testimonial_presenter.name, class: 'testimonial-thumbnail') %>
+      </div>
     </div>
 
     <div class="medium-10 columns">
@@ -17,8 +31,17 @@
         <%= testimonial_presenter.name %>, <%= testimonial_presenter.role %>
       </div>
 
-      <%#= testimonial_presenter.video_link %>
-      <!-- <%= link_to "Watch Video", '#', class: 'testimonial-watch-video-link', title: 'Watch video' %> -->
+      <%= link_to "Watch Video", '#', class: "testimonial-watch-video-link exclude-from-scroll testimonial-video-link-#{testimonial_presenter.id}", title: testimonial_presenter.name  %>
+
+      <div class="hide">
+        <div id="testimonial-video-<%= testimonial_presenter.id %>" class="testimonial-video-wrap">
+          <!--
+          <div class="flex-video">
+            <%= testimonial_presenter.video_embed_code %>
+          </div>
+          -->
+        </div>
+      </div>
 
       <div class="testimonial-action-button">
         <%= additional_block_presenter.presented_button(0) %>

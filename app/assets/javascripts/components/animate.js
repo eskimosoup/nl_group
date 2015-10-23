@@ -44,13 +44,15 @@ if (Modernizr.mq('only screen and (min-width: 768px)') && !$('html').hasClass('i
       doOut: animateOut
     });
   });
-}
 
-// https://github.com/matthieua/WOW/issues/20
-$(document).on('mouseover', '.animate-hover', function () {
-  $(this).animate({
-    width: "95%"
-  }, 500, function() {
-    $(this).animate({ width: "100%" }, 500);
+  // http://stackoverflow.com/questions/21182535/animate-css-in-hover
+  $(document).on('mouseover', '.css-animated-hover', function () {
+    var animateClass = $(this).attr('data-class');
+    $(this).addClass('animated ' + animateClass);
   });
-});
+
+  $('.css-animated-hover').bind('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function() {
+    var animateClass = $(this).attr('data-class');
+    $(this).removeClass('animated ' + animateClass);
+  });
+}

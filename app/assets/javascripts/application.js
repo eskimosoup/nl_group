@@ -23,6 +23,7 @@
 //= require components/clients-slider.js
 //= require components/sticky-scroll.js
 //= require vendor/matchheight.js
+//= require vendor/uncomment.js
 
 $(document).foundation();
 

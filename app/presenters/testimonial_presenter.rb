@@ -1,5 +1,6 @@
 class TestimonialPresenter < BasePresenter
   presents :testimonial
+  delegate :id, to: :testimonial
 
   def forename
     testimonial.forename
@@ -21,7 +22,7 @@ class TestimonialPresenter < BasePresenter
     h.raw testimonial.content
   end
 
-  def video
+  def video_embed_code
     h.raw testimonial.video_embed_code
   end
 end
