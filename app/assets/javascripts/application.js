@@ -17,8 +17,6 @@
 //= requrie vendor/foundation/foundation.equalizer.js
 //= require slick.js/slick.js
 //= require colorbox/jquery.colorbox.js
-//= require vendor/onscreen.js
-//= require components/animate.js
 //= require components/toggle-class.js
 //= require components/clients-slider.js
 //= require components/sticky-scroll.js

@@ -108,3 +108,12 @@
     margin-top: 0;
   }
 }
+
+.team-member-index {
+  display: inline-block;
+  margin: em(10px) em(20px);
+
+  @include media('<desktop') {
+    margin: em(10px); 
+  }
+}

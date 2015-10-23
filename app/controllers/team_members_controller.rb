@@ -2,7 +2,7 @@ class TeamMembersController < ApplicationController
   before_action :team_member, only: :show
 
   def index
-
+    @presented_team_member_teams = BaseCollectionPresenter.new(collection: TeamMemberTeam.displayed.positioned, view_template: view_context, presenter: TeamMemberTeamPresenter)
   end
 
   def show

@@ -1,7 +1,11 @@
 class TeamMemberUploader < Optimadmin::ImageUploader
 
-  version :index do
+  version :small do
     process resize_to_fill: [96, 96]
+  end
+
+  version :index do
+    process resize_to_fill: [125, 125]
   end
 
   version :show do

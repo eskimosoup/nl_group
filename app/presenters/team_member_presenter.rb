@@ -30,6 +30,10 @@ class TeamMemberPresenter < BasePresenter
   end
 
   def profile_preview
+    h.link_to small_image(alt: name), team_member, class: 'colorbox css-animated-hover', data: { class: 'tada' } if team_member.image.present?
+  end
+
+  def index_profile_preview
     h.link_to index_image(alt: name), team_member, class: 'colorbox css-animated-hover', data: { class: 'tada' } if team_member.image.present?
   end
 

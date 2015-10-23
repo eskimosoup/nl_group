@@ -89,10 +89,18 @@
   text-decoration: none;
   padding: 0 0 0 em(20px, 18px);
   margin: 0 0 em(35px, 18px);
+
+  @include media('<tablet') {
+    margin: 0;
+  }
 }
 
 .testimonial-image {
   position: relative;
+
+  @include media('<tablet') {
+    margin: 0 0 em(20px);
+  }
 }
 
 .testimonial-play-video {
