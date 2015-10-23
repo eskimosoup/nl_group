@@ -61,6 +61,11 @@
         <%= f.text_field :role %>
       </div>
 
+      <div class="field">
+        <%= f.label :team_member_team_id %><br>
+        <%= f.select :team_member_team_id, TeamMemberTeam.pluck(:name, :id), prompt: 'Please select a team', selected: @team_member.team_member_team %>
+      </div>
+
     <% end %>
 
     <%= field_set_tag nil, id: 'tabs-2' do %>
