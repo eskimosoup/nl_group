@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   resources :team_members, only: [:show]
   get ":id", to: "landing_pages#show", as: :landing_page, constraints: LandingPageConstraint.new
 
+  namespace :member_area, path: "member-area" do
+    resources :sessions, only: [:new, :create, :destroy]
+    get :login, to: "sessions#new", as: "login"
+    get :logout, to: "sessions#destroy", as: "logout"
+  end
+
   mount Optimadmin::Engine => "/admin"
 
   root to: 'application#index'
