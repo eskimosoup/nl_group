@@ -16,7 +16,7 @@
 
 // Let's keep it DRY
 $reason-colours: $green $dark-green $primary-blue $light-blue;
-$reason-colour-names: green dark-green primary-blue light-blue;
+$reason-colour-names: light-green dark-green dark-blue light-blue;
 @each $colour in $reason-colours {
   $i: index($reason-colours, $colour);
 
