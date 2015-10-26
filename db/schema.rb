@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151026082208) do
+ActiveRecord::Schema.define(version: 20151026115331) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -94,6 +95,28 @@ ActiveRecord::Schema.define(version: 20151026082208) do
   end
 
   add_index "additional_titles", ["additional_block_id"], name: "index_additional_titles_on_additional_block_id", using: :btree
+
+  create_table "basic_informations", force: :cascade do |t|
+    t.integer  "member_profile_id"
+    t.string   "title",                                     null: false
+    t.string   "first_name",                                null: false
+    t.string   "middle_names"
+    t.string   "last_name",                                 null: false
+    t.string   "mobile_number",                             null: false
+    t.string   "home_number"
+    t.string   "email_address",                             null: false
+    t.date     "using_current_name_since"
+    t.boolean  "changed_name",              default: false
+    t.text     "previous_names"
+    t.date     "date_of_birth",                             null: false
+    t.string   "national_insurance_number",                 null: false
+    t.string   "where_heard"
+    t.string   "referred_by"
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+  end
+
+  add_index "basic_informations", ["member_profile_id"], name: "index_basic_informations_on_member_profile_id", using: :btree
 
   create_table "clients", force: :cascade do |t|
     t.string   "name",                      null: false
@@ -341,6 +364,7 @@ ActiveRecord::Schema.define(version: 20151026082208) do
   add_foreign_key "additional_buttons", "additional_blocks"
   add_foreign_key "additional_paragraphs", "additional_blocks"
   add_foreign_key "additional_titles", "additional_blocks"
+  add_foreign_key "basic_informations", "member_profiles", on_delete: :cascade
   add_foreign_key "job_locations", "jobs", on_delete: :cascade
   add_foreign_key "team_members", "team_member_teams"
 end
