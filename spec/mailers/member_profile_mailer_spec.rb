@@ -8,7 +8,7 @@ RSpec.describe MemberProfileMailer, type: :mailer do
     it "renders the headers" do
       expect(mail.subject).to eq("Password reset")
       expect(mail.to).to eq([member_profile.email])
-      expect(mail.from).to eq([ApplicationMailer.site_email])
+      expect(mail.from).to eq([site_email])
     end
 
     it "renders the body" do
