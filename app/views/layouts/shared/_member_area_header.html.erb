@@ -1,0 +1,28 @@
+<div class="fixed-wrap">
+  <header class="top-header">
+    <div class="row">
+      <div class="small-6 medium-8 columns">
+        <%= link_to member_area_root_url, title: global_site_settings['Name'] do %>
+          <%= image_tag 'layout/header/logo.png', alt: global_site_settings['Name'] %>
+        <% end %>
+      </div>
+
+      <div class="small-6 medium-4 columns">
+        <%= link_to (image_tag 'components/icons/hamburger.svg', alt: 'Menu'), '#', title: 'Toggle Menu', class: 'hamburger-icon toggle-class show-for-small', data: { container: '.primary-navigation', class: 'hide-for-small' } %>
+        <div class="telephone">
+          Tel: <strong><%= global_site_settings['Phone'] %></strong>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-6 small-offset-6 medium-4 medium-offset-8 columns">
+        <% if presented_current_member_profile %>
+          <%= presented_current_member_profile.profile_link %>
+          <%= link_to "Logout", member_area_logout_path %>
+        <% else %>
+          <%= link_to "Login", member_area_login_path %>
+        <% end %>
+      </div>
+    </div>
+  </header>
+</div>
