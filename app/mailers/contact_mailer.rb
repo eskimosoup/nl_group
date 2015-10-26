@@ -8,6 +8,6 @@ class ContactMailer < ApplicationMailer
   def new_contact(contact)
     @contact = contact
 
-    mail to: site_email, subject: "New contact - #{ site_name }"
+    mail to: ApplicationMailer.site_email, subject: "New contact - #{ ApplicationMailer.site_name }"
   end
 end

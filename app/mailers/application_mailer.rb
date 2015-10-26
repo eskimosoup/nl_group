@@ -1,8 +1,8 @@
 class ApplicationMailer < ActionMailer::Base
   layout 'mailer'
-  default from: Proc.new{ site_email }
+  default from: Proc.new{ ApplicationMailer.site_email }
 
-  def site_email
+  def self.site_email
     @site_email = begin
       site_setting = Optimadmin::SiteSetting.where(environment: Rails.env).find_by(key: "Email")
       if site_setting
@@ -13,7 +13,7 @@ class ApplicationMailer < ActionMailer::Base
     end
   end
 
-  def site_name
+  def self.site_name
     @site_name = begin
       site_setting = Optimadmin::SiteSetting.where(environment: Rails.env).find_by(key: "Name")
       if site_setting
