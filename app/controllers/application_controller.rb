@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
     @presented_clients = BaseCollectionPresenter.new(collection: Client.displayed, view_template: view_context, presenter: ClientPresenter)
     @presented_team_members = BaseCollectionPresenter.new(collection: TeamMember.displayed.positioned, view_template: view_context, presenter: TeamMemberPresenter)
     @presented_frequently_asked_questions = BaseCollectionPresenter.new(collection: FrequentlyAskedQuestion.ordered.displayed, view_template: view_context, presenter: FrequentlyAskedQuestionPresenter)
+    @presented_work_reasons = collection_presenter(WorkReason.positioned.displayed)
     render layout: 'home'
   end
 
@@ -22,6 +23,16 @@ class ApplicationController < ActionController::Base
 
 
   private
+
+    def presenter(object, klass = nil)
+      klass ||= "#{object.class}Presenter".constantize
+      klass.new(object, view_context)
+    end
+
+    def collection_presenter(object, klass = nil)
+      klass ||= "#{object.first.class}Presenter".constantize
+      BaseCollectionPresenter.new(collection: object, view_template: view_context, presenter: klass)
+    end
 
     def load_objects
       @header_menu = Optimadmin::Menu.new(name: "header")

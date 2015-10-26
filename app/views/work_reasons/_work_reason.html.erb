@@ -1,0 +1,15 @@
+<div class="medium-6 large-3 columns">
+  <div class="work-for-nlgroup-reason <%= work_reason_presenter.class_colour %>" data-animation-type="fadeInUp" data-animation-delay="<%= cycle('0', '250', '500', '750') %>">
+    <div class="reason-icon">
+      <%= work_reason_presenter.show_image(alt: '') %>
+    </div>
+
+    <div class="reason-title">
+      <%= work_reason_presenter.linked_title %>
+    </div>
+
+    <div class="reason-content hide-for-small" id="reason-<%= work_reason_presenter.id %>">
+      <%= work_reason_presenter.summary %>
+    </div>
+  </div>
+</div>

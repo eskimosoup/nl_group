@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20151023121911) do
-=======
-ActiveRecord::Schema.define(version: 20151023121229) do
->>>>>>> upstream/master
+ActiveRecord::Schema.define(version: 20151026082208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,26 +51,16 @@ ActiveRecord::Schema.define(version: 20151023121229) do
 
   create_table "additional_buttons", force: :cascade do |t|
     t.integer  "additional_block_id"
+    t.integer  "position"
     t.string   "button_text"
     t.string   "button_link"
     t.boolean  "display",             default: true
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
-    t.integer  "position"
     t.string   "classes"
   end
 
   add_index "additional_buttons", ["additional_block_id"], name: "index_additional_buttons_on_additional_block_id", using: :btree
-
-  create_table "additional_content_rows", force: :cascade do |t|
-    t.integer  "position"
-    t.string   "name"
-    t.string   "style"
-    t.integer  "maximum_content_blocks"
-    t.boolean  "display",                default: true
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-  end
 
   create_table "additional_paragraphs", force: :cascade do |t|
     t.integer  "additional_block_id"
@@ -92,11 +78,11 @@ ActiveRecord::Schema.define(version: 20151023121229) do
     t.integer  "position"
     t.integer  "additional_blocks_count"
     t.string   "name"
+    t.string   "style"
     t.integer  "maximum_content_blocks"
     t.boolean  "display",                 default: true
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
-    t.string   "style"
   end
 
   create_table "additional_titles", force: :cascade do |t|
@@ -335,6 +321,17 @@ ActiveRecord::Schema.define(version: 20151023121229) do
     t.boolean  "display",          default: true
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+  end
+
+  create_table "work_reasons", force: :cascade do |t|
+    t.integer  "position"
+    t.string   "title"
+    t.string   "image"
+    t.text     "summary"
+    t.string   "colour"
+    t.boolean  "display",    default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   add_foreign_key "additional_animations", "additional_blocks"

@@ -75,7 +75,6 @@ RSpec.describe TeamMemberPresenter, type: :presenter do
     it "should return image with click through" do
       expect(team_member_presenter.profile_preview).to eq(link_to team_member_presenter.small_image(alt: team_member_presenter.name), team_member, class: 'colorbox css-animated-hover', data: { class: 'tada' })
     end
-    end
     it "should return image with click through" do
       expect(team_member_presenter.index_profile_preview).to eq(link_to team_member_presenter.index_image(alt: team_member_presenter.name), team_member, class: 'colorbox css-animated-hover', data: { class: 'tada' })
     end
