@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :sessions, only: [:new, :create, :destroy]
     get :login, to: "sessions#new", as: "login"
     get :logout, to: "sessions#destroy", as: "logout"
+    resource :member_profile, path: "member-profile"
+    root to: "base#index"
   end
 
   mount Optimadmin::Engine => "/admin"

@@ -7,4 +7,8 @@ RSpec.describe MemberProfilePresenter, type: :presenter do
   it "should return the email" do
     expect(member_profile_presenter.email).to eq(member_profile.email)
   end
+
+  it "should return a link to the member profile path" do
+    expect(member_profile_presenter.profile_link).to eq(link_to(member_profile.email, member_area_member_profile_path))
+  end
 end
