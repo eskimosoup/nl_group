@@ -19,12 +19,12 @@ class ApplicationController < ActionController::Base
   private
 
     def presenter(object, klass = nil)
-      klass ||= "#{object.class}Presenter".constantize
+      klass ||= "#{object.class}Presenter".constantize if object.present?
       klass.new(object, view_context)
     end
 
     def collection_presenter(object, klass = nil)
-      klass ||= "#{object.first.class}Presenter".constantize
+      klass ||= "#{object.first.class}Presenter".constantize if object.present?
       BaseCollectionPresenter.new(collection: object, view_template: view_context, presenter: klass)
     end
 
