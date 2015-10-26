@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get :login, to: "sessions#new", as: "login"
     get :logout, to: "sessions#destroy", as: "logout"
     resource :member_profile, path: "member-profile"
+    resources :password_resets, path: "password-reset", only: [:new, :create, :edit]
     root to: "base#index"
   end
 
