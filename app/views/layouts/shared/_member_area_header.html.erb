@@ -16,8 +16,8 @@
     </div>
     <div class="row">
       <div class="small-6 small-offset-6 medium-4 medium-offset-8 columns">
-        <% if current_member_profile %>
-          <%= current_member_profile.profile_link %>
+        <% if presented_current_member_profile %>
+          <%= presented_current_member_profile.profile_link %>
           <%= link_to "Logout", member_area_logout_path %>
         <% else %>
           <%= link_to "Login", member_area_login_path %>

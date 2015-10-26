@@ -1,0 +1,26 @@
+<%= form_for [:member_area, @member_profile] do |f| %>
+  <% if @member_profile.errors.any? %>
+    <div id="error_explanation">
+      <%= pluralize @member_profile.errors.count, "error" %> prevented your member profile from being saved.
+      <% @member_profile.errors.full_messages.each do |msg| %>
+        <li>
+          <%= msg %>
+        </li>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

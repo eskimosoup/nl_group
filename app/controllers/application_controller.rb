@@ -14,12 +14,6 @@ class ApplicationController < ActionController::Base
     render layout: 'home'
   end
 
-  def blah
-    raise request.parameters.to_yaml
-    raise request.public_methods.to_yaml
-  end
-
-
 
   private
 
