@@ -14,6 +14,7 @@ RSpec.describe BasicInformation, type: :model do
     it { should validate_uniqueness_of(:email_address) }
     it { should validate_presence_of(:date_of_birth) }
     it { should validate_presence_of(:where_heard) }
+    it { should validate_exclusion_of(:where_heard).in_array(%w( other )).with_message("You need to specify how you heard about us") }
     it { should validate_presence_of(:national_insurance_number) }
 
     describe "referral validation" do
@@ -27,6 +28,8 @@ RSpec.describe BasicInformation, type: :model do
         basic_information.referred_by = "Joe"
         expect(basic_information.valid?).to be true
       end
+
+      it { should validate_presence_of(:referred_by).with_message("Please specify who referred you") }
     end
 
     describe "previous name validation" do
@@ -40,6 +43,8 @@ RSpec.describe BasicInformation, type: :model do
         basic_information.previous_names = "Joe Bloggs"
         expect(basic_information.valid?).to be true
       end
+
+      it { should validate_presence_of(:previous_names)}
     end
 
   end
@@ -49,13 +54,18 @@ RSpec.describe BasicInformation, type: :model do
   end
 
   describe "suggesting other where heard" do
-    subject(:basic_information){ build(:basic_information) }
+    subject(:basic_information){ build(:basic_information, where_heard: "other") }
 
     it "updates where heard with the suggestion" do
-      basic_information.where_heard = "other"
       basic_information.member_where_heard = "Google"
-      basic_information.save
-      expect(basic_information.reload.where_heard).to eq("Google")
+      expect(basic_information.valid?).to be true
+      expect(basic_information.where_heard).to eq("Google")
     end
+
+    it "is invalid without a suggestion" do
+      expect(basic_information.valid?).to be false
+    end
+
+    it { should validate_presence_of(:member_where_heard).with_message("You must specify where you heard") }
   end
 end

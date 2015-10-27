@@ -7,8 +7,8 @@
       </div>
       <div class="small-10 columns">
         <% BasicInformation::TITLES.each do |title| %>
-          <%= f.label :title, value: title %>
           <%= f.radio_button :title, title %>
+          <%= f.label :title, value: title %>
         <% end %>
       </div>
     </div>
@@ -100,10 +100,31 @@
     </div>
   </div>
 
-  t.string   "where_heard"
-  t.string   "referred_by"
-  t.datetime "created_at",                                null: false
-  t.datetime "updated_at",                                null: false
+  <div class="row">
+    <div class="small-6 columns">
+      <div class="field">
+        <p>
+          Where did you hear about us?
+        </p>
+        <% BasicInformation::WHERE_HEARDS.each do |key, value| %>
+          <%= f.radio_button :where_heard, value %>
+          <%= f.label :where_heard, key, value: value %>
+        <% end %>
+      </div>
+      <div class="field">
+        <%= f.label :member_where_heard, "Please specify if you chose other" %>
+        <%= f.text_field :member_where_heard %>
+      </div>
+    </div>
+
+    <div class="small-6 columns">
+      <div class="field">
+        <%= f.label :referred_by %>
+        <%= f.text_field :referred_by %>
+      </div>
+    </div>
+  </div>
+
   <div class="actions">
     <%= f.submit "Save" %>
   </div>
