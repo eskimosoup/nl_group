@@ -17,4 +17,14 @@ RSpec.describe MemberProfilePresenter, type: :presenter do
     expect(member_profile_presenter.edit_profile_link).to eq(link_to("Edit Profile", edit_member_area_member_profile_path,
                                                                      id: "edit-member-profile"))
   end
+
+  it "should return a link to a new basic information if no basic information" do
+    expect(member_profile_presenter.basic_information_link).to eq(link_to "About You", new_member_area_basic_information_path)
+  end
+
+  it "should return an edit link to basic information if basic information exists" do
+    basic_information = create(:basic_information, member_profile: member_profile)
+    expect(member_profile_presenter.basic_information_link).to eq(link_to "About You", edit_member_area_basic_information_path)
+  end
+
 end
