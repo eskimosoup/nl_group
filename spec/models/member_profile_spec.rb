@@ -7,6 +7,10 @@ RSpec.describe MemberProfile, type: :model do
     it { should validate_uniqueness_of(:email) }
   end
 
+  describe "associations", :association do
+    it { should have_one(:basic_information) }
+  end
+
   describe "password reset" do
     let(:member_profile) { create(:member_profile) }
 

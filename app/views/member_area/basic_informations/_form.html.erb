@@ -1,0 +1,110 @@
+<%= form_for [:member_area, @basic_information], url: member_area_basic_information_path do |f| %>
+
+  <%= field_set_tag "Full Name" do %>
+    <div class="row">
+      <div class="small-2 columns">
+        Title
+      </div>
+      <div class="small-10 columns">
+        <% BasicInformation::TITLES.each do |title| %>
+          <%= f.label :title, value: title %>
+          <%= f.radio_button :title, title %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-4 columns">
+        <div class="field">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name %>
+        </div>
+      </div>
+      <div class="small-4 columns">
+        <div class="field">
+          <%= f.label :middle_names %>
+          <%= f.text_field :middle_names %>
+        </div>
+      </div>
+      <div class="small-4 columns">
+        <div class="field">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <%= field_set_tag "Contact Information" do %>
+    <div class="row">
+      <div class="small-4 columns">
+        <div class="field">
+          <%= f.label :mobile_number %>
+          <%= f.telephone_field :mobile_number %>
+        </div>
+      </div>
+      <div class="small-4 columns">
+        <div class="field">
+          <%= f.label :home_number %>
+          <%= f.telephone_field :home_number %>
+        </div>
+      </div>
+      <div class="small-4 columns">
+        <div class="field">
+          <%= f.label :email_address %>
+          <%= f.email_field :email_address %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="small-6 columns">
+      <p>
+        Have you ever used or been known under a different First or Last name(s) other than your current name? (e.g. Maiden Name)
+      </p>
+
+      <div class="field">
+        <%= f.label :changed_name, "Yes", value: true %>
+        <%= f.radio_button :changed_name, true %>
+
+        <%= f.label :changed_name, "No", value: false %>
+        <%= f.radio_button :changed_name, false %>
+      </div>
+    </div>
+    <div class="small-6 columns">
+      <div class="field">
+        <%= f.label :using_current_name_since, "How long have you been using your current name?" %>
+        <%= f.date_select :using_current_name_since, discard_day: true, start_year: Date.today.year, end_year: (Date.today.year - 60) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-6 columns">
+      <div class="field">
+        <%= f.label :previous_names, "What previous name(s) have you had?" %>
+        <%= f.text_area :previous_names %>
+      </div>
+    </div>
+
+    <div class="small-6 columns">
+      <div class="field">
+        <%= f.label :date_of_birth %>
+        <%= f.date_select :date_of_birth, start_year: Date.today.year, end_year: (Date.today.year - 60) %>
+      </div>
+      <div class="field">
+        <%= f.label :national_insurance_number %>
+        <%= f.text_field :national_insurance_number %>
+      </div>
+    </div>
+  </div>
+
+  t.string   "where_heard"
+  t.string   "referred_by"
+  t.datetime "created_at",                                null: false
+  t.datetime "updated_at",                                null: false
+  <div class="actions">
+    <%= f.submit "Save" %>
+  </div>
+<% end %>

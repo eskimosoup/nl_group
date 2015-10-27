@@ -1,5 +1,7 @@
 class MemberProfile < ActiveRecord::Base
 
+  has_one :basic_information
+
   has_secure_password
   validates :email, presence: true, uniqueness: true
 
