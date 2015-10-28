@@ -21,6 +21,18 @@ class MemberProfilePresenter < BasePresenter
     end
   end
 
+  def work_eligibility_link
+    if has_work_eligibility?
+      h.link_to "Eligibility To Work", h.edit_member_area_work_eligibility_path
+    else
+      h.link_to "Eligibility To Work", h.new_member_area_work_eligibility_path
+    end
+  end
+
+  def addresses_link
+    h.link_to "Address History", h.member_area_member_addresses_path
+  end
+
   private
 
   def has_basic_information?
@@ -29,5 +41,13 @@ class MemberProfilePresenter < BasePresenter
 
   def basic_information
     member_profile.basic_information
+  end
+
+  def has_work_eligibility?
+    work_eligibility.present?
+  end
+
+  def work_eligibility
+    member_profile.work_eligibility
   end
 end

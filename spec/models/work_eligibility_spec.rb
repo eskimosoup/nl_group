@@ -14,7 +14,7 @@ RSpec.describe WorkEligibility, type: :model do
 
     describe "expiry date must be in future" do
       it "should not be valid if date is today or sooner" do
-        work_eligibility = build(:work_eligibility)
+        work_eligibility = build(:work_eligibility, expiry_date: Date.today)
         work_eligibility.valid?
         expect(work_eligibility.errors[:expiry_date]).to include("must be in the future")
       end
@@ -24,6 +24,10 @@ RSpec.describe WorkEligibility, type: :model do
         expect(work_eligibility.valid?).to be true
       end
     end
+  end
+
+  describe "associations", :association do
+    it { should belong_to(:member_profile) }
   end
 
 

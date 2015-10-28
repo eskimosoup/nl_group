@@ -4,7 +4,7 @@ RSpec.feature "Changing password", type: :feature do
   subject!(:member_profile){ create(:member_profile) }
 
   it "allows user to change password" do
-    login_to_member_area_with("joe.bloggs@example.com", "password")
+    login_to_member_area_with(member_profile.email, "password")
     click_link "member-profile"
     click_link "Edit Profile"
 
@@ -20,7 +20,7 @@ RSpec.feature "Changing password", type: :feature do
   end
 
   it "causes errors if password doesn't match confirmation" do
-    login_to_member_area_with("joe.bloggs@example.com", "password")
+    login_to_member_area_with(member_profile.email, "password")
     click_link "member-profile"
     click_link "Edit Profile"
 
