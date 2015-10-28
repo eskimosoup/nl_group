@@ -9,6 +9,7 @@ RSpec.describe MemberProfile, type: :model do
 
   describe "associations", :association do
     it { should have_one(:basic_information) }
+    it { should have_one(:work_eligibility) }
   end
 
   describe "password reset" do

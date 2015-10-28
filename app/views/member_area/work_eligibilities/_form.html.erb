@@ -1,0 +1,69 @@
+<%= form_for [:member_area, @work_eligibility], url: member_area_work_eligibility_path do |f| %>
+
+  <div class="form-notice">
+    <h2>Important</h2>
+    <p>
+      Evidence is required for all passports and visas. Please enclose or send scanned copies or photocopies with this
+      application and bring the originals to your first interview. To work in the NHS, you will be expected to communicate
+      proficiently in English. All passports and visas will be verified as part of our recruitment procedure.
+    </p>
+  </div>
+
+  <% if @work_eligibility.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize @work_eligibility.errors.count, "error" %> prevented your information from being saved</h3>
+      <ul>
+        <% @work_eligibility.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="small-4 columns">
+      <div class="field">
+        <%= f.label :passport_number %>
+        <%= f.text_field :passport_number %>
+      </div>
+    </div>
+    <div class="small-4 columns">
+      <div class="field">
+        <%= f.label :expiry_date %>
+        <%= f.date_select :expiry_date %>
+      </div>
+    </div>
+    <div class="small-4 columns">
+      <div class="field">
+        <%= f.label :nationality %>
+        <%= f.text_field :nationality %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-6 columns">
+      <p>Do you hold a British or EU passport?</p>
+      <%= f.radio_button :hold_eu_passport, true %>
+      <%= f.label :hold_eu_passport, "Yes", value: true %>
+
+      <%= f.radio_button :hold_eu_passport, false %>
+      <%= f.label :hold_eu_passport, "No", value: false %>
+    </div>
+
+    <div class="small-6 columns">
+      <%= f.label :proof_of_right_to_work, "Non-British or EU passport holders" %>
+      <p>
+        If you answered “<strong>No</strong>” you do not hold a British or EU passport,
+        What document do you have to prove you have the right to work in the UK?
+      </p>
+      <%= f.text_field :proof_of_right_to_work %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Save" %>
+  </div>
+<% end %>

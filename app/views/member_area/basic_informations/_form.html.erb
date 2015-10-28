@@ -1,5 +1,18 @@
 <%= form_for [:member_area, @basic_information], url: member_area_basic_information_path do |f| %>
 
+  <% if @basic_information.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize @basic_information.errors.count, "error" %> prevented your information from being saved</h3>
+      <ul>
+        <% @basic_information.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= field_set_tag "Full Name" do %>
     <div class="row">
       <div class="small-2 columns">
