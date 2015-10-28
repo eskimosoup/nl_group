@@ -5,7 +5,7 @@ RSpec.feature "Logging into and out of the member area", type: :feature do
   subject!(:member_profile){ create(:member_profile) }
 
   it "should allow users to login" do
-    login_to_member_area_with("joe.bloggs@example.com", "password")
+    login_to_member_area_with(member_profile.email, "password")
   end
 
   it "should have a failed login" do
@@ -19,7 +19,7 @@ RSpec.feature "Logging into and out of the member area", type: :feature do
   end
 
   it "should allow users to logout" do
-    login_to_member_area_with("joe.bloggs@example.com", "password")
+    login_to_member_area_with(member_profile.email, "password")
     click_link "Logout"
     expect(current_path).to eq(member_area_root_path)
   end

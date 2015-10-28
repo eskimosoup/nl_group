@@ -4,7 +4,7 @@ RSpec.feature "setting work eligibility", type: :feature do
   let!(:member_profile){ create(:member_profile) }
 
   it "should allow creation of work eligibility" do
-    login_to_member_area_with("joe.bloggs@example.com", "password")
+    login_to_member_area_with(member_profile.email, "password")
     click_link "Eligibility To Work"
 
     expect(current_path).to eq(new_member_area_work_eligibility_path)
@@ -21,7 +21,7 @@ RSpec.feature "setting work eligibility", type: :feature do
 
   it "should allow editing of work eligibility" do
     work_eligibility = create(:work_eligibility, member_profile: member_profile)
-    login_to_member_area_with("joe.bloggs@example.com", "password")
+    login_to_member_area_with(member_profile.email, "password")
     click_link "Eligibility To Work"
 
     expect(current_path).to eq(edit_member_area_work_eligibility_path)

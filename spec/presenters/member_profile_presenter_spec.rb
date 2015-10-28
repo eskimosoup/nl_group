@@ -36,4 +36,9 @@ RSpec.describe MemberProfilePresenter, type: :presenter do
     expect(member_profile_presenter.work_eligibility_link).to eq(link_to "Eligibility To Work", edit_member_area_work_eligibility_path)
   end
 
+  it "should return a link to member addresses" do
+    expect(member_profile_presenter.addresses_link).to eq(link_to "Address History", member_area_member_addresses_path)
+  end
+
+
 end

@@ -29,6 +29,10 @@ class MemberProfilePresenter < BasePresenter
     end
   end
 
+  def addresses_link
+    h.link_to "Address History", h.member_area_member_addresses_path
+  end
+
   private
 
   def has_basic_information?

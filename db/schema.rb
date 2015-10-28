@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028094238) do
+ActiveRecord::Schema.define(version: 20151028112421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -187,6 +187,18 @@ ActiveRecord::Schema.define(version: 20151028094238) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
+
+  create_table "member_addresses", force: :cascade do |t|
+    t.integer  "member_profile_id"
+    t.string   "address",                           null: false
+    t.date     "lived_here_from",                   null: false
+    t.date     "lived_here_to"
+    t.boolean  "current",           default: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
+  add_index "member_addresses", ["member_profile_id"], name: "index_member_addresses_on_member_profile_id", using: :btree
 
   create_table "member_profiles", force: :cascade do |t|
     t.string   "email",                  null: false
@@ -379,6 +391,7 @@ ActiveRecord::Schema.define(version: 20151028094238) do
   add_foreign_key "additional_titles", "additional_blocks"
   add_foreign_key "basic_informations", "member_profiles", on_delete: :cascade
   add_foreign_key "job_locations", "jobs", on_delete: :cascade
+  add_foreign_key "member_addresses", "member_profiles", on_delete: :cascade
   add_foreign_key "team_members", "team_member_teams"
   add_foreign_key "work_eligibilities", "member_profiles", on_delete: :cascade
 end

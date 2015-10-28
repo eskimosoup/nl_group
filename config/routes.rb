@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resource :member_profile, path: "member-profile"
     resource :basic_information, path: "basic-information"
     resource :work_eligibility, path: "eligibility-to-work"
+    resources :member_addresses, path: "addresses", except: [:show]
     resources :password_resets, path: "password-reset", only: [:new, :create, :edit]
     root to: "base#index"
   end
