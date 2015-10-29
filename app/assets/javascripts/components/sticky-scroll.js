@@ -36,7 +36,7 @@ $(function() {
   }
 });
 
-$(document).on('click', 'a[href^=#]:not(.exclude-from-scroll)', function() {
+$(document).on('click', 'a.smooth-scroll', function() {
   var elem = $.attr(this, 'href');
   smoothScroll(elem);
   return false;
