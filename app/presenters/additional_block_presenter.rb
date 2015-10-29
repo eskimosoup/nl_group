@@ -39,6 +39,7 @@ class AdditionalBlockPresenter < BasePresenter
     button = presented_buttons[index]
     options = options.merge({ title: button.button_text })
     options = options.merge({ class: "#{"#{classes} " if classes.present?}#{"#{button.classes}" if button.classes.present?}" }) if classes.present? || button.classes.present?
+    options[:class] += " smooth-scroll" if button.button_link.include?("#")
     h.link_to button.button_text, button.button_link, options.merge(animation_data(button.additional_animation))
   end
 

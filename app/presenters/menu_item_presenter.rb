@@ -17,10 +17,19 @@ class MenuItemPresenter < BasePresenter
   def classes
     classes = ["menu-link"]
     classes << "active" if active?
+    classes << "smooth-scroll" if smooth_scroll?
     classes.join(' ')
   end
 
   private
+
+  def smooth_scroll?
+    if destination && destination.include?("#")
+      true
+    else
+      false
+    end
+  end
 
   def active?
     destination_evaluator.active? || active_descendants?
