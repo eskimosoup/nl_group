@@ -39,6 +39,22 @@
     </div>
   </div>
 
+  <h3>Qualifications</h3>
+
+  <div id="qualifications">
+    <%= f.fields_for :qualifications do |qualification| %>
+      <%= render partial: "member_area/member_qualifications/qualification_fields", f: qualification %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association "Add Qualification", f, :qualifications, class: "exclude-from-scroll" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :additional_qualifications %>
+    <%= f.text_area :additional_qualifications, placeholder: "Mental Health Nursing / Recovery / Advanced Scrub Practitioner / Tissue viability etc" %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Save" %>
   </div>

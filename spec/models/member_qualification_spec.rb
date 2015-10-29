@@ -14,5 +14,8 @@ RSpec.describe MemberQualification, type: :model do
 
   describe "associations", :association do
     it { should belong_to(:member_profile) }
+    it { should have_many(:qualifications) }
+    it { should accept_nested_attributes_for(:qualifications).allow_destroy(true) }
   end
+
 end

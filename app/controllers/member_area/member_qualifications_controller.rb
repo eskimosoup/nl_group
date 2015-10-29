@@ -29,7 +29,8 @@ module MemberArea
     private
 
     def member_qualification_params
-      params.require(:member_qualification).permit(:register, :registration_number, :expiry_date, :afc_band)
+      params.require(:member_qualification).permit(:register, :registration_number, :expiry_date, :afc_band,
+      qualification_attributes: [:id, :name, :grade_obtained, :completed_date, :_destroy])
     end
   end
 end

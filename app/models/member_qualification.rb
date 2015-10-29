@@ -1,5 +1,7 @@
 class MemberQualification < ActiveRecord::Base
   belongs_to :member_profile
+  has_many :qualifications
+  accepts_nested_attributes_for :qualifications, allow_destroy: true
 
   validates :member_profile, presence: true
   validates :afc_band, numericality: { only_integer: true }, inclusion: { in: (2..7).to_a }, allow_nil: true

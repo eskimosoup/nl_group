@@ -6,6 +6,7 @@ class CreateMemberQualifications < ActiveRecord::Migration
       t.string :registration_number
       t.date :expiry_date
       t.integer :afc_band
+      t.text :additional_qualifications
 
       t.timestamps null: false
     end
