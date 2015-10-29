@@ -78,3 +78,4 @@ end
 gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git', branch: 'master'
 gem 'workable', '~> 1.0'
 gem 'friendly_id', '~> 5.1'
+gem 'cocoon', '~> 1.2', '>= 1.2.6'

@@ -1,0 +1,19 @@
+<div class="nested-fields">
+  <%= f.hidden_field :member_qualification_id %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :grade_obtained %>
+    <%= f.text_field :grade_obtained %>
+  </div>
+
+  <div class="field">
+    <%= f.label :completed_date %>
+    <%= f.date_select :completed_date %>
+  </div>
+
+  <%= link_to_remove_association "Remove Qualification", f, class: "exclude-from-scroll" %>
+</div>

@@ -22,6 +22,7 @@
 //= require components/sticky-scroll.js
 //= require vendor/matchheight.js
 //= require vendor/uncomment.js
+//= require cocoon
 
 $(document).foundation();
 
