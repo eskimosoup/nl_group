@@ -24,6 +24,14 @@ Rails.application.routes.draw do
   root to: 'application#index'
 end
 Optimadmin::Engine.routes.draw do
+  resources :mandatory_training_courses, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+    end
+  end
   resources :work_reasons, except: [:show] do
     collection do
       post 'order'

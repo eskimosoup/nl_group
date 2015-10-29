@@ -1,0 +1,20 @@
+<%= render 'optimadmin/shared/header/main_title', title: 'Manage Mandatory Training Courses' %>
+
+<div class="main-content">
+  <div class="row module-header collapse">
+    <%= render 'optimadmin/shared/module/index/new_item', title: 'Mandatory Training Course', object: MandatoryTrainingCourse, path: new_mandatory_training_course_path %>
+    <%= render 'optimadmin/shared/module/index/pagination' %>
+    <%= render 'optimadmin/shared/module/index/recycle_bin', items: @mandatory_training_courses.size, path: root_url %>
+  </div>
+
+  <div class="row collapse module-list-index header">
+    <%= list_item('large-7 small-8'){ "Name" } %>
+    <%= list_item { 'Display' } %>
+    <%= list_item { 'Edit' } %>
+    <%= list_item('large-1 hide-for-medium-down text-center last'){ 'Delete' } %>
+  </div>
+
+  <%= render partial: 'mandatory_training_course', collection: @mandatory_training_courses, as: :mandatory_training_course_presenter %>
+
+  <%= paginate @mandatory_training_courses %>
+</div>
