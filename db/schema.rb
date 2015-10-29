@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028112421) do
+ActiveRecord::Schema.define(version: 20151029093810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -214,6 +214,18 @@ ActiveRecord::Schema.define(version: 20151028112421) do
   add_index "member_profiles", ["email"], name: "index_member_profiles_on_email", using: :btree
   add_index "member_profiles", ["password_reset_token"], name: "index_member_profiles_on_password_reset_token", using: :btree
 
+  create_table "member_qualifications", force: :cascade do |t|
+    t.integer  "member_profile_id"
+    t.string   "register"
+    t.string   "registration_number"
+    t.date     "expiry_date"
+    t.integer  "afc_band"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "member_qualifications", ["member_profile_id"], name: "index_member_qualifications_on_member_profile_id", using: :btree
+
   create_table "optimadmin_administrators", force: :cascade do |t|
     t.string   "username",               null: false
     t.string   "email",                  null: false
@@ -392,6 +404,7 @@ ActiveRecord::Schema.define(version: 20151028112421) do
   add_foreign_key "basic_informations", "member_profiles", on_delete: :cascade
   add_foreign_key "job_locations", "jobs", on_delete: :cascade
   add_foreign_key "member_addresses", "member_profiles", on_delete: :cascade
+  add_foreign_key "member_qualifications", "member_profiles", on_delete: :cascade
   add_foreign_key "team_members", "team_member_teams"
   add_foreign_key "work_eligibilities", "member_profiles", on_delete: :cascade
 end

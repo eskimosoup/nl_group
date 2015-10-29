@@ -40,5 +40,13 @@ RSpec.describe MemberProfilePresenter, type: :presenter do
     expect(member_profile_presenter.addresses_link).to eq(link_to "Address History", member_area_member_addresses_path)
   end
 
+  it "should return a link to create a new member qualification if one doesn't exist" do
+    expect(member_profile_presenter.member_qualification_link).to eq(link_to "Qualifications", new_member_area_member_qualification_path)
+  end
+
+  it "should return a link to edit member qualification if it exists" do
+    member_qualification = create(:member_qualification, member_profile: member_profile)
+    expect(member_profile_presenter.member_qualification_link).to eq(link_to "Qualifications", edit_member_area_member_qualification_path)
+  end
 
 end

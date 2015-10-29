@@ -11,8 +11,9 @@ Rails.application.routes.draw do
     get :login, to: "sessions#new", as: "login"
     get :logout, to: "sessions#destroy", as: "logout"
     resource :member_profile, path: "member-profile"
-    resource :basic_information, path: "basic-information"
-    resource :work_eligibility, path: "eligibility-to-work"
+    resource :basic_information, path: "basic-information", except: [:show]
+    resource :work_eligibility, path: "eligibility-to-work", except: [:show]
+    resource :member_qualification, path: "member-qualification", except: [:show]
     resources :member_addresses, path: "addresses", except: [:show]
     resources :password_resets, path: "password-reset", only: [:new, :create, :edit]
     root to: "base#index"

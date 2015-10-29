@@ -1,0 +1,45 @@
+<%= form_for [:member_area, @member_qualification], url: member_area_member_qualification_path do |f| %>
+  <div class="row">
+    <div class="small-8 columns">
+      <div class="field">
+        <%= f.label :register, "Which professional register are you a member of? (if any)" %>
+        <%= f.text_field :register %>
+      </div>
+      <div class="field">
+        <%= f.label :registration_number, "Your professional registration number (PIN)" %>
+        <%= f.text_field :registration_number %>
+      </div>
+      <div class="field">
+        <%= f.label :expiry_date %>
+        <%= f.date_select :expiry_date %>
+      </div>
+    </div>
+    <div class="small-4 columns">
+      <p>
+        If you currently work within the NHS,
+        what is your current AFC Band?
+      </p>
+      <%= f.label :afc_band, "Band 2", value: 2 %>
+      <%= f.radio_button :afc_band, 2 %>
+
+      <%= f.label :afc_band, "Band 3", value: 3 %>
+      <%= f.radio_button :afc_band, 3 %>
+
+      <%= f.label :afc_band, "Band 4", value: 4 %>
+      <%= f.radio_button :afc_band, 4 %>
+
+      <%= f.label :afc_band, "Band 5", value: 5 %>
+      <%= f.radio_button :afc_band, 5 %>
+
+      <%= f.label :afc_band, "Band 6", value: 6 %>
+      <%= f.radio_button :afc_band, 6 %>
+
+      <%= f.label :afc_band, "Band 7 or Higher", value: 7 %>
+      <%= f.radio_button :afc_band, 7 %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Save" %>
+  </div>
+<% end %>
