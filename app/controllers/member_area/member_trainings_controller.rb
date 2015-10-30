@@ -30,7 +30,8 @@ module MemberArea
     private
 
     def member_training_params
-      params.require(:member_training).permit(mandatory_training_course_ids: [])
+      params.require(:member_training).permit(mandatory_training_course_ids: [],
+                                              member_other_training_courses_attributes: [:member_training_id, :id, :title, :training_provider_name, :completed_on, :_destroy])
     end
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151030092233) do
+ActiveRecord::Schema.define(version: 20151030111014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,12 +51,12 @@ ActiveRecord::Schema.define(version: 20151030092233) do
 
   create_table "additional_buttons", force: :cascade do |t|
     t.integer  "additional_block_id"
-    t.integer  "position"
     t.string   "button_text"
     t.string   "button_link"
     t.boolean  "display",             default: true
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
+    t.integer  "position"
     t.string   "classes"
   end
 
@@ -78,11 +78,11 @@ ActiveRecord::Schema.define(version: 20151030092233) do
     t.integer  "position"
     t.integer  "additional_blocks_count"
     t.string   "name"
-    t.string   "style"
     t.integer  "maximum_content_blocks"
     t.boolean  "display",                 default: true
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.string   "style"
   end
 
   create_table "additional_titles", force: :cascade do |t|
@@ -217,6 +217,17 @@ ActiveRecord::Schema.define(version: 20151030092233) do
   add_index "member_mandatory_trainings", ["mandatory_training_course_id"], name: "member_mandatory_training", using: :btree
   add_index "member_mandatory_trainings", ["member_training_id"], name: "index_member_mandatory_trainings_on_member_training_id", using: :btree
 
+  create_table "member_other_training_courses", force: :cascade do |t|
+    t.integer  "member_training_id"
+    t.string   "title",                  null: false
+    t.string   "training_provider_name", null: false
+    t.date     "completed_on",           null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "member_other_training_courses", ["member_training_id"], name: "index_member_other_training_courses_on_member_training_id", using: :btree
+
   create_table "member_profiles", force: :cascade do |t|
     t.string   "email",                  null: false
     t.string   "password_digest",        null: false
@@ -226,10 +237,6 @@ ActiveRecord::Schema.define(version: 20151030092233) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
-
-  add_index "member_profiles", ["auth_token"], name: "index_member_profiles_on_auth_token", using: :btree
-  add_index "member_profiles", ["email"], name: "index_member_profiles_on_email", using: :btree
-  add_index "member_profiles", ["password_reset_token"], name: "index_member_profiles_on_password_reset_token", using: :btree
 
   create_table "member_qualifications", force: :cascade do |t|
     t.integer  "member_profile_id"
@@ -443,6 +450,7 @@ ActiveRecord::Schema.define(version: 20151030092233) do
   add_foreign_key "member_addresses", "member_profiles", on_delete: :cascade
   add_foreign_key "member_mandatory_trainings", "mandatory_training_courses", on_delete: :cascade
   add_foreign_key "member_mandatory_trainings", "member_trainings", on_delete: :cascade
+  add_foreign_key "member_other_training_courses", "member_trainings", on_delete: :cascade
   add_foreign_key "member_qualifications", "member_profiles", on_delete: :cascade
   add_foreign_key "member_trainings", "member_profiles", on_delete: :cascade
   add_foreign_key "qualifications", "member_qualifications", on_delete: :cascade

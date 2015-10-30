@@ -1,0 +1,19 @@
+<div class="nested-fields">
+  <%= f.hidden_field :member_training_id %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :training_provider_name %>
+    <%= f.text_field :training_provider_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :completed_on %>
+    <%= f.date_select :completed_on %>
+  </div>
+
+  <%= link_to_remove_association "Remove Other Training Course", f %>
+</div>

@@ -43,7 +43,7 @@
 
   <div id="qualifications">
     <%= f.fields_for :qualifications do |qualification| %>
-      <%= render partial: "member_area/member_qualifications/qualification_fields", f: qualification %>
+      <%= render "member_area/member_qualifications/qualification_fields", f: qualification %>
     <% end %>
     <div class="links">
       <%= link_to_add_association "Add Qualification", f, :qualifications %>
