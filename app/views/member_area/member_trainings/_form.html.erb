@@ -23,5 +23,15 @@
 
   <%= f.collection_check_boxes :mandatory_training_course_ids, MandatoryTrainingCourse.displayed.order(name: :asc), :id, :name %>
 
+  <div id="other-training-courses">
+    <%= f.fields_for :member_other_training_courses do |training_course| %>
+      <%= render "member_area/member_trainings/member_other_training_course_fields", f: training_course %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association "Add Other Training Course", f, :member_other_training_courses %>
+    </div>
+  </div>
+
+
   <%= f.submit "Save" %>
 <% end %>

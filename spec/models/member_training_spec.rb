@@ -9,5 +9,7 @@ RSpec.describe MemberTraining, type: :model do
     it { should belong_to(:member_profile) }
     it { should have_many(:member_mandatory_trainings) }
     it { should have_many(:mandatory_training_courses).through(:member_mandatory_trainings) }
+    it { should have_many(:member_other_training_courses) }
+    it { should accept_nested_attributes_for(:member_other_training_courses).allow_destroy(true) }
   end
 end
