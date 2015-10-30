@@ -12,6 +12,7 @@ RSpec.describe MemberProfile, type: :model do
     it { should have_one(:work_eligibility) }
     it { should have_many(:member_addresses) }
     it { should have_one(:member_qualification) }
+    it { should have_one(:member_training) }
   end
 
   describe "password reset" do

@@ -49,4 +49,12 @@ RSpec.describe MemberProfilePresenter, type: :presenter do
     expect(member_profile_presenter.member_qualification_link).to eq(link_to "Qualifications", edit_member_area_member_qualification_path)
   end
 
+  it "should return a link to create a member training if one doesn't exist" do
+    expect(member_profile_presenter.member_training_link).to eq(link_to "Training", new_member_area_member_training_path)
+  end
+
+  it "should retun a link to edit member training if one exists" do
+    expect(member_profile_presenter.member_training_link).to eq(link_to "Training", edit_member_area_member_training_path)
+  end
+
 end

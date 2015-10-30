@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029165003) do
+ActiveRecord::Schema.define(version: 20151030092233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -207,6 +207,16 @@ ActiveRecord::Schema.define(version: 20151029165003) do
 
   add_index "member_addresses", ["member_profile_id"], name: "index_member_addresses_on_member_profile_id", using: :btree
 
+  create_table "member_mandatory_trainings", force: :cascade do |t|
+    t.integer  "member_training_id"
+    t.integer  "mandatory_training_course_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "member_mandatory_trainings", ["mandatory_training_course_id"], name: "member_mandatory_training", using: :btree
+  add_index "member_mandatory_trainings", ["member_training_id"], name: "index_member_mandatory_trainings_on_member_training_id", using: :btree
+
   create_table "member_profiles", force: :cascade do |t|
     t.string   "email",                  null: false
     t.string   "password_digest",        null: false
@@ -233,6 +243,14 @@ ActiveRecord::Schema.define(version: 20151029165003) do
   end
 
   add_index "member_qualifications", ["member_profile_id"], name: "index_member_qualifications_on_member_profile_id", using: :btree
+
+  create_table "member_trainings", force: :cascade do |t|
+    t.integer  "member_profile_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "member_trainings", ["member_profile_id"], name: "index_member_trainings_on_member_profile_id", using: :btree
 
   create_table "optimadmin_administrators", force: :cascade do |t|
     t.string   "username",               null: false
@@ -423,7 +441,10 @@ ActiveRecord::Schema.define(version: 20151029165003) do
   add_foreign_key "basic_informations", "member_profiles", on_delete: :cascade
   add_foreign_key "job_locations", "jobs", on_delete: :cascade
   add_foreign_key "member_addresses", "member_profiles", on_delete: :cascade
+  add_foreign_key "member_mandatory_trainings", "mandatory_training_courses", on_delete: :cascade
+  add_foreign_key "member_mandatory_trainings", "member_trainings", on_delete: :cascade
   add_foreign_key "member_qualifications", "member_profiles", on_delete: :cascade
+  add_foreign_key "member_trainings", "member_profiles", on_delete: :cascade
   add_foreign_key "qualifications", "member_qualifications", on_delete: :cascade
   add_foreign_key "team_members", "team_member_teams"
   add_foreign_key "work_eligibilities", "member_profiles", on_delete: :cascade

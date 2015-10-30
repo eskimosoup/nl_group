@@ -1,0 +1,27 @@
+<%= form_for [:member_area, @member_training], url: member_area_member_training_path do |f| %>
+  <% if @member_training.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize @member_training.errors.count, "error" %> prevented your training from being saved</h2>
+      <ul>
+        <% @member_training.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    You are required to complete the following <strong>mandatory training</strong> on an annual basis and will be required to complete
+    our online training prior to the start of your first assignment.
+  </p>
+
+  <p>
+    Which of the following mandatory training courses have you completed before?
+  </p>
+
+  <%= f.collection_check_boxes :mandatory_training_course_ids, MandatoryTrainingCourse.displayed.order(name: :asc), :id, :name %>
+
+  <%= f.submit "Save" %>
+<% end %>
