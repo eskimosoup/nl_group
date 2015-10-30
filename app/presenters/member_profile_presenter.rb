@@ -41,6 +41,14 @@ class MemberProfilePresenter < BasePresenter
     end
   end
 
+  def member_training_link
+    if member_training?
+      h.link_to "Training", h.edit_member_area_member_training_path
+    else
+      h.link_to "Training", h.new_member_area_member_training_path
+    end
+  end
+
   private
 
   def basic_information?
@@ -65,5 +73,13 @@ class MemberProfilePresenter < BasePresenter
 
   def member_qualification
     member_profile.member_qualification
+  end
+
+  def member_training
+    member_profile.member_training
+  end
+
+  def member_training?
+    member_training.present?
   end
 end
