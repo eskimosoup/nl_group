@@ -4,6 +4,11 @@ module MemberArea
     layout 'member_area'
 
     def index
+    end
+
+    def referees_and_emergency_contact
+      @presented_referees = BaseCollectionPresenter.new(collection: current_member_profile.referees, view_template: view_context,
+          presenter: RefereePresenter)
 
     end
 
