@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :sessions, only: [:new, :create, :destroy]
     get :login, to: "sessions#new", as: "login"
     get :logout, to: "sessions#destroy", as: "logout"
+    get :referees_and_emergency_contact, to: "base#referees_and_emergency_contact", path: "referees-and-emergency-contact"
     resource :member_profile, path: "member-profile"
     resource :basic_information, path: "basic-information", except: [:show]
     resource :work_eligibility, path: "eligibility-to-work", except: [:show]

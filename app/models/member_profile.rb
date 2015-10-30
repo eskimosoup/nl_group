@@ -5,6 +5,7 @@ class MemberProfile < ActiveRecord::Base
   has_many :member_addresses
   has_one :member_qualification
   has_one :member_training
+  has_many :referees
 
   has_secure_password
   validates :email, presence: true, uniqueness: true
