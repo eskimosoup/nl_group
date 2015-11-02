@@ -54,7 +54,25 @@ RSpec.describe MemberProfilePresenter, type: :presenter do
   end
 
   it "should retun a link to edit member training if one exists" do
+    member_qualification = create(:member_training, member_profile: member_profile)
     expect(member_profile_presenter.member_training_link).to eq(link_to "Training", edit_member_area_member_training_path)
   end
+
+  it "should return a link to the referees and emergency contact path" do
+    expect(member_profile_presenter.referee_and_emergency_contact_link).to eq(link_to "Referees and Emergency Contacts", member_area_referees_and_emergency_contact_path)
+  end
+
+  describe "new referee links" do
+    it "should return a link for new referees when there are less than 2" do
+      expect(member_profile_presenter.new_referee_link).to eq(link_to "New Referee", new_member_area_referee_path)
+    end
+
+    it "should return nil if there are already 2 referees" do
+      allow(member_profile).to receive_message_chain(:referees, :count).and_return(2)
+      expect(member_profile_presenter.new_referee_link).to be nil
+    end
+  end
+
+
 
 end
