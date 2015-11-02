@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get :referees_and_emergency_contact, to: "base#referees_and_emergency_contact", path: "referees-and-emergency-contact"
     resource :member_profile, path: "member-profile"
     resource :basic_information, path: "basic-information", except: [:show]
+    resource :emergency_contact, path: "emergency-contact", except: [:show]
     resource :work_eligibility, path: "eligibility-to-work", except: [:show]
     resource :member_training, path: "training", except: [:show]
     resource :member_qualification, path: "member-qualification", except: [:show]

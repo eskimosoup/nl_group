@@ -1,9 +1,17 @@
 <h2>Referees</h2>
 
-<%= render @presented_referees %>
-
-<%= presented_current_member_profile.new_referee_link %>
+<% if @presented_referees.present? %>
+  <%= render @presented_referees %>
+<% else %>
+  <%= link_to "New Referee", new_member_area_referee_path %>
+<% end %>
 
 <h2>Emergency Contact</h2>
+
+<% if @presented_emergency_contact.present? %>
+  <%= render @presented_emergency_contact %>
+<% else %>
+  <%= link_to "New emergency contact", new_member_area_emergency_contact_path %>
+<% end %>
 
 <%= link_to "Back to overview", member_area_member_profile_path %>

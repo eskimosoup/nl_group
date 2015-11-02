@@ -62,17 +62,5 @@ RSpec.describe MemberProfilePresenter, type: :presenter do
     expect(member_profile_presenter.referee_and_emergency_contact_link).to eq(link_to "Referees and Emergency Contacts", member_area_referees_and_emergency_contact_path)
   end
 
-  describe "new referee links" do
-    it "should return a link for new referees when there are less than 2" do
-      expect(member_profile_presenter.new_referee_link).to eq(link_to "New Referee", new_member_area_referee_path)
-    end
-
-    it "should return nil if there are already 2 referees" do
-      allow(member_profile).to receive_message_chain(:referees, :count).and_return(2)
-      expect(member_profile_presenter.new_referee_link).to be nil
-    end
-  end
-
-
 
 end
