@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151030140019) do
+ActiveRecord::Schema.define(version: 20151102134113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,6 +127,18 @@ ActiveRecord::Schema.define(version: 20151030140019) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  create_table "emergency_contacts", force: :cascade do |t|
+    t.integer  "member_profile_id"
+    t.string   "full_name",         null: false
+    t.string   "email_address",     null: false
+    t.string   "mobile_number",     null: false
+    t.string   "relationship"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "emergency_contacts", ["member_profile_id"], name: "index_emergency_contacts_on_member_profile_id", using: :btree
 
   create_table "frequently_asked_questions", force: :cascade do |t|
     t.string   "question",                  null: false
@@ -461,6 +473,7 @@ ActiveRecord::Schema.define(version: 20151030140019) do
   add_foreign_key "additional_paragraphs", "additional_blocks"
   add_foreign_key "additional_titles", "additional_blocks"
   add_foreign_key "basic_informations", "member_profiles", on_delete: :cascade
+  add_foreign_key "emergency_contacts", "member_profiles", on_delete: :cascade
   add_foreign_key "job_locations", "jobs", on_delete: :cascade
   add_foreign_key "member_addresses", "member_profiles", on_delete: :cascade
   add_foreign_key "member_mandatory_trainings", "mandatory_training_courses", on_delete: :cascade
