@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151102134113) do
+ActiveRecord::Schema.define(version: 20151102151720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,6 +117,20 @@ ActiveRecord::Schema.define(version: 20151102134113) do
   end
 
   add_index "basic_informations", ["member_profile_id"], name: "index_basic_informations_on_member_profile_id", using: :btree
+
+  create_table "basic_medical_histories", force: :cascade do |t|
+    t.integer  "member_profile_id"
+    t.text     "gp_address",                              null: false
+    t.boolean  "illness_affecting_work",  default: false
+    t.boolean  "illness_caused_by_work",  default: false
+    t.boolean  "require_assistance",      default: false
+    t.boolean  "having_treatment",        default: false
+    t.text     "treatment_clarification"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+  end
+
+  add_index "basic_medical_histories", ["member_profile_id"], name: "index_basic_medical_histories_on_member_profile_id", using: :btree
 
   create_table "clients", force: :cascade do |t|
     t.string   "name",                      null: false
@@ -473,6 +487,7 @@ ActiveRecord::Schema.define(version: 20151102134113) do
   add_foreign_key "additional_paragraphs", "additional_blocks"
   add_foreign_key "additional_titles", "additional_blocks"
   add_foreign_key "basic_informations", "member_profiles", on_delete: :cascade
+  add_foreign_key "basic_medical_histories", "member_profiles"
   add_foreign_key "emergency_contacts", "member_profiles", on_delete: :cascade
   add_foreign_key "job_locations", "jobs", on_delete: :cascade
   add_foreign_key "member_addresses", "member_profiles", on_delete: :cascade

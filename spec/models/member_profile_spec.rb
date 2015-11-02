@@ -15,6 +15,7 @@ RSpec.describe MemberProfile, type: :model do
     it { should have_one(:member_training) }
     it { should have_many(:referees) }
     it { should have_one(:emergency_contact) }
+    it { should have_one(:basic_medical_history) }
   end
 
   describe "password reset" do

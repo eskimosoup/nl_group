@@ -13,6 +13,11 @@ module MemberArea
       @presented_emergency_contact = EmergencyContactPresenter.new(object: emergency_contact, view_template: view_context) if emergency_contact
     end
 
+    def occupational_health_screening
+      basic_medical_history = current_member_profile.basic_medical_history
+      @presented_basic_medical_history = BasicMedicalHistoryPresenter.new(object: basic_medical_history, view_template: view_context) if basic_medical_history
+    end
+
     private
 
     def current_member_profile

@@ -62,5 +62,8 @@ RSpec.describe MemberProfilePresenter, type: :presenter do
     expect(member_profile_presenter.referee_and_emergency_contact_link).to eq(link_to "Referees and Emergency Contacts", member_area_referees_and_emergency_contact_path)
   end
 
+  it "should return a link to the occupational health screening path" do
+    expect(member_profile_presenter.occupational_health_screening_link).to eq(link_to "Occupational Health Screening", member_area_occupational_health_screening_path)
+  end
 
 end

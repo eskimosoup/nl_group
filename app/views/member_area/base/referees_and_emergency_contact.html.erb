@@ -2,9 +2,9 @@
 
 <% if @presented_referees.present? %>
   <%= render @presented_referees %>
-<% else %>
-  <%= link_to "New Referee", new_member_area_referee_path %>
 <% end %>
+<%= link_to "New Referee", new_member_area_referee_path unless @presented_referees.present? && @presented_referees.size < 2 %>
+
 
 <h2>Emergency Contact</h2>
 

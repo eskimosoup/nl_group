@@ -11,8 +11,10 @@ Rails.application.routes.draw do
     get :login, to: "sessions#new", as: "login"
     get :logout, to: "sessions#destroy", as: "logout"
     get :referees_and_emergency_contact, to: "base#referees_and_emergency_contact", path: "referees-and-emergency-contact"
+    get :occupational_health_screening, to: "base#occupational_health_screening", path: "occupational-health-screening"
     resource :member_profile, path: "member-profile"
     resource :basic_information, path: "basic-information", except: [:show]
+    resource :basic_medical_history, path: "basic-medical-history", except: [:show]
     resource :emergency_contact, path: "emergency-contact", except: [:show]
     resource :work_eligibility, path: "eligibility-to-work", except: [:show]
     resource :member_training, path: "training", except: [:show]
