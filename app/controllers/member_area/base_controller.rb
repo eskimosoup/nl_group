@@ -12,8 +12,8 @@ module MemberArea
 
     end
 
-
     private
+
     def current_member_profile
       @current_member_profile ||= MemberProfile.find_by(auth_token: cookies[:auth_token]) if cookies[:auth_token]
     end
