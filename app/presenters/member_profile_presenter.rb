@@ -53,9 +53,11 @@ class MemberProfilePresenter < BasePresenter
     h.link_to "Referees and Emergency Contacts", h.member_area_referees_and_emergency_contact_path
   end
 
-  def new_referee_link
-    h.link_to("New Referee", h.new_member_area_referee_path) if member_profile.referees.count < 2
+  def occupational_health_screening_link
+    h.link_to "Occupational Health Screening", h.member_area_occupational_health_screening_path
   end
+
+
 
   private
 

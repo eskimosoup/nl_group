@@ -1,0 +1,17 @@
+<h1>Occupational Health Screening (Clinical)</h1>
+
+<p>
+  Confidential:
+  The purpose of the questionnaire is to see whether you have any health problems that could affect your ability to undertake
+  the duties of the post you have been offered or place you at any risk in the workplace. We may recommend adjustments or
+  assistance as a result of this assessment to enable you to do the job. Our aim is to promote and maintain the health of all people
+  at work. Before health clearance is given for employment you may be contacted by the Healthier Business UK Ltd and may need
+  to be seen by an occupational health advisor or physician. Your record will be held on file for a short period of time and may be
+  subject to audit. Your file may also be used to cross reference against other Medical Questionnaires held on file for you.
+</p>
+
+<% if @presented_basic_medical_history %>
+  <%= @presented_basic_medical_history.edit_link %>
+<% else %>
+  <%= link_to "New Basic Medical History", new_member_area_basic_medical_history_path %>
+<% end %>
