@@ -25,5 +25,10 @@ module MemberArea
         render :edit
       end
     end
+
+    def basic_medical_history_params
+      params.require(:basic_medical_history).permit(:gp_address, :illness_affecting_work, :illness_caused_by_work,
+                                                    :require_assistance, :aving_treatment, :treatment_clarification)
+    end
   end
 end
