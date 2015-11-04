@@ -21,3 +21,9 @@
 <% else %>
   <%= link_to "Tuberculosis and Chicken Pox Information", new_member_area_tuberculosis_chicken_pox_check_path %>
 <% end %>
+
+<% if @presented_immunisation_history %>
+  <%= @presented_immunisation_history.edit_link %>
+<% else %>
+  <%= link_to "New Immunisation History", new_member_area_immunisation_history_path %>
+<% end %>

@@ -10,6 +10,7 @@ class MemberProfile < ActiveRecord::Base
   has_one :basic_medical_history
   has_one :tuberculosis_chicken_pox_check
   has_one :immunisation_history
+  has_one :dbs_check
 
   has_secure_password
   validates :email, presence: true, uniqueness: true

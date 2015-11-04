@@ -18,6 +18,8 @@ module MemberArea
       @presented_basic_medical_history = BasicMedicalHistoryPresenter.new(object: basic_medical_history, view_template: view_context) if basic_medical_history
       tb_check = current_member_profile.tuberculosis_chicken_pox_check
       @presented_tuberculosis_chicken_pox_check = TuberculosisChickenPoxCheckPresenter.new(object: tb_check, view_template: view_context) if tb_check
+      immunisation_history = current_member_profile.immunisation_history
+      @presented_immunisation_history = ImmunisationHistoryPresenter.new(object: immunisation_history, view_template: view_context) if immunisation_history
     end
 
     private
