@@ -30,8 +30,8 @@ module MemberArea
 
     def tuberculosis_chicken_pox_check_params
       params.require(:tuberculosis_chicken_pox_check).permit(:lived_continuously, :bcg_vaccination, :vaccination_date,
-                                                             :cough, :weight_loss, :fever, :had_tb, :additional_information,
-                                                             :had_chicken_pox, :chicken_pox_date)
+                     :cough, :weight_loss, :fever, :had_tb, :additional_information, :had_chicken_pox, :chicken_pox_date,
+                     visited_countries_attributes: [:id, :name, :duration, :from_year, :to_year, :_destroy])
     end
   end
 end

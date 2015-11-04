@@ -1,0 +1,32 @@
+<div class="nested-fields">
+  <div class="row">
+    <div class="small-3 columns">
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+    </div>
+
+    <div class="small-3 columns">
+      <div class="field">
+        <%= f.label :duration, "Duration (in months)" %>
+        <%= f.number_field :duration, min: 0 %>
+      </div>
+    </div>
+
+    <div class="small-3 columns">
+      <div class="field">
+        <%= f.label :from_year, "From (year)" %>
+        <%= f.select :from_year, options_for_select((50.years.ago.year..Date.today.year).to_a.reverse) %>
+      </div>
+    </div>
+
+    <div class="small-3 columns">
+      <div class="field">
+        <%= f.label :to_year, "From (year)" %>
+        <%= f.select :to_year, options_for_select((50.years.ago.year..Date.today.year).to_a.reverse) %>
+      </div>
+    </div>
+  </div>
+  <%= link_to_remove_association "Remove country", f %>
+</div>
