@@ -5,7 +5,7 @@ class CreateImmunisationHistories < ActiveRecord::Migration
       t.boolean :had_triple_vaccination, null: false
       t.date :triple_vaccination_date
       t.boolean :had_polio_vaccination, null: false
-      t.date :polio_vaccination_date
+      t.date :
       t.boolean :had_hepatitis_b_vaccination, null: false
       t.date :hepatitis_b_vaccination_date
       t.date :hep_b_course_1_date

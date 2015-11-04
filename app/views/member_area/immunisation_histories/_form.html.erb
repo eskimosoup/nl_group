@@ -1,0 +1,117 @@
+<%= form_for [:member_area, @immunisation_history], url: member_area_immunisation_history_path do |f| %>
+  <div class="field">
+    <p>
+      Have you had a triple vaccination immunisation as a child (Diptheria/Tetanus/Cough)?
+    </p>
+    <%= f.label :had_triple_vaccination, "Yes", value: true %>
+    <%= f.radio_button :had_triple_vaccination, true %>
+
+    <%= f.label :had_triple_vaccination, "No", value: false %>
+    <%= f.radio_button :had_triple_vaccination, false %>
+  </div>
+
+  <div class="field">
+    <%= f.label :triple_vaccination_date, "If yes, when did you have a triple vaccination immunisation" %>
+    <%= f.date_select :triple_vaccination_date %>
+  </div>
+
+  <div class="field">
+    <p>
+      Have you had a polio immunisation?
+    </p>
+    <%= f.label :had_polio_vaccination, "Yes", value: true %>
+    <%= f.radio_button :had_polio_vaccination, true %>
+
+    <%= f.label :had_polio_vaccination, "No", value: false %>
+    <%= f.radio_button :had_polio_vaccination, false %>
+  </div>
+
+  <div class="field">
+    <%= f.label :polio_vaccination_date, "If yes, when did you have a polio immunisation" %>
+    <%= f.date_select :polio_vaccination_date %>
+  </div>
+
+  <div class="field">
+    <p>
+      Have you had a Hepatitis B immunisation?
+    </p>
+    <%= f.label :had_hepatitis_b_vaccination, "Yes", value: true %>
+    <%= f.radio_button :had_hepatitis_b_vaccination, true %>
+
+    <%= f.label :had_hepatitis_b_vaccination, "No", value: false %>
+    <%= f.radio_button :had_hepatitis_b_vaccination, false %>
+  </div>
+
+  <div class="field">
+    <%= f.label :hepatitis_b_vaccination_date, "If yes, when did you have a hepatitis B immunisation" %>
+    <%= f.date_select :hepatitis_b_vaccination_date %>
+  </div>
+
+  <p>
+    Please detail Hepatitis B course and booster dates below
+  </p>
+
+  <div class="row">
+    <div class="small-3 columns">
+      Course
+    </div>
+    <div class="small-3 columns">
+      <div class="field">
+        <%= f.label :hep_b_course_1_date, "1." %>
+        <%= f.date_select :hep_b_course_1_date %>
+      </div>
+    </div>
+    <div class="small-3 columns">
+      <div class="field">
+        <%= f.label :hep_b_course_2_date, "2." %>
+        <%= f.date_select :hep_b_course_2_date %>
+      </div>
+    </div>
+    <div class="small-3 columns">
+      <div class="field">
+        <%= f.label :hep_b_course_3_date, "3." %>
+        <%= f.date_select :hep_b_course_3_date %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-3 columns">
+      Booster
+    </div>
+    <div class="small-3 columns">
+      <div class="field">
+        <%= f.label :hep_b_booster_1_date, "1." %>
+        <%= f.date_select :hep_b_booster_1_date %>
+      </div>
+    </div>
+    <div class="small-3 columns">
+      <div class="field">
+        <%= f.label :hep_b_booster_2_date, "2." %>
+        <%= f.date_select :hep_b_booster_2_date %>
+      </div>
+    </div>
+    <div class="small-3 columns">
+      <div class="field">
+        <%= f.label :hep_b_booster_3_date, "3." %>
+        <%= f.date_select :hep_b_booster_3_date %>
+      </div>
+    </div>
+  </div>
+
+  <h3>Exposure Prone Procedures</h3>
+  <div class="field">
+    <p>
+      Will your role involve Exposure Prone Procedures (EPPs)?
+    </p>
+    <%= f.label :role_involves_epps, "Yes", value: true %>
+    <%= f.radio_button :role_involves_epps, true %>
+
+    <%= f.label :role_involves_epps, "No", value: false %>
+    <%= f.radio_button :role_involves_epps, false %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Save" %>
+  </div>
+<% end %>

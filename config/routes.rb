@@ -16,13 +16,14 @@ Rails.application.routes.draw do
     resource :basic_information, path: "basic-information", except: [:show]
     resource :basic_medical_history, path: "basic-medical-history", except: [:show]
     resource :emergency_contact, path: "emergency-contact", except: [:show]
-    resource :work_eligibility, path: "eligibility-to-work", except: [:show]
+    resource :immunisation_history, path: "immunisation-history", except: [:show]
     resource :member_training, path: "training", except: [:show]
     resource :member_qualification, path: "member-qualification", except: [:show]
     resources :member_addresses, path: "addresses", except: [:show]
     resources :password_resets, path: "password-reset", only: [:new, :create, :edit]
     resources :referees, except: [:index, :show]
     resource :tuberculosis_chicken_pox_check, path: "tuberculosis-chicken-pox-check", except: [:show]
+    resource :work_eligibility, path: "eligibility-to-work", except: [:show]
     root to: "base#index"
   end
 
