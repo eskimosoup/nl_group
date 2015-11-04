@@ -8,6 +8,7 @@ class TuberculosisChickenPoxCheck < ActiveRecord::Base
   validates :vaccination_date, presence: true, if: Proc.new{|x| x.bcg_vaccination? }
   validates :additional_information, presence: true, if: :needs_additional_information?
   validates :chicken_pox_date, presence: true, if: Proc.new{|x| x.had_chicken_pox? }
+  validates :lived_continuously, :bcg_vaccination, :cough, :weight_loss, :fever, :had_tb, :had_chicken_pox, inclusion: { in: [true, false] }
 
   def needs_additional_information?
     cough? || weight_loss? || fever? || had_tb?
