@@ -7,7 +7,7 @@ module MemberArea
     def create
       @tuberculosis_chicken_pox_check = current_member_profile.build_tuberculosis_chicken_pox_check(tuberculosis_chicken_pox_check_params)
       if @tuberculosis_chicken_pox_check.save
-        redirect_to member_area_member_profile_url, notice: "Tuberculosis and chicken pox check saved"
+        redirect_to member_area_occupational_health_screening_path, notice: "Tuberculosis and chicken pox check saved"
       else
         render :new
       end
@@ -20,7 +20,7 @@ module MemberArea
     def update
       @tuberculosis_chicken_pox_check = current_member_profile.tuberculosis_chicken_pox_check
       if @tuberculosis_chicken_pox_check.update(tuberculosis_chicken_pox_check_params)
-        redirect_to member_area_member_profile_url, notice: "Tuberculosis and chicken pox check updated"
+        redirect_to member_area_occupational_health_screening_path, notice: "Tuberculosis and chicken pox check updated"
       else
         render :edit
       end

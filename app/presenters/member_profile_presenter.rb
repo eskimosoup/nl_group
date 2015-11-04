@@ -57,16 +57,6 @@ class MemberProfilePresenter < BasePresenter
     h.link_to "Occupational Health Screening", h.member_area_occupational_health_screening_path
   end
 
-  def tuberculosis_chicken_pox_link
-    if tuberculosis_chicken_pox_check?
-      h.link_to "Tuberculosis and Chicken Pox Information", h.edit_member_area_tuberculosis_chicken_pox_check_path
-    else
-      h.link_to "Tuberculosis and Chicken Pox Information", h.new_member_area_tuberculosis_chicken_pox_check_path
-    end
-  end
-
-
-
   private
 
   def basic_information?
@@ -99,13 +89,5 @@ class MemberProfilePresenter < BasePresenter
 
   def member_training?
     member_training.present?
-  end
-
-  def tuberculosis_chicken_pox_check
-    member_profile.tuberculosis_chicken_pox_check
-  end
-
-  def tuberculosis_chicken_pox_check?
-    tuberculosis_chicken_pox_check.present?
   end
 end

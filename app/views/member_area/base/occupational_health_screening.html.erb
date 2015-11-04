@@ -15,3 +15,9 @@
 <% else %>
   <%= link_to "New Basic Medical History", new_member_area_basic_medical_history_path %>
 <% end %>
+
+<% if @presented_tuberculosis_chicken_pox_check %>
+  <%= @presented_tuberculosis_chicken_pox_check.edit_link %>
+<% else %>
+  <%= link_to "Tuberculosis and Chicken Pox Information", new_member_area_tuberculosis_chicken_pox_check_path %>
+<% end %>

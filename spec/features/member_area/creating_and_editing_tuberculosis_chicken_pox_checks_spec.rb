@@ -4,6 +4,7 @@ RSpec.feature "Creating and editing tuberculosis chicken pox checks", type: :fea
   let!(:member_profile){ create(:member_profile) }
   it "should allow creation and editing" do
     login_to_member_area_with(member_profile.email, "password")
+    click_link "Occupational Health Screening"
     click_link "Tuberculosis and Chicken Pox Information"
 
     expect(current_path).to eq(new_member_area_tuberculosis_chicken_pox_check_path)
@@ -21,7 +22,7 @@ RSpec.feature "Creating and editing tuberculosis chicken pox checks", type: :fea
     select_date(5.years.ago, from: "tuberculosis_chicken_pox_check_chicken_pox_date")
     click_button "Save"
 
-    expect(current_path).to eq(member_area_member_profile_path)
+    expect(current_path).to eq(member_area_occupational_health_screening_path)
     expect(page).to have_content "Tuberculosis and chicken pox check saved"
 
     click_link "Tuberculosis and Chicken Pox Information"
@@ -41,7 +42,7 @@ RSpec.feature "Creating and editing tuberculosis chicken pox checks", type: :fea
     fill_in "tuberculosis_chicken_pox_check_additional_information", with: "Some content"
     click_button "Save"
 
-    expect(current_path).to eq(member_area_member_profile_path)
+    expect(current_path).to eq(member_area_occupational_health_screening_path)
     expect(page).to have_content "Tuberculosis and chicken pox check updated"
   end
 end
