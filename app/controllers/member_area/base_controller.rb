@@ -16,6 +16,8 @@ module MemberArea
     def occupational_health_screening
       basic_medical_history = current_member_profile.basic_medical_history
       @presented_basic_medical_history = BasicMedicalHistoryPresenter.new(object: basic_medical_history, view_template: view_context) if basic_medical_history
+      tb_check = current_member_profile.tuberculosis_chicken_pox_check
+      @presented_tuberculosis_chicken_pox_check = TuberculosisChickenPoxCheckPresenter.new(object: tb_check, view_template: view_context) if tb_check
     end
 
     private

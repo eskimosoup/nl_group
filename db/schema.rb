@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104100207) do
+ActiveRecord::Schema.define(version: 20151104115107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -175,6 +175,27 @@ ActiveRecord::Schema.define(version: 20151104100207) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "immunisation_histories", force: :cascade do |t|
+    t.integer  "member_profile_id"
+    t.boolean  "had_triple_vaccination",       null: false
+    t.date     "triple_vaccination_date"
+    t.boolean  "had_polio_vaccination",        null: false
+    t.date     "polio_vaccination_date"
+    t.boolean  "had_hepatitis_b_vaccination",  null: false
+    t.date     "hepatitis_b_vaccination_date"
+    t.date     "hep_b_course_1_date"
+    t.date     "hep_b_course_2_date"
+    t.date     "hep_b_course_3_date"
+    t.date     "hep_b_booster_1_date"
+    t.date     "hep_b_booster_2_date"
+    t.date     "hep_b_booster_3_date"
+    t.boolean  "role_involves_epps",           null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "immunisation_histories", ["member_profile_id"], name: "index_immunisation_histories_on_member_profile_id", using: :btree
 
   create_table "job_locations", force: :cascade do |t|
     t.integer  "job_id"
@@ -519,6 +540,7 @@ ActiveRecord::Schema.define(version: 20151104100207) do
   add_foreign_key "basic_informations", "member_profiles", on_delete: :cascade
   add_foreign_key "basic_medical_histories", "member_profiles"
   add_foreign_key "emergency_contacts", "member_profiles", on_delete: :cascade
+  add_foreign_key "immunisation_histories", "member_profiles", on_delete: :cascade
   add_foreign_key "job_locations", "jobs", on_delete: :cascade
   add_foreign_key "member_addresses", "member_profiles", on_delete: :cascade
   add_foreign_key "member_mandatory_trainings", "mandatory_training_courses", on_delete: :cascade
