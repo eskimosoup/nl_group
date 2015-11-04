@@ -24,6 +24,17 @@
     <%= f.label :lived_continuously, "No", value: false %>
   </div>
 
+  <div id="visited-countries">
+    <p>If you have not lived in the UK continuously for the last 5 years, please list all of the countries that you have
+    lived in/visited over the last 5 years, including duration of stay and dates</p>
+    <%= f.fields_for :visited_countries do |country| %>
+      <%= render "visited_country_fields", f: country %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association "Add country", f, :visited_countries %>
+    </div>
+  </div>
+
   <div class="field">
     <p>Have you had a BCG vaccination in relation to Tuberculosis?</p>
     <%= f.radio_button :bcg_vaccination, true %>

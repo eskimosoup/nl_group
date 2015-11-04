@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Creating and editing tuberculosis chicken pox checks", type: :feature do
+RSpec.feature "Creating and editing tuberculosis chicken pox checks", type: :feature, js: true do
   let!(:member_profile){ create(:member_profile) }
   it "should allow creation and editing" do
     login_to_member_area_with(member_profile.email, "password")
@@ -28,8 +28,17 @@ RSpec.feature "Creating and editing tuberculosis chicken pox checks", type: :fea
 
     expect(current_path).to eq(edit_member_area_tuberculosis_chicken_pox_check_path)
 
+    choose("tuberculosis_chicken_pox_check_lived_continuously_false")
+
+    click_link "Add country"
+
+    within(all("#visited-countries .nested-fields").last) do
+      fill_in "Name", with: "Some Title"
+      fill_in "Duration (in months)", with: 5
+    end
+
     choose("tuberculosis_chicken_pox_check_had_tb_true")
-    fill_in "tuberculosis_chicken_pox_check_additional_information", with: "Some contenct"
+    fill_in "tuberculosis_chicken_pox_check_additional_information", with: "Some content"
     click_button "Save"
 
     expect(current_path).to eq(member_area_member_profile_path)

@@ -37,5 +37,7 @@ RSpec.describe TuberculosisChickenPoxCheck, type: :model do
 
   describe "associations", :association do
     it { should belong_to(:member_profile) }
+    it { should have_many(:visited_countries) }
+    it { should accept_nested_attributes_for(:visited_countries).allow_destroy(true) }
   end
 end
