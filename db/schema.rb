@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151102151720) do
+ActiveRecord::Schema.define(version: 20151103135228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -454,6 +454,24 @@ ActiveRecord::Schema.define(version: 20151102151720) do
     t.datetime "updated_at",                      null: false
   end
 
+  create_table "tuberculosis_chicken_pox_checks", force: :cascade do |t|
+    t.integer  "member_profile_id"
+    t.boolean  "lived_continuously",     null: false
+    t.boolean  "bcg_vaccination",        null: false
+    t.date     "vaccination_date"
+    t.boolean  "cough",                  null: false
+    t.boolean  "weight_loss",            null: false
+    t.boolean  "fever",                  null: false
+    t.boolean  "had_tb",                 null: false
+    t.text     "additional_information"
+    t.boolean  "had_chicken_pox",        null: false
+    t.date     "chicken_pox_date"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "tuberculosis_chicken_pox_checks", ["member_profile_id"], name: "index_tuberculosis_chicken_pox_checks_on_member_profile_id", using: :btree
+
   create_table "work_eligibilities", force: :cascade do |t|
     t.integer  "member_profile_id"
     t.string   "passport_number",                       null: false
@@ -499,5 +517,6 @@ ActiveRecord::Schema.define(version: 20151102151720) do
   add_foreign_key "qualifications", "member_qualifications", on_delete: :cascade
   add_foreign_key "referees", "member_profiles", on_delete: :cascade
   add_foreign_key "team_members", "team_member_teams"
+  add_foreign_key "tuberculosis_chicken_pox_checks", "member_profiles", on_delete: :cascade
   add_foreign_key "work_eligibilities", "member_profiles", on_delete: :cascade
 end

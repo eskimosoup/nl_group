@@ -66,4 +66,12 @@ RSpec.describe MemberProfilePresenter, type: :presenter do
     expect(member_profile_presenter.occupational_health_screening_link).to eq(link_to "Occupational Health Screening", member_area_occupational_health_screening_path)
   end
 
+  it "should return a link to create a tuberculosis chicken pox check if one doesn't exist" do
+    expect(member_profile_presenter.tuberculosis_chicken_pox_link).to eq(link_to "Tuberculosis and Chicken Pox Information", new_member_area_tuberculosis_chicken_pox_check_path)
+  end
+
+  it "should retun a link to edit tuberculosis chicken pox check if one exists" do
+    tb_check = create(:tuberculosis_chicken_pox_check, member_profile: member_profile)
+    expect(member_profile_presenter.tuberculosis_chicken_pox_link).to eq(link_to "Tuberculosis and Chicken Pox Information", edit_member_area_tuberculosis_chicken_pox_check_path)
+  end
 end
