@@ -1,0 +1,104 @@
+<h2>Disclosure and Barring Service (DBS formerly CRB)</h2>
+
+<p><strong>Important</strong></p>
+
+<p>
+  Applicants for Healthcare related positions are exempt from the Rehabilitation of Offenders Act 1974. You are
+  therefore required to declare prosecutions or convictions, including those considered ‘spent’ under this Act.
+</p>
+
+<p>
+  NL Group will undertake an Enhanced DBS check on your behalf immediately following your interview.
+  You will not be able to be placed without having completed a current DBS check. NL Group utilises the
+  electronic DBS service provided by Atlantic Data, the results of which will be posted direct to you, not us.
+  Please ensure you bring along to your interview ALL EVIDENCE of ORIGINAL DOCUMENTATION (e.g. passport,
+  proof of address) as requested, not photocopies! We will take certified copies on the day of your interview.
+</p>
+
+<%= form_for [:member_area, @dbs_check], url: member_area_dbs_check_path do |f| %>
+  <div class="field">
+    <p>
+      Have you ever had an enhanced Disclosure and Barring Service (DBS) completed before?
+    </p>
+    <%= f.label :enhanced_dbs_completed_before, "Yes", value: true %>
+    <%= f.radio_button :enhanced_dbs_completed_before, true %>
+
+    <%= f.label :enhanced_dbs_completed_before, "No", value: false %>
+    <%= f.radio_button :enhanced_dbs_completed_before, false %>
+  </div>
+
+  <p>
+    Previous DBS check details
+  </p>
+
+  <div class="field">
+    <%= f.label :previous_disclosure_number %>
+    <%= f.text_field :previous_disclosure_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_previous_dbs_completed %>
+    <%= f.date_select :date_previous_dbs_completed %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company_completed_dbs_check %>
+    <%= f.text_field :company_completed_dbs_check %>
+  </div>
+
+  <p>
+    Please answer the following questions in relation to your criminal disclosures
+  </p>
+
+  <div class="field">
+    <p>
+      Do you have any convictions, cautions, reprimands or final warnings that are not &lsquo;protected&rsquo; as defined by the
+      Rehabilitation of Offenders Act 1974 (Exceptions) Order 1975 (as amended in 2013) by SI 2013 1198?
+    </p>
+    <%= f.label :unprotected_convictions, "Yes", value: true %>
+    <%= f.radio_button :unprotected_convictions, true %>
+
+    <%= f.label :unprotected_convictions, "No", value: false %>
+    <%= f.radio_button :unprotected_convictions, false %>
+  </div>
+
+  <div class="field">
+    <p>
+      Do you have any convictions, cautions, reprimands or final warnings which would not be filtered in line with current guidance?
+    </p>
+    <%= f.label :unfiltered_convictions, "Yes", value: true %>
+    <%= f.radio_button :unfiltered_convictions, true %>
+
+    <%= f.label :unfiltered_convictions, "No", value: false %>
+    <%= f.radio_button :unfiltered_convictions, false %>
+  </div>
+
+  <div class="field">
+    <p>
+      Have you had a Police check in another country within the last 6 months?
+    </p>
+    <%= f.label :another_country_police_check, "Yes", value: true %>
+    <%= f.radio_button :another_country_police_check, true %>
+
+    <%= f.label :another_country_police_check, "No", value: false %>
+    <%= f.radio_button :another_country_police_check, false %>
+  </div>
+
+  <div class="field">
+    <p>
+      Have you ever been suspended or are you currently under investigation by an NHS Trust, professional body or any other organisation?
+    </p>
+    <%= f.label :suspended_or_under_investigation, "Yes", value: true %>
+    <%= f.radio_button :suspended_or_under_investigation, true %>
+
+    <%= f.label :suspended_or_under_investigation, "No", value: false %>
+    <%= f.radio_button :suspended_or_under_investigation, false %>
+  </div>
+
+  <div class="field">
+    <%= f.label :additional_information, "If you have answered Yes to one ore more of the above questions, please provide full details below" %>
+    <%= f.text_area :additional_information %>
+  </div>
+
+  <%= f.submit "Save" %>
+<% end %>

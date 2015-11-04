@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104115107) do
+ActiveRecord::Schema.define(version: 20151104152207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -141,6 +141,23 @@ ActiveRecord::Schema.define(version: 20151104115107) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  create_table "dbs_checks", force: :cascade do |t|
+    t.integer  "member_profile_id"
+    t.boolean  "enhanced_dbs_completed_before",    null: false
+    t.string   "previous_disclosure_number"
+    t.date     "date_previous_dbs_completed"
+    t.string   "company_completed_dbs_check"
+    t.boolean  "unprotected_convictions",          null: false
+    t.boolean  "unfiltered_convictions",           null: false
+    t.boolean  "another_country_police_check",     null: false
+    t.boolean  "suspended_or_under_investigation", null: false
+    t.text     "additional_information"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  add_index "dbs_checks", ["member_profile_id"], name: "index_dbs_checks_on_member_profile_id", using: :btree
 
   create_table "emergency_contacts", force: :cascade do |t|
     t.integer  "member_profile_id"
@@ -539,6 +556,7 @@ ActiveRecord::Schema.define(version: 20151104115107) do
   add_foreign_key "additional_titles", "additional_blocks"
   add_foreign_key "basic_informations", "member_profiles", on_delete: :cascade
   add_foreign_key "basic_medical_histories", "member_profiles"
+  add_foreign_key "dbs_checks", "member_profiles"
   add_foreign_key "emergency_contacts", "member_profiles", on_delete: :cascade
   add_foreign_key "immunisation_histories", "member_profiles", on_delete: :cascade
   add_foreign_key "job_locations", "jobs", on_delete: :cascade

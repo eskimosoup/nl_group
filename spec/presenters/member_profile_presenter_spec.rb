@@ -53,7 +53,7 @@ RSpec.describe MemberProfilePresenter, type: :presenter do
     expect(member_profile_presenter.member_training_link).to eq(link_to "Training", new_member_area_member_training_path)
   end
 
-  it "should retun a link to edit member training if one exists" do
+  it "should return a link to edit member training if one exists" do
     member_qualification = create(:member_training, member_profile: member_profile)
     expect(member_profile_presenter.member_training_link).to eq(link_to "Training", edit_member_area_member_training_path)
   end
@@ -64,5 +64,14 @@ RSpec.describe MemberProfilePresenter, type: :presenter do
 
   it "should return a link to the occupational health screening path" do
     expect(member_profile_presenter.occupational_health_screening_link).to eq(link_to "Occupational Health Screening", member_area_occupational_health_screening_path)
+  end
+
+  it "should return a link to create a dbs check if one doesn't exist" do
+    expect(member_profile_presenter.dbs_check_link).to eq(link_to "DBS Check", new_member_area_dbs_check_path)
+  end
+
+  it "should return a link to edit the dbs check if one doesn't exist" do
+    dbs_check = create(:dbs_check, member_profile: member_profile)
+    expect(member_profile_presenter.dbs_check_link).to eq(link_to "DBS Check", edit_member_area_dbs_check_path)
   end
 end

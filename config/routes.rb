@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resource :member_profile, path: "member-profile"
     resource :basic_information, path: "basic-information", except: [:show]
     resource :basic_medical_history, path: "basic-medical-history", except: [:show]
+    resource :dbs_check, path: "dbs-check", except: [:show]
     resource :emergency_contact, path: "emergency-contact", except: [:show]
     resource :immunisation_history, path: "immunisation-history", except: [:show]
     resource :member_training, path: "training", except: [:show]
