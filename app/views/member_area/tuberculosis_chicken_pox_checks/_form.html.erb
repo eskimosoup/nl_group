@@ -1,0 +1,118 @@
+<%= form_for [:member_area, @tuberculosis_chicken_pox_check], url: member_area_tuberculosis_chicken_pox_check_path do |f| %>
+  <% if @tuberculosis_chicken_pox_check.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize @tuberculosis_chicken_pox_check.errors.count, "error" %> prevented your tuberculosis and chicken pox information from being saved</h2>
+      <ul>
+        <% @tuberculosis_chicken_pox_check.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h3>Tuberculosis</h3>
+  <p>Clinical diagnosis and management of tuberculosis, and measures for its prevention and control (NICE 2006).</p>
+
+  <div class="field">
+    <p>Have you lived continuously in the UK for the last 5 years?</p>
+    <%= f.radio_button :lived_continuously, true %>
+    <%= f.label :lived_continuously, "Yes", value: true %>
+
+    <%= f.radio_button :lived_continuously, false %>
+    <%= f.label :lived_continuously, "No", value: false %>
+  </div>
+
+  <div class="field">
+    <p>Have you had a BCG vaccination in relation to Tuberculosis?</p>
+    <%= f.radio_button :bcg_vaccination, true %>
+    <%= f.label :bcg_vaccination, "Yes", value: true %>
+
+    <%= f.radio_button :bcg_vaccination, false %>
+    <%= f.label :bcg_vaccination, "No", value: false %>
+  </div>
+
+  <div class="field">
+    <%= f.label :vaccination_date, "When did you have this vaccination" %>
+    <%= f.date_select :vaccination_date %>
+  </div>
+
+  <p>
+    Do you have any of the following?
+  </p>
+
+  <div class="row">
+    <div class="small-12 medium-3 columns">
+      <div class="field">
+        <p>A cough which has lasted for more than 3 weeks?</p>
+        <%= f.radio_button :cough, true %>
+        <%= f.label :cough, "Yes", value: true %>
+
+        <%= f.radio_button :cough, false %>
+        <%= f.label :cough, "No", value: false %>
+      </div>
+    </div>
+
+    <div class="small-12 medium-3 columns">
+      <div class="field">
+        <p>Unexplained weight loss?</p>
+        <%= f.radio_button :weight_loss, true %>
+        <%= f.label :weight_loss, "Yes", value: true %>
+
+        <%= f.radio_button :weight_loss, false %>
+        <%= f.label :weight_loss, "No", value: false %>
+      </div>
+    </div>
+
+    <div class="small-12 medium-3 columns">
+      <div class="field">
+        <p>Unexplained fever?</p>
+        <%= f.radio_button :fever, true %>
+        <%= f.label :fever, "Yes", value: true %>
+
+        <%= f.radio_button :fever, false %>
+        <%= f.label :fever, "No", value: false %>
+      </div>
+    </div>
+
+    <div class="small-12 medium-3 columns">
+      <div class="field">
+        <p>Have you had tuberculosis (TB) or been in recent contact with open TB?</p>
+        <%= f.radio_button :had_tb, true %>
+        <%= f.label :had_tb, "Yes", value: true %>
+
+        <%= f.radio_button :had_tb, false %>
+        <%= f.label :had_tb, "No", value: false %>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :additional_information do %>
+      If you have answered <strong>Yes</strong> to any of the questions above, please provide additional information below
+    <% end %>
+    <%= f.text_area :additional_information %>
+  </div>
+
+  <h3>Chicken Pox or Shingles</h3>
+  <div class="field">
+    <p>Have you ever had chicken pox or shingles?</p>
+    <%= f.radio_button :had_chicken_pox, true %>
+    <%= f.label :had_chicken_pox, "Yes", value: true %>
+
+    <%= f.radio_button :had_chicken_pox, false %>
+    <%= f.label :had_chicken_pox, "No", value: false %>
+  </div>
+
+  <div class="field">
+    <%= f.label :chicken_pox_date do %>
+      If <strong>Yes</strong> when
+    <% end %>
+    <%= f.date_select :chicken_pox_date %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Save" %>
+  </div>
+<% end %>

@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resources :member_addresses, path: "addresses", except: [:show]
     resources :password_resets, path: "password-reset", only: [:new, :create, :edit]
     resources :referees, except: [:index, :show]
+    resource :tuberculosis_chicken_pox_check, path: "tuberculosis-chicken-pox-check", except: [:show]
     root to: "base#index"
   end
 
