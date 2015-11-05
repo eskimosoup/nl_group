@@ -11,6 +11,7 @@ class MemberProfile < ActiveRecord::Base
   has_one :tuberculosis_chicken_pox_check
   has_one :immunisation_history
   has_one :dbs_check
+  has_one :payment_declaration
 
   has_secure_password
   validates :email, presence: true, uniqueness: true

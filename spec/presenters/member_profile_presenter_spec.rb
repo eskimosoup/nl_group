@@ -70,8 +70,17 @@ RSpec.describe MemberProfilePresenter, type: :presenter do
     expect(member_profile_presenter.dbs_check_link).to eq(link_to "DBS Check", new_member_area_dbs_check_path)
   end
 
-  it "should return a link to edit the dbs check if one doesn't exist" do
+  it "should return a link to edit the dbs check if one exists" do
     dbs_check = create(:dbs_check, member_profile: member_profile)
     expect(member_profile_presenter.dbs_check_link).to eq(link_to "DBS Check", edit_member_area_dbs_check_path)
+  end
+
+  it "should return a link to create a payment declaration if one doesn't exist" do
+    expect(member_profile_presenter.payment_declaration_link).to eq(link_to "Payment Declaration", new_member_area_payment_declaration_path)
+  end
+
+  it "should return a link to edit the payment declaration if one exists" do
+    payment_declaration = create(:payment_declaration, member_profile: member_profile)
+    expect(member_profile_presenter.payment_declaration_link).to eq(link_to "Payment Declaration", edit_member_area_payment_declaration_path)
   end
 end
