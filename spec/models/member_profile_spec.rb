@@ -19,7 +19,8 @@ RSpec.describe MemberProfile, type: :model do
     it { should have_one(:tuberculosis_chicken_pox_check) }
     it { should have_one(:immunisation_history) }
     it { should have_one(:dbs_check) }
-    it { should have_one(:payment_declaration) }
+    it { should have_one(:payment_information) }
+    it { should have_one(:member_submission) }
   end
 
   describe "password reset" do

@@ -1,0 +1,119 @@
+<%= form_for [:member_area, @member_submission], url: member_area_member_submission_path do |f| %>
+
+  <% if @member_submission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize @member_submission.errors.count, "error" %> prevented your submission</h2>
+      <ul>
+        <% @member_submission.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h3>Candidate Handbook</h3>
+
+  Please download the Candidate Handbook via the link: <strong>ADD LINK HERE</strong>
+
+  <div class="field">
+    <%= f.check_box :downloaded_handbook %>
+    <%= f.label :downloaded_handbook do %>
+      I confirm that I have downloaded / received a copy of the Candidate Handbook and that it is my responsibility to ensure
+      I have read and understood each section of the handbook; my responsibilities and accountability for the role I have applied for.
+    <% end %>
+  </div>
+
+  <h3>Health Declaration</h3>
+  <div class="field">
+    <%= f.check_box :health_information_accurate %>
+    <%= f.label :health_information_accurate do %>
+      I confirm that the information supplied in the occupational health screening section is true to the best of my belief.
+      I agree to inform my employer of any health problems so that my health and safety can be protected whilst at work.
+    <% end %>
+  </div>
+
+  <div class="main-acceptance">
+    <p>
+      I can confirm that I have read this document fully and that all the information provided to NL Group Limited is correct to the best of my knowledge and belief. I
+      give consent to contact referees regarding the information I have provided unless specified otherwise. I will inform NL Group Limited should anything change that
+      might affect my position and I understand the information given on this form will be processed by computer and used for registration purposes, under the Data
+      Protection Act 1998.
+    </p>
+    <ol>
+      <li>
+        I understand that if I am at any stage charged or cautioned after signing this declaration, I must inform NL Group Limited.
+      </li>
+      <li>
+        I acknowledge that I have been given a copy of the terms and conditions of service issued by NL Group Limited, which is mine to keep,
+        and furthermore that I have read those terms and conditions and agree to abide by them.
+      </li>
+      <li>
+        I am not aware of any condition, medical or otherwise, which would affect or limit my employment or performance, other than those
+        declared in my Occupational Health Medical Questionnaire.
+      </li>
+      <li>
+        I acknowledge and confirm that NL Group Limited is authorised to apply for and obtain a Disclosure and Barring Service (DBS)
+        check and references from any previous employers and educational establishments.
+      </li>
+      <li>
+        I declare that the information given herein is true and complete and is not presented in a way intended to mislead.
+      </li>
+      <li>
+        I agree that if I have given false or misleading information or omit to give relevant information now or in the future,
+        NL Group Limited may cease to offer me further agency placements without notice. They may also claim for recovery of any payments
+        I have received, together with a claim for loss of profit to NL Group Limited. I agree that the maximum weekly working time specified
+        in Regulation 4(1) and (2) of the Working Time Regulations 1998 shall not apply to working with NL Group Limited unless specified.
+      </li>
+      <li>
+        I acknowledge that my personal details will be stored and handled correctly by NL Group Limited in accordance with the
+        Data Protection Act 1998, however, I agree that they may be made available for audit/review by relevant third parties.
+        (This is relevant for all information including all documents - DBS, Occupational Health and references).
+      </li>
+      <li>
+        I understand that if I am on a student visa I can only work for 20 hours per week during term time. I understand
+        that I have a responsibility to monitor this. In addition, if my position as a student changes, I must inform NL Group Limited.
+      </li>
+      <li>
+        I understand that if I am on a Tier 2 Sponsorship Visa, I can only work for a maximum of 20 hours per week at the same
+        professional level as my sponsorship. I understand that I have a responsibility to monitor this. In addition,
+        if my position with my sponsored company changes, I must inform NL Group Limited.
+      </li>
+      <li>
+        I acknowledge that if any of my details stated on this Application Form change, or my circumstances change,
+        which may affect my ability to work for NL Group Limited, I must inform NL Group Limited immediately.
+      </li>
+      <li>
+        I confirm that I am not currently under investigation, or currently suspended, by my professional regulatory body
+        or being investigated by my current or previous employer. I will inform NL Group Limited if I am under investigation
+        or suspended by my professional regulatory body or employer at any point while working for NL Group Limited.
+      </li>
+      <li>
+        I confirm that when asked about my working history (primarily, but not exclusively, for the purpose of the Agency
+        Workers Regulations) I will provide accurate information.
+      </li>
+      <li>
+        I acknowledge that should I reach the 12 week Qualifying Period under the Agency Workers Regulations,
+        I may be asked for, and will provide, further documentation as evidence of qualifying weeks, if NL Group Limited deem it necessary.
+      </li>
+      <li>
+        I confirm that whilst working for NL Group Limited I am willing to work through any of the brands/subsidiary companies
+        that form part of NL Group Limited of companies. These include (but are not limited to) NL Group Healthcare and NL Group Homecare.
+        I understand that I will be informed at the time of placement which company/ brand that I will be working for and will be
+        provided with the relevant documentation to represent that company.
+      </li>
+    </ol>
+  </div>
+
+  <div class="field">
+    <%= f.check_box :full_acknowledgement %>
+    <%= f.label :full_acknowledgement do %>
+      I confirm that I agree to all of the above
+    <% end %>
+  </div>
+
+  <%= f.submit "Save" %>
+
+<% end %>
+

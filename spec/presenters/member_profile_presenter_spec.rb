@@ -75,12 +75,136 @@ RSpec.describe MemberProfilePresenter, type: :presenter do
     expect(member_profile_presenter.dbs_check_link).to eq(link_to "DBS Check", edit_member_area_dbs_check_path)
   end
 
-  it "should return a link to create a payment declaration if one doesn't exist" do
-    expect(member_profile_presenter.payment_declaration_link).to eq(link_to "Payment Declaration", new_member_area_payment_declaration_path)
+  it "should return a link to create a payment information if one doesn't exist" do
+    expect(member_profile_presenter.payment_information_link).to eq(link_to "Payment Information", new_member_area_payment_information_path)
   end
 
-  it "should return a link to edit the payment declaration if one exists" do
-    payment_declaration = create(:payment_declaration, member_profile: member_profile)
-    expect(member_profile_presenter.payment_declaration_link).to eq(link_to "Payment Declaration", edit_member_area_payment_declaration_path)
+  it "should return a link to edit the payment information if one exists" do
+    payment_information = create(:payment_information, member_profile: member_profile)
+    expect(member_profile_presenter.payment_information_link).to eq(link_to "Payment Information", edit_member_area_payment_information_path)
+  end
+
+  describe "checking occupational health sections completed" do
+    it "should be complete" do
+      allow(member_profile_presenter).to receive(:basic_medical_history?) { true }
+      allow(member_profile_presenter).to receive(:tuberculosis_chicken_pox_check?) { true }
+      allow(member_profile_presenter).to receive(:immunisation_history?) { true }
+
+      expect(member_profile_presenter.occupational_health_complete?).to be true
+    end
+
+    it "should not be complete with no basic medical history" do
+      allow(member_profile_presenter).to receive(:basic_medical_history?) { false }
+      allow(member_profile_presenter).to receive(:tuberculosis_chicken_pox_check?) { true }
+      allow(member_profile_presenter).to receive(:immunisation_history?) { true }
+
+      expect(member_profile_presenter.occupational_health_complete?).to be false
+    end
+
+    it "should not be complete with no tuberculosis chicken pox check" do
+      allow(member_profile_presenter).to receive(:basic_medical_history?) { true }
+      allow(member_profile_presenter).to receive(:tuberculosis_chicken_pox_check?) { false }
+      allow(member_profile_presenter).to receive(:immunisation_history?) { true }
+
+      expect(member_profile_presenter.occupational_health_complete?).to be false
+    end
+
+    it "should not be complete with no immunisation history" do
+      allow(member_profile_presenter).to receive(:basic_medical_history?) { true }
+      allow(member_profile_presenter).to receive(:tuberculosis_chicken_pox_check?) { true }
+      allow(member_profile_presenter).to receive(:immunisation_history?) { false }
+
+      expect(member_profile_presenter.occupational_health_complete?).to be false
+    end
+  end
+
+  describe "general information complete" do
+    it "should be true if everything complete" do
+      allow(member_profile_presenter).to receive(:basic_information?) { true }
+      allow(member_profile_presenter).to receive(:has_current_address?) { true }
+      expect(member_profile_presenter.general_information_complete?).to be true
+    end
+
+    it "should be false if no basic info" do
+      allow(member_profile_presenter).to receive(:basic_information?) { false }
+      allow(member_profile_presenter).to receive(:has_current_address?) { true }
+      expect(member_profile_presenter.general_information_complete?).to be false
+    end
+
+    it "should be false if no current address" do
+      allow(member_profile_presenter).to receive(:basic_information?) { true }
+      allow(member_profile_presenter).to receive(:has_current_address?) { false }
+      expect(member_profile_presenter.general_information_complete?).to be false
+    end
+  end
+
+  describe "qualification and training checking" do
+    it "should be true if everything complete" do
+      allow(member_profile_presenter).to receive(:member_qualification?) { true }
+      allow(member_profile_presenter).to receive(:member_training?) { true }
+      expect(member_profile_presenter.training_and_qualification_complete?).to be true
+    end
+
+    it "should be false if no member qualification" do
+      allow(member_profile_presenter).to receive(:member_qualification?) { false }
+      allow(member_profile_presenter).to receive(:member_training?) { true }
+      expect(member_profile_presenter.training_and_qualification_complete?).to be false
+    end
+
+    it "should be false if no member training" do
+      allow(member_profile_presenter).to receive(:member_training?) { false }
+      allow(member_profile_presenter).to receive(:member_qualification?) { true }
+      expect(member_profile_presenter.training_and_qualification_complete?).to be false
+    end
+  end
+
+  describe "has dbs_check_and_work_eligibility_complete" do
+    it "should be true if everything complete" do
+      allow(member_profile_presenter).to receive(:work_eligibility?) { true }
+      allow(member_profile_presenter).to receive(:dbs_check?) { true }
+      expect(member_profile_presenter.dbs_check_and_work_eligibility_complete?).to be true
+    end
+
+    it "should be false if no work eligibility" do
+      allow(member_profile_presenter).to receive(:work_eligibility?) { false }
+      allow(member_profile_presenter).to receive(:dbs_check?) { true }
+      expect(member_profile_presenter.dbs_check_and_work_eligibility_complete?).to be false
+    end
+
+    it "should be false if no dbs check" do
+      allow(member_profile_presenter).to receive(:work_eligibility?) { true }
+      allow(member_profile_presenter).to receive(:dbs_check?) { false }
+      expect(member_profile_presenter.dbs_check_and_work_eligibility_complete?).to be false
+    end
+  end
+
+  describe "has referees and emergency_contact" do
+    it "should be true if everything complete" do
+      allow(member_profile_presenter).to receive(:has_referees?) { true }
+      allow(member_profile_presenter).to receive(:emergency_contact?) { true }
+      expect(member_profile_presenter.has_referees_and_emergency_contact?).to be true
+    end
+
+    it "should be true if number of referees is not 2" do
+      allow(member_profile_presenter).to receive(:has_referees?) { false }
+      allow(member_profile_presenter).to receive(:emergency_contact?) { true }
+      expect(member_profile_presenter.has_referees_and_emergency_contact?).to be false
+    end
+
+    it "should be true if no emergency contact" do
+      allow(member_profile_presenter).to receive(:has_referees?) { true }
+      allow(member_profile_presenter).to receive(:emergency_contact?) { false }
+      expect(member_profile_presenter.has_referees_and_emergency_contact?).to be false
+    end
+  end
+
+  it "should be true if ready to submit" do
+    allow(member_profile_presenter).to receive(:payment_information?) { true }
+    allow(member_profile_presenter).to receive(:occupational_health_complete?) { true }
+    allow(member_profile_presenter).to receive(:general_information_complete?) { true }
+    allow(member_profile_presenter).to receive(:training_and_qualification_complete?) { true }
+    allow(member_profile_presenter).to receive(:dbs_check_and_work_eligibility_complete?) { true }
+    allow(member_profile_presenter).to receive(:has_referees_and_emergency_contact?) { true }
+    expect(member_profile_presenter.ready_to_submit?).to be true
   end
 end
