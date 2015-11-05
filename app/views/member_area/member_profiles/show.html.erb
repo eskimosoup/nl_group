@@ -8,4 +8,8 @@
 <%= @member_profile_presenter.referee_and_emergency_contact_link %>
 <%= @member_profile_presenter.occupational_health_screening_link %>
 <%= @member_profile_presenter.dbs_check_link %>
-<%= @member_profile_presenter.payment_declaration_link %>
+<%= @member_profile_presenter.payment_information_link %>
+<% if @member_profile_presenter.ready_to_submit? %>
+  <%= link_to "Submit your data", member_area_member_submission_path %>
+<% end %>
+
