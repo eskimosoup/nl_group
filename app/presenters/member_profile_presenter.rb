@@ -65,6 +65,14 @@ class MemberProfilePresenter < BasePresenter
     end
   end
 
+  def payment_declaration_link
+    if payment_declaration?
+      h.link_to "Payment Declaration", h.edit_member_area_payment_declaration_path
+    else
+      h.link_to "Payment Declaration", h.new_member_area_payment_declaration_path
+    end
+  end
+
   private
 
   def basic_information?
@@ -107,4 +115,11 @@ class MemberProfilePresenter < BasePresenter
     dbs_check
   end
 
+  def payment_declaration
+    member_profile.payment_declaration
+  end
+
+  def payment_declaration?
+    payment_declaration.present?
+  end
 end

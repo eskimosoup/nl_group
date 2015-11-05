@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104152207) do
+ActiveRecord::Schema.define(version: 20151104165239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -420,6 +420,16 @@ ActiveRecord::Schema.define(version: 20151104152207) do
     t.datetime "updated_at",                   null: false
   end
 
+  create_table "payment_declarations", force: :cascade do |t|
+    t.integer  "member_profile_id"
+    t.string   "payment_methodology", null: false
+    t.boolean  "limit_working_week",  null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "payment_declarations", ["member_profile_id"], name: "index_payment_declarations_on_member_profile_id", using: :btree
+
   create_table "qualifications", force: :cascade do |t|
     t.integer  "member_qualification_id"
     t.string   "name",                    null: false
@@ -566,6 +576,7 @@ ActiveRecord::Schema.define(version: 20151104152207) do
   add_foreign_key "member_other_training_courses", "member_trainings", on_delete: :cascade
   add_foreign_key "member_qualifications", "member_profiles", on_delete: :cascade
   add_foreign_key "member_trainings", "member_profiles", on_delete: :cascade
+  add_foreign_key "payment_declarations", "member_profiles", on_delete: :cascade
   add_foreign_key "qualifications", "member_qualifications", on_delete: :cascade
   add_foreign_key "referees", "member_profiles", on_delete: :cascade
   add_foreign_key "team_members", "team_member_teams"

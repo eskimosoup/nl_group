@@ -1,0 +1,57 @@
+<%= form_for [:member_area, @payment_declaration], url: member_area_payment_declaration_path do |f| %>
+  <h2>Payments</h2>
+
+  <p>
+    What payment methodology would you like to nominate for processing funds from your
+    assignments with us?
+  </p>
+
+  <div class="field">
+    <% PaymentDeclaration::PAYMENT_METHODS.each do |payment_method| %>
+      <%= f.radio_button :payment_methodology, payment_method %>
+      <%= f.label :payment_methodology, payment_method, value: payment_method %>
+    <% end %>
+  </div>
+
+  <p>
+    If you trade as a Limited Company, you will need to bring along to your interview evidence / proof of your <strong>Company Bank
+    Account and Incorporation Certificate</strong>, if you are unable to supply both of these we will be unable to pay your Limited
+    Company and you will be required to choose an alternative method as listed above.
+  </p>
+
+  <p>
+    Bank details for all above methods will be collected during your interview. Please ensure you bring them with you on the day.
+  </p>
+
+  <h2>Declarations</h2>
+
+  <p>
+    Working Time Directive<br/>
+    The Working Time Regulations 1998 require NL Group to limit your average weekly working time to 48 hours unless
+    you agree with NL Group that the limit shall not apply to you
+  </p>
+
+  <div class="field">
+    <%= f.radio_button :limit_working_week, true %>
+    <%= f.label :limit_working_week, "I agree to limit my working week to no more than 48 hours", value: true %>
+
+    <%= f.radio_button :limit_working_week, false %>
+    <%= f.label :limit_working_week, "I disagree to limit my working week to no more than 48 hours (If I choose to, I may work more hours)", value: false %>
+  </div>
+
+  <h2>Candidate Handbook</h2>
+
+  Please download the Candidate Handbook via the link: <strong>ADD LINK HERE</strong>
+
+  <div class="field">
+    <%= f.check_box :downloaded_handbook %>
+    <%= f.label :downloaded_handbook do %>
+      I confirm that I have downloaded / received a copy of the Candidate Handbook and that it is my responsibility to ensure
+      I have read and understood each section of the handbook; my responsibilities and accountability for the role I have applied for.
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Save" %>
+  </div>
+<% end %>
