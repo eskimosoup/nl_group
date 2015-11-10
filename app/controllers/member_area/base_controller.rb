@@ -22,6 +22,10 @@ module MemberArea
       @presented_immunisation_history = ImmunisationHistoryPresenter.new(object: immunisation_history, view_template: view_context) if immunisation_history
     end
 
+    def registration_data
+      @registration_data = RegistrationData.new(current_member_profile)
+    end
+
     private
 
     def current_member_profile
