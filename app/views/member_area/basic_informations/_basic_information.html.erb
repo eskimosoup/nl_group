@@ -1,0 +1,95 @@
+<div class="row">
+  <div class="small-12 columns">
+    <h2>About You</h2>
+
+    <h4>Full Name</h4>
+
+    <div class="row">
+      <div class="small-12 medium-3 columns">
+        Title<br/>
+        <%= basic_information.title %>
+      </div>
+      <div class="small-12 medium-3 columns">
+        First Name<br/>
+        <%= basic_information.first_name %>
+      </div>
+      <div class="small-12 medium-3 columns">
+        Middle Name(s)<br/>
+        <%= basic_information.middle_names %>
+      </div>
+      <div class="small-12 medium-3 columns">
+        Last Name<br/>
+        <%= basic_information.last_name %>
+      </div>
+    </div>
+
+    <hr>
+
+    <h4>Contact Information</h4>
+
+    <div class="row">
+      <div class="small-12 medium-4 columns">
+        Mobile Number<br/>
+        <%= basic_information.mobile_number %>
+      </div>
+      <div class="small-12 medium-4 columns">
+        Home Number<br/>
+        <%= basic_information.home_number %>
+      </div>
+      <div class="small-12 medium-4 columns">
+        Email Address<br/>
+        <%= basic_information.email_address %>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="small-12 medium-6 columns">
+        Have been using current name since <%= basic_information.using_current_name_since %>
+      </div>
+      <div class="small-12 medium-6 columns">
+        Have changed name: <%= basic_information.changed_name %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 medium-6 columns">
+        Previous names<br/>
+        <%= basic_information.previous_names %>
+      </div>
+      <div class="small-12 medium-6 columns">
+        <div class="row">
+          <div class="small-6 columns">
+            Date of Birth
+          </div>
+          <div class="small-6 columns">
+            <%= basic_information.date_of_birth %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-6 columns">
+            National Insurance Number
+          </div>
+          <div class="small-6 columns">
+            <%= basic_information.national_insurance_number %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr/>
+
+    <div class="row">
+      <div class="small-12 columns">
+        Heard about us from: <%= basic_information.where_heard %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 columns">
+        Referred by: <%= basic_information.referred_by %>
+      </div>
+    </div>
+  </div>
+</div>

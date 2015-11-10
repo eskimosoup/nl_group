@@ -1,15 +1,17 @@
-<%= @member_profile_presenter.edit_profile_link %>
+<% if @member_profile_presenter.member_submission? %>
+  <%= @member_profile_presenter.edit_profile_link %>
 
-<%= @member_profile_presenter.basic_information_link %>
-<%= @member_profile_presenter.work_eligibility_link %>
-<%= @member_profile_presenter.addresses_link %>
-<%= @member_profile_presenter.member_qualification_link %>
-<%= @member_profile_presenter.member_training_link %>
-<%= @member_profile_presenter.referee_and_emergency_contact_link %>
-<%= @member_profile_presenter.occupational_health_screening_link %>
-<%= @member_profile_presenter.dbs_check_link %>
-<%= @member_profile_presenter.payment_information_link %>
-<% if @member_profile_presenter.ready_to_submit? %>
-  <%= link_to "Submit your data", member_area_member_submission_path %>
+  <%= @member_profile_presenter.basic_information_link %>
+  <%= @member_profile_presenter.work_eligibility_link %>
+  <%= @member_profile_presenter.addresses_link %>
+  <%= @member_profile_presenter.member_qualification_link %>
+  <%= @member_profile_presenter.member_training_link %>
+  <%= @member_profile_presenter.referee_and_emergency_contact_link %>
+  <%= @member_profile_presenter.occupational_health_screening_link %>
+  <%= @member_profile_presenter.dbs_check_link %>
+  <%= @member_profile_presenter.payment_information_link %>
+  <%= link_to "Submit your data", member_area_member_submission_path if @member_profile_presenter.ready_to_submit? %>
+<% else %>
+  <%= link_to "View Registration Data", member_area_registration_data_path %>
 <% end %>
 

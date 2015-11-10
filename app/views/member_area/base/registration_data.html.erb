@@ -1,0 +1,10 @@
+<h1>Candidate Registration</h1>
+
+<% debug @registration_data %>
+
+<%= render "member_area/basic_informations/basic_information",
+           basic_information: BasicInformationPresenter.new(object: @registration_data.basic_information, view_template: self) %>
+
+<%= render "member_area/work_eligibilities/work_eligibility",
+           work_eligibility: WorkEligibilityPresenter.new(object: @registration_data.work_eligibility, view_template: self) %>
+

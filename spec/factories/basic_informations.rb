@@ -8,10 +8,10 @@ FactoryGirl.define do
     mobile_number "MyString"
     home_number "MyString"
     email_address "MyString"
-    using_current_name_since "2015-10-26"
+    using_current_name_since { Date.today }
     changed_name false
     previous_names nil
-    date_of_birth "2015-10-26"
+    date_of_birth { Date.today }
     national_insurance_number "MyString"
     where_heard "MyString"
     referred_by nil
