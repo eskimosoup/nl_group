@@ -1,7 +1,11 @@
 <% if flash.present? %>
-  <div class="flash-wrap">
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, class: "flash-message #{name}" %>
-    <% end %>
+  <div class="row">
+    <div class="small-12 medium-6 medium-centered columns">
+      <div class="flash-wrap">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, class: "flash-message #{name}" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 <% end %>
