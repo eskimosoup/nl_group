@@ -1,6 +1,18 @@
-<div class="member-address">
-  <%= presented_address.address %>
-  <%= presented_address.lived_here_from %>
-  <%= presented_address.lived_here_to %>
-  <%= presented_address.edit_link %>
-</div>
+<% present member_address do |presented_address| %>
+  <div class="member-address">
+    <div class="row">
+      <div class="small-6 columns">
+        <%= presented_address.address %>
+      </div>
+      <div class="small-2 columns">
+        <%= presented_address.lived_here_from %>
+      </div>
+      <div class="small-2 columns">
+        <%= presented_address.lived_here_to %>
+      </div>
+      <div class="small-2 columns">
+        <%= presented_address.edit_link unless locked %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,6 +1,8 @@
 class MemberAddress < ActiveRecord::Base
   belongs_to :member_profile
 
+  scope :lived_here_from, ->{ order(lived_here_from: :desc) }
+
   validates :member_profile, :address, :lived_here_from, presence: true
   validates :lived_here_to, presence: { message: "can't be blank unless this is your current address" },
             unless: Proc.new{|a| a.current? }

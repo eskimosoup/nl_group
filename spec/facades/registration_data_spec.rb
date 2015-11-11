@@ -16,4 +16,10 @@ RSpec.describe RegistrationData, type: :facade do
     expect(registration_data.work_eligibility).to eq(work_eligibility)
   end
 
+  it "should return the addresses of the member profile" do
+    addresses = Array.new(3, instance_double("WorkEligibility"))
+    allow(member_profile).to receive_message_chain(:member_addresses, :lived_here_from).and_return(addresses)
+    expect(registration_data.addresses).to eq(addresses)
+  end
+
 end

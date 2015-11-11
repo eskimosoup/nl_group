@@ -1,5 +1,4 @@
 class BasicInformation < ActiveRecord::Base
-
   TITLES = %w( Mr Mrs Miss Ms Dr Prof )
   WHERE_HEARDS = {
     "NL Group Website" => "website",
@@ -28,4 +27,5 @@ class BasicInformation < ActiveRecord::Base
   def set_where_heard_to_member_suggestion
     self.where_heard = member_where_heard if where_heard == "other" && member_where_heard.present?
   end
+
 end

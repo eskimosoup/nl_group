@@ -8,6 +8,6 @@
 
 <%= link_to "New Address", new_member_area_member_address_path %>
 
-<%= render partial: "member_address", collection: @presented_member_addresses, as: :presented_address %>
+<%= render partial: "member_address", collection: @member_addresses, locals: { locked: false } %>
 
 <%= link_to "Back to overview", member_area_member_profile_path %>
