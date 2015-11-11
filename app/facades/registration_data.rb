@@ -13,5 +13,8 @@ class RegistrationData
     @work_eligibility ||= member_profile.work_eligibility
   end
 
+  def addresses
+    @addresses ||= member_profile.member_addresses.lived_here_from
+  end
 
 end

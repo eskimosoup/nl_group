@@ -4,9 +4,7 @@ module MemberArea
     before_action :set_address, only: [:edit, :update]
 
     def index
-      member_addresses = current_member_profile.member_addresses
-      @presented_member_addresses = BaseCollectionPresenter.new(collection: member_addresses, view_template: view_context,
-                                                                presenter: MemberAddressPresenter)
+      @member_addresses = current_member_profile.member_addresses
     end
 
     def new

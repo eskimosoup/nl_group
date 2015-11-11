@@ -1,3 +1,5 @@
 <% if @member_profile_presenter.ready_to_submit? %>
   <%= link_to "Submit your data", member_area_member_submission_path %>
+<% elsif @member_profile_presenter.member_submission? %>
+  <%= link_to "Registration Data", member_area_registration_data_path %>
 <% end %>

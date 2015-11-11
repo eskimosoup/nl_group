@@ -2,9 +2,16 @@
 
 <% debug @registration_data %>
 
-<%= render "member_area/basic_informations/basic_information",
-           basic_information: BasicInformationPresenter.new(object: @registration_data.basic_information, view_template: self) %>
+<%= render @registration_data.basic_information %>
 
-<%= render "member_area/work_eligibilities/work_eligibility",
-           work_eligibility: WorkEligibilityPresenter.new(object: @registration_data.work_eligibility, view_template: self) %>
+<%= render @registration_data.work_eligibility %>
+
+<div class="row">
+  <div class="small-12 columns">
+    <h2>Where you live</h2>
+    <%= render partial: "member_area/member_addresses/member_address", collection: @registration_data.addresses,
+               locals: { locked: true } %>
+  </div>
+</div>
+
 
