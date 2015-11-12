@@ -1,0 +1,47 @@
+<% present member_qualification do |member_qualification_presenter| %>
+  <div class="row">
+    <div class="small-6 columns">
+      Professional Register
+    </div>
+    <div class="small-6 columns">
+      <%= member_qualification_presenter.register %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-6 columns">
+      Registration Number
+    </div>
+    <div class="small-6 columns">
+      <%= member_qualification_presenter.registration_number %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-6 columns">
+      Expiry Date
+    </div>
+    <div class="small-6 columns">
+      <%= member_qualification_presenter.expiry_date %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-6 columns">
+      AFC Band
+    </div>
+    <div class="small-6 columns">
+      <%= member_qualification_presenter.afc_band %>
+    </div>
+  </div>
+<% end %>
+
+<%= render member_qualification.qualifications %>
+
+<% present member_qualification do |member_qualification_presenter| %>
+  <div class="row">
+    <div class="small-12 columns">
+      Additional Qualifications<br />
+      <%= member_qualification_presenter.additional_qualifications %>
+    </div>
+  </div>
+<% end %>

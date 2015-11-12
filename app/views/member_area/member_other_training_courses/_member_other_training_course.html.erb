@@ -1,0 +1,15 @@
+<div class="member-other-training-course">
+  <div class="row">
+    <% present member_other_training_course do |presenter| %>
+      <div class="small-5 columns">
+        <%= presenter.title %>
+      </div>
+      <div class="small-5 columns">
+        <%= presenter.training_provider_name %>
+      </div>
+      <div class="small-2 columns">
+        <%= presenter.completed_on %>
+      </div>
+    <% end %>
+  </div>
+</div>

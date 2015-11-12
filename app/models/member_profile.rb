@@ -1,18 +1,18 @@
 class MemberProfile < ActiveRecord::Base
 
   has_one :basic_information
-  has_one :work_eligibility
-  has_many :member_addresses
+  has_one :basic_medical_history
+  has_one :dbs_check
+  has_one :emergency_contact
+  has_one :immunisation_history
   has_one :member_qualification
   has_one :member_training
-  has_many :referees
-  has_one :emergency_contact
-  has_one :basic_medical_history
-  has_one :tuberculosis_chicken_pox_check
-  has_one :immunisation_history
-  has_one :dbs_check
-  has_one :payment_information
   has_one :member_submission
+  has_one :payment_information
+  has_one :tuberculosis_chicken_pox_check
+  has_one :work_eligibility
+  has_many :member_addresses
+  has_many :referees
 
   has_secure_password
   validates :email, presence: true, uniqueness: true

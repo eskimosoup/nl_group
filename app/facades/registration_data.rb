@@ -14,7 +14,14 @@ class RegistrationData
   end
 
   def addresses
-    @addresses ||= member_profile.member_addresses.lived_here_from
+    @addresses ||= MemberAddress.lived_here_from.where(member_profile: member_profile)
   end
 
+  def member_qualification
+    @member_qualification ||= MemberQualification.includes(:qualifications).where(member_profile: member_profile)
+  end
+
+  def member_training
+    @member_training ||= MemberTraining.includes(:mandatory_training_courses, :member_other_training_courses).where(member_profile: member_profile)
+  end
 end
