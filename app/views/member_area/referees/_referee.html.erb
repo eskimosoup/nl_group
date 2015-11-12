@@ -1,13 +1,44 @@
 <div class="referee">
-  <%= referee.name %>
+  <% present referee do |presenter| %>
+    <h4>Referee <%= referee_counter + 1 %></h4>
+    <div class="row">
+      <div class="small-6 columns">
+        Full name<br/>
+        <%= presenter.name %>
+      </div>
+      <div class="small-6 columns">
+        Position<br/>
+        <%= presenter.position %>
+      </div>
+    </div>
 
-  <%= referee.position %>
-  <%= referee.contact_number %>
-  <%= referee.fax_number %>
-  <%= referee.email_address %>
-  <%= referee.postal_address %>
+    <div class="row">
+      <div class="small-3 columns">
+        Contact number <br/>
+        <%= presenter.contact_number %>
+      </div>
+      <div class="small-3 columns">
+        Fax number <br/>
+        <%= presenter.fax_number %>
+      </div>
+      <div class="small-6 columns">
+        Email address <br/>
+        <%= presenter.email_address %>
+      </div>
+    </div>
 
-  <%= referee.contact_referee_statement %>
+    <div class="row">
+      <div class="small-12 columns">
+        <%= presenter.postal_address %>
+      </div>
+    </div>
 
-  <%= referee.edit_link %>
+    <div class="row">
+      <div class="small-12 columns">
+        <%= presenter.contact_referee_statement %>
+      </div>
+    </div>
+
+    <%= presenter.edit_link unless locked %>
+  <% end %>
 </div>
