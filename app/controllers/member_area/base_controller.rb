@@ -7,10 +7,8 @@ module MemberArea
     end
 
     def referees_and_emergency_contact
-      @presented_referees = BaseCollectionPresenter.new(collection: current_member_profile.referees, view_template: view_context,
-          presenter: RefereePresenter)
-      emergency_contact = current_member_profile.emergency_contact
-      @presented_emergency_contact = EmergencyContactPresenter.new(object: emergency_contact, view_template: view_context) if emergency_contact
+      @referees = current_member_profile.referees
+      @emergency_contact = current_member_profile.emergency_contact
     end
 
     def occupational_health_screening

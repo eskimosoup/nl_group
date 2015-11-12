@@ -1,15 +1,15 @@
 <h2>Referees</h2>
 
-<% if @presented_referees.present? %>
-  <%= render @presented_referees %>
+<% if @referees.present? %>
+  <%= render partial: "member_area/referees/referee", collection: @referees, locals: { locked: false } %>
 <% end %>
-<%= link_to "New Referee", new_member_area_referee_path unless @presented_referees.present? && @presented_referees.size < 2 %>
+<%= link_to "New Referee", new_member_area_referee_path unless @referees.present? && @referees.size < 2 %>
 
 
 <h2>Emergency Contact</h2>
 
-<% if @presented_emergency_contact.present? %>
-  <%= render @presented_emergency_contact %>
+<% if @emergency_contact.present? %>
+  <%= render partial: "member_area/emergency_contacts/emergency_contact", object: @emergency_contact, locals: { locked: false } %>
 <% else %>
   <%= link_to "New emergency contact", new_member_area_emergency_contact_path %>
 <% end %>

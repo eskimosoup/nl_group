@@ -23,5 +23,14 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="small-12 columns">
+    <h2>Referees and emergency contacts</h2>
+    <%= render partial: "member_area/referees/referee", collection: @registration_data.referees, locals: { locked: true } %>
+
+    <%= render partial: "member_area/emergency_contacts/emergency_contact", object: @registration_data.emergency_contact, locals: { locked: true } %>
+  </div>
+</div>
+
 
 

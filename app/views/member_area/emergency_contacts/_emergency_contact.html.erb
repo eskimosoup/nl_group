@@ -1,7 +1,28 @@
 <div class="emergency-contact">
-  <%= emergency_contact.full_name %>
-  <%= emergency_contact.email_address %>
-  <%= emergency_contact.mobile_number %>
-  <%= emergency_contact.relationship %>
-  <%= emergency_contact.edit_link %>
+  <h4>Emergency Contact (Next of Kin)</h4>
+  <% present emergency_contact do |presenter| %>
+    <div class="row">
+      <div class="small-6 columns">
+        Full name<br/>
+        <%= presenter.full_name %>
+      </div>
+      <div class="small-6 columns">
+        Email<br/>
+        <%= presenter.email_address %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-6 columns">
+        Mobile number<br/>
+        <%= presenter.mobile_number %>
+      </div>
+      <div class="small-6 columns">
+        Relationship to next of kin<br/>
+        <%= presenter.relationship %>
+      </div>
+    </div>
+
+    <%= presenter.edit_link unless locked %>
+  <% end %>
 </div>

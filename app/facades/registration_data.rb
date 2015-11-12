@@ -24,4 +24,12 @@ class RegistrationData
   def member_training
     @member_training ||= MemberTraining.includes(:mandatory_training_courses, :member_other_training_courses).where(member_profile: member_profile)
   end
+
+  def referees
+    @referees ||= member_profile.referees
+  end
+
+  def emergency_contact
+    @emergency_contact ||= member_profile.emergency_contact
+  end
 end
