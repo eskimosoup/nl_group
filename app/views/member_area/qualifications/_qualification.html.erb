@@ -1,0 +1,13 @@
+<% present qualification do |qualification_presenter| %>
+  <div class="row">
+    <div class="small-6 columns">
+      <%= qualification_presenter.name %>
+    </div>
+    <div class="small-3 columns">
+      <%= qualification_presenter.grade_obtained %>
+    </div>
+    <div class="small-3 columns">
+      <%= qualification_presenter.completed_date %>
+    </div>
+  </div>
+<% end %>

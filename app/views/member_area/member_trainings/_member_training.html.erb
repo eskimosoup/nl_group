@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="small-12 columns">
+    <h4>Training</h4>
+
+    <% if member_training.mandatory_training_courses.present? %>
+      <h4>Mandatory Training Courses Completed</h4>
+      <div class="row">
+        <%= render member_training.mandatory_training_courses %>
+      </div>
+    <% end %>
+
+    <% if member_training.member_other_training_courses.present? %>
+      <h4>Other Training Courses Completed</h4>
+      <%= render member_training.member_other_training_courses %>
+    <% end %>
+  </div>
+</div>
