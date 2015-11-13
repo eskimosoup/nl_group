@@ -13,7 +13,7 @@ RSpec.describe BasicMedicalHistoryPresenter, type: :presenter do
   end
 
   it "should return the edit link" do
-    expect(basic_medical_history_presenter.edit_link).to eq(link_to "Edit Basic Medical History", edit_member_area_basic_medical_history_path)
+    expect(basic_medical_history_presenter.edit_link).to eq(link_to "Edit Basic Medical History", edit_member_area_basic_medical_history_path, class: 'user-action-button')
   end
 
   describe "illness affecting work is true" do
