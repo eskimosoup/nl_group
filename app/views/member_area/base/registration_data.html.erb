@@ -40,6 +40,8 @@
         basic_medical_history: @registration_data.basic_medical_history, current_address: @registration_data.current_address } %>
     <%= render partial: "member_area/tuberculosis_chicken_pox_checks/uneditable_tuberculosis_chicken_pox_check", locals: {
         tuberculosis_chicken_pox_check: @registration_data.tuberculosis_chicken_pox_check } %>
+    <%= render partial: "member_area/immunisation_histories/uneditable_immunisation_history", locals: {
+        immunisation_history: @registration_data.immunisation_history } %>
   </div>
 </div>
 

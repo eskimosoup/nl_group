@@ -38,10 +38,19 @@ class RegistrationData
   end
 
   def basic_medical_history
-    @basic_medical_histroy ||= member_profile.basic_medical_history
+    @basic_medical_history ||= member_profile.basic_medical_history
   end
 
   def tuberculosis_chicken_pox_check
     @tuberculosis_chicken_pox_check ||= member_profile.tuberculosis_chicken_pox_check
   end
+
+  def immunisation_history
+    @immunisation_history ||= member_profile.immunisation_history
+  end
+
+  def dbs_check
+    @dbs_check ||= member_profile.dbs_check
+  end
+
 end
