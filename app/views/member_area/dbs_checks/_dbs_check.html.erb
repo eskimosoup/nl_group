@@ -1,0 +1,84 @@
+<div class="dbs-check">
+  <div class="row">
+    <div class="small-12 columns">
+      <% present dbs_check do |presenter| %>
+        <div class="row">
+          <div class="small-9 columns">
+            Have you ever had an enhanced Disclosure and Barring Service (DBS) completed before?
+          </div>
+          <div class="small-3 columns">
+            <%= presenter.enhanced_dbs_completed_before %>
+          </div>
+        </div>
+
+        <h6>Previous DBs Check Details</h6>
+        <div class="row">
+          <div class="small-5 columns">
+            Disclosure number (if known)
+          </div>
+          <div class="small-2 columns">
+            Date completed
+          </div>
+          <div class="small-5 columns">
+            Company that completed your previous DBS check
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-5 columns">
+            <%= presenter.previous_disclosure_number %>
+          </div>
+          <div class="small-2 columns">
+            <%= presenter.date_previous_dbs_completed %>
+          </div>
+          <div class="small-5 columns">
+            <%= presenter.company_completed_dbs_check %>
+          </div>
+        </div>
+
+        <h6>Criminal disclosures</h6>
+        <div class="row">
+          <div class="small-9 columns">
+            Do you have any convictions, cautions, reprimands or final warnings that are not &lsquo;protected&rsquo; as defined by
+            the Rehabilitation of Offenders Act 1974 (Exceptions) Order 1975 (as amended in 2013) by SI 2013 1198?
+          </div>
+          <div class="small-3 columns">
+            <%= presenter.unprotected_convictions %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-9 columns">
+            Do you have any convictions, cautions, reprimands or final warnings which would not be filtered in line with
+            current guidance?
+          </div>
+          <div class="small-3 columns">
+            <%= presenter.unfiltered_convictions %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-9 columns">
+            Have you had a Police check in another country within the last 6 months?
+          </div>
+          <div class="small-3 columns">
+            <%= presenter.another_country_police_check %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-9 columns">
+            Have you ever been suspended or are you currently under investigation by an NHS Trust, professional body or
+            any other organisation?
+          </div>
+          <div class="small-3 columns">
+            <%= presenter.suspended_or_under_investigation %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="small-12 columns">
+            <h6>Additional information</h6>
+            <%= presenter.additional_information %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
