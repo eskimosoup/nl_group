@@ -1,0 +1,18 @@
+<div class="visited-country">
+  <div class="row">
+    <% present visited_country do |presenter| %>
+      <div class="small-6 columns">
+        <%= presenter.name %>
+      </div>
+      <div class="small-2 columns">
+        <%= presenter.duration %>
+      </div>
+      <div class="small-2 columns">
+        <%= presenter.from_year %>
+      </div>
+      <div class="small-2 columns">
+        <%= presenter.to_year %>
+      </div>
+    <% end %>
+  </div>
+</div>

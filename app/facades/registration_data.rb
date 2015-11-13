@@ -17,6 +17,10 @@ class RegistrationData
     @addresses ||= MemberAddress.lived_here_from.where(member_profile: member_profile)
   end
 
+  def current_address
+    addresses.detect(&:current?)
+  end
+
   def member_qualification
     @member_qualification ||= MemberQualification.includes(:qualifications).where(member_profile: member_profile)
   end
@@ -31,5 +35,13 @@ class RegistrationData
 
   def emergency_contact
     @emergency_contact ||= member_profile.emergency_contact
+  end
+
+  def basic_medical_history
+    @basic_medical_histroy ||= member_profile.basic_medical_history
+  end
+
+  def tuberculosis_chicken_pox_check
+    @tuberculosis_chicken_pox_check ||= member_profile.tuberculosis_chicken_pox_check
   end
 end
