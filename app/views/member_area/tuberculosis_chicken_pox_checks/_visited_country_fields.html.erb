@@ -23,10 +23,10 @@
 
     <div class="small-3 columns">
       <div class="field">
-        <%= f.label :to_year, "From (year)" %>
+        <%= f.label :to_year, "To (year)" %>
         <%= f.select :to_year, options_for_select((50.years.ago.year..Date.today.year).to_a.reverse) %>
       </div>
     </div>
   </div>
-  <%= link_to_remove_association "Remove country", f %>
+  <%= link_to_remove_association "Remove country", f, class: 'right' %>
 </div>

@@ -42,7 +42,7 @@ class BasicMedicalHistoryPresenter < BasePresenter
   end
 
   def edit_link
-    h.link_to "Edit Basic Medical History", h.edit_member_area_basic_medical_history_path
+    h.link_to "Edit Basic Medical History", h.edit_member_area_basic_medical_history_path, class: 'user-action-button'
   end
 
   private

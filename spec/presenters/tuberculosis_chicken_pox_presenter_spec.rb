@@ -7,7 +7,7 @@ RSpec.describe TuberculosisChickenPoxCheckPresenter, type: :presenter do
 
   it "#edit link" do
     expect(subject.edit_link).to eq(link_to "Tuberculosis and Chicken Pox Information",
-                                            edit_member_area_tuberculosis_chicken_pox_check_path)
+                                            edit_member_area_tuberculosis_chicken_pox_check_path, class: 'user-action-button')
   end
 
   describe "#lived continuously" do

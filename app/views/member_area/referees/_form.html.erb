@@ -1,44 +1,62 @@
 <%= form_for [:member_area, @referee] do |f| %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+  <%= field_set_tag 'Details' do %>
+    <div class="row">
+      <div class="medium-6 columns">
+        <div class="field">
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :position %>
-    <%= f.text_field :position %>
-  </div>
+      <div class="medium-6 columns">
+        <div class="field">
+          <%= f.label :position %>
+          <%= f.text_field :position %>
+        </div>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :contact_number %>
-    <%= f.telephone_field :contact_number %>
-  </div>
+    <div class="row">
+      <div class="medium-4 columns">
+        <div class="field">
+          <%= f.label :contact_number %>
+          <%= f.telephone_field :contact_number %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :fax_number %>
-    <%= f.text_field :fax_number %>
-  </div>
+      <div class="medium-4 columns">
+        <div class="field">
+          <%= f.label :fax_number %>
+          <%= f.text_field :fax_number %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :email_address %>
-    <%= f.email_field :email_address %>
-  </div>
+      <div class="medium-4 columns">
+        <div class="field">
+          <%= f.label :email_address %>
+          <%= f.email_field :email_address %>
+        </div>
+      </div>
+    </div>    
 
-  <div class="field">
-    <%= f.label :postal_address %>
-    <%= f.text_area :postal_address %>
-  </div>
+    <div class="field">
+      <%= f.label :postal_address %>
+      <%= f.text_area :postal_address %>
+    </div>
+  <% end %>
 
-  <div class="field">
-    <p>
-      May we contact this referee prior to your interview?
-    </p>
-    <%= f.radio_button :contact_referee, true %>
-    <%= f.label :contact_referee, "Yes",value: true %>
+  <%= field_set_tag 'Contact Preference' do %>
+    <div class="field">
+      <p>
+        May we contact this referee prior to your interview?
+      </p>
+      <%= f.radio_button :contact_referee, true %>
+      <%= f.label :contact_referee, "Yes",value: true %>
 
-    <%= f.radio_button :contact_referee, false %>
-    <%= f.label :contact_referee, "No", value: false %>
-  </div>
+      <%= f.radio_button :contact_referee, false %>
+      <%= f.label :contact_referee, "No", value: false %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit "Save" %>
