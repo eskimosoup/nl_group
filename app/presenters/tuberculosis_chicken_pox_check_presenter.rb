@@ -18,7 +18,7 @@ class TuberculosisChickenPoxCheckPresenter < BasePresenter
   end
 
   def edit_link
-    h.link_to "Tuberculosis and Chicken Pox Information", h.edit_member_area_tuberculosis_chicken_pox_check_path
+    h.link_to "Tuberculosis and Chicken Pox Information", h.edit_member_area_tuberculosis_chicken_pox_check_path, class: 'user-action-button'
   end
 
   def cough

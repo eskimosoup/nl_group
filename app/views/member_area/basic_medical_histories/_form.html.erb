@@ -12,64 +12,68 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :gp_address, "GP Address" %>
-    <%= f.text_area :gp_address %>
+  <%= field_set_tag 'Medical History' do %>
+    <div class="field">
+      <%= f.label :gp_address, "GP Address" %>
+      <%= f.text_area :gp_address %>
+    </div>
+
+    <div class="field">
+      <p>
+        Do you have any illness/impairment/disability (physical or psychological) which may affect your work?
+      </p>
+      <%= f.label :illness_affecting_work, "Yes", value: true %>
+      <%= f.radio_button :illness_affecting_work, true %>
+
+      <%= f.label :illness_affecting_work, "No", value: false %>
+      <%= f.radio_button :illness_affecting_work, false %>
+    </div>
+
+    <div class="field">
+      <p>
+        Have you ever had any illness/impairment/disability (physical or psychological) which may have been caused or made
+        worse by your work?
+      </p>
+      <%= f.label :illness_caused_by_work, "Yes", value: true %>
+      <%= f.radio_button :illness_caused_by_work, true %>
+
+      <%= f.label :illness_caused_by_work, "No", value: false %>
+      <%= f.radio_button :illness_caused_by_work, false %>
+    </div>
+
+    <div class="field">
+      <p>
+        Do you think you may need any adjustments or assistance to help you to do the job?
+      </p>
+      <%= f.label :require_assistance, "Yes", value: true %>
+      <%= f.radio_button :require_assistance, true %>
+
+      <%= f.label :require_assistance, "No", value: false %>
+      <%= f.radio_button :require_assistance, false %>
+    </div>
+
+    <div class="field">
+      <p>
+        Are you having or waiting for treatment (including medication) or investigations at present?
+      </p>
+      <%= f.label :having_treatment, "Yes", value: true %>
+      <%= f.radio_button :having_treatment, true %>
+
+      <%= f.label :having_treatment, "No", value: false %>
+      <%= f.radio_button :having_treatment, false %>
+    </div>
+
+    <div class="field">
+      <%= f.label :treatment_clarification do %>
+        If you have answered <strong>Yes</strong> to any of the questions above, you MUST provide further clarification and details
+        below, failure to do so will result in this form being returned / rejected by Healthier Business and may delay your
+        registration
+      <% end %>
+      <%= f.text_area :treatment_clarification %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Save" %>
   </div>
-
-  <div class="field">
-    <p>
-      Do you have any illness/impairment/disability (physical or psychological) which may affect your work?
-    </p>
-    <%= f.label :illness_affecting_work, "Yes", value: true %>
-    <%= f.radio_button :illness_affecting_work, true %>
-
-    <%= f.label :illness_affecting_work, "No", value: false %>
-    <%= f.radio_button :illness_affecting_work, false %>
-  </div>
-
-  <div class="field">
-    <p>
-      Have you ever had any illness/impairment/disability (physical or psychological) which may have been caused or made
-      worse by your work?
-    </p>
-    <%= f.label :illness_caused_by_work, "Yes", value: true %>
-    <%= f.radio_button :illness_caused_by_work, true %>
-
-    <%= f.label :illness_caused_by_work, "No", value: false %>
-    <%= f.radio_button :illness_caused_by_work, false %>
-  </div>
-
-  <div class="field">
-    <p>
-      Do you think you may need any adjustments or assistance to help you to do the job?
-    </p>
-    <%= f.label :require_assistance, "Yes", value: true %>
-    <%= f.radio_button :require_assistance, true %>
-
-    <%= f.label :require_assistance, "No", value: false %>
-    <%= f.radio_button :require_assistance, false %>
-  </div>
-
-  <div class="field">
-    <p>
-      Are you having or waiting for treatment (including medication) or investigations at present?
-    </p>
-    <%= f.label :having_treatment, "Yes", value: true %>
-    <%= f.radio_button :having_treatment, true %>
-
-    <%= f.label :having_treatment, "No", value: false %>
-    <%= f.radio_button :having_treatment, false %>
-  </div>
-
-  <div class="field">
-    <%= f.label :treatment_clarification do %>
-      If you have answered <strong>Yes</strong> to any of the questions above, you MUST provide further clarification and details
-      below, failure to do so will result in this form being returned / rejected by Healthier Business and may delay your
-      registration
-    <% end %>
-    <%= f.text_area :treatment_clarification %>
-  </div>
-
-  <%= f.submit "Save" %>
 <% end %>

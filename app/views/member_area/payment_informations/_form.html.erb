@@ -1,43 +1,63 @@
 <%= form_for [:member_area, @payment_information], url: member_area_payment_information_path do |f| %>
-  <h2>Payments</h2>
+  <h2 class="secondary-header">Payments</h2>
 
-  <p>
-    What payment methodology would you like to nominate for processing funds from your
-    assignments with us?
-  </p>
+  <%= field_set_tag 'Payment method' do %>
+    <p>
+      What payment methodology would you like to nominate for processing funds from your
+      assignments with us?
+    </p>
 
-  <div class="field">
-    <% PaymentInformation::PAYMENT_METHODS.each do |payment_method| %>
-      <%= f.radio_button :payment_methodology, payment_method %>
-      <%= f.label :payment_methodology, payment_method, value: payment_method %>
-    <% end %>
-  </div>
+    <div class="field">
+      <% PaymentInformation::PAYMENT_METHODS.each do |payment_method| %>
+        <%= f.radio_button :payment_methodology, payment_method %>
+        <%= f.label :payment_methodology, payment_method, value: payment_method %>
+      <% end %>
+    </div>
 
-  <p>
-    If you trade as a Limited Company, you will need to bring along to your interview evidence / proof of your <strong>Company Bank
-    Account and Incorporation Certificate</strong>, if you are unable to supply both of these we will be unable to pay your Limited
-    Company and you will be required to choose an alternative method as listed above.
-  </p>
+    <div class="row">
+      <div class="medium-10 columns">
+        <p>
+          If you trade as a Limited Company, you will need to bring along to your interview evidence / proof of your <strong>Company Bank
+          Account and Incorporation Certificate</strong>, if you are unable to supply both of these we will be unable to pay your Limited
+          Company and you will be required to choose an alternative method as listed above.
+        </p>
+      </div>
+    </div>
 
-  <p>
-    Bank details for all above methods will be collected during your interview. Please ensure you bring them with you on the day.
-  </p>
+    <p>
+      Bank details for all above methods will be collected during your interview. Please ensure you bring them with you on the day.
+    </p>
+  <% end %>
 
-  <h2>Declarations</h2>
+  <h2 class="secondary-header">Declarations</h2>
 
-  <p>
-    Working Time Directive<br/>
-    The Working Time Regulations 1998 require NL Group to limit your average weekly working time to 48 hours unless
-    you agree with NL Group that the limit shall not apply to you
-  </p>
+  <%= field_set_tag 'Declarations' do %>
 
-  <div class="field">
-    <%= f.radio_button :limit_working_week, true %>
-    <%= f.label :limit_working_week, "I agree to limit my working week to no more than 48 hours", value: true %>
+    <strong>
+      Working Time Directive
+    </strong>
 
-    <%= f.radio_button :limit_working_week, false %>
-    <%= f.label :limit_working_week, "I disagree to limit my working week to no more than 48 hours (If I choose to, I may work more hours)", value: false %>
-  </div>
+    <div class="row">
+      <div class="medium-8 columns">
+        <p>
+          The Working Time Regulations 1998 require NL Group to limit your average weekly working time to <strong>48 hours</strong> unless
+          you agree with NL Group that the limit shall not apply to you.
+        </p>
+      </div>
+    </div>
+
+    <div class="field">
+      <div>
+        <%= f.radio_button :limit_working_week, true %>
+        <%= f.label :limit_working_week, "I <strong>agree to limit my working week</strong> to no more than 48 hours".html_safe, value: true %>
+      </div>
+
+      <div>
+        <%= f.radio_button :limit_working_week, false %>
+        <%= f.label :limit_working_week, "I <strong>disagree to limit my working week</strong> to no more than 48 hours (If I choose to, I may work more hours)".html_safe, value: false %>
+      </div>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit "Save" %>

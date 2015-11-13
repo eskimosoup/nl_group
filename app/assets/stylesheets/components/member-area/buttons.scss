@@ -1,0 +1,18 @@
+.user-action-button {
+  background: $primary-blue;
+  color: $grey;
+  display: inline-block;
+  padding: em(5px);
+
+  &:link,
+  &:visited {
+    color: $grey;
+    text-decoration: none;
+  }
+
+  &:hover,
+  &:active {
+    background: $light-blue;
+    color: $dark-grey;
+  }
+}

@@ -13,35 +13,37 @@
     </div>
   <% end %>
 
-  <div class="row">
-    <div class="small-6 columns">
-      <div class="field">
-        <%= f.label :full_name %>
-        <%= f.text_field :full_name %>
+  <%= field_set_tag 'Contact Details' do %>
+    <div class="row">
+      <div class="small-6 columns">
+        <div class="field">
+          <%= f.label :full_name %>
+          <%= f.text_field :full_name %>
+        </div>
+      </div>
+      <div class="small-6 columns">
+        <div class="field">
+          <%= f.label :email_address %>
+          <%= f.email_field :email_address %>
+        </div>
       </div>
     </div>
-    <div class="small-6 columns">
-      <div class="field">
-        <%= f.label :email_address %>
-        <%= f.email_field :email_address %>
-      </div>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="small-6 columns">
-      <div class="field">
-        <%= f.label :mobile_number %>
-        <%= f.telephone_field :mobile_number %>
+    <div class="row">
+      <div class="small-6 columns">
+        <div class="field">
+          <%= f.label :mobile_number %>
+          <%= f.telephone_field :mobile_number %>
+        </div>
+      </div>
+      <div class="small-6 columns">
+        <div class="field">
+          <%= f.label :relationship, "Relationship to next of kin" %>
+          <%= f.text_field :relationship %>
+        </div>
       </div>
     </div>
-    <div class="small-6 columns">
-      <div class="field">
-        <%= f.label :relationship, "Relationship to next of kin" %>
-        <%= f.text_field :relationship %>
-      </div>
-    </div>
-  </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit "Save" %>

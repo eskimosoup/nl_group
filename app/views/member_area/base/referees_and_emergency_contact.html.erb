@@ -1,17 +1,22 @@
-<h2>Referees</h2>
+<div class="row">
+  <div class="small-12 columns">
+    <h2>Referees</h2>
 
-<% if @referees.present? %>
-  <%= render partial: "member_area/referees/referee", collection: @referees, locals: { locked: false } %>
-<% end %>
-<%= link_to "New Referee", new_member_area_referee_path unless @referees.present? && @referees.size < 2 %>
+    <% if @referees.present? %>
+      <%= render partial: "member_area/referees/referee", collection: @referees, locals: { locked: false } %>
+    <% end %>
+
+    <%= link_to "New Referee", new_member_area_referee_path, class: 'user-action-button' unless @referees.present? && @referees.size < 2 %>
 
 
-<h2>Emergency Contact</h2>
+    <h2>Emergency Contact</h2>
 
-<% if @emergency_contact.present? %>
-  <%= render partial: "member_area/emergency_contacts/emergency_contact", object: @emergency_contact, locals: { locked: false } %>
-<% else %>
-  <%= link_to "New emergency contact", new_member_area_emergency_contact_path %>
-<% end %>
+    <% if @emergency_contact.present? %>
+      <%= render partial: "member_area/emergency_contacts/emergency_contact", object: @emergency_contact, locals: { locked: false } %>
+    <% else %>
+      <%= link_to "New emergency contact", new_member_area_emergency_contact_path, class: 'user-action-button' %>
+    <% end %>
 
-<%= link_to "Back to overview", member_area_member_profile_path %>
+    <%= link_to "Back to overview", member_area_member_profile_path %>
+  </div>
+</div>

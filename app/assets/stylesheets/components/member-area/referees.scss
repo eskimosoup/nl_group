@@ -1,0 +1,32 @@
+.referee,
+.emergency-contact {
+  border: 1px solid $light-blue;
+  padding: em(16px);
+  margin: 0 0 em(1px);
+
+  .row {
+    margin-bottom: 7px;
+  }
+}
+
+.referee-title,
+.emergency-contact-title {
+  border: 0;
+  font-size: em(16px);
+  font-weight: $proxima-nova-bold;
+  margin: em(5px, 16px) 0;
+  padding: 0;
+  text-align: left;
+
+  a {
+    font-weight: $proxima-nova-light;
+    text-transform: capitalize;
+  }
+}
+
+.referee-field-title,
+.emergency-contact-field-title {
+  font-size: em(12px);
+  font-weight: $proxima-nova-semibold;
+  text-transform: uppercase;
+}
