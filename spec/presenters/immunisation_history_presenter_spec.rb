@@ -5,7 +5,7 @@ RSpec.describe ImmunisationHistoryPresenter, type: :presenter do
   subject(:immunisation_history_presenter){ ImmunisationHistoryPresenter.new(object: immunisation_history, view_template: view) }
 
   it "#edit_link" do
-    expect(immunisation_history_presenter.edit_link).to eq(link_to("Edit Immunisation History", edit_member_area_immunisation_history_path), class: 'user-action-button')
+    expect(immunisation_history_presenter.edit_link).to eq(link_to("Edit Immunisation History", edit_member_area_immunisation_history_path, class: 'user-action-button'))
   end
 
   describe "triple vaccination date" do
