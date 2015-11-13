@@ -1,13 +1,19 @@
-<h1>Where you live</h1>
+<div class="row">
+  <div class="small-12 columns">
+    <h1>Where you live</h1>
 
-<p>
-  Due to the nature of Healthcare work, we are required by law to collect a minimum of <strong>5 years address history</strong>
-  in order to obtain a Disclosure and Barring Service (DBS) certificate. You will also need to let us know what
-  month and year you lived from and to, at each address.
-</p>
+    <div class="form-notice">
+      <p>
+        Due to the nature of Healthcare work, we are required by law to collect a minimum of <strong>5 years address history</strong>
+        in order to obtain a Disclosure and Barring Service (DBS) certificate. You will also need to let us know what
+        month and year you lived from and to, at each address.
+      </p>
+    </div>
 
-<%= link_to "New Address", new_member_area_member_address_path %>
+    <%= link_to "New Address", new_member_area_member_address_path, class: 'light-action-button' %>
 
-<%= render partial: "member_address", collection: @member_addresses, locals: { locked: false } %>
+    <%= render partial: "member_address", collection: @member_addresses, locals: { locked: false } %>
 
-<%= link_to "Back to overview", member_area_member_profile_path %>
+    <%= link_to "Back to overview", member_area_member_profile_path %>
+  </div>
+</div>

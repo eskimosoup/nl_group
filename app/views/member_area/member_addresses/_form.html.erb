@@ -12,25 +12,35 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-  </div>
+  <%= field_set_tag 'Address Details' do %>
+    <div class="field">
+      <%= f.label :address %>
+      <%= f.text_field :address %>
+    </div>
+  <% end %>
 
-  <div class="field">
-    <%= f.label :lived_here_from %>
-    <%= f.date_select :lived_here_from %>
-  </div>
+  <%= field_set_tag 'Address Duration' do %>
+    <div class="row">
+      <div class="medium-6 columns">
+        <div class="field">
+          <%= f.label :lived_here_from %>
+          <%= f.date_select :lived_here_from, { order: [:day, :month, :year] }, class: 'date-select' %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :lived_here_to %>
-    <%= f.date_select :lived_here_to, include_blank: true %>
-  </div>
+      <div class="medium-6 columns">
+        <div class="field">
+          <%= f.label :lived_here_to %>
+          <%= f.date_select :lived_here_to, { order: [:day, :month, :year], include_blank: true}, class: 'date-select' %>
+        </div>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :current, "Current Address" %>
-    <%= f.check_box :current %>
-  </div>
+    <div class="field">
+      <%= f.label :current, "Current Address" %>
+      <%= f.check_box :current %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit "Save" %>

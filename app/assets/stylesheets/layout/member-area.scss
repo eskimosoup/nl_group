@@ -2,3 +2,21 @@
   border-bottom: 2px solid $dark-blue;
   padding: em(10px) 0;
 }
+
+.form-notice {
+  background: $pale-light-blue;
+  padding: em(10px);
+  margin: 0 0 em(10px);
+
+  h2 {
+    border: 0;
+    font-weight: $proxima-nova-bold;
+    padding: 0;
+    text-align: left;
+  }
+}
+
+.member-address {
+  padding: em(10px) 0;
+  border-bottom: 1px dotted $dark-grey;
+}
