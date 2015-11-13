@@ -32,5 +32,14 @@
   </div>
 </div>
 
-
+<div class="row">
+  <div class="small-12 columns">
+    <h2>Occupational Health Screening (Clinical)</h2>
+    <%= render partial: "member_area/basic_informations/occupational_health_screening_personal_details", object: @registration_data.basic_information, as: :basic_information %>
+    <%= render partial: "member_area/basic_medical_histories/uneditable_basic_medical_history", locals: {
+        basic_medical_history: @registration_data.basic_medical_history, current_address: @registration_data.current_address } %>
+    <%= render partial: "member_area/tuberculosis_chicken_pox_checks/uneditable_tuberculosis_chicken_pox_check", locals: {
+        tuberculosis_chicken_pox_check: @registration_data.tuberculosis_chicken_pox_check } %>
+  </div>
+</div>
 

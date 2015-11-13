@@ -1,0 +1,47 @@
+<div class="basic-medical-history">
+  <h4>Medical History</h4>
+  <% present basic_medical_history do |presenter| %>
+    <div class="row">
+      <div class="small-6 columns">
+        Home address<br/>
+        <% present current_address do |address_presenter| %>
+          <%= address_presenter.address %>
+        <% end %>
+      </div>
+      <div class="small-6 columns">
+        GP address<br/>
+        <%= presenter.gp_address %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 columns">
+        <%= presenter.illness_affecting_work %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 columns">
+        <%= presenter.illness_caused_by_work %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 columns">
+        <%= presenter.require_assistance %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 columns">
+        <%= presenter.having_treatment %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 columns">
+        <%= presenter.treatment_clarification %>
+      </div>
+    </div>
+  <% end %>
+</div>

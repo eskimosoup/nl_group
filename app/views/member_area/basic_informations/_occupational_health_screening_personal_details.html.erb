@@ -1,0 +1,50 @@
+<% present basic_information do |basic_information_presenter| %>
+  <div class="row">
+    <div class="small-12 columns">
+
+      <h4>Personal Details</h4>
+
+      <div class="row">
+        <div class="small-12 medium-3 columns">
+          Title<br/>
+          <%= basic_information_presenter.title %>
+        </div>
+        <div class="small-12 medium-3 columns">
+          First Name<br/>
+          <%= basic_information_presenter.first_name %>
+        </div>
+        <div class="small-12 medium-3 columns">
+          Middle Name(s)<br/>
+          <%= basic_information_presenter.middle_names %>
+        </div>
+        <div class="small-12 medium-3 columns">
+          Last Name<br/>
+          <%= basic_information_presenter.last_name %>
+        </div>
+      </div>
+
+      <hr>
+
+      <h4>Contact Information</h4>
+
+      <div class="row">
+        <div class="small-12 medium-3 columns">
+          Date of Birth<br/>
+          <%= basic_information_presenter.date_of_birth %>
+        </div>
+        <div class="small-12 medium-3 columns">
+          Mobile Number<br/>
+          <%= basic_information_presenter.mobile_number %>
+        </div>
+        <div class="small-12 medium-3 columns">
+          Home Number<br/>
+          <%= basic_information_presenter.home_number %>
+        </div>
+        <div class="small-12 medium-3 columns">
+          Email Address<br/>
+          <%= basic_information_presenter.email_address %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
