@@ -1,0 +1,70 @@
+<div class="immunisation-history">
+  <div class="row">
+    <div class="small-12 columns">
+      <h4>Immunisation History</h4>
+
+      <% present immunisation_history do |presenter| %>
+        <div class="row">
+          <div class="small-6 columns">
+            Triple Vaccination Date
+          </div>
+          <div class="small-6 columns">
+            <%= presenter.triple_vaccination_date %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="small-6 columns">
+            Polio Vaccination Date
+          </div>
+          <div class="small-6 columns">
+            <%= presenter.polio_vaccination_date %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="small-6 columns">
+            Hepatitis B Vaccination Date
+          </div>
+          <div class="small-6 columns">
+            <%= presenter.hepatitis_b_vaccination_date %>
+          </div>
+        </div>
+
+        <% if presenter.had_hepatitis_b_vaccination %>
+          <div class="row">
+            <div class="small-6 columns">
+              Course Dates
+            </div>
+            <div class="small-2 columns">
+              1. <%= presenter.hep_b_course_1_date %>
+            </div>
+            <div class="small-2 columns">
+              2. <%= presenter.hep_b_course_2_date %>
+            </div>
+            <div class="small-2 columns">
+              3. <%= presenter.hep_b_course_3_date %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="small-6 columns">
+              Booster Dates
+            </div>
+            <div class="small-2 columns">
+              1. <%= presenter.hep_b_booster_1_date %>
+            </div>
+            <div class="small-2 columns">
+              2. <%= presenter.hep_b_booster_2_date %>
+            </div>
+            <div class="small-2 columns">
+              3. <%= presenter.hep_b_booster_3_date %>
+            </div>
+          </div>
+        <% end %>
+
+        <h4>Exposure Prone Procedures</h4>
+        <%= presenter.role_involves_epps %>
+      <% end %>
+    </div>
+  </div>
+</div>
