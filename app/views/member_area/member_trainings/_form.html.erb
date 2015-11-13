@@ -12,26 +12,36 @@
     </div>
   <% end %>
 
-  <p>
-    You are required to complete the following <strong>mandatory training</strong> on an annual basis and will be required to complete
-    our online training prior to the start of your first assignment.
-  </p>
-
-  <p>
-    Which of the following mandatory training courses have you completed before?
-  </p>
-
-  <%= f.collection_check_boxes :mandatory_training_course_ids, MandatoryTrainingCourse.displayed.order(name: :asc), :id, :name %>
-
-  <div id="other-training-courses">
-    <%= f.fields_for :member_other_training_courses do |training_course| %>
-      <%= render "member_area/member_trainings/member_other_training_course_fields", f: training_course %>
-    <% end %>
-    <div class="links">
-      <%= link_to_add_association "Add Other Training Course", f, :member_other_training_courses %>
-    </div>
+  <div class="form-notice">
+    <p>
+      You are required to complete the following <strong>mandatory training</strong> on an annual basis and will be required to complete
+      our online training prior to the start of your first assignment.
+    </p>
   </div>
 
+  <%= field_set_tag 'Mandatory Training Courses' do %>
+    <p>
+      Which of the following mandatory training courses have you completed before?
+    </p>
 
-  <%= f.submit "Save" %>
+    <div class="mandatory-training-courses">
+      <%= f.collection_check_boxes :mandatory_training_course_ids, MandatoryTrainingCourse.displayed.order(name: :asc), :id, :name %>
+    </div>
+  <% end %>
+
+  <%= field_set_tag 'Other Training Courses' do %>
+    <div id="other-training-courses">
+      <%= f.fields_for :member_other_training_courses do |training_course| %>
+        <%= render "member_area/member_trainings/member_other_training_course_fields", f: training_course %>
+      <% end %>
+
+      <div class="links">
+        <%= link_to_add_association "Add Other Training Course", f, :member_other_training_courses %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Save" %>
+  </div>
 <% end %>

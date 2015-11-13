@@ -3,7 +3,8 @@
     <h4>Training</h4>
 
     <% if member_training.mandatory_training_courses.present? %>
-      <h4>Mandatory Training Courses Completed</h4>
+      <label>Mandatory Training Courses Completed</label>
+
       <div class="row">
         <%= render member_training.mandatory_training_courses %>
       </div>

@@ -14,16 +14,17 @@
   <% end %>
 
   <%= field_set_tag "Full Name" do %>
-    <div class="row">
-      <div class="small-2 columns">
-        Title
-      </div>
-      <div class="small-10 columns">
-        <% BasicInformation::TITLES.each do |title| %>
+    <label>
+      Title
+    </label>
+
+    <div class="name-titles-wrap">
+      <% BasicInformation::TITLES.each do |title| %>
+        <div class="name-title">
           <%= f.radio_button :title, title %>
           <%= f.label :title, value: title %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
 
     <div class="row">
@@ -71,72 +72,87 @@
     </div>
   <% end %>
 
-  <div class="row">
-    <div class="small-6 columns">
-      <p>
-        Have you ever used or been known under a different First or Last name(s) other than your current name? (e.g. Maiden Name)
-      </p>
 
-      <div class="field">
-        <%= f.label :changed_name, "Yes", value: true %>
-        <%= f.radio_button :changed_name, true %>
+  <%= field_set_tag "Previous Names" do %>
+    <p>
+      Have you ever used or been known under a different First or Last name(s) other than your current name? (e.g. Maiden Name)
+    </p>
 
-        <%= f.label :changed_name, "No", value: false %>
-        <%= f.radio_button :changed_name, false %>
-      </div>
-    </div>
-    <div class="small-6 columns">
-      <div class="field">
-        <%= f.label :using_current_name_since, "How long have you been using your current name?" %>
-        <%= f.date_select :using_current_name_since, discard_day: true, start_year: Date.today.year, end_year: (Date.today.year - 60) %>
-      </div>
-    </div>
-  </div>
+    <div class="field">
+      <%= f.label :changed_name, "Yes", value: true %>
+      <%= f.radio_button :changed_name, true %>
 
-  <div class="row">
-    <div class="small-6 columns">
-      <div class="field">
-        <%= f.label :previous_names, "What previous name(s) have you had?" %>
-        <%= f.text_area :previous_names %>
-      </div>
+      <%= f.label :changed_name, "No", value: false %>
+      <%= f.radio_button :changed_name, false %>
     </div>
 
-    <div class="small-6 columns">
-      <div class="field">
-        <%= f.label :date_of_birth %>
-        <%= f.date_select :date_of_birth, start_year: Date.today.year, end_year: (Date.today.year - 60) %>
+    <div class="row">
+      <div class="medium-6 columns">
+        <div class="field">
+          <%= f.label :using_current_name_since, "How long have you been using your current name?" %>
+          <%= f.date_select :using_current_name_since, { discard_day: true, start_year: Date.today.year, end_year: (Date.today.year - 60), order: [:month, :year, :day] }, class: 'date-select' %>
+        </div>
       </div>
-      <div class="field">
-        <%= f.label :national_insurance_number %>
-        <%= f.text_field :national_insurance_number %>
-      </div>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="small-6 columns">
-      <div class="field">
-        <p>
-          Where did you hear about us?
-        </p>
-        <% BasicInformation::WHERE_HEARDS.each do |key, value| %>
-          <%= f.radio_button :where_heard, value %>
-          <%= f.label :where_heard, key, value: value %>
-        <% end %>
-      </div>
-      <div class="field">
-        <%= f.label :member_where_heard, "Please specify if you chose other" %>
-        <%= f.text_field :member_where_heard %>
+      <div class="medium-6 columns">
+        <div class="field">
+          <%= f.label :previous_names, "What previous name(s) have you had?" %>
+          <%= f.text_area :previous_names %>
+        </div>
       </div>
     </div>
+  <% end %>
 
-    <div class="small-6 columns">
-      <div class="field">
-        <%= f.label :referred_by %>
-        <%= f.text_field :referred_by %>
+  <%= field_set_tag "Personal Information" do %>
+    <div class="row">
+      <div class="medium-6 columns">
+        <div class="field">
+          <%= f.label :date_of_birth %>
+          <%= f.date_select :date_of_birth, { start_year: Date.today.year, end_year: (Date.today.year - 60), order: [:day, :month, :year] }, class: 'date-select' %>
+        </div>
+      </div>
+
+      <div class="medium-6 columns">
+        <div class="field">
+          <%= f.label :national_insurance_number %>
+          <%= f.text_field :national_insurance_number %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
+
+  <%= field_set_tag "Referral Information" do %>
+    <div class="row">
+      <div class="medium-6 columns">
+        <div class="field">
+          <label class="display-block">
+            Where did you hear about us?
+          </label>
+
+          <div class="where-heards-list">
+            <% BasicInformation::WHERE_HEARDS.each do |key, value| %>
+              <div class="where-heard">
+                <%= f.radio_button :where_heard, value %>
+                <%= f.label :where_heard, key, value: value %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="medium-6 columns">
+        <div class="field">
+          <%= f.label :member_where_heard, "Please specify if you chose other" %>
+          <%= f.text_field :member_where_heard %>
+        </div>
+
+        <div class="field">
+          <%= f.label :referred_by %>
+          <%= f.text_field :referred_by %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit "Save" %>

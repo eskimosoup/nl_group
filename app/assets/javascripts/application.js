@@ -20,6 +20,7 @@
 //= require components/toggle-class.js
 //= require components/clients-slider.js
 //= require components/sticky-scroll.js
+//= require components/member-area-forms
 //= require vendor/matchheight.js
 //= require vendor/uncomment.js
 //= require cocoon
@@ -27,6 +28,7 @@
 $(document).foundation();
 
 $(function() {
+
   if (Modernizr.mq('only screen and (min-width: 768px)')) {
     $('.colorbox').colorbox({
       width: '70%',

@@ -1,0 +1,52 @@
+.date-select {
+  display: inline-block;
+  width: auto;
+}
+
+.where-heards-list,
+.afc-bands-wrap,
+.nested-fields,
+.mandatory-training-courses {
+  @extend %clearfix;
+}
+
+.name-titles-wrap {
+  @extend %clearfix;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.where-heard {
+  min-width: 50%;
+  margin: 3px 0;
+  float: left;
+}
+
+.name-title {
+  margin: 0 6px;
+  float: left;
+}
+
+.afc-band {
+  float: left;
+  margin: 0 5px;
+}
+
+.mandatory-training-courses {
+  input,
+  label {
+    float: left;
+  }
+
+  @media screen and (min-width: 768px) {
+    label {
+      width: 95%;
+      margin: 5px 0;
+    }
+
+    input {
+      width: 5%;
+      margin: 5px 0;
+    }
+  }
+}
