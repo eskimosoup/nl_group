@@ -141,7 +141,7 @@ class MemberProfilePresenter < BasePresenter
   end
 
   def has_current_address?
-    member_profile.addresses.exists?(current: true)
+    member_profile.member_addresses.exists?(current: true)
   end
 
   def has_referees?

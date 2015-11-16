@@ -34,14 +34,7 @@
 
 <div class="row">
   <div class="small-12 columns">
-    <h2>Occupational Health Screening (Clinical)</h2>
-    <%= render partial: "member_area/basic_informations/occupational_health_screening_personal_details", object: @registration_data.basic_information, as: :basic_information %>
-    <%= render partial: "member_area/basic_medical_histories/uneditable_basic_medical_history", locals: {
-        basic_medical_history: @registration_data.basic_medical_history, current_address: @registration_data.current_address } %>
-    <%= render partial: "member_area/tuberculosis_chicken_pox_checks/uneditable_tuberculosis_chicken_pox_check", locals: {
-        tuberculosis_chicken_pox_check: @registration_data.tuberculosis_chicken_pox_check } %>
-    <%= render partial: "member_area/immunisation_histories/uneditable_immunisation_history", locals: {
-        immunisation_history: @registration_data.immunisation_history } %>
+    <%= render "occupational_health_screening" %>
   </div>
 </div>
 
@@ -50,6 +43,18 @@
     <h2>Disclosure and Barring Service (DBS formerly CRB)</h2>
 
     <%= render @registration_data.dbs_check %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 columns">
+    <%= render @registration_data.payment_information %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 columns">
+    <%= render "declarations" %>
   </div>
 </div>
 

@@ -1,0 +1,13 @@
+<div class="payment-information">
+  <% present payment_information do |presenter| %>
+    <div class="row">
+      <div class="small-12 columns">
+        <h2>Payments</h2>
+        <p>
+          The payment methodology you would like to nominate for processing funds from your assignments with us is
+          <%= presenter.payment_methodology %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>
