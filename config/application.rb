@@ -35,7 +35,7 @@ module NlGroup
     config.active_record.raise_in_transactional_callbacks = true
 
     config.middleware.use Rack::Deflater
-    require 'pdfkit'
-    config.middleware.use PDFKit::Middleware, { }, only: '/member-area/registration-data'
+    require 'wicked_pdf'
+    config.middleware.use WickedPdf::Middleware
   end
 end
