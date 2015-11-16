@@ -53,4 +53,12 @@ class RegistrationData
     @dbs_check ||= member_profile.dbs_check
   end
 
+  def payment_information
+    @payment_information ||= member_profile.payment_information
+  end
+
+  def member_submission
+    @member_submission ||= member_profile.member_submission
+  end
+
 end

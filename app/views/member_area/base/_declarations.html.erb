@@ -1,0 +1,32 @@
+<div class="declarations">
+  <div class="row">
+    <div class="small-12 columns">
+      <h2>Declarations</h2>
+
+      <h4>Working time directive</h4>
+
+      <p>
+        The Working Time Regulations 1998 require NL Group to limit your average weekly working time to 48 hours unless
+        you agree with NL Group that the limit shall not apply to you.
+      </p>
+
+      <% present @registration_data.payment_information do |presenter| %>
+        <p>
+          <%= presenter.limit_working_week %>
+        </p>
+      <% end %>
+
+      <h4>Candidate Handbook</h4>
+
+      <% present @registration_data.member_submission do |presenter| %>
+        <%= presenter.downloaded_handbook %>
+
+        <%= render "member_area/member_submissions/main_acceptance" %>
+
+        <p>
+          <strong>Submitted on</strong> <%= presenter.submitted_on %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :member_submission do
     member_profile
-    health_information_accurate false
-    full_acknowledgement false
-    downloaded_handbook false
+    health_information_accurate true
+    full_acknowledgement true
+    downloaded_handbook true
   end
 
 end
