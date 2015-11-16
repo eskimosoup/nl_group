@@ -36,6 +36,6 @@ module NlGroup
 
     config.middleware.use Rack::Deflater
     require 'pdfkit'
-    config.middleware.use PDFKit::Middleware, { print_media_type: true, page_size: "A4" }, only: '/member-area/registration-data'
+    config.middleware.use PDFKit::Middleware, { }, only: '/member-area/registration-data'
   end
 end
