@@ -1,0 +1,30 @@
+<%= render 'optimadmin/shared/header/main_title', title: 'Manage Key Contacts' %>
+
+<div class="main-content">
+  <div class="row module-header collapse">
+    <%= render 'optimadmin/shared/module/index/new_item', title: 'Key Contact', object: KeyContact, path: new_key_contact_path %>
+    <%= render 'optimadmin/shared/search_form' %>
+    <%= render 'optimadmin/shared/module/index/pagination' %>
+    <!--
+      <%= render 'optimadmin/shared/module/index/order', options: [['Username', 'username']] %>
+    -->
+    <%= render 'optimadmin/shared/module/index/recycle_bin', items: @key_contacts.size, path: root_url %>
+  </div>
+
+  <div class="row collapse module-list-index header">
+    <%= list_item('small-4 large-3'){ 'Name' } %>
+    <%= list_item('small-3'){ 'Email' } %>
+    <%= list_item('small-2'){ 'Phone Number' } %>
+    <%= list_item('small-2'){ 'Mobile Number' } %>
+
+    <%= list_item { 'Edit' } %>
+
+    <%= list_item('large-1 hide-for-medium-down text-center last'){ 'Delete' } %>
+  </div>
+
+  <!-- <div class='module-sortable' data-module="KeyContact"> -->
+  <%= render partial: 'key_contact', collection: @key_contacts, as: :key_contact_presenter %>
+  <!-- </div> -->
+  <%= paginate @key_contacts %>
+</div>
+

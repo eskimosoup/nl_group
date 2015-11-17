@@ -37,147 +37,39 @@ Rails.application.routes.draw do
   root to: 'application#index'
 end
 Optimadmin::Engine.routes.draw do
-  resources :mandatory_training_courses, except: [:show] do
+  concern :orderable do
     collection do
       post 'order'
     end
+  end
+  concern :toggleable do
     member do
       get 'toggle'
     end
   end
-  resources :work_reasons, except: [:show] do
-    collection do
-      post 'order'
-    end
+  concern :imageable do
     member do
-      get 'toggle'
       get 'edit_images'
       post 'update_image_default'
       post 'update_image_fill'
       post 'update_image_fit'
-    end
-  end
-  resources :team_member_teams, except: [:show] do
-    collection do
-      post 'order'
-    end
-    member do
-      get 'toggle'
-    end
-  end
-  resources :landing_pages, except: [:show] do
-    collection do
-      post 'order'
-    end
-    member do
-      get 'toggle'
     end
   end
 
-
-  resources :pages, except: :show do
-    collection do
-      post 'order'
-    end
-    member do
-      get 'edit_images'
-      get 'toggle'
-      get 'edit_images'
-      post 'update_image_default'
-      post 'update_image_fill'
-      post 'update_image_fit'
-    end
-  end
-  resources :additional_paragraphs, except: [:show] do
-    collection do
-      post 'order'
-    end
-    member do
-      get 'toggle'
-    end
-  end
-  resources :additional_buttons, except: [:show] do
-    collection do
-      post 'order'
-    end
-    member do
-      get 'toggle'
-    end
-  end
-  resources :additional_titles, except: [:show] do
-    collection do
-      post 'order'
-    end
-    member do
-      get 'toggle'
-    end
-  end
-  resources :additional_blocks, except: [:show] do
-    collection do
-      post 'order'
-    end
-    member do
-      get 'toggle'
-    end
-  end
-  resources :additional_rows, except: [:show] do
-    collection do
-      post 'order'
-    end
-    member do
-      get 'toggle'
-    end
-  end
-  resources :resources, except: [:show] do
-    collection do
-      post 'order'
-    end
-    member do
-      get 'toggle'
-    end
-  end
-  resources :frequently_asked_questions, except: [:show] do
-    collection do
-      post 'order'
-    end
-    member do
-      get 'toggle'
-    end
-  end
-  resources :testimonials, except: [:show] do
-    collection do
-      post 'order'
-    end
-    member do
-      get 'toggle'
-      get 'edit_images'
-      post 'update_image_default'
-      post 'update_image_fill'
-      post 'update_image_fit'
-    end
-  end
-  resources :team_members, except: [:show] do
-    collection do
-      post 'order'
-    end
-    member do
-      get 'toggle'
-      get 'edit_images'
-      post 'update_image_default'
-      post 'update_image_fill'
-      post 'update_image_fit'
-    end
-  end
-  resources :clients, except: [:show] do
-    collection do
-      post 'order'
-    end
-    member do
-      get 'toggle'
-      get 'edit_images'
-      post 'update_image_default'
-      post 'update_image_fill'
-      post 'update_image_fit'
-    end
-  end
+  resources :key_contacts, except: [:show], concerns: [:orderable, :toggleable]
+  resources :mandatory_training_courses, except: [:show], concerns: [:orderable, :toggleable]
+  resources :work_reasons, except: [:show], concerns: [:orderable, :toggleable, :imageable]
+  resources :team_member_teams, except: [:show], concerns: [:orderable, :toggleable]
+  resources :landing_pages, except: [:show], concerns: [:orderable, :toggleable]
+  resources :pages, except: :show, concerns: [:orderable, :toggleable, :imageable]
+  resources :additional_paragraphs, except: [:show], concerns: [:orderable, :toggleable]
+  resources :additional_buttons, except: [:show], concerns: [:orderable, :toggleable]
+  resources :additional_titles, except: [:show], concerns: [:orderable, :toggleable]
+  resources :additional_blocks, except: [:show], concerns: [:orderable, :toggleable]
+  resources :additional_rows, except: [:show], concerns: [:orderable, :toggleable]
+  resources :resources, except: [:show], concerns: [:orderable, :toggleable]
+  resources :frequently_asked_questions, except: [:show], concerns: [:orderable, :toggleable]
+  resources :testimonials, except: [:show], concerns: [:orderable, :toggleable, :imageable]
+  resources :team_members, except: [:show], concerns: [:orderable, :toggleable, :imageable]
+  resources :clients, except: [:show], concerns: [:orderable, :toggleable, :imageable]
 end
