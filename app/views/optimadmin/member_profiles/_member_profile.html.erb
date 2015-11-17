@@ -1,0 +1,21 @@
+<div class="row collapse module-list-index <%= cycle('odd', 'even') %>" data-equalizer="module-list" id="item_<%= member_profile_presenter.id %>">
+  <div class="large-5 small-8 columns" data-equalizer-watch="module-list">
+    <%= member_profile_presenter.email %>
+  </div>
+
+  <div class="large-4 small-4 columns" data-equalizer-watch="module-list">
+    <%= member_profile_presenter.key_contact_name %>
+  </div>
+
+  <div class="large-1 small-4 columns" data-equalizer-watch="module-list">
+    <%= member_profile_presenter.toggle_link(:active) %>
+  </div>
+
+  <div class="large-1 small-4 columns" data-equalizer-watch="module-list">
+    <%= member_profile_presenter.edit_link %>
+  </div>
+
+  <div class="large-1 hide-for-medium-down columns last" data-equalizer-watch="module-list">
+    <%= member_profile_presenter.delete_link %>
+  </div>
+</div>

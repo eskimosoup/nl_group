@@ -1,0 +1,17 @@
+<div class="key-contact">
+  <% present key_contact do |presenter| %>
+    <h5>Your Key Contact</h5>
+    <div>
+      <strong>Name:</strong> <%= presenter.name %>
+    </div>
+    <div>
+      <strong>Email:</strong> <%= presenter.email %>
+    </div>
+    <div>
+      <strong>Phone number:</strong> <%= presenter.phone_number %>
+    </div>
+    <div>
+      <strong>Mobile Number:</strong> <%= presenter.mobile_number %>
+    </div>
+  <% end %>
+</div>

@@ -34,4 +34,8 @@ RSpec.describe KeyContact, type: :model do
     end
   end
 
+  describe "associations", :association do
+    it { should have_many(:member_profiles) }
+  end
+
 end

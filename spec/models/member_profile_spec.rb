@@ -8,6 +8,7 @@ RSpec.describe MemberProfile, type: :model do
   end
 
   describe "associations", :association do
+    it { should belong_to(:key_contact) }
     it { should have_one(:basic_information) }
     it { should have_one(:work_eligibility) }
     it { should have_many(:member_addresses) }

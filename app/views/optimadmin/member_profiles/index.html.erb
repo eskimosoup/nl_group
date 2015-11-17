@@ -1,0 +1,25 @@
+<%= render 'optimadmin/shared/header/main_title', title: 'Manage Member Profiles' %>
+
+<div class="main-content">
+  <div class="row module-header collapse">
+    <%= render 'optimadmin/shared/module/index/new_item', title: 'Member Profile', object: MemberProfile, path: new_member_profile_path %>
+    <%= render 'optimadmin/shared/search_form' %>
+    <%= render 'optimadmin/shared/module/index/pagination' %>
+    <%= render 'optimadmin/shared/module/index/recycle_bin', items: @member_profiles.size, path: root_url %>
+  </div>
+
+  <div class="row collapse module-list-index header">
+
+    <%= list_item('large-5 small-8'){ 'Email' } %>
+    <%= list_item('large-4 small-4'){ 'Key Contact' } %>
+    <%= list_item { 'Active' } %>
+    <%= list_item { 'Edit' } %>
+
+    <%= list_item('large-1 hide-for-medium-down text-center last'){ 'Delete' } %>
+  </div>
+
+  <!-- <div class='module-sortable' data-module="MemberProfile"> -->
+  <%= render partial: 'member_profile', collection: @member_profiles, as: :member_profile_presenter %>
+  <!-- </div> -->
+  <%= paginate @member_profiles %>
+</div>

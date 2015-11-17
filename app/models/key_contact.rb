@@ -1,4 +1,7 @@
 class KeyContact < ActiveRecord::Base
+
+  has_many :member_profiles
+
   validates :name, presence: true
   validates :email, uniqueness: true
 
