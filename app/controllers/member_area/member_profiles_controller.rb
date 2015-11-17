@@ -1,7 +1,7 @@
 module MemberArea
   class MemberProfilesController < MemberArea::BaseController
     def show
-      @member_profile_presenter = presented_current_member_profile
+      @dashboard = Dashboard.new(current_member_profile)
     end
 
     def edit

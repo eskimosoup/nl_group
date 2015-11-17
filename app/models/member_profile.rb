@@ -1,5 +1,6 @@
 class MemberProfile < ActiveRecord::Base
 
+  belongs_to :key_contact
   has_one :basic_information
   has_one :basic_medical_history
   has_one :dbs_check
@@ -13,6 +14,8 @@ class MemberProfile < ActiveRecord::Base
   has_one :work_eligibility
   has_many :member_addresses
   has_many :referees
+
+  delegate :name, to: :key_contact, prefix: true, allow_nil: true
 
   has_secure_password
   validates :email, presence: true, uniqueness: true
