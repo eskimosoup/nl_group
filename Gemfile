@@ -66,6 +66,7 @@ group :development do
   gem 'flamegraph', '~> 0.1.0'
   gem 'stackprof', '~> 0.2.7'
   gem 'bullet', '~> 4.14.7'
+  gem 'dotenv-rails', '~> 2.0', '>= 2.0.2'
 end
 
 
@@ -75,8 +76,9 @@ source 'https://rails-assets.org' do
 end
 
 gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git', branch: 'master'
-gem 'workable', '~> 1.0'
+gem 'workable', '~> 2.0'
 gem 'friendly_id', '~> 5.1'
 gem 'cocoon', '~> 1.2', '>= 1.2.6'
 gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf', '~> 0.11.0'
+gem 'whenever', '~> 0.9.4', require: false

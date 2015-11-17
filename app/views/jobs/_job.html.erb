@@ -1,0 +1,17 @@
+<div class="job">
+  <div class="row">
+    <div class="small-12 columns clearfix">
+      <% present job do |job_presenter| %>
+        <h2><%= job_presenter.full_title %></h2>
+
+        <%= job_presenter.department %>
+
+        <div class="ctas right">
+          <%= job_presenter.url(class: "dark-action-button", target: "_blank") %>
+          <%= job_presenter.application_url(class: "dark-action-button", target: "_blank") %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

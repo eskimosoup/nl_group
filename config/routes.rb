@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :contacts, only: [:new, :create]
   resources :team_members, only: [:index, :show], path: 'team-members'
   resources :testimonials, only: [:index]
+  resources :jobs, only: [:index]
 
   get ":id", to: "landing_pages#show", as: :landing_page, constraints: LandingPageConstraint.new
 
