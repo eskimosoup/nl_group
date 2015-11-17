@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105103312) do
+ActiveRecord::Schema.define(version: 20151117134110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -217,7 +217,7 @@ ActiveRecord::Schema.define(version: 20151105103312) do
   create_table "job_locations", force: :cascade do |t|
     t.integer  "job_id"
     t.string   "country"
-    t.string   "country_coe"
+    t.string   "country_code"
     t.string   "region"
     t.string   "region_code"
     t.string   "city"
