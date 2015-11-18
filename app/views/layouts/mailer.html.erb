@@ -1,5 +1,145 @@
-<html>
-  <body>
-    <%= yield %>
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+  </head>
+  <body style="margin: 0; padding: 0;">
+    <table border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="color: #4F5252; font-family: proxima-nova, Arial, sans-serif;">
+      <tr>
+        <td style="padding: 12px 0;">
+          <table border="0" cellpadding="0" cellspacing="0" width="600" align="center">
+            <tr>
+              <td>
+                <%= link_to root_url, style: "color: #0072BC;" do %>
+                  <%= image_tag image_url("layout/header/logo.png"), style: "display:block; max-width: 100%;" %>
+                <% end %>
+              </td>
+              <% if @global_site_settings["Phone"].present? %>
+                <td align="right" style="font-size: 16px;">
+                  Tel: <strong><%= @global_site_settings["Phone"] %></strong>
+                </td>
+              <% end %>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 12px 0;">
+          <%= yield %>
+        </td>
+      </tr>
+      <tr>
+        <td style="background-color: #cadff1; padding: 30px 0;">
+          <table border="0" cellpadding="0" cellspacing="0" width="400" align="center">
+            <tr>
+              <td style="font-size: 16px; text-align: center; text-transform: uppercase;">
+                Follow Us
+              </td>
+              <% if @global_site_settings["Facebook"].present? %>
+                <td width="50" align="center">
+                  <%= link_to @global_site_settings["Facebook"], style: "color: #0072BC;" do %>
+                    <%= image_tag image_url("components/social/facebook.png"), title: "Facebook", alt: "Facebook", style: "display:block; max-width: 100%;", width: "13" %>
+                  <% end %>
+                </td>
+              <% end %>
+              <% if @global_site_settings["Twitter"].present? %>
+                <td width="50" align="center">
+                  <%= link_to @global_site_settings["Twitter"], style: "color: #0072BC;" do %>
+                    <%= image_tag image_url("components/social/twitter.png"), title: "Twitter", alt: "Twitter", style: "display:block; max-width: 100%;", width: "26" %>
+                  <% end %>
+                </td>
+              <% end %>
+              <% if @global_site_settings["Google Plus"].present? %>
+                <td width="50" align="center">
+                  <%= link_to @global_site_settings["Google Plus"], style: "color: #0072BC;" do %>
+                    <%= image_tag image_url("components/social/google-plus.png"), title: "Google Plus", alt: "Google Plus", style: "display:block; max-width: 100%;", width: "31" %>
+                  <% end %>
+                </td>
+              <% end %>
+              <% if @global_site_settings["Vimeo"].present? %>
+                <td width="50" align="center">
+                  <%= link_to @global_site_settings["Vimeo"], style: "color: #0072BC;" do %>
+                    <%= image_tag image_url("components/social/vimeo.png"), title: "Vimeo", alt: "Vimeo", style: "display:block; max-width: 100%;", width: "27" %>
+                  <% end %>
+                </td>
+              <% end %>
+              <% if @global_site_settings["LinkedIn"].present? %>
+                <td width="50" align="center">
+                  <%= link_to @global_site_settings["LinkedIn"], style: "color: #0072BC;" do %>
+                    <%= image_tag image_url("components/social/linkedin.png"), title: "LinkedIn", alt: "LinkedIn", style: "display:block; max-width: 100%;", width: "27" %>
+                  <% end %>
+                </td>
+              <% end %>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 12px 0; line-height: 24px;" valign="top">
+          <table border="0" cellpadding="0" cellspacing="0" width="600" align="center">
+            <tr>
+              <td style="padding-right: 10px;">
+                <table border="0" cellpadding="0" cellspacing="0" width="290" align="center">
+                  <tr>
+                    <td>
+                      NL Group
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      The Riverside Building
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Livingstone Road
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Hessle
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      East Riding of Yorkshire
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      HU13 0DZ
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td style="padding-left: 10px;" valign="top">
+                <table border="0" cellpadding="0" cellspacing="0" width="290" align="center">
+                  <tr>
+                    <td>
+                      <%= link_to "nlgroup.co.uk", "http://nlgroup.co.uk", style: "color: #0072BC;" %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Email: <%= mail_to "info@nlgroup.co.uk", "info@nlgroup.co.uk", style: "color: #0072BC;" %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Tel: 01482 60 60 40 (Option 1)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Fax: 01482 62 83 81
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
   </body>
 </html>

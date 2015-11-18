@@ -1,6 +1,7 @@
 class ApplicationMailer < ActionMailer::Base
   layout 'mailer'
   default from: Proc.new{ ApplicationMailer.site_email }
+  before_action :global_site_settings
 
   def self.site_email
     @site_email = begin
@@ -22,5 +23,9 @@ class ApplicationMailer < ActionMailer::Base
         "Optimised"
       end
     end
+  end
+
+  def global_site_settings
+    @global_site_settings ||= Optimadmin::SiteSetting.current_environment
   end
 end
