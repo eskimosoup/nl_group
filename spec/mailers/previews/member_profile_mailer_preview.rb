@@ -6,4 +6,8 @@ class MemberProfileMailerPreview < ActionMailer::Preview
     MemberProfileMailer.password_reset
   end
 
+  def welcome
+    MemberProfileMailer.welcome(FactoryGirl.build(:member_profile))
+  end
+
 end

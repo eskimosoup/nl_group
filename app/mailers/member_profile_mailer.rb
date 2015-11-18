@@ -10,4 +10,8 @@ class MemberProfileMailer < ApplicationMailer
 
     mail to: member_profile.email, subject: "Password reset"
   end
+
+  def welcome(member_profile)
+    mail to: member_profile.email, subject: "Welcome to #{ MemberProfileMailer.site_name }"
+  end
 end
