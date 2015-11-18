@@ -1,31 +1,47 @@
 <% present work_eligibility do |work_eligibility_presenter| %>
   <div class="row">
     <div class="small-12 columns">
+      <hr />
+
       <h2>Eligibility to work in the UK</h2>
 
       <h4>Passport details</h4>
 
       <div class="row">
         <div class="small-12 medium-4 columns">
-          Passport Number<br/>
+          <div class="field-title">
+            Passport Number
+          </div>
           <%= work_eligibility_presenter.passport_number %>
         </div>
         <div class="small-12 medium-4 columns">
-          Expiry Date<br/>
+          <div class="field-title">
+            Expiry Date
+          </div>
           <%= work_eligibility_presenter.expiry_date %>
         </div>
         <div class="small-12 medium-4 columns">
-          Nationality<br/>
+          <div class="field-title">
+            Nationality
+          </div>
           <%= work_eligibility_presenter.nationality %>
         </div>
       </div>
 
       <div class="row">
-        <div class="small-12 medium-6 columns">
-          Holds an EU Passport: <%= work_eligibility_presenter.hold_eu_passport %>
+        <div class="small-12 medium-4 columns">
+          <div class="field-title">
+            Holds an EU Passport
+          </div>
+
+          <%= work_eligibility_presenter.hold_eu_passport %>
         </div>
-        <div class="small-12 medium-6 columns">
-          Proof of right to work in the UK: <%= work_eligibility_presenter.proof_of_right_to_work %>
+        <div class="small-12 medium-8 columns">
+          <div class="field-title">
+            Proof of right to work in the UK
+          </div>
+
+          <%= work_eligibility_presenter.proof_of_right_to_work %>
         </div>
       </div>
     </div>

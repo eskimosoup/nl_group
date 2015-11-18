@@ -1,15 +1,19 @@
-.referee,
-.emergency-contact {
-  border: 1px solid $light-blue;
-  padding: em(16px);
-  margin: 0 0 em(1px);
+// This is a bit of a hack but stops the formatting on the PDF
+@media only screen and (min-width: 1px) {
+  .referee,
+  .emergency-contact {
+    border: 1px solid $light-blue;
+    padding: em(16px);
+    margin: 0 0 em(1px);
 
-  .row {
-    margin-bottom: 7px;
+    .row {
+      margin-bottom: 7px;
+    }
   }
 }
 
 .referee-title,
+.area-title,
 .emergency-contact-title {
   border: 0;
   font-size: em(16px);
@@ -25,8 +29,13 @@
 }
 
 .referee-field-title,
+.field-title,
 .emergency-contact-field-title {
   font-size: em(12px);
   font-weight: $proxima-nova-semibold;
   text-transform: uppercase;
+
+  &.inline {
+    display: inline;
+  }
 }

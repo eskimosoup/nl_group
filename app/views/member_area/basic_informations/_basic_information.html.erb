@@ -7,62 +7,81 @@
 
       <div class="row">
         <div class="small-12 medium-3 columns">
-          Title<br/>
+          <div class="field-title">Title</div>
           <%= basic_information_presenter.title %>
         </div>
         <div class="small-12 medium-3 columns">
-          First Name<br/>
+          <div class="field-title">First Name</div>
           <%= basic_information_presenter.first_name %>
         </div>
         <div class="small-12 medium-3 columns">
-          Middle Name(s)<br/>
+          <div class="field-title">Middle Name(s)</div>
           <%= basic_information_presenter.middle_names %>
         </div>
         <div class="small-12 medium-3 columns">
-          Last Name<br/>
+          <div class="field-title">Last Name</div>
           <%= basic_information_presenter.last_name %>
         </div>
       </div>
 
-      <hr>
+      <hr class="partial-separator" />
 
       <h4>Contact Information</h4>
 
       <div class="row">
-        <div class="small-12 medium-4 columns">
-          Mobile Number<br/>
+        <div class="small-12 medium-3 columns">
+          <div class="field-title">Mobile Number</div>
           <%= basic_information_presenter.mobile_number %>
         </div>
-        <div class="small-12 medium-4 columns">
-          Home Number<br/>
+        <div class="small-12 medium-3 columns">
+          <div class="field-title">Home Number</div>
           <%= basic_information_presenter.home_number %>
         </div>
-        <div class="small-12 medium-4 columns">
-          Email Address<br/>
+        <div class="small-12 medium-6 columns">
+          <div class="field-title">Email Address</div>
           <%= basic_information_presenter.email_address %>
         </div>
       </div>
 
-      <hr>
+      <hr class="partial-separator" />
+
+      <h5>
+        Previous Names, Date of Birth and National Insurance Details
+      </h5>
 
       <div class="row">
         <div class="small-12 medium-6 columns">
-          Have been using current name since <%= basic_information_presenter.using_current_name_since %>
+          <div class="field-title inline">
+            Using current name since
+          </div>
+
+          <div class="right">
+            <%= basic_information_presenter.using_current_name_since(:default) %>
+          </div>
         </div>
         <div class="small-12 medium-6 columns">
-          Have changed name: <%= basic_information_presenter.changed_name %>
+          <div class="row">
+            <div class="small-6 columns">
+              <div class="field-title inline">
+                Have changed name
+              </div>
+            </div>
+            <div class="small-6 columns">
+              <%= basic_information_presenter.changed_name %>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="row">
         <div class="small-12 medium-6 columns">
-          Previous names<br/>
+          <div class="field-title">Previous names</div>
           <%= basic_information_presenter.previous_names %>
         </div>
         <div class="small-12 medium-6 columns">
           <div class="row">
             <div class="small-6 columns">
-              Date of Birth
+              <div class="field-title">Date of Birth</div>
             </div>
             <div class="small-6 columns">
               <%= basic_information_presenter.date_of_birth %>
@@ -70,7 +89,7 @@
           </div>
           <div class="row">
             <div class="small-6 columns">
-              National Insurance Number
+              <div class="field-title">N.I. Number</div>
             </div>
             <div class="small-6 columns">
               <%= basic_information_presenter.national_insurance_number %>
@@ -79,17 +98,20 @@
         </div>
       </div>
 
-      <hr/>
+      <hr class="partial-separator" />
+
+      <h4>Referral Information</h4>
 
       <div class="row">
-        <div class="small-12 columns">
-          Heard about us from: <%= basic_information_presenter.where_heard %>
+        <div class="small-12 medium-6 columns">
+          <div class="field-title">Heard about us from</div>
+          <%= basic_information_presenter.where_heard %>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="small-12 columns">
-          Referred by: <%= basic_information_presenter.referred_by %>
+        <div class="small-12 medium-6 columns">
+          <div class="field-title">
+            Referred by <%= basic_information_presenter.referred_by %>
+          </div>
         </div>
       </div>
     </div>

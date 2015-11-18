@@ -33,8 +33,8 @@ class BasicInformationPresenter < BasePresenter
     @changed_name ||= basic_information.changed_name ? "Yes" : "No"
   end
 
-  def using_current_name_since
-    h.l basic_information.using_current_name_since if basic_information.using_current_name_since
+  def using_current_name_since(date_format = :default)
+    h.l basic_information.using_current_name_since, format: date_format if basic_information.using_current_name_since
   end
 
   def previous_names

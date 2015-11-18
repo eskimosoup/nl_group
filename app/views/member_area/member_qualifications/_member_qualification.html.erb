@@ -1,46 +1,67 @@
 <% present member_qualification do |member_qualification_presenter| %>
   <div class="row">
-    <div class="small-6 columns">
-      Professional Register
+    <div class="medium-4 columns">
+      <div class="field-title">
+        Professional Register
+      </div>
     </div>
-    <div class="small-6 columns">
+    <div class="medium-8 columns">
       <%= member_qualification_presenter.register %>
     </div>
   </div>
+
   <div class="row">
-    <div class="small-6 columns">
-      Registration Number
+    <div class="medium-4 columns">
+      <div class="field-title">
+        Registration Number
+      </div>
     </div>
-    <div class="small-6 columns">
+    <div class="medium-8 columns">
       <%= member_qualification_presenter.registration_number %>
     </div>
   </div>
 
   <div class="row">
-    <div class="small-6 columns">
-      Expiry Date
+    <div class="medium-4 columns">
+      <div class="field-title">Expiry Date</div>
     </div>
-    <div class="small-6 columns">
+    <div class="medium-8 columns">
       <%= member_qualification_presenter.expiry_date %>
     </div>
   </div>
 
   <div class="row">
-    <div class="small-6 columns">
-      AFC Band
+    <div class="medium-4 columns">
+      <div class="field-title">AFC Band</div>
     </div>
-    <div class="small-6 columns">
+    <div class="medium-8 columns">
       <%= member_qualification_presenter.afc_band %>
     </div>
   </div>
 <% end %>
 
+<hr class="partial-separator" />
+
+<div class="row">
+  <div class="small-6 columns">
+    <div class="field-title">Qualification Name</div>
+  </div>
+  <div class="small-3 columns">
+    <div class="field-title">Grade Obtained</div>
+  </div>
+  <div class="small-3 columns">
+    <div class="field-title">Completed Date</div>
+  </div>
+</div>
+
 <%= render partial: "member_area/qualifications/qualification", collection: member_qualification.qualifications %>
+
+<hr class="partial-separator" />
 
 <% present member_qualification do |member_qualification_presenter| %>
   <div class="row">
     <div class="small-12 columns">
-      Additional Qualifications<br />
+      <div class="field-title">Additional Qualifications</div>
       <%= member_qualification_presenter.additional_qualifications %>
     </div>
   </div>

@@ -13,8 +13,8 @@ class MemberSubmissionPresenter < BasePresenter
     end
   end
 
-  def submitted_on
-    @submitted_on ||= h.l member_submission.created_at
+  def submitted_on(date_format = :default)
+    @submitted_on ||= h.l member_submission.created_at, format: date_format
   end
 
   private

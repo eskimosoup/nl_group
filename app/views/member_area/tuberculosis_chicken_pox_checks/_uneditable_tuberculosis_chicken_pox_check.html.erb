@@ -9,66 +9,79 @@
     </div>
 
     <div class="row">
-      <div class="small-6 columns">
-        <%= presenter.bcg_vaccination %>
-      </div>
-      <div class="small-6 columns">
-        <strong>Vaccination date:</strong> <%= presenter.vaccination_date %>
+      <div class="small-12 columns">
+        <div><%= presenter.bcg_vaccination %></div>
+        <div class="field-title inline">Vaccination date:</div> <%= presenter.vaccination_date %>
       </div>
     </div>
 
+
     <% unless presenter.has_lived_continuously? %>
+      <hr class="partial-separator" />
+
       <h6>Countries you have lived in/visited in the last 5 years</h6>
       <div class="visited-country">
         <div class="row">
-          <div class="small-6 columns">
-            Country name
+          <div class="small-5 columns">
+            <div class="field-title">
+              Country name
+            </div>
+          </div>
+          <div class="small-3 columns">
+            <div class="field-title">
+              Duration (in months)
+            </div>
           </div>
           <div class="small-2 columns">
-            Duration (in months)
+            <div class="field-title">
+              From year
+            </div>
           </div>
           <div class="small-2 columns">
-            From year
-          </div>
-          <div class="small-2 columns">
-            To year
+            <div class="field-title">
+              To year
+            </div>
           </div>
         </div>
       </div>
       <%= render partial: "member_area/visited_countries/visited_country", collection: tuberculosis_chicken_pox_check.visited_countries %>
     <% end %>
 
-    Have you had any of the following?
+    <hr class="partial-separator" />
+
+    <h4>Have you had any of the following?</h4>
 
     <div class="row">
-      <div class="small-9 columns">
-        A cough which has lasted for more than 3 weeks?
+      <div class="small-10 columns">
+        <div class="field-title">
+          A cough which has lasted for more than 3 weeks?
+        </div>
       </div>
-      <div class="small-3 columns">
+      <div class="small-2 columns">
         <%= presenter.cough %>
       </div>
     </div>
     <div class="row">
-      <div class="small-9 columns">
-        Unexplained weight loss?
+      <div class="small-10 columns">
+        <div class="field-title">Unexplained weight loss?</div>
       </div>
-      <div class="small-3 columns">
+      <div class="small-2 columns">
         <%= presenter.weight_loss %>
       </div>
     </div>
     <div class="row">
-      <div class="small-9 columns">
-        Unexplained fever?
+      <div class="small-10 columns">
+        <div class="field-title">Unexplained fever?</div>
       </div>
-      <div class="small-3 columns">
+      <div class="small-2 columns">
         <%= presenter.fever %>
       </div>
     </div>
     <div class="row">
-      <div class="small-9 columns">
-        Have you had tuberculosis (TB) or been in recent contact with open TB?
+      <div class="small-10 columns">
+        <div class="field-title">Have you had tuberculosis (TB) or been in recent contact with open TB?</div>
       </div>
-      <div class="small-3 columns">
+      <div class="small-2 columns">
         <%= presenter.had_tb %>
       </div>
     </div>
@@ -82,12 +95,16 @@
       </div>
     <% end %>
 
+    <hr class="partial-separator" />
+
     <h4>Chicken Pox or Shingles</h4>
     <div class="row">
-      <div class="small-9 columns">
-        Have you ever had chicken pox or shingles?
+      <div class="small-6 columns">
+        <div class="field-title">
+          Have you ever had chicken pox or shingles?
+        </div>
       </div>
-      <div class="small-3 columns">
+      <div class="small-6 columns">
         <%= presenter.had_chicken_pox %>
       </div>
     </div>
