@@ -1,0 +1,132 @@
+@import 'optimadmin/lib/mixins', 'lib/variables';
+
+.member-controls,
+.hamburger-icon {
+  display: none !important; // sorry
+}
+
+.member-area .top-header {
+  border: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: left;
+  text-transform: none;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  border-bottom: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: em(22px);
+}
+
+h2 {
+  font-size: em(18px);
+}
+
+h3 {
+  font-size: em(16px);
+}
+
+h4 {
+  font-size: em(14px);
+}
+
+h5,
+h6 {
+  font-size: em(15px);
+}
+
+.secondary-header {
+  font-size: em(16px);
+}
+
+%partial-separator {
+  border-bottom-color: $light-blue;
+  border-bottom-style: dotted;
+}
+
+.partial-separator {
+  @extend %partial-separator;
+  border-top: 0;
+  border-bottom-width: 1px;
+}
+
+.member-address,
+.visited-country,
+.referee,
+.emergency-contact {
+  @extend %partial-separator;
+  border-bottom-width: 1px;
+  padding: em(2px) 0 em(2px);
+  margin: 0;
+
+  &:last-of-type {
+    border-bottom: 0;
+  }
+}
+
+.mandatory-training-course,
+.member-other-training-course {
+  @extend %partial-separator;
+  border-bottom-width: 1px;
+  margin: em(5px);
+}
+
+.referee,
+.emergency-contact {
+  margin: em(5px) 0;
+}
+
+ol li {
+  margin: em(5px) 0;
+}
+
+// Foundation medium grid
+.medium-1 {
+  width: 8.33333%; }
+
+.medium-2 {
+  width: 16.66667%; }
+
+.medium-3 {
+  width: 25%; }
+
+.medium-4 {
+  width: 33.33333%; }
+
+.medium-5 {
+  width: 41.66667%; }
+
+.medium-6 {
+  width: 50%; }
+
+.medium-7 {
+  width: 58.33333%; }
+
+.medium-8 {
+  width: 66.66667%; }
+
+.medium-9 {
+  width: 75%; }
+
+.medium-10 {
+  width: 83.33333%; }
+
+.medium-11 {
+  width: 91.66667%; }
+
+.medium-12 {
+  width: 100%; }

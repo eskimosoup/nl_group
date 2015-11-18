@@ -1,47 +1,46 @@
 <% present basic_information do |basic_information_presenter| %>
+  <h4>Personal Details</h4>
+
   <div class="row">
     <div class="small-12 columns">
-
-      <h4>Personal Details</h4>
-
       <div class="row">
         <div class="small-12 medium-3 columns">
-          Title<br/>
+          <div class="field-title">Title</div>
           <%= basic_information_presenter.title %>
         </div>
         <div class="small-12 medium-3 columns">
-          First Name<br/>
+          <div class="field-title">First Name</div>
           <%= basic_information_presenter.first_name %>
         </div>
         <div class="small-12 medium-3 columns">
-          Middle Name(s)<br/>
+          <div class="field-title">Middle Name(s)</div>
           <%= basic_information_presenter.middle_names %>
         </div>
         <div class="small-12 medium-3 columns">
-          Last Name<br/>
+          <div class="field-title">Last Name</div>
           <%= basic_information_presenter.last_name %>
         </div>
       </div>
 
-      <hr>
+      <hr class="partial-separator" />
 
       <h4>Contact Information</h4>
 
       <div class="row">
         <div class="small-12 medium-3 columns">
-          Date of Birth<br/>
+          <div class="field-title">Date of Birth</div>
           <%= basic_information_presenter.date_of_birth %>
         </div>
         <div class="small-12 medium-3 columns">
-          Mobile Number<br/>
+          <div class="field-title">Mobile Number</div>
           <%= basic_information_presenter.mobile_number %>
         </div>
         <div class="small-12 medium-3 columns">
-          Home Number<br/>
+          <div class="field-title">Home Number</div>
           <%= basic_information_presenter.home_number %>
         </div>
         <div class="small-12 medium-3 columns">
-          Email Address<br/>
+          <div class="field-title">Email Address</div>
           <%= basic_information_presenter.email_address %>
         </div>
       </div>

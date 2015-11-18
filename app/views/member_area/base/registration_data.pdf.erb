@@ -1,13 +1,19 @@
-<h1>Candidate Registration</h1>
+<div class="row">
+  <div class="small-12 columns">
+    <h1>Candidate Registration</h1>
+  </div>
+</div>
 
 <% debug @registration_data %>
 
-<%= render @registration_data.basic_information %>
+<%= render partial: @registration_data.basic_information, formats: [:html] %>
 
 <%= render @registration_data.work_eligibility %>
 
 <div class="row">
   <div class="small-12 columns">
+    <hr />
+
     <h2>Address Details</h2>
 
     <%= render partial: "member_area/member_addresses/member_address", collection: @registration_data.addresses,
@@ -17,7 +23,10 @@
 
 <div class="row">
   <div class="small-12 columns">
+    <hr />
+
     <h2>Qualifications and training</h2>
+
     <%= render @registration_data.member_qualification %>
 
     <%= render @registration_data.member_training %>
@@ -26,21 +35,30 @@
 
 <div class="row">
   <div class="small-12 columns">
-    <h2>Referees and emergency contacts</h2>
-    <%= render partial: "member_area/referees/referee", collection: @registration_data.referees, locals: { locked: true } %>
+    <hr />
 
-    <%= render partial: "member_area/emergency_contacts/emergency_contact", object: @registration_data.emergency_contact, locals: { locked: true } %>
+    <h2>Referees and emergency contacts</h2>
+
+    <%= render partial: "member_area/referees/referee", collection: @registration_data.referees, locals: { locked: true }, formats: [:pdf] %>
+
+    <hr class="partial-separator" />
+
+    <%= render partial: "member_area/emergency_contacts/emergency_contact", object: @registration_data.emergency_contact, locals: { locked: true }, formats: [:pdf] %>
   </div>
 </div>
 
 <div class="row">
   <div class="small-12 columns">
+    <hr />
+
     <%= render "occupational_health_screening" %>
   </div>
 </div>
 
 <div class="row">
   <div class="small-12 columns">
+    <hr />
+
     <h2>Disclosure and Barring Service (DBS formerly CRB)</h2>
 
     <%= render @registration_data.dbs_check %>
@@ -49,12 +67,16 @@
 
 <div class="row">
   <div class="small-12 columns">
+    <hr />
+
     <%= render @registration_data.payment_information %>
   </div>
 </div>
 
 <div class="row">
   <div class="small-12 columns">
+    <hr />
+
     <%= render "declarations" %>
   </div>
 </div>

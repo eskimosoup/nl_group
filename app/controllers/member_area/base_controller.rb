@@ -3,6 +3,8 @@ module MemberArea
 
     layout 'member_area'
 
+    before_action :use_pdf_specific_template, only: [:registration_data]
+
     def index
     end
 
@@ -22,6 +24,12 @@ module MemberArea
 
     def registration_data
       @registration_data = RegistrationData.new(current_member_profile)
+      respond_to do |format|
+        format.html
+        format.pdf  do
+          render layout: 'pdf'
+        end
+      end
     end
 
     private
@@ -37,5 +45,10 @@ module MemberArea
     end
     helper_method :presented_current_member_profile
 
+    def use_pdf_specific_template
+      return unless env['Rack-Middleware-WickedPdf']
+      request.format = 'pdf'
+      response.headers['Content-Type'] = 'text/html'
+    end
   end
 end

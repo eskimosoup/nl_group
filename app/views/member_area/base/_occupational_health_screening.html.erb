@@ -1,20 +1,33 @@
 <h2>Occupational Health Screening (Clinical)</h2>
+
 <%= render partial: "member_area/basic_informations/occupational_health_screening_personal_details", object: @registration_data.basic_information, as: :basic_information %>
+
+<hr class="partial-separator" />
+
 <%= render partial: "member_area/basic_medical_histories/uneditable_basic_medical_history", locals: {
     basic_medical_history: @registration_data.basic_medical_history, current_address: @registration_data.current_address } %>
+
+<hr class="partial-separator" />
+
 <%= render partial: "member_area/tuberculosis_chicken_pox_checks/uneditable_tuberculosis_chicken_pox_check", locals: {
     tuberculosis_chicken_pox_check: @registration_data.tuberculosis_chicken_pox_check } %>
+
+<hr class="partial-separator" />
+
 <%= render partial: "member_area/immunisation_histories/uneditable_immunisation_history", locals: {
     immunisation_history: @registration_data.immunisation_history } %>
 
-<h4>Declaration</h4>
+<hr class="partial-separator" />
+
+<h4 class="secondary-header">Declaration</h4>
 
 <p>
   The information supplied is true to the best of my belief. I agree to inform my employer of any health problems so that
   my health and safety can be protected whilst at work.
 </p>
+
 <% present @registration_data.member_submission do |presenter| %>
   <p>
-    <strong>Submitted on:</strong> <%= presenter.submitted_on %>
+    <strong>Submitted on:</strong> <%= presenter.submitted_on(:long) %>
   </p>
 <% end %>

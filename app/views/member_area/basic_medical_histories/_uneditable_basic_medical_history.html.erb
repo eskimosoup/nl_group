@@ -3,13 +3,13 @@
   <% present basic_medical_history do |presenter| %>
     <div class="row">
       <div class="small-6 columns">
-        Home address<br/>
+        <div class="field-title">Home address</div>
         <% present current_address do |address_presenter| %>
           <%= address_presenter.address %>
         <% end %>
       </div>
       <div class="small-6 columns">
-        GP address<br/>
+        <div class="field-title">GP address</div>
         <%= presenter.gp_address %>
       </div>
     </div>

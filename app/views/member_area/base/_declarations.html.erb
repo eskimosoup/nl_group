@@ -12,7 +12,9 @@
 
       <% present @registration_data.payment_information do |presenter| %>
         <p>
-          <%= presenter.limit_working_week %>
+          <strong>
+            <%= presenter.limit_working_week %>
+          </strong>
         </p>
       <% end %>
 
@@ -24,7 +26,7 @@
         <%= render "member_area/member_submissions/main_acceptance" %>
 
         <p>
-          <strong>Submitted on</strong> <%= presenter.submitted_on %>
+          <strong>Submitted on</strong> <%= presenter.submitted_on(:long) %>
         </p>
       <% end %>
     </div>

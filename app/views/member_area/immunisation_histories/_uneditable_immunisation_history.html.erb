@@ -6,7 +6,7 @@
       <% present immunisation_history do |presenter| %>
         <div class="row">
           <div class="small-6 columns">
-            Triple Vaccination Date
+            <div class="field-title">Triple Vaccination Date</div>
           </div>
           <div class="small-6 columns">
             <%= presenter.triple_vaccination_date %>
@@ -15,7 +15,7 @@
 
         <div class="row">
           <div class="small-6 columns">
-            Polio Vaccination Date
+            <div class="field-title">Polio Vaccination Date</div>
           </div>
           <div class="small-6 columns">
             <%= presenter.polio_vaccination_date %>
@@ -24,7 +24,7 @@
 
         <div class="row">
           <div class="small-6 columns">
-            Hepatitis B Vaccination Date
+            <div class="field-title">Hepatitis B Vaccination Date</div>
           </div>
           <div class="small-6 columns">
             <%= presenter.hepatitis_b_vaccination_date %>
@@ -34,7 +34,7 @@
         <% if presenter.had_hepatitis_b_vaccination %>
           <div class="row">
             <div class="small-6 columns">
-              Course Dates
+              <div class="field-title">Course Dates</div>
             </div>
             <div class="small-2 columns">
               1. <%= presenter.hep_b_course_1_date %>
@@ -48,7 +48,7 @@
           </div>
           <div class="row">
             <div class="small-6 columns">
-              Booster Dates
+              <div class="field-title">Booster Dates</div>
             </div>
             <div class="small-2 columns">
               1. <%= presenter.hep_b_booster_1_date %>
