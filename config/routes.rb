@@ -37,6 +37,14 @@ Rails.application.routes.draw do
   root to: 'application#index'
 end
 Optimadmin::Engine.routes.draw do
+  resources :admin_messages, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+    end
+  end
   resources :member_profiles, except: [:show] do
     collection do
       post 'order'

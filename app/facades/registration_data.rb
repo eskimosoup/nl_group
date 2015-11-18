@@ -9,6 +9,10 @@ class RegistrationData
     @basic_information ||= member_profile.basic_information
   end
 
+  def member_full_name
+    [basic_information.first_name, basic_information.last_name].join("_") if basic_information
+  end
+
   def work_eligibility
     @work_eligibility ||= member_profile.work_eligibility
   end
@@ -21,12 +25,12 @@ class RegistrationData
     addresses.detect(&:current?)
   end
 
-  def member_qualification
-    @member_qualification ||= MemberQualification.includes(:qualifications).where(member_profile: member_profile)
+  def member_qualifications
+    @member_qualifications ||= MemberQualification.includes(:qualifications).where(member_profile: member_profile)
   end
 
-  def member_training
-    @member_training ||= MemberTraining.includes(:mandatory_training_courses, :member_other_training_courses).where(member_profile: member_profile)
+  def member_trainings
+    @member_trainings ||= MemberTraining.includes(:mandatory_training_courses, :member_other_training_courses).where(member_profile: member_profile)
   end
 
   def referees

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117161047) do
+ActiveRecord::Schema.define(version: 20151117171308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,14 @@ ActiveRecord::Schema.define(version: 20151117161047) do
   end
 
   add_index "additional_titles", ["additional_block_id"], name: "index_additional_titles_on_additional_block_id", using: :btree
+
+  create_table "admin_messages", force: :cascade do |t|
+    t.string   "title",                     null: false
+    t.text     "content",                   null: false
+    t.boolean  "display",    default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "basic_informations", force: :cascade do |t|
     t.integer  "member_profile_id"
@@ -465,6 +473,16 @@ ActiveRecord::Schema.define(version: 20151117161047) do
 
   add_index "qualifications", ["member_qualification_id"], name: "index_qualifications_on_member_qualification_id", using: :btree
 
+  create_table "read_messages", force: :cascade do |t|
+    t.integer  "member_profile_id"
+    t.integer  "admin_message_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "read_messages", ["admin_message_id"], name: "index_read_messages_on_admin_message_id", using: :btree
+  add_index "read_messages", ["member_profile_id"], name: "index_read_messages_on_member_profile_id", using: :btree
+
   create_table "referees", force: :cascade do |t|
     t.integer  "member_profile_id"
     t.string   "name",                             null: false
@@ -604,6 +622,8 @@ ActiveRecord::Schema.define(version: 20151117161047) do
   add_foreign_key "member_trainings", "member_profiles", on_delete: :cascade
   add_foreign_key "payment_informations", "member_profiles", on_delete: :cascade
   add_foreign_key "qualifications", "member_qualifications", on_delete: :cascade
+  add_foreign_key "read_messages", "admin_messages", on_delete: :cascade
+  add_foreign_key "read_messages", "member_profiles", on_delete: :cascade
   add_foreign_key "referees", "member_profiles", on_delete: :cascade
   add_foreign_key "team_members", "team_member_teams"
   add_foreign_key "tuberculosis_chicken_pox_checks", "member_profiles", on_delete: :cascade
