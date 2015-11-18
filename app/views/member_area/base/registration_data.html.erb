@@ -2,9 +2,9 @@
 
 <% debug @registration_data %>
 
-<%= render @registration_data.basic_information %>
+<%= render partial: "member_area/basic_informations/basic_information", object: @registration_data.basic_information %>
 
-<%= render @registration_data.work_eligibility %>
+<%= render partial: "member_area/work_eligibilities/work_eligibility", object: @registration_data.work_eligibility %>
 
 <div class="row">
   <div class="small-12 columns">
@@ -17,9 +17,9 @@
 <div class="row">
   <div class="small-12 columns">
     <h2>Qualifications and training</h2>
-    <%= render @registration_data.member_qualification %>
+    <%= render partial: "member_area/member_qualifications/member_qualification", collection: @registration_data.member_qualifications %>
 
-    <%= render @registration_data.member_training %>
+    <%= render partial: "member_area/member_trainings/member_training", collection: @registration_data.member_trainings %>
   </div>
 </div>
 
@@ -34,7 +34,7 @@
 
 <div class="row">
   <div class="small-12 columns">
-    <%= render "occupational_health_screening" %>
+    <%= render "member_area/base/occupational_health_screening" %>
   </div>
 </div>
 
@@ -42,19 +42,19 @@
   <div class="small-12 columns">
     <h2>Disclosure and Barring Service (DBS formerly CRB)</h2>
 
-    <%= render @registration_data.dbs_check %>
+    <%= render partial: "member_area/dbs_checks/dbs_check", object: @registration_data.dbs_check %>
   </div>
 </div>
 
 <div class="row">
   <div class="small-12 columns">
-    <%= render @registration_data.payment_information %>
+    <%= render partial: "member_area/payment_informations/payment_information", object: @registration_data.payment_information %>
   </div>
 </div>
 
 <div class="row">
   <div class="small-12 columns">
-    <%= render "declarations" %>
+    <%= render "member_area/base/declarations" %>
   </div>
 </div>
 

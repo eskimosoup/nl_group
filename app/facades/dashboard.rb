@@ -14,5 +14,13 @@ class Dashboard
     key_contact.present?
   end
 
+  def admin_messages
+    return @admin_messages if defined?(@admin_messages)
+    @admin_messages = AdminMessage.all
+  end
+
+  def admin_messages?
+    admin_messages.present?
+  end
 
 end

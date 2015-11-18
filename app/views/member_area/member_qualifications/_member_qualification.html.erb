@@ -35,7 +35,7 @@
   </div>
 <% end %>
 
-<%= render member_qualification.qualifications %>
+<%= render partial: "member_area/qualifications/qualification", collection: member_qualification.qualifications %>
 
 <% present member_qualification do |member_qualification_presenter| %>
   <div class="row">
