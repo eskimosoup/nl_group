@@ -17,6 +17,16 @@
   background: $white;
 }
 
+.green-action-button {
+  @extend %action-button;
+  @include link-colors($white, $dark-grey, $white, $white, $white);
+  background: $dark-green;
+
+  &:hover {
+    background: $green;
+  }
+}
+
 .dark-action-button {
   @extend %action-button;
   @include link-colors($white, $light-blue, $white, $white, $white);

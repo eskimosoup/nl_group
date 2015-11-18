@@ -1,7 +1,11 @@
 %flash-heading {
   font-weight: normal;
   color: $white;
+  border: 0;
+  text-align: left;
   text-transform: none;
+  padding: 0;
+  margin: 0;
 }
 
 // Flash
@@ -9,6 +13,7 @@
   border: 1px solid $dark-grey;
   color: $white;
   margin: 0 0 em(20px);
+  padding: em(10px);
 
   h2 {
     @extend %flash-heading;
@@ -38,12 +43,18 @@
 #error_explanation {
   background-color: $red;
   color: $white;
+  padding: em(10px);
 
-  h2 {
+  h2,
+  h3 {
     @extend %flash-heading;
   }
 
   ul {
     font-weight: normal;
+  }
+
+  &:hover {
+    cursor: default;
   }
 }
