@@ -10,18 +10,19 @@ RSpec.describe MemberProfile, type: :model do
   describe "associations", :association do
     it { should belong_to(:key_contact) }
     it { should have_one(:basic_information) }
-    it { should have_one(:work_eligibility) }
-    it { should have_many(:member_addresses) }
-    it { should have_one(:member_qualification) }
-    it { should have_one(:member_training) }
-    it { should have_many(:referees) }
-    it { should have_one(:emergency_contact) }
     it { should have_one(:basic_medical_history) }
-    it { should have_one(:tuberculosis_chicken_pox_check) }
-    it { should have_one(:immunisation_history) }
     it { should have_one(:dbs_check) }
-    it { should have_one(:payment_information) }
+    it { should have_one(:emergency_contact) }
+    it { should have_one(:immunisation_history) }
+    it { should have_one(:member_qualification) }
     it { should have_one(:member_submission) }
+    it { should have_one(:member_training) }
+    it { should have_one(:payment_information) }
+    it { should have_one(:tuberculosis_chicken_pox_check) }
+    it { should have_one(:work_eligibility) }
+    it { should have_many(:logins) }
+    it { should have_many(:member_addresses) }
+    it { should have_many(:referees) }
   end
 
   describe "password reset" do

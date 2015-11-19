@@ -8,6 +8,7 @@ module MemberArea
     def create
       member_profile = MemberProfile.find_by(email: params[:email])
       if member_profile && member_profile.authenticate(params[:password])
+        member_profile.logins.create
         if params[:remember_me]
           cookies.permanent[:auth_token] = member_profile.auth_token
         else
@@ -18,6 +19,13 @@ module MemberArea
         flash.now.alert = "Email or password is invalid"
         render :new
       end
+    rescue BCrypt::Errors::InvalidHash => e
+      logger.tagged("Member has not set password") do
+        logger.info member_profile.email
+      end
+
+      flash.now.alert = "Email or password is invalid"
+      render :new
     end
 
     def destroy
