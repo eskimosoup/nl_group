@@ -8,10 +8,11 @@ class MemberProfileMailer < ApplicationMailer
   def password_reset(member_profile)
     @member_profile = member_profile
 
-    mail to: member_profile.email, subject: "Password reset"
+    mail to: member_profile.email, subject: "Password reset for #{ MemberProfileMailer.site_name }"
   end
 
   def welcome(member_profile)
+    @member_profile = member_profile
     mail to: member_profile.email, subject: "Welcome to #{ MemberProfileMailer.site_name }"
   end
 end
