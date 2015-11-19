@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119130352) do
+ActiveRecord::Schema.define(version: 20151119151449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -269,6 +269,14 @@ ActiveRecord::Schema.define(version: 20151119130352) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "logins", force: :cascade do |t|
+    t.integer  "member_profile_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "logins", ["member_profile_id"], name: "index_logins_on_member_profile_id", using: :btree
+
   create_table "mandatory_training_courses", force: :cascade do |t|
     t.string   "name",                      null: false
     t.boolean  "display",    default: true
@@ -311,7 +319,7 @@ ActiveRecord::Schema.define(version: 20151119130352) do
 
   create_table "member_profiles", force: :cascade do |t|
     t.string   "email",                                  null: false
-    t.string   "password_digest",                        null: false
+    t.string   "password_digest"
     t.string   "auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
@@ -613,6 +621,7 @@ ActiveRecord::Schema.define(version: 20151119130352) do
   add_foreign_key "emergency_contacts", "member_profiles", on_delete: :cascade
   add_foreign_key "immunisation_histories", "member_profiles", on_delete: :cascade
   add_foreign_key "job_locations", "jobs", on_delete: :cascade
+  add_foreign_key "logins", "member_profiles", on_delete: :cascade
   add_foreign_key "member_addresses", "member_profiles", on_delete: :cascade
   add_foreign_key "member_mandatory_trainings", "mandatory_training_courses", on_delete: :cascade
   add_foreign_key "member_mandatory_trainings", "member_trainings", on_delete: :cascade

@@ -19,7 +19,7 @@ module MemberArea
       if @member_profile.password_reset_sent_at < 2.hours.ago
         redirect_to new_member_area_password_reset_path, alert: "Password reset has expired."
       elsif @member_profile.update(member_profile_params)
-        cookies.permanent[:auth_token] = @member_profile.auth_token
+        cookies[:auth_token] = @member_profile.auth_token
         redirect_to member_area_member_profile_url, notice: "Password has been reset."
       else
         render :edit

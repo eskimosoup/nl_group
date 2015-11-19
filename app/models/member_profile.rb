@@ -12,6 +12,7 @@ class MemberProfile < ActiveRecord::Base
   has_one :payment_information
   has_one :tuberculosis_chicken_pox_check
   has_one :work_eligibility
+  has_many :logins
   has_many :member_addresses
   has_many :referees
 
