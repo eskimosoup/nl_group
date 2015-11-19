@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117171308) do
+ActiveRecord::Schema.define(version: 20151119130352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -319,6 +319,7 @@ ActiveRecord::Schema.define(version: 20151117171308) do
     t.datetime "updated_at",                             null: false
     t.integer  "key_contact_id"
     t.boolean  "active",                 default: false
+    t.string   "password_set_token"
   end
 
   add_index "member_profiles", ["key_contact_id"], name: "index_member_profiles_on_key_contact_id", using: :btree

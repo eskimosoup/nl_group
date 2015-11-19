@@ -17,10 +17,18 @@ class MemberProfile < ActiveRecord::Base
 
   delegate :name, to: :key_contact, prefix: true, allow_nil: true
 
-  has_secure_password
   validates :email, presence: true, uniqueness: true
+  # http://api.rubyonrails.org/classes/ActiveModel/SecurePassword/ClassMethods.html
 
-  before_create { generate_token(:auth_token) }
+  has_secure_password(validations: false)
+  validate :password_present, on: :update
+  validates :password, length: { maximum: ActiveModel::SecurePassword::MAX_PASSWORD_LENGTH_ALLOWED },
+            confirmation: { allow_blank: true }
+
+  before_create do
+    generate_token(:auth_token)
+    generate_token(:password_set_token) # to allow users to set password initially
+  end
 
   def request_password_reset
     generate_token(:password_reset_token)
@@ -32,5 +40,11 @@ class MemberProfile < ActiveRecord::Base
     begin
       self[column] = SecureRandom.urlsafe_base64
     end while MemberProfile.exists?(column => self[column])
+  end
+
+  private
+
+  def password_present
+    errors.add(:password, :blank) unless password_digest.present?
   end
 end
