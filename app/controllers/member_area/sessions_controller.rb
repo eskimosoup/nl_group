@@ -22,7 +22,7 @@ module MemberArea
 
     def destroy
       cookies.delete(:auth_token)
-      redirect_to member_area_root_url, notice: "Logged out!"
+      redirect_to member_area_login_url, notice: "Logged out!"
     end
   end
 end

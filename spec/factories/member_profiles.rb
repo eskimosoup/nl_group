@@ -9,4 +9,8 @@ FactoryGirl.define do
       password_reset_sent_at { Time.zone.now - 3.hours }
     end
   end
+
+  factory :member_profile_no_password, class: MemberProfile do
+    sequence(:email){|n| "joe.bloggs#{ n }@example.com" }
+  end
 end
