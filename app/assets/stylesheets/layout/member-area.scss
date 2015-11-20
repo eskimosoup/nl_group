@@ -27,3 +27,56 @@
   padding: 0;
   text-align: left;
 }
+
+.application-form-overview {
+  list-style: none;
+
+  li {
+    display: flex;
+    background: $pale-light-blue;
+    padding: em(5px);
+    margin: em(5px) 0;
+
+    .fa {
+      color: $white;
+    }
+  }
+
+  a {
+    display: block;
+    flex: 1;
+    font-size: em(15px);
+    width: 100%;
+
+    &:hover {
+      color: $dark-grey;
+      text-decoration: none;
+    }
+
+    &.active {
+      font-weight: $proxima-nova-bold;
+      text-decoration: none;
+    }
+  }
+
+  i {
+    float: left;
+    min-width: 40px;
+  }
+}
+
+.submit-data,
+.registration-data {
+  background: $pale-blue;
+  display: block;
+  font-size: em(18px);
+  padding: em(10px, 18px);
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    background: $primary-blue;
+    color: $white;
+    text-decoration: none;
+  }
+}

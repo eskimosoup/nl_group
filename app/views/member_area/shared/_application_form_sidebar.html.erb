@@ -1,0 +1,6 @@
+<%= render 'member_area/base/application_form_navigation' %>
+<% if presented_current_member_profile.ready_to_submit? %>
+  <%= link_to "Submit your data", new_member_area_member_submission_path, class: 'submit-data' %>
+<% elsif presented_current_member_profile.member_submission? %>
+  <%= link_to "Registration Data", member_area_registration_data_path, class: 'registration-data' %>
+<% end %>
