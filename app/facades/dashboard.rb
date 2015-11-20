@@ -5,13 +5,13 @@ class Dashboard
     @member_profile = member_profile
   end
 
-  def key_contact
-    return @key_contact if defined?(@key_contact)
-    @key_contact = member_profile.key_contact
+  def team_member
+    return @team_member if defined?(@team_member)
+    @team_member = member_profile.team_member
   end
 
-  def key_contact?
-    key_contact.present?
+  def team_member?
+    team_member.present?
   end
 
   def admin_messages

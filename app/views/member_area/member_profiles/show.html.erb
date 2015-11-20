@@ -6,6 +6,6 @@
   <% end %>
 <% end %>
 
-<%= render(@dashboard.key_contact) if @dashboard.key_contact? %>
+<%= render partial: "member_area/team_members/team_member", object: @dashboard.team_member if @dashboard.team_member? %>
 
 <%= render(@dashboard.admin_messages) if @dashboard.admin_messages? %>

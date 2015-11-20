@@ -46,7 +46,7 @@ module Optimadmin
     end
 
     def member_profile_params
-      params.require(:member_profile).permit(:email, :key_contact_id, :active)
+      params.require(:member_profile).permit(:email, :team_member_id, :active)
     end
   end
 end

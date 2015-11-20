@@ -1,3 +1,5 @@
 <div class="team-member-index">
-  <%= team_member_presenter.index_profile_preview %>
+  <% present team_member do |team_member_presenter| %>
+    <%= team_member_presenter.index_profile_preview %>
+  <% end %>
 </div>
