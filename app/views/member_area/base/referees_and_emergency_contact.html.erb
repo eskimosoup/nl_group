@@ -1,7 +1,15 @@
 <div class="row">
   <div class="small-12 columns">
     <h2>Referees</h2>
+  </div>
+</div>
 
+<div class="row">
+  <div class="medium-3 columns">
+    <%= render 'member_area/shared/application_form_sidebar' %>
+  </div>
+
+  <div class="medium-9 columns">
     <% if @referees.present? %>
       <%= render partial: "member_area/referees/referee", collection: @referees, locals: { locked: false } %>
     <% end %>
@@ -17,6 +25,6 @@
       <%= link_to "New emergency contact", new_member_area_emergency_contact_path, class: 'user-action-button' %>
     <% end %>
 
-    <%= link_to "Back to overview", member_area_member_profile_path %>
+    <%= link_to "Back to overview", member_area_application_form_overview_path %>
   </div>
 </div>

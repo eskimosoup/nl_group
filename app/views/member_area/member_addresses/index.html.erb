@@ -1,7 +1,15 @@
 <div class="row">
   <div class="small-12 columns">
     <h1>Where you live</h1>
+  </div>
+</div>
 
+<div class="row">
+  <div class="medium-3 columns">
+    <%= render 'member_area/shared/application_form_sidebar' %>
+  </div>
+
+  <div class="medium-9 columns">
     <div class="form-notice">
       <p>
         Due to the nature of Healthcare work, we are required by law to collect a minimum of <strong>5 years address history</strong>
@@ -14,6 +22,6 @@
 
     <%= render partial: "member_address", collection: @member_addresses, locals: { locked: false } %>
 
-    <%= link_to "Back to overview", member_area_member_profile_path %>
+    <%= link_to "Back to overview", member_area_application_form_overview_path %>
   </div>
 </div>

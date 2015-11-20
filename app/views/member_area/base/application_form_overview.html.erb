@@ -1,57 +1,15 @@
 <div class="row">
-  <div class="small-8 columns">
-    Section
-  </div>
+  <div class="small-12 columns">
+    <h2>
+      Application form
+    </h2>
 
-  <div class="small-4 columns">
-    Progress
-  </div>
-</div>
+    <div class="form-notice">
+      <p>Review and edit the sections for your application form by using the links below.</p>
 
-<div class="row">
-  <div class="small-8 columns">
-    <%= presented_current_member_profile.basic_information_link %>
-  </div>
+      <p>You can edit your application form at any time, until it is submitted.</p>
+    </div>
 
-  <div class="small-4 columns">
-
+    <%= render 'member_area/base/application_form_navigation' %>
   </div>
 </div>
-
-<ul>
-  <li>
-    <%= presented_current_member_profile.edit_profile_link %>
-  </li>
-
-  <li>
-    <%= presented_current_member_profile.work_eligibility_link %>
-  </li>
-
-  <li>
-    <%= presented_current_member_profile.addresses_link %>
-  </li>
-
-  <li>
-    <%= presented_current_member_profile.member_qualification_link %>
-  </li>
-
-  <li>
-    <%= presented_current_member_profile.member_training_link %>
-  </li>
-
-  <li>
-    <%= presented_current_member_profile.referee_and_emergency_contact_link %>
-  </li>
-
-  <li>
-    <%= presented_current_member_profile.occupational_health_screening_link %>
-  </li>
-
-  <li>
-    <%= presented_current_member_profile.dbs_check_link %>
-  </li>
-
-  <li>
-    <%= presented_current_member_profile.payment_information_link %>
-  </li>
-</ul>
