@@ -2,7 +2,7 @@
   <%= f.hidden_field :member_training_id %>
 
   <div class="row">
-    <div class="medium-4 columns">
+    <div class="medium-8 columns">
       <div class="field">
         <%= f.label :title %>
         <%= f.text_field :title %>
@@ -15,13 +15,11 @@
         <%= f.text_field :training_provider_name %>
       </div>
     </div>
-
-    <div class="medium-4 columns">
-      <div class="field">
-        <%= f.label :completed_on, class: 'display-block' %>
-        <%= f.date_select :completed_on, { order: [:day, :month, :year] }, class: 'date-select' %>
-      </div>
-    </div>
+  </div>
+  
+  <div class="field">
+    <%= f.label :completed_on, class: 'display-block' %>
+    <%= f.date_select :completed_on, { order: [:day, :month, :year] }, class: 'date-select' %>
   </div>
 
   <%= link_to_remove_association "Remove Other Training Course", f, class: 'right' %>

@@ -23,7 +23,7 @@ class MemberProfilePresenter < BasePresenter
 
   def work_eligibility_link
     if work_eligibility?
-      h.link_to "Eligibility To Work", h.edit_member_area_work_eligibility_path, class: active_class(h.new_member_area_work_eligibility_path)
+      h.link_to "Eligibility To Work", h.edit_member_area_work_eligibility_path, class: active_class(h.edit_member_area_work_eligibility_path)
     else
       h.link_to "Eligibility To Work", h.new_member_area_work_eligibility_path, class: active_class(h.new_member_area_work_eligibility_path)
     end
