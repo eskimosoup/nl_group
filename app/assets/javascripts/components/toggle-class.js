@@ -15,7 +15,7 @@ $(document).on("click", ".slide-toggle", function(e) {
   var dataReturn      = $(this).attr('data-return');
 
   $(toggleContainer).slideToggle(250);
-  $('.fa-chevron-circle-up, .fa-chevron-circle-down').toggleClass('fa-chevron-circle-up fa-chevron-circle-down');
+  $(this).children('.fa-chevron-circle-up, .fa-chevron-circle-down').toggleClass('fa-chevron-circle-up fa-chevron-circle-down');
 
   if (dataReturn === 'false') {
     e.preventDefault();

@@ -16,7 +16,7 @@
 </div>
 
 <div class="row">
-  <div class="medium-9 columns">
+  <div class="medium-<%= @dashboard.team_member? ? '9' : '12' %> columns">
     <%= render(partial: "member_area/admin_messages/unread_admin_message", collection: @dashboard.unread_admin_messages, as: :admin_message) if @dashboard.unread_admin_messages? %>
   </div>
 
