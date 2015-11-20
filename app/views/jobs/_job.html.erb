@@ -6,6 +6,8 @@
 
         <%= job_presenter.department %>
 
+        <%= render job.job_location %>
+
         <div class="ctas right">
           <%= job_presenter.url(class: "dark-action-button", target: "_blank") %>
           <%= job_presenter.application_url(class: "dark-action-button", target: "_blank") %>

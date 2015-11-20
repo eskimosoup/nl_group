@@ -1,0 +1,60 @@
+<div class="job-location">
+  <% present job_location do |presenter| %>
+    <div class="row">
+      <div class="small-6 columns">
+        Country
+      </div>
+      <div class="small-6 columns">
+        <%= presenter.country %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-6 columns">
+        Country Code
+      </div>
+      <div class="small-6 columns">
+        <%= presenter.country_code %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-6 columns">
+        Region
+      </div>
+      <div class="small-6 columns">
+        <%= presenter.region %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-6 columns">
+        Region Code
+      </div>
+      <div class="small-6 columns">
+        <%= presenter.region_code %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-6 columns">
+        City
+      </div>
+      <div class="small-6 columns">
+        <%= presenter.city %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-6 columns">
+        Postcode
+      </div>
+      <div class="small-6 columns">
+        <%= presenter.zip_code %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-6 columns">
+        Allows Telecommuting
+      </div>
+      <div class="small-6 columns">
+        <%= presenter.telecommuting %>
+      </div>
+    </div>
+  <% end %>
+</div>
