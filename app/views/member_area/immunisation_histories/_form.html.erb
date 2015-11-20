@@ -1,4 +1,16 @@
 <%= form_for [:member_area, @immunisation_history], url: member_area_immunisation_history_path do |f| %>
+  <% if @immunisation_history.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@immunisation_history.errors.count, 'error') %> prevented your immunisation history to be saved</h2>
+      <ul>
+        <% @immunisation_history.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <%= field_set_tag 'Triple Vaccination Immunisation' do %>
     <div class="row">
