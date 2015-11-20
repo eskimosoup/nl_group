@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :member_addresses, path: "addresses", except: [:show]
     resource :member_submission, path: "submission", only: [:new, :create]
     resources :password_resets, path: "password-reset", only: [:new, :create, :edit, :update]
-    resources :set_passwords, only: [:edit, :update]
+    resources :set_passwords, path: "set-password", only: [:edit, :update]
     resource :payment_information, path: "payment-information", except: :show
     resources :referees, except: [:index, :show]
     resource :tuberculosis_chicken_pox_check, path: "tuberculosis-chicken-pox-check", except: [:show]
