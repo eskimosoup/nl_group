@@ -1,3 +1,4 @@
+<!--
 <% present @dashboard.member_profile do |member_profile_presenter| %>
   <% if member_profile_presenter.ready_to_submit? %>
     <%= link_to "Submit your data", new_member_area_member_submission_path %>
@@ -5,7 +6,21 @@
     <%= link_to "Registration Data", member_area_registration_data_path %>
   <% end %>
 <% end %>
+-->
 
-<%= render partial: "member_area/team_members/team_member", object: @dashboard.team_member if @dashboard.team_member? %>
 
-<%= render(@dashboard.admin_messages) if @dashboard.admin_messages? %>
+<div class="row">
+  <div class="medium-12 columns">
+    <p>You are logged in as <%= presented_current_member_profile.profile_link %>.</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="medium-9 columns">
+    <%= render(@dashboard.admin_messages) if @dashboard.admin_messages? %>
+  </div>
+
+  <div class="medium-3 columns">
+    <%= render partial: "member_area/team_members/team_member", object: @dashboard.team_member if @dashboard.team_member? %>
+  </div>
+</div>

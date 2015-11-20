@@ -1,3 +1,12 @@
 <div class="admin-message">
-  Admin messages
+  <div class="admin-message-title">
+    <%= link_to '#', class: 'admin-message-toggle slide-toggle', data: { container: '.admin-message-1-content' } do %>
+      <div class="fa fa-chevron-circle-down"></div>
+      Admin message title
+    <% end %>
+  </div>
+
+  <div class="admin-message-content admin-message-1-content">
+    Admin message content
+  </div>
 </div>

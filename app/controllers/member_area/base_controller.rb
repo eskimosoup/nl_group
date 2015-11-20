@@ -6,6 +6,10 @@ module MemberArea
     before_action :use_pdf_specific_template, only: [:registration_data]
 
     def index
+      redirect_to member_area_member_profile_url if current_member_profile.present?
+    end
+
+    def application_form_overview 
     end
 
     def referees_and_emergency_contact

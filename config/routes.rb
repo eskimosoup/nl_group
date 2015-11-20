@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   namespace :member_area, path: "member-area" do
     resources :sessions, only: [:new, :create, :destroy]
+    get :application_form_overview, to: "base#application_form_overview", path: "application-form-overview"
     get :login, to: "sessions#new", as: "login"
     get :logout, to: "sessions#destroy", as: "logout"
     get :referees_and_emergency_contact, to: "base#referees_and_emergency_contact", path: "referees-and-emergency-contact"
