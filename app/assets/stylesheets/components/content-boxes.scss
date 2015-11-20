@@ -47,6 +47,10 @@
     color: $white;
   }
 
+  input[type='password'] {
+    color: $dark-grey;
+  }
+  
   input[type='submit'] {
     background: $primary-blue;
   }

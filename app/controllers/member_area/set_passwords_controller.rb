@@ -19,8 +19,9 @@ module MemberArea
 
     def set_member_profile
       @member_profile = MemberProfile.find_by!(password_set_token: params[:id])
+
       redirect_to member_area_login_url,
-                  notice: "Password already set, please login or request a reset" if @member_profile.password_digest.present?
+                  alert: "Password already set, please login or request a reset" if @member_profile.password_digest.present?
     end
 
     def member_profile_params
