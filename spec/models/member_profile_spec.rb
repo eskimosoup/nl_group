@@ -8,7 +8,8 @@ RSpec.describe MemberProfile, type: :model do
   end
 
   describe "associations", :association do
-    it { should belong_to(:key_contact) }
+    it { should delegate_method(:full_name).to(:team_member) }
+    it { should belong_to(:team_member) }
     it { should have_one(:basic_information) }
     it { should have_one(:basic_medical_history) }
     it { should have_one(:dbs_check) }

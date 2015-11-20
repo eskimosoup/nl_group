@@ -31,8 +31,8 @@
       </div>
 
       <div class="field">
-        <%= f.label :key_contact_id %><br>
-        <%= f.collection_select :key_contact_id, KeyContact.order(name: :asc), :id, :name, include_blank: true %>
+        <%= f.label :team_member_id %><br>
+        <%= f.collection_select :team_member_id, TeamMember.order(forename: :asc), :id, :full_name, include_blank: true %>
       </div>
 
     <% end %>

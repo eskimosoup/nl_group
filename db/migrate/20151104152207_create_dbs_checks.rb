@@ -1,7 +1,7 @@
 class CreateDbsChecks < ActiveRecord::Migration
   def change
     create_table :dbs_checks do |t|
-      t.belongs_to :member_profile, index: true, foreign_key: { on_cascade: :delete }
+      t.belongs_to :member_profile, index: true, foreign_key: true
       t.boolean :enhanced_dbs_completed_before, null: false
       t.string :previous_disclosure_number
       t.date :date_previous_dbs_completed

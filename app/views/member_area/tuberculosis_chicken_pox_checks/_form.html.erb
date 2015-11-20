@@ -54,7 +54,7 @@
       <div class="medium-6 columns">
         <div class="field">
           <%= f.label :vaccination_date, "When did you have this vaccination?" %>
-          <%= f.date_select :vaccination_date, { order: [:day, :month, :year] }, class: 'date-select' %>
+          <%= f.date_select :vaccination_date, { order: [:day, :month, :year], start_year: Date.today.year, end_year: (Date.today.year - 60) }, class: 'date-select' %>
         </div>
       </div>
     </div>
@@ -141,7 +141,7 @@
           <%= f.label :chicken_pox_date do %>
             If <strong>Yes</strong> when
           <% end %>
-          <%= f.date_select :chicken_pox_date, { order: [:day, :month, :year] }, class: 'date-select' %>
+          <%= f.date_select :chicken_pox_date, { order: [:day, :month, :year], start_year: Date.today.year, end_year: (Date.today.year - 60) }, class: 'date-select' %>
         </div>
       </div>
     </div>

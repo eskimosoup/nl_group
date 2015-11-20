@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119151449) do
+ActiveRecord::Schema.define(version: 20151120104043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -252,15 +252,6 @@ ActiveRecord::Schema.define(version: 20151119151449) do
     t.datetime "updated_at",          null: false
   end
 
-  create_table "key_contacts", force: :cascade do |t|
-    t.string   "name",          null: false
-    t.string   "email"
-    t.string   "phone_number"
-    t.string   "mobile_number"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
   create_table "landing_pages", force: :cascade do |t|
     t.string   "name",          null: false
     t.string   "slug"
@@ -325,12 +316,12 @@ ActiveRecord::Schema.define(version: 20151119151449) do
     t.datetime "password_reset_sent_at"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
-    t.integer  "key_contact_id"
     t.boolean  "active",                 default: false
     t.string   "password_set_token"
+    t.integer  "team_member_id"
   end
 
-  add_index "member_profiles", ["key_contact_id"], name: "index_member_profiles_on_key_contact_id", using: :btree
+  add_index "member_profiles", ["team_member_id"], name: "index_member_profiles_on_team_member_id", using: :btree
 
   create_table "member_qualifications", force: :cascade do |t|
     t.integer  "member_profile_id"
@@ -616,8 +607,8 @@ ActiveRecord::Schema.define(version: 20151119151449) do
   add_foreign_key "additional_paragraphs", "additional_blocks"
   add_foreign_key "additional_titles", "additional_blocks"
   add_foreign_key "basic_informations", "member_profiles", on_delete: :cascade
-  add_foreign_key "basic_medical_histories", "member_profiles"
-  add_foreign_key "dbs_checks", "member_profiles"
+  add_foreign_key "basic_medical_histories", "member_profiles", on_delete: :cascade
+  add_foreign_key "dbs_checks", "member_profiles", on_delete: :cascade
   add_foreign_key "emergency_contacts", "member_profiles", on_delete: :cascade
   add_foreign_key "immunisation_histories", "member_profiles", on_delete: :cascade
   add_foreign_key "job_locations", "jobs", on_delete: :cascade
@@ -626,7 +617,7 @@ ActiveRecord::Schema.define(version: 20151119151449) do
   add_foreign_key "member_mandatory_trainings", "mandatory_training_courses", on_delete: :cascade
   add_foreign_key "member_mandatory_trainings", "member_trainings", on_delete: :cascade
   add_foreign_key "member_other_training_courses", "member_trainings", on_delete: :cascade
-  add_foreign_key "member_profiles", "key_contacts"
+  add_foreign_key "member_profiles", "team_members", on_delete: :nullify
   add_foreign_key "member_qualifications", "member_profiles", on_delete: :cascade
   add_foreign_key "member_submissions", "member_profiles", on_delete: :cascade
   add_foreign_key "member_trainings", "member_profiles", on_delete: :cascade
@@ -637,6 +628,6 @@ ActiveRecord::Schema.define(version: 20151119151449) do
   add_foreign_key "referees", "member_profiles", on_delete: :cascade
   add_foreign_key "team_members", "team_member_teams"
   add_foreign_key "tuberculosis_chicken_pox_checks", "member_profiles", on_delete: :cascade
-  add_foreign_key "visited_countries", "tuberculosis_chicken_pox_checks"
+  add_foreign_key "visited_countries", "tuberculosis_chicken_pox_checks", on_delete: :cascade
   add_foreign_key "work_eligibilities", "member_profiles", on_delete: :cascade
 end

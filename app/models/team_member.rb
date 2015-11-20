@@ -6,4 +6,8 @@ class TeamMember < ActiveRecord::Base
 
   scope :displayed, -> { where(display: true) }
   scope :positioned, -> { order(:position) }
+
+  def full_name
+    [forename, surname].join(" ")
+  end
 end
