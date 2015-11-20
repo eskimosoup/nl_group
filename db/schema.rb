@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151120104043) do
+ActiveRecord::Schema.define(version: 20151120143254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -355,6 +355,16 @@ ActiveRecord::Schema.define(version: 20151120104043) do
 
   add_index "member_trainings", ["member_profile_id"], name: "index_member_trainings_on_member_profile_id", using: :btree
 
+  create_table "message_dismissals", force: :cascade do |t|
+    t.integer  "member_profile_id", null: false
+    t.integer  "admin_message_id",  null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "message_dismissals", ["admin_message_id"], name: "index_message_dismissals_on_admin_message_id", using: :btree
+  add_index "message_dismissals", ["member_profile_id"], name: "index_message_dismissals_on_member_profile_id", using: :btree
+
   create_table "optimadmin_administrators", force: :cascade do |t|
     t.string   "username",               null: false
     t.string   "email",                  null: false
@@ -621,6 +631,8 @@ ActiveRecord::Schema.define(version: 20151120104043) do
   add_foreign_key "member_qualifications", "member_profiles", on_delete: :cascade
   add_foreign_key "member_submissions", "member_profiles", on_delete: :cascade
   add_foreign_key "member_trainings", "member_profiles", on_delete: :cascade
+  add_foreign_key "message_dismissals", "admin_messages", on_delete: :cascade
+  add_foreign_key "message_dismissals", "member_profiles", on_delete: :cascade
   add_foreign_key "payment_informations", "member_profiles", on_delete: :cascade
   add_foreign_key "qualifications", "member_qualifications", on_delete: :cascade
   add_foreign_key "read_messages", "admin_messages", on_delete: :cascade

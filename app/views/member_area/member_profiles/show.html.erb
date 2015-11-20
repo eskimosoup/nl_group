@@ -1,9 +1,9 @@
 <!--
 <% present @dashboard.member_profile do |member_profile_presenter| %>
-  <% if member_profile_presenter.ready_to_submit? %>
-    <%= link_to "Submit your data", new_member_area_member_submission_path %>
-  <% elsif member_profile_presenter.member_submission? %>
+  <% if member_profile_presenter.member_submission? %>
     <%= link_to "Registration Data", member_area_registration_data_path %>
+  <% elsif member_profile_presenter.ready_to_submit? %>
+    <%= link_to "Submit your data", new_member_area_member_submission_path %>
   <% end %>
 <% end %>
 -->
@@ -17,7 +17,7 @@
 
 <div class="row">
   <div class="medium-9 columns">
-    <%= render(@dashboard.admin_messages) if @dashboard.admin_messages? %>
+    <%= render(partial: "member_area/admin_messages/unread_admin_message", collection: @dashboard.unread_admin_messages, as: :admin_message) if @dashboard.unread_admin_messages? %>
   </div>
 
   <div class="medium-3 columns">
