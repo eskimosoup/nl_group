@@ -1,57 +1,60 @@
 <div class="row">
-  <div class="small-8 columns">
-    Section
-  </div>
+  <div class="small-12 columns">
+    <h2>
+      Application form
+    </h2>
 
-  <div class="small-4 columns">
-    Progress
+    <div class="form-notice">
+      <p>Review and edit the sections for your application form by using the links below.</p>
+
+      <p>The checkbox is only a guideline, you can edit this at any time.</p>
+    </div>
+
+    <ul>
+      <li>
+        <%= presented_current_member_profile.progress_icon(presented_current_member_profile.basic_information?) %>
+        <%= presented_current_member_profile.basic_information_link %>
+      </li>
+
+      <li>
+        <%= presented_current_member_profile.progress_icon(presented_current_member_profile.work_eligibility?) %>
+        <%= presented_current_member_profile.work_eligibility_link %>
+      </li>
+
+      <li>
+        <%= presented_current_member_profile.progress_icon(presented_current_member_profile.has_current_address?) %>
+        <%= presented_current_member_profile.addresses_link %>
+      </li>
+
+      <li>
+        <%= presented_current_member_profile.progress_icon(presented_current_member_profile.member_qualification?) %>
+        <%= presented_current_member_profile.member_qualification_link %>
+      </li>
+
+      <li>
+        <%= presented_current_member_profile.progress_icon(presented_current_member_profile.member_training?) %>
+        <%= presented_current_member_profile.member_training_link %>
+      </li>
+
+      <li>
+        <%= presented_current_member_profile.progress_icon(presented_current_member_profile.has_referees_and_emergency_contact?) %>
+        <%= presented_current_member_profile.referee_and_emergency_contact_link %>
+      </li>
+
+      <li>
+        <%= presented_current_member_profile.progress_icon(presented_current_member_profile.occupational_health_complete?) %>
+        <%= presented_current_member_profile.occupational_health_screening_link %>
+      </li>
+
+      <li>
+        <%= presented_current_member_profile.progress_icon(presented_current_member_profile.dbs_check?) %>
+        <%= presented_current_member_profile.dbs_check_link %>
+      </li>
+
+      <li>
+        <%= presented_current_member_profile.progress_icon(presented_current_member_profile.payment_information?) %>
+        <%= presented_current_member_profile.payment_information_link %>
+      </li>
+    </ul>
   </div>
 </div>
-
-<div class="row">
-  <div class="small-8 columns">
-    <%= presented_current_member_profile.basic_information_link %>
-  </div>
-
-  <div class="small-4 columns">
-
-  </div>
-</div>
-
-<ul>
-  <li>
-    <%= presented_current_member_profile.edit_profile_link %>
-  </li>
-
-  <li>
-    <%= presented_current_member_profile.work_eligibility_link %>
-  </li>
-
-  <li>
-    <%= presented_current_member_profile.addresses_link %>
-  </li>
-
-  <li>
-    <%= presented_current_member_profile.member_qualification_link %>
-  </li>
-
-  <li>
-    <%= presented_current_member_profile.member_training_link %>
-  </li>
-
-  <li>
-    <%= presented_current_member_profile.referee_and_emergency_contact_link %>
-  </li>
-
-  <li>
-    <%= presented_current_member_profile.occupational_health_screening_link %>
-  </li>
-
-  <li>
-    <%= presented_current_member_profile.dbs_check_link %>
-  </li>
-
-  <li>
-    <%= presented_current_member_profile.payment_information_link %>
-  </li>
-</ul>

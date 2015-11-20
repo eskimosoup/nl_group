@@ -73,6 +73,14 @@ class MemberProfilePresenter < BasePresenter
     end
   end
 
+  def progress_icon(method)
+    if method
+      h.content_tag :i, nil, class: 'fa fa-2x fa-check-square-o'
+    else
+      h.content_tag :i, nil, class: 'fa fa-2x fa-square-o'
+    end
+  end
+
   def occupational_health_complete?
     basic_medical_history? && tuberculosis_chicken_pox_check? && immunisation_history?
   end
