@@ -102,8 +102,6 @@ class MemberProfilePresenter < BasePresenter
     member_profile.member_submission.present?
   end
 
-  private
-
   def basic_information?
     member_profile.basic_information.present?
   end

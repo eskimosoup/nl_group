@@ -1,0 +1,23 @@
+.key-contact {
+  background: $pale-light-blue;
+  color: $dark-blue;
+  padding: em(5px);
+  text-align: center;
+
+  h5 {
+    border-color: $white;
+    font-size: em(16px);
+    padding: em(5px, 16px) 0;
+    margin: em(5px, 16px) 0;
+  }
+
+  a {
+    color: $dark-blue;
+  }
+}
+
+.key-contact-image {
+  border: 2px solid $white;
+  display: block;
+  margin: em(15px) auto;
+}

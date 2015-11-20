@@ -1,14 +1,9 @@
 <div class="key-contact">
   <% present team_member do |presenter| %>
     <h5>Your Key Contact</h5>
-    <div>
-      <strong>Name:</strong> <%= presenter.name %>
-    </div>
-    <div>
-      <strong>Email:</strong> <%= presenter.email %>
-    </div>
-    <div>
-      <strong>Phone number:</strong> <%= presenter.phone %>
-    </div>
+    <%= presenter.index_image(class: 'key-contact-image') %>
+    <strong><%= presenter.name %></strong>
+    <%= presenter.email %>
+    <%= presenter.phone %>
   <% end %>
 </div>

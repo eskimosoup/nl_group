@@ -1,0 +1,30 @@
+.admin-message {
+  background: $grey;
+  border: 2px solid $white;
+}
+
+.admin-message-title {
+  color: $primary-blue;
+  font-weight: $proxima-nova-bold;
+  font-size: em(16px);
+}
+
+.admin-message-content {
+  border-top: 1px dotted $white;
+  color: $dark-grey;
+  display: none;
+  padding: em(15px);
+}
+
+.admin-message-toggle {
+  background: $grey;
+  display: block;
+  padding: em(15px);
+  text-decoration: none;
+
+  &:hover {
+    background: darken($grey, 5%);
+    color: $dark-blue;
+    text-decoration: none;
+  }
+}

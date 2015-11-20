@@ -1,6 +1,36 @@
+<div class="member-navigation">
+  <div class="row">
+    <div class="small-12 columns">
+      <ul class="left">
+        <li>
+          <%= link_to 'Home', member_area_member_profile_path %>
+        </li>
+
+        <li>
+          <%= link_to 'Application form', member_area_application_form_overview_path %>
+        </li>
+
+        <li>
+          <%= link_to 'Messages (0)', '#' %>
+        </li>
+      </ul>
+
+      <ul class="right">
+        <li>
+          <%= presented_current_member_profile.edit_profile_link %>
+        </li>
+
+        <li>
+          <%= link_to 'Logout', member_area_logout_path %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 <ul class="member-navigation">
   <li>
-    <%= presented_current_member_profile.edit_profile_link %>
+
   </li>
 
   <li>
