@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resource :member_qualification, path: "member-qualification", except: [:show]
     resources :member_addresses, path: "addresses", except: [:show]
     resource :member_submission, path: "submission", only: [:new, :create]
+    resources :message_dismissals, path: "message-dismissal", only: [:create]
     resources :password_resets, path: "password-reset", only: [:new, :create, :edit, :update]
     resources :set_passwords, path: "set-password", only: [:edit, :update]
     resource :payment_information, path: "payment-information", except: :show

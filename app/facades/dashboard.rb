@@ -14,13 +14,16 @@ class Dashboard
     team_member.present?
   end
 
-  def admin_messages
-    return @admin_messages if defined?(@admin_messages)
-    @admin_messages = AdminMessage.all
+  def unread_admin_messages
+    @unread_messages ||= member_profile.unread_admin_messages
   end
 
-  def admin_messages?
-    admin_messages.present?
+  def unread_admin_messages_count
+    @unread_messages_count ||= unread_admin_messages.size
+  end
+
+  def unread_admin_messages?
+    unread_admin_messages.present?
   end
 
 end

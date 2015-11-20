@@ -110,6 +110,24 @@ class MemberProfilePresenter < BasePresenter
     member_profile.member_submission.present?
   end
 
+  def next_section
+    if basic_information?
+      h.new_member_area_work_eligibility_path
+    elsif work_eligibility?
+
+    elsif has_current_address?
+    elsif member_qualification?
+    elsif member_training?
+    elsif has_referees?
+    elsif emergency_contact?
+    elsif basic_medical_history?
+    elsif tuberculosis_chicken_pox_check?
+    elsif immunisation_history?
+    elsif dbs_check?
+    elsif payment_information?
+    end
+  end
+
   def basic_information?
     member_profile.basic_information.present?
   end

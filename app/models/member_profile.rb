@@ -14,6 +14,7 @@ class MemberProfile < ActiveRecord::Base
   has_one :work_eligibility
   has_many :logins
   has_many :member_addresses
+  has_many :message_dismissals
   has_many :referees
 
   delegate :full_name, to: :team_member, prefix: true, allow_nil: true
@@ -41,6 +42,10 @@ class MemberProfile < ActiveRecord::Base
     begin
       self[column] = SecureRandom.urlsafe_base64
     end while MemberProfile.exists?(column => self[column])
+  end
+
+  def unread_admin_messages
+    @admin_messages ||= AdminMessage.unread_by_member(self)
   end
 
   private

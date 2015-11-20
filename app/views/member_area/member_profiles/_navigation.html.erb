@@ -11,7 +11,7 @@
         </li>
 
         <li>
-          <%= link_to 'Messages (0)', '#' %>
+          <%= link_to "Messages (#{ current_member_profile.unread_admin_messages.size })", '#' %>
         </li>
       </ul>
 
