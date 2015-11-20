@@ -8,7 +8,7 @@ RSpec.describe MemberProfile, type: :model do
   end
 
   describe "associations", :association do
-    it { should delegate_method(:full_name).to(:team_member) }
+    it { should delegate_method(:full_name).to(:team_member).with_prefix }
     it { should belong_to(:team_member) }
     it { should have_one(:basic_information) }
     it { should have_one(:basic_medical_history) }
@@ -23,6 +23,7 @@ RSpec.describe MemberProfile, type: :model do
     it { should have_one(:work_eligibility) }
     it { should have_many(:logins) }
     it { should have_many(:member_addresses) }
+    it { should have_many(:message_dismissals) }
     it { should have_many(:referees) }
   end
 

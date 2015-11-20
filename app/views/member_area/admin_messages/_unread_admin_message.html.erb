@@ -1,0 +1,21 @@
+<% present admin_message do |presenter| %>
+  <div id="admin-message-<%= presenter.id %>" class="admin-message">
+    <div class="admin-message-title">
+      <%= link_to '#', class: 'admin-message-toggle slide-toggle', data: { container: '.admin-message-1-content' } do %>
+        <div class="fa fa-chevron-circle-down"></div>
+        <%= presenter.title %>
+      <% end %>
+    </div>
+
+    <div class="admin-message-content admin-message-1-content">
+      <%= presenter.content %>
+    </div>
+
+    <%= form_for [:member_area, new_message_dismissal], remote: true do |f| %>
+      <%= f.hidden_field :admin_message_id, value: admin_message.id %>
+      <div class="actions">
+        <%= f.submit "Dismiss" %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
