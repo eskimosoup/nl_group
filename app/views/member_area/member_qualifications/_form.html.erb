@@ -1,4 +1,17 @@
 <%= form_for [:member_area, @member_qualification], url: member_area_member_qualification_path do |f| %>
+  <% if @member_qualification.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@member_qualification.errors.count, 'error') %> prevented your immunisation history to be saved</h2>
+      <ul>
+        <% @member_qualification.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= field_set_tag 'Professional Register' do %>
     <div class="row">
       <div class="small-8 columns">
@@ -51,11 +64,6 @@
           <div class="afc-band">
             <%= f.label :afc_band, "Band 7 or Higher", value: 7 %>
             <%= f.radio_button :afc_band, 7 %>
-          </div>
-
-          <div class="afc-band">
-            <%= f.label :afc_band, "Do not work within the NHS", value: nil %>
-            <%= f.radio_button :afc_band, nil %>
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@
       <%= render partial: "member_area/referees/referee", collection: @referees, locals: { locked: false } %>
     <% end %>
 
-    <%= link_to "New Referee", new_member_area_referee_path, class: 'user-action-button' unless @referees.present? && @referees.size < 2 %>
+    <%= link_to "New Referee", new_member_area_referee_path, class: 'user-action-button' unless @referees.present? && @referees.size == 2 %>
 
 
     <h2>Emergency Contact</h2>
