@@ -6,6 +6,8 @@ RSpec.feature "Creating and updating member training", type: :feature, js: true 
 
   it "should allow creation of member training" do
     login_to_member_area_with(member_profile.email, "password")
+
+    click_link "Application form"
     click_link "Training"
 
     expect(current_path).to eq(new_member_area_member_training_path)
@@ -26,7 +28,7 @@ RSpec.feature "Creating and updating member training", type: :feature, js: true 
 
     click_button "Save"
 
-    expect(current_path).to eq(member_area_member_profile_path)
+    expect(current_path).to eq(member_area_application_form_overview_path)
     expect(page).to have_content "Training successfully saved"
   end
 
@@ -34,6 +36,8 @@ RSpec.feature "Creating and updating member training", type: :feature, js: true 
     member_training = create(:member_training, member_profile: member_profile)
 
     login_to_member_area_with(member_profile.email, "password")
+
+    click_link "Application form"
     click_link "Training"
 
     expect(current_path).to eq(edit_member_area_member_training_path)
@@ -53,7 +57,7 @@ RSpec.feature "Creating and updating member training", type: :feature, js: true 
 
     click_button "Save"
 
-    expect(current_path).to eq(member_area_member_profile_path)
+    expect(current_path).to eq(member_area_application_form_overview_path)
     expect(page).to have_content "Training successfully updated"
   end
 end

@@ -7,7 +7,7 @@ module MemberArea
     def create
       @work_eligibility = current_member_profile.build_work_eligibility(work_eligibility_params)
       if @work_eligibility.save
-        redirect_to member_area_member_profile_url, notice: "Eligibility to work successfully saved"
+        redirect_to member_area_application_form_overview_url, notice: "Eligibility to work successfully saved"
       else
         render :new
       end
@@ -20,7 +20,7 @@ module MemberArea
     def update
       @work_eligibility = current_member_profile.work_eligibility
       if @work_eligibility.update(work_eligibility_params)
-        redirect_to member_area_member_profile_url, notice: "Eligibility to work successfully updated"
+        redirect_to member_area_application_form_overview_url, notice: "Eligibility to work successfully updated"
       else
         render :edit
       end

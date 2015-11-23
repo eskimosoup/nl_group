@@ -8,7 +8,7 @@ module MemberArea
     def create
       @member_training = current_member_profile.build_member_training(member_training_params)
       if @member_training.save
-        redirect_to member_area_member_profile_path, notice: "Training successfully saved"
+        redirect_to member_area_application_form_overview_url, notice: "Training successfully saved"
       else
         render :new
       end
@@ -21,7 +21,7 @@ module MemberArea
     def update
       @member_training = current_member_profile.member_training
       if @member_training.update(member_training_params)
-        redirect_to member_area_member_profile_path, notice: "Training successfully updated"
+        redirect_to member_area_application_form_overview_url, notice: "Training successfully updated"
       else
         render :edit
       end
