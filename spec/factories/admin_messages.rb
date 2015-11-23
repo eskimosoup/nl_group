@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :admin_message do
-    title "MyString"
-content "MyText"
-display false
+    sequence(:title){|n| "Message #{ n }"}
+    content "MyText"
+    display true
   end
 
 end
