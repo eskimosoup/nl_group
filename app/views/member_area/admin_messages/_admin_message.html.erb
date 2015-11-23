@@ -1,5 +1,5 @@
-<% present admin_message do |presenter| %>
-  <div id="admin-message-<%= presenter.id %>" class="admin-message">
+<div id="admin-message-<%= admin_message.id %>" class="<%= message_classes(admin_message.id, dismissed_message_ids) %>">
+  <% present admin_message do |presenter| %>
     <div class="admin-message-title">
       <%= link_to '#', class: 'admin-message-toggle slide-toggle', data: { container: ".admin-message-#{presenter.id}-content" } do %>
         <div class="fa fa-chevron-circle-down"></div>
@@ -17,5 +17,5 @@
         </div>
       <% end %>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

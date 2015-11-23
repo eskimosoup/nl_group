@@ -5,6 +5,11 @@
 
 .admin-message-title {
   color: $primary-blue;
+  font-weight: $proxima-nova-light;
+  font-size: em(14px);
+}
+
+.unread .admin-message-title {
   font-weight: $proxima-nova-bold;
   font-size: em(16px);
 }

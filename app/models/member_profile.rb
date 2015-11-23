@@ -15,6 +15,7 @@ class MemberProfile < ActiveRecord::Base
   has_many :logins
   has_many :member_addresses
   has_many :message_dismissals
+  has_many :dismissed_messages, through: :message_dismissals, source: :admin_message
   has_many :referees
 
   delegate :full_name, to: :team_member, prefix: true, allow_nil: true
@@ -45,7 +46,7 @@ class MemberProfile < ActiveRecord::Base
   end
 
   def unread_admin_messages
-    @admin_messages ||= AdminMessage.unread_by_member(self)
+    @admin_messages ||= AdminMessage.displayed.unread_by_member(dismissed_message_ids)
   end
 
   private

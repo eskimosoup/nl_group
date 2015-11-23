@@ -15,23 +15,24 @@ Rails.application.routes.draw do
     get :referees_and_emergency_contact, to: "base#referees_and_emergency_contact", path: "referees-and-emergency-contact"
     get :occupational_health_screening, to: "base#occupational_health_screening", path: "occupational-health-screening"
     get :registration_data, to: "base#registration_data", path: "registration-data"
-    resource :member_profile, path: "member-profile"
     resource :basic_information, path: "basic-information", except: [:show]
     resource :basic_medical_history, path: "basic-medical-history", except: [:show]
     resource :dbs_check, path: "dbs-check", except: [:show]
     resource :emergency_contact, path: "emergency-contact", except: [:show]
     resource :immunisation_history, path: "immunisation-history", except: [:show]
-    resource :member_training, path: "training", except: [:show]
+    resource :member_profile, path: "member-profile"
     resource :member_qualification, path: "member-qualification", except: [:show]
-    resources :member_addresses, path: "addresses", except: [:show]
     resource :member_submission, path: "submission", only: [:new, :create]
+    resource :member_training, path: "training", except: [:show]
+    resource :payment_information, path: "payment-information", except: :show
+    resource :tuberculosis_chicken_pox_check, path: "tuberculosis-chicken-pox-check", except: [:show]
+    resource :work_eligibility, path: "eligibility-to-work", except: [:show]
+    resources :admin_messages, path: "messages", only: [:index]
+    resources :member_addresses, path: "addresses", except: [:show]
     resources :message_dismissals, path: "message-dismissal", only: [:create]
     resources :password_resets, path: "password-reset", only: [:new, :create, :edit, :update]
     resources :set_passwords, path: "set-password", only: [:edit, :update]
-    resource :payment_information, path: "payment-information", except: :show
     resources :referees, except: [:index, :show]
-    resource :tuberculosis_chicken_pox_check, path: "tuberculosis-chicken-pox-check", except: [:show]
-    resource :work_eligibility, path: "eligibility-to-work", except: [:show]
     root to: "base#index"
   end
 
