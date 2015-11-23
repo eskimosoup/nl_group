@@ -1,0 +1,239 @@
+<div class="row timesheet-header">
+  <div class="small-7 columns">
+    <div class="row">
+      <div class="small-4 columns black text-right">
+        Candidate Name:
+      </div>
+      <div class="small-8 columns">
+        <% present current_member_profile do |member_profile_presenter| %>
+          <%= member_profile_presenter.full_name %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-4 columns black text-right">
+        Reporting to:
+      </div>
+      <div class="small-8 columns">
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-4 columns black text-right">
+        Job Title:
+      </div>
+      <div class="small-8 columns">
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-4 columns black text-right">
+        Band / Grade:
+      </div>
+      <div class="small-8 columns">
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-4 columns black text-right">
+        Name of Trust / Hospital:
+      </div>
+      <div class="small-8 columns">
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-4 columns black text-right">
+        Ward / Department:
+      </div>
+      <div class="small-8 columns">
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-4 columns black text-right">
+        Booking / Timesheet No:
+      </div>
+      <div class="small-8 columns">
+        <%= @timesheet.id %>
+      </div>
+    </div>
+  </div>
+  <div class="small-5 columns">
+    <%= image_tag "components/pdf/black-logo.jpg" %>
+
+    <p>
+      NL Group Healthcare<br/>
+      The Riverside Building, Livingstone Road, Hessle,<br/>
+      East Riding of Yorkshire, HU13 0DZ<br/>
+      Registered Company Number: 04295083<br/>
+      NL Group Healthcare is part of NL Group Limited
+    </p>
+
+    <p>
+      Tel: 01482 60 60 40
+    </p>
+
+    <p>
+      www.nlgroup.co.uk
+    </p>
+
+  </div>
+</div>
+
+<div class="timesheet-timetable">
+  <div class="row">
+    <div class="small-7 columns">
+      Email: <%= global_site_settings["Email"] %>
+    </div>
+    <div class="small-5 columns">
+      Fax: <%= global_site_settings["Fax"] %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      Timesheets must be received by 16:00 on Tuesday by Fax, Post or Email (Scans only NOT Photographs!)
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-2 small-offset-1 columns">
+      Date DD/MM/YYYY
+    </div>
+    <div class="small-1 columns">
+      Start Time
+    </div>
+    <div class="small-1 columns">
+      Finish Time
+    </div>
+    <div class="small-1 columns">
+      Break Start
+    </div>
+    <div class="small-1 columns">
+      Break Finish
+    </div>
+    <div class="small-1 columns">
+      Hours Worked
+    </div>
+    <div class="small-2 columns">
+      Booking Reference Number / notes
+    </div>
+    <div class="small-2 columns">
+      Authorised Signature
+    </div>
+  </div>
+
+  <% Date::DAYNAMES.rotate.each do |day| %>
+    <div class="row">
+      <div class="small-1 columns end">
+        <%= day %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="small-4 columns">
+      Please Use 24 hour clock
+    </div>
+    <div class="small-3 columns">
+      Total Hours Worked
+    </div>
+
+    <div class="small-4 small-offset-1 columns">
+      &nbsp;
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-6 columns">
+    <h3>
+      To be completed by Head of Department / Authorised Signatory <strong>(after last shift detailed above)</strong>
+    </h3>
+
+    <h5>TO BE READ BY ALL CLIENTS:</h5>
+    <p>
+      I am an authorised signatory for my ward/department/NHS body. I am signing to confirm that
+      both the grade of Agency Worker and the hours/shift that I am authorising are accurate and
+      I approve payment. I understand that if I knowingly provide false information this may result
+      in disciplinary action and I may be liable to prosecution and civil recovery proceedings.
+    </p>
+
+    <p>
+      I consent to the disclosure of information from this form to and by the NHS body and NHS
+      Protect (NHS CFSMS) in England (or NHS CFS in Scotland) for the purpose of verification of
+      this claim and the investigation, prevention, detection and prosecution of fraud. Any
+      questionable timesheet must be immediately brought to the attention of the Local Counter
+      Fraud Specialist (within England) or you may report any case of fraud, in confidence, to the
+      NHS Fraud and Corruption Reporting Line on the following: 0800 028 4060 or email
+      nhsfraud@nhsprotect.gsi.gov.uk
+    </p>
+
+    <div class="row">
+      <div class="small-12 columns">
+        Signature
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 columns">
+        Print Name
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 columns">
+        Position
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 columns">
+        Date
+      </div>
+    </div>
+
+    <p>
+      <strong>Declaration:</strong> We confirm that the hours and grade/band shown on this timesheet have been
+      worked to our satisfaction and that this will form the basis of an invoice which will be paid on
+      receipt. We agree to be bound by the terms and conditions of business.
+    </p>
+  </div>
+  <div class="small-6 columns">
+    <h3>
+      To be completed by Agency Worker
+    </h3>
+
+    <h5>TO BE READ BY ALL CANDIDATES:</h5>
+
+    <p>
+      I declare that the information I have given on this form is correct and complete and that I
+      have not claimed elsewhere for the hours/shifts detailed on this timesheet. I understand
+      that if I knowingly provide false information this may result in disciplinary action and I may
+      be liable to prosecution and civil recovery proceedings. I consent to the disclosure of
+      information from this form to and by the NHS body and NHS Protect (NHS CFSMS) for the
+      purpose of verification of this claim and the investigation, prevention, detection and
+      prosecution of fraud.
+    </p>
+
+    <div class="row">
+      <div class="small-12 columns">
+        Signature
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 columns">
+        Print Name
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 columns">
+        Date
+      </div>
+    </div>
+
+    <p>
+      <strong>Declaration:</strong> I confirm I have worked the above hours. In addition, I declare that any travel
+      and subsistence costs I have claimed through my Umbrella or Accountancy partner have been necessarily incurred
+      in the performance of my duties or travelling in order to perform my duties with NL Group Healthcare at a
+      temporary workplace. I also declare that any expenses I have claimed have been incurred by me wholly, exclusively
+      and necessarily in the performance of my duties
+    </p>
+  </div>
+</div>

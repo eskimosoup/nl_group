@@ -18,6 +18,20 @@ RSpec.describe MemberProfilePresenter, type: :presenter do
                                                                      id: "edit-member-profile"))
   end
 
+  describe "#full_name" do
+    it "has a basic information" do
+      basic_information = create(:basic_information, member_profile: member_profile)
+      expect(subject.full_name).to eq([basic_information.first_name, basic_information.middle_names, basic_information.last_name].compact.join(" "))
+    end
+
+    it "has no basic information" do
+      basic_information = NullObject::BasicInformation.new
+      expect(subject.full_name).to eq([basic_information.first_name, basic_information.middle_names, basic_information.last_name].compact.join(" "))
+    end
+  end
+
+
+
   it "should return a link to a new basic information if no basic information" do
     expect(member_profile_presenter.basic_information_link).to eq(link_to "About You", new_member_area_basic_information_path)
   end

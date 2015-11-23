@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151120143254) do
+ActiveRecord::Schema.define(version: 20151123140855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,12 +51,12 @@ ActiveRecord::Schema.define(version: 20151120143254) do
 
   create_table "additional_buttons", force: :cascade do |t|
     t.integer  "additional_block_id"
+    t.integer  "position"
     t.string   "button_text"
     t.string   "button_link"
     t.boolean  "display",             default: true
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
-    t.integer  "position"
     t.string   "classes"
   end
 
@@ -78,11 +78,11 @@ ActiveRecord::Schema.define(version: 20151120143254) do
     t.integer  "position"
     t.integer  "additional_blocks_count"
     t.string   "name"
+    t.string   "style"
     t.integer  "maximum_content_blocks"
     t.boolean  "display",                 default: true
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
-    t.string   "style"
   end
 
   create_table "additional_titles", force: :cascade do |t|
@@ -321,6 +321,9 @@ ActiveRecord::Schema.define(version: 20151120143254) do
     t.integer  "team_member_id"
   end
 
+  add_index "member_profiles", ["auth_token"], name: "index_member_profiles_on_auth_token", using: :btree
+  add_index "member_profiles", ["email"], name: "index_member_profiles_on_email", using: :btree
+  add_index "member_profiles", ["password_reset_token"], name: "index_member_profiles_on_password_reset_token", using: :btree
   add_index "member_profiles", ["team_member_id"], name: "index_member_profiles_on_team_member_id", using: :btree
 
   create_table "member_qualifications", force: :cascade do |t|
@@ -356,13 +359,8 @@ ActiveRecord::Schema.define(version: 20151120143254) do
   add_index "member_trainings", ["member_profile_id"], name: "index_member_trainings_on_member_profile_id", using: :btree
 
   create_table "message_dismissals", force: :cascade do |t|
-<<<<<<< Updated upstream
     t.integer  "member_profile_id", null: false
     t.integer  "admin_message_id",  null: false
-=======
-    t.integer  "member_profile_id"
-    t.integer  "admin_message_id"
->>>>>>> Stashed changes
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
@@ -559,6 +557,14 @@ ActiveRecord::Schema.define(version: 20151120143254) do
     t.datetime "updated_at",                      null: false
   end
 
+  create_table "timesheets", force: :cascade do |t|
+    t.integer  "member_profile_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "timesheets", ["member_profile_id"], name: "index_timesheets_on_member_profile_id", using: :btree
+
   create_table "tuberculosis_chicken_pox_checks", force: :cascade do |t|
     t.integer  "member_profile_id"
     t.boolean  "lived_continuously",     null: false
@@ -644,6 +650,7 @@ ActiveRecord::Schema.define(version: 20151120143254) do
   add_foreign_key "read_messages", "member_profiles", on_delete: :cascade
   add_foreign_key "referees", "member_profiles", on_delete: :cascade
   add_foreign_key "team_members", "team_member_teams"
+  add_foreign_key "timesheets", "member_profiles", on_delete: :cascade
   add_foreign_key "tuberculosis_chicken_pox_checks", "member_profiles", on_delete: :cascade
   add_foreign_key "visited_countries", "tuberculosis_chicken_pox_checks", on_delete: :cascade
   add_foreign_key "work_eligibilities", "member_profiles", on_delete: :cascade

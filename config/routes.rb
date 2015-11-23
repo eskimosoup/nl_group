@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     resources :password_resets, path: "password-reset", only: [:new, :create, :edit, :update]
     resources :set_passwords, path: "set-password", only: [:edit, :update]
     resources :referees, except: [:index, :show]
+    resources :timesheets, only: [:create, :index, :show]
     root to: "base#index"
   end
 
