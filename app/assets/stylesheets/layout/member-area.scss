@@ -65,6 +65,24 @@
   }
 }
 
+.next-section-button {
+  background: darken($pale-light-blue, 5%);
+  display: block;
+  font-size: em(16px);
+  padding: em(5px, 16px);
+  margin: em(5px, 16px) 0;
+
+  .fa {
+    float: right;
+    color: $white;
+  }
+
+  &:hover {
+    color: $dark-grey;
+    text-decoration: none;
+  }
+}
+
 .submit-data,
 .registration-data {
   background: $pale-blue;
