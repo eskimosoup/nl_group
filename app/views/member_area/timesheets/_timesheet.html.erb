@@ -1,0 +1,15 @@
+<div class="timesheet">
+  <% present timesheet do |presenter| %>
+    <div class="row">
+      <div class="small-4 columns">
+        <%= presenter.created_at %>
+      </div>
+      <div class="small-4 columns">
+        <%= presenter.id %>
+      </div>
+      <div class="small-4 columns">
+        <%= presenter.download_link %>
+      </div>
+    </div>
+  <% end %>
+</div>

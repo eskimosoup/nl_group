@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="small-12 columns">
+    <h1>Timesheets</h1>
+
+    <%= button_to "Create Timesheet", member_area_timesheets_path %>
+
+    <%= render(@timesheets) || "Currently no timesheets" %>
+  </div>
+</div>

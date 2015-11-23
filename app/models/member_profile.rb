@@ -17,8 +17,10 @@ class MemberProfile < ActiveRecord::Base
   has_many :message_dismissals
   has_many :dismissed_messages, through: :message_dismissals, source: :admin_message
   has_many :referees
+  has_many :timesheets
 
   delegate :full_name, to: :team_member, prefix: true, allow_nil: true
+  delegate :first_name, :middle_names, :last_name, to: :basic_information, allow_nil: true
 
   validates :email, presence: true, uniqueness: true
   # http://api.rubyonrails.org/classes/ActiveModel/SecurePassword/ClassMethods.html
