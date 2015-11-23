@@ -1,3 +1,5 @@
+<%= link_to_if presented_current_member_profile.next_section.present?, "Next Section", presented_current_member_profile.next_section, class: "dark-action-button" %>
+
 <ul class="application-form-overview">
   <li>
     <%= presented_current_member_profile.progress_icon(presented_current_member_profile.basic_information?) %>

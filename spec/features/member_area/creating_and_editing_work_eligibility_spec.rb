@@ -5,6 +5,8 @@ RSpec.feature "setting work eligibility", type: :feature do
 
   it "should allow creation of work eligibility" do
     login_to_member_area_with(member_profile.email, "password")
+
+    click_link "Application form"
     click_link "Eligibility To Work"
 
     expect(current_path).to eq(new_member_area_work_eligibility_path)
@@ -16,12 +18,16 @@ RSpec.feature "setting work eligibility", type: :feature do
     choose("work_eligibility_hold_eu_passport_true")
 
     click_button "Save"
+
+    expect(current_path).to eq(member_area_application_form_overview_path)
     expect(page).to have_content("Eligibility to work successfully saved")
   end
 
   it "should allow editing of work eligibility" do
     work_eligibility = create(:work_eligibility, member_profile: member_profile)
     login_to_member_area_with(member_profile.email, "password")
+
+    click_link "Application form"
     click_link "Eligibility To Work"
 
     expect(current_path).to eq(edit_member_area_work_eligibility_path)
@@ -33,6 +39,8 @@ RSpec.feature "setting work eligibility", type: :feature do
     choose("work_eligibility_hold_eu_passport_true")
 
     click_button "Save"
+
+    expect(current_path).to eq(member_area_application_form_overview_path)
     expect(page).to have_content("Eligibility to work successfully updated")
   end
 

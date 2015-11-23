@@ -6,6 +6,7 @@ RSpec.feature "Creating and editing dbs check" do
   it "should allow creation and editing" do
     login_to_member_area_with(member_profile.email, member_profile.password)
 
+    click_link "Application form"
     click_link "DBS Check"
     expect(current_path).to eq(new_member_area_dbs_check_path)
     expect(page).to have_content("New DBS Check")
@@ -19,6 +20,8 @@ RSpec.feature "Creating and editing dbs check" do
     click_button "Save"
 
     expect(page).to have_content "DBS Check successfully saved"
+    expect(current_path).to eq(member_area_application_form_overview_path)
+
     click_link "DBS Check"
     expect(current_path).to eq(edit_member_area_dbs_check_path)
     expect(page).to have_content("Edit DBS Check")
@@ -29,5 +32,6 @@ RSpec.feature "Creating and editing dbs check" do
     click_button "Save"
 
     expect(page).to have_content "DBS Check successfully updated"
+    expect(current_path).to eq(member_area_application_form_overview_path)
   end
 end

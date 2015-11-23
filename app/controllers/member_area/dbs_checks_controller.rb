@@ -7,7 +7,7 @@ module MemberArea
     def create
       @dbs_check = current_member_profile.build_dbs_check(dbs_check_params)
       if @dbs_check.save
-        redirect_to member_area_member_profile_url, notice: "DBS Check successfully saved"
+        redirect_to member_area_application_form_overview_url, notice: "DBS Check successfully saved"
       else
         render :new
       end
@@ -20,7 +20,7 @@ module MemberArea
     def update
       @dbs_check = current_member_profile.dbs_check
       if @dbs_check.update(dbs_check_params)
-        redirect_to member_area_member_profile_url, notice: "DBS Check successfully updated"
+        redirect_to member_area_application_form_overview_url, notice: "DBS Check successfully updated"
       else
         render :edit
       end

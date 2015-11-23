@@ -7,7 +7,7 @@ module MemberArea
     def create
       @basic_information = current_member_profile.build_basic_information(basic_information_params)
       if @basic_information.save
-        redirect_to member_area_member_profile_url, notice: "Basic Information successfully saved"
+        redirect_to member_area_application_form_overview_path, notice: "Basic Information successfully saved"
       else
         render :new
       end
@@ -20,7 +20,7 @@ module MemberArea
     def update
       @basic_information = current_member_profile.basic_information
       if @basic_information.update(basic_information_params)
-        redirect_to member_area_member_profile_url, notice: "Basic Information successfully updated"
+        redirect_to member_area_application_form_overview_path, notice: "Basic Information successfully updated"
       else
         render :edit
       end

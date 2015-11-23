@@ -4,6 +4,8 @@ RSpec.feature "Creating and editing member qualifications", type: :feature, js: 
   let!(:member_profile){ create(:member_profile) }
   it "should allow creation of member qualifications" do
     login_to_member_area_with(member_profile.email, "password")
+
+    click_link "Application form"
     click_link "Qualifications"
 
     fill_in "member_qualification_register", with: "Some register"
@@ -21,12 +23,14 @@ RSpec.feature "Creating and editing member qualifications", type: :feature, js: 
     click_button "Save"
 
     expect(page).to have_content "Qualifications were successfully saved"
-    expect(current_path).to eq(member_area_member_profile_path)
+    expect(current_path).to eq(member_area_application_form_overview_path)
   end
 
   it "should allow updating of member qualifications" do
     member_qualification = create(:member_qualification, member_profile: member_profile)
     login_to_member_area_with(member_profile.email, "password")
+
+    click_link "Application form"
     click_link "Qualifications"
 
     fill_in "member_qualification_register", with: "Some register"
@@ -45,7 +49,7 @@ RSpec.feature "Creating and editing member qualifications", type: :feature, js: 
     click_button "Save"
 
     expect(page).to have_content "Qualifications were successfully updated"
-    expect(current_path).to eq(member_area_member_profile_path)
+    expect(current_path).to eq(member_area_application_form_overview_path)
   end
 
 end
