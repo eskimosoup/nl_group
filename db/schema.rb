@@ -356,8 +356,13 @@ ActiveRecord::Schema.define(version: 20151120143254) do
   add_index "member_trainings", ["member_profile_id"], name: "index_member_trainings_on_member_profile_id", using: :btree
 
   create_table "message_dismissals", force: :cascade do |t|
+<<<<<<< Updated upstream
     t.integer  "member_profile_id", null: false
     t.integer  "admin_message_id",  null: false
+=======
+    t.integer  "member_profile_id"
+    t.integer  "admin_message_id"
+>>>>>>> Stashed changes
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end

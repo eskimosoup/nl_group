@@ -15,7 +15,7 @@ class Dashboard
   end
 
   def unread_admin_messages
-    @unread_messages ||= member_profile.unread_admin_messages
+    @unread_messages ||= member_profile.unread_admin_messages.order(created_at: :desc)
   end
 
   def unread_admin_messages_count
@@ -24,6 +24,10 @@ class Dashboard
 
   def unread_admin_messages?
     unread_admin_messages.present?
+  end
+
+  def dismissed_message_ids
+    @dismissed_message_ids ||= member_profile.dismissed_message_ids
   end
 
 end
