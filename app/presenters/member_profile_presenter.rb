@@ -6,7 +6,7 @@ class MemberProfilePresenter < BasePresenter
   end
 
   def full_name
-    [basic_information_for_name.first_name, basic_information_for_name.middle_names, basic_information_for_name.last_name].compact.join(" ")
+    member_profile.full_name
   end
 
   def profile_link
@@ -232,9 +232,5 @@ class MemberProfilePresenter < BasePresenter
 
   def member_submission_path
     h.new_member_area_member_submission_path
-  end
-
-  def basic_information_for_name
-    @basic_information_for_name = member_profile.basic_information || NullObject::BasicInformation.new
   end
 end
