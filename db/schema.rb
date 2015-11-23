@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123140855) do
+ActiveRecord::Schema.define(version: 20151123164016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 20151123140855) do
 
   add_index "additional_titles", ["additional_block_id"], name: "index_additional_titles_on_additional_block_id", using: :btree
 
-  create_table "admin_messages", force: :cascade do |t|
+ http://thewebthought.blogspot.com/2011/10/html-css-header-and-footer-elements-for.html create_table "admin_messages", force: :cascade do |t|
     t.string   "title",                     null: false
     t.text     "content",                   null: false
     t.boolean  "display",    default: true
@@ -319,6 +319,9 @@ ActiveRecord::Schema.define(version: 20151123140855) do
     t.boolean  "active",                 default: false
     t.string   "password_set_token"
     t.integer  "team_member_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "full_name"
   end
 
   add_index "member_profiles", ["auth_token"], name: "index_member_profiles_on_auth_token", using: :btree

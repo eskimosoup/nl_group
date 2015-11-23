@@ -4,6 +4,9 @@ FactoryGirl.define do
     sequence(:email){|n| "joe.bloggs#{ n }@example.com" }
     password "password"
     password_confirmation "password"
+    first_name "First Name"
+    last_name "Last Name"
+    full_name { [first_name, last_name].compact.join(" ") }
 
     factory :expired_password_reset_member_profile do
       password_reset_token { SecureRandom.urlsafe_base64 }

@@ -18,16 +18,8 @@ RSpec.describe MemberProfilePresenter, type: :presenter do
                                                                      id: "edit-member-profile"))
   end
 
-  describe "#full_name" do
-    it "has a basic information" do
-      basic_information = create(:basic_information, member_profile: member_profile)
-      expect(subject.full_name).to eq([basic_information.first_name, basic_information.middle_names, basic_information.last_name].compact.join(" "))
-    end
-
-    it "has no basic information" do
-      basic_information = NullObject::BasicInformation.new
-      expect(subject.full_name).to eq([basic_information.first_name, basic_information.middle_names, basic_information.last_name].compact.join(" "))
-    end
+  it "#full_name" do
+    expect(subject.full_name).to eq(member_profile.full_name)
   end
 
 
