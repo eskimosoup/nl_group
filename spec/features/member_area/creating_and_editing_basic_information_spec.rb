@@ -5,6 +5,8 @@ RSpec.feature "setting basic information", type: :feature do
 
   it "should allow creation of basic information" do
     login_to_member_area_with(member_profile.email, "password")
+
+    click_link "Application form"
     click_link "About You"
 
     expect(current_path).to eq(new_member_area_basic_information_path)
@@ -21,12 +23,16 @@ RSpec.feature "setting basic information", type: :feature do
     choose("basic_information_where_heard_website")
 
     click_button "Save"
+
+    expect(current_path).to eq(member_area_application_form_overview_path)
     expect(page).to have_content("Basic Information successfully saved")
   end
 
   it "should allow updating of basic information" do
     basic_information = create(:basic_information, member_profile: member_profile)
     login_to_member_area_with(member_profile.email, "password")
+
+    click_link "Application form"
     click_link "About You"
 
     expect(current_path).to eq(edit_member_area_basic_information_path)
@@ -44,6 +50,8 @@ RSpec.feature "setting basic information", type: :feature do
     choose("basic_information_where_heard_website")
 
     click_button "Save"
+
+    expect(current_path).to eq(member_area_application_form_overview_path)
     expect(page).to have_content("Basic Information successfully updated")
   end
 end

@@ -6,6 +6,7 @@ RSpec.feature "Creating and updating payment informations", type: :feature do
   it "should allow creation and editing" do
     login_to_member_area_with(member_profile.email, member_profile.password)
 
+    click_link "Application form"
     click_link "Payment Information"
     expect(current_path).to eq(new_member_area_payment_information_path)
     expect(page).to have_content("New Payment Information")
@@ -15,7 +16,7 @@ RSpec.feature "Creating and updating payment informations", type: :feature do
 
     click_button "Save"
 
-    expect(current_path).to eq(member_area_member_profile_path)
+    expect(current_path).to eq(member_area_application_form_overview_path)
     expect(page).to have_content("Payment information successfully saved")
 
     click_link "Payment Information"
@@ -25,7 +26,7 @@ RSpec.feature "Creating and updating payment informations", type: :feature do
 
     click_button "Save"
 
-    expect(current_path).to eq(member_area_member_profile_path)
+    expect(current_path).to eq(member_area_application_form_overview_path)
     expect(page).to have_content("Payment information successfully updated")
   end
 end
