@@ -1,4 +1,11 @@
-<%= link_to_if presented_current_member_profile.next_section.present?, "Next Section", presented_current_member_profile.next_section, class: "dark-action-button" %>
+<%#= link_to_if presented_current_member_profile.next_section.present?, "Next Section", presented_current_member_profile.next_section, class: "dark-action-button" %>
+
+<% if presented_current_member_profile.next_section.present? %>
+  <%= link_to presented_current_member_profile.next_section, class: 'next-section-button' do %>
+    Next Section
+    <i class='fa fa-arrow-right'></i>
+  <% end %>
+<% end %>
 
 <ul class="application-form-overview">
   <li>
