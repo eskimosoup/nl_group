@@ -10,9 +10,6 @@ RSpec.describe MemberProfile, type: :model do
   describe "associations", :association do
     it { should delegate_method(:full_name).to(:team_member).with_prefix }
     it { should belong_to(:team_member) }
-    it { should delegate_method(:first_name).to(:basic_information) }
-    it { should delegate_method(:middle_names).to(:basic_information) }
-    it { should delegate_method(:last_name).to(:basic_information) }
     it { should have_one(:basic_information) }
     it { should have_one(:basic_medical_history) }
     it { should have_one(:dbs_check) }
@@ -24,6 +21,8 @@ RSpec.describe MemberProfile, type: :model do
     it { should have_one(:payment_information) }
     it { should have_one(:tuberculosis_chicken_pox_check) }
     it { should have_one(:work_eligibility) }
+    it { should have_many(:job_applications) }
+    it { should have_many(:jobs).through(:job_applications) }
     it { should have_many(:logins) }
     it { should have_many(:member_addresses) }
     it { should have_many(:message_dismissals) }

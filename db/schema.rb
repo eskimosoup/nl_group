@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151124094218) do
+ActiveRecord::Schema.define(version: 20151124131448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,12 +51,12 @@ ActiveRecord::Schema.define(version: 20151124094218) do
 
   create_table "additional_buttons", force: :cascade do |t|
     t.integer  "additional_block_id"
-    t.integer  "position"
     t.string   "button_text"
     t.string   "button_link"
     t.boolean  "display",             default: true
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
+    t.integer  "position"
     t.string   "classes"
   end
 
@@ -78,11 +78,11 @@ ActiveRecord::Schema.define(version: 20151124094218) do
     t.integer  "position"
     t.integer  "additional_blocks_count"
     t.string   "name"
-    t.string   "style"
     t.integer  "maximum_content_blocks"
     t.boolean  "display",                 default: true
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.string   "style"
   end
 
   create_table "additional_titles", force: :cascade do |t|
@@ -222,6 +222,17 @@ ActiveRecord::Schema.define(version: 20151124094218) do
 
   add_index "immunisation_histories", ["member_profile_id"], name: "index_immunisation_histories_on_member_profile_id", using: :btree
 
+  create_table "job_applications", force: :cascade do |t|
+    t.integer  "member_profile_id"
+    t.integer  "job_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "job_applications", ["job_id"], name: "index_job_applications_on_job_id", using: :btree
+  add_index "job_applications", ["member_profile_id", "job_id"], name: "index_job_applications_on_member_profile_id_and_job_id", unique: true, using: :btree
+  add_index "job_applications", ["member_profile_id"], name: "index_job_applications_on_member_profile_id", using: :btree
+
   create_table "job_locations", force: :cascade do |t|
     t.integer  "job_id"
     t.string   "country"
@@ -324,9 +335,6 @@ ActiveRecord::Schema.define(version: 20151124094218) do
     t.string   "full_name"
   end
 
-  add_index "member_profiles", ["auth_token"], name: "index_member_profiles_on_auth_token", using: :btree
-  add_index "member_profiles", ["email"], name: "index_member_profiles_on_email", using: :btree
-  add_index "member_profiles", ["password_reset_token"], name: "index_member_profiles_on_password_reset_token", using: :btree
   add_index "member_profiles", ["team_member_id"], name: "index_member_profiles_on_team_member_id", using: :btree
 
   create_table "member_qualifications", force: :cascade do |t|
@@ -645,6 +653,8 @@ ActiveRecord::Schema.define(version: 20151124094218) do
   add_foreign_key "dbs_checks", "member_profiles", on_delete: :cascade
   add_foreign_key "emergency_contacts", "member_profiles", on_delete: :cascade
   add_foreign_key "immunisation_histories", "member_profiles", on_delete: :cascade
+  add_foreign_key "job_applications", "jobs", on_delete: :cascade
+  add_foreign_key "job_applications", "member_profiles", on_delete: :cascade
   add_foreign_key "job_locations", "jobs", on_delete: :cascade
   add_foreign_key "logins", "member_profiles", on_delete: :cascade
   add_foreign_key "member_addresses", "member_profiles", on_delete: :cascade
