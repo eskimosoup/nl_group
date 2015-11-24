@@ -30,7 +30,50 @@ namespace :import do
     logger = ActiveSupport::TaggedLogging.new(Rails.logger)
     client = Workable::Client.new(api_key: ENV['WORKABLE_API_KEY'], subdomain: ENV['WORKABLE_SUBDOMAIN'])
     client.stages.each do |stage|
-      WorkableStage.find_or_create_by(stage) # workable gem returns a hash
+      begin
+        WorkableStage.find_or_create_by!(stage) # workable gem returns a hash
+      rescue ActiveRecord::RecordInvalid => invalid
+        logger.tagged("Stage import") do
+          logger.info "#{ stage["name"] } failed to save - #{ invalid.record.errors.errors.full_messages.join(",") }"
+        end
+      end
     end
   end
+
+  desc "import candidates for each job"
+  task candidates: :environment do
+    logger = ActiveSupport::TaggedLogging.new(Rails.logger)
+    client = Workable::Client.new(api_key: ENV['WORKABLE_API_KEY'], subdomain: ENV['WORKABLE_SUBDOMAIN'])
+    stage_names = WorkableStage.pull_candidates.pluck(:name)
+    jobs = Job.published
+    jobs.each do |job|
+      candidates = client.job_candidates(job.shortcode)
+      loop do
+        candidates.each do |workable_candidate|
+          next unless stage_names.include?(workable_candidate["stage"])
+          member_profile = MemberProfile.find_or_initialize_by(email: workable_candidate["email"])
+          member_profile.first_name = workable_candidate["firstname"]
+          member_profile.last_name = workable_candidate["lastname"]
+          member_profile.full_name = workable_candidate["name"]
+
+          logger.tagged("Candidate import") do
+            if member_profile.save
+              logger.info "#{ member_profile.full_name } saved successfully"
+              begin
+                member_profile.jobs << job
+              rescue ActiveRecord::RecordNotUnique => e
+              end
+            else
+              logger.info "#{ member_profile.full_name } failed to save - #{ member_profile.errors.full_messages.join(",") }"
+            end
+          end
+        end
+        break unless candidates.next_page?
+        candidates = candidates.fetch_next_page
+      end
+    end
+  end
+
+  desc "import all - jobs, stages and candidates"
+  task all: [:jobs, :stages, :candidates]
 end
