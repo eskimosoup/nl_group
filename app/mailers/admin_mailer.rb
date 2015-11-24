@@ -12,6 +12,6 @@ class AdminMailer < ApplicationMailer
       mime_type: "application/pdf",
       content: WickedPdf.new.pdf_from_string(render_to_string(pdf: "registration", template: 'member_area/base/registration_data.html.erb'))
     }
-    mail to: "james@optimised.today", subject: "Email"
+    mail to: "george@optimised.today", subject: "Email"
   end
 end
