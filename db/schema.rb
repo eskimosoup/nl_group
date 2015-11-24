@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123164016) do
+ActiveRecord::Schema.define(version: 20151124094218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 20151123164016) do
 
   add_index "additional_titles", ["additional_block_id"], name: "index_additional_titles_on_additional_block_id", using: :btree
 
- http://thewebthought.blogspot.com/2011/10/html-css-header-and-footer-elements-for.html create_table "admin_messages", force: :cascade do |t|
+  create_table "admin_messages", force: :cascade do |t|
     t.string   "title",                     null: false
     t.text     "content",                   null: false
     t.boolean  "display",    default: true
@@ -620,6 +620,16 @@ ActiveRecord::Schema.define(version: 20151123164016) do
     t.boolean  "display",    default: true
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+  end
+
+  create_table "workable_stages", force: :cascade do |t|
+    t.string   "slug"
+    t.string   "name",                            null: false
+    t.string   "kind",                            null: false
+    t.integer  "position",        default: 0
+    t.boolean  "pull_candidates", default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   add_foreign_key "additional_animations", "additional_blocks"

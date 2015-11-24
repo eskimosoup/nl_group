@@ -1,0 +1,10 @@
+<%= render 'optimadmin/shared/header/main_title', title: 'Manage Workable Stages' %>
+
+<div class="main-content">
+  <div class="row collapse module-list-index header">
+    <%= list_item('small-10'){ "Name" } %>
+    <%= list_item('small-2'){ 'Pull Candidates' } %>
+  </div>
+
+  <%= render partial: 'workable_stage', collection: @workable_stages, as: :workable_stage_presenter %>
+</div>
