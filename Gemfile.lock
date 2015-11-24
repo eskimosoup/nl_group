@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: git@github.com:eskimosoup/optimadmin_generators.git
-  revision: f7861ba483d248cdec2a70f3541ce08ab3386f03
+  revision: 50a40b1eb9c1a73dd392b48f91efa8693e5cefd1
   specs:
     optimadmin_generators (0.4.1)
 
@@ -388,3 +388,6 @@ DEPENDENCIES
   wicked_pdf (~> 0.11.0)
   wkhtmltopdf-binary
   workable (~> 2.0)
+
+BUNDLED WITH
+   1.10.6

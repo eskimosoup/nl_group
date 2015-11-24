@@ -24,4 +24,13 @@ namespace :import do
       workable_jobs = workable_jobs.fetch_next_page
     end
   end
+
+  desc "import stages from workable"
+  task stages: :environment do
+    logger = ActiveSupport::TaggedLogging.new(Rails.logger)
+    client = Workable::Client.new(api_key: ENV['WORKABLE_API_KEY'], subdomain: ENV['WORKABLE_SUBDOMAIN'])
+    client.stages.each do |stage|
+      WorkableStage.find_or_create_by(stage) # workable gem returns a hash
+    end
+  end
 end

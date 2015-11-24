@@ -24,4 +24,5 @@ set :output, 'log/cron.log'
 env :PATH, ENV['PATH'] # Sets path to user path so cron job can find ruby
 every :day do
   rake "import:jobs"
+  rake "import:stages"
 end
