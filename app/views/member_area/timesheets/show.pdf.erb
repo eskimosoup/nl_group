@@ -1,77 +1,73 @@
-<%= content_for :head do %>
-  <%= stylesheet_link_tag 'layout/timesheet' %>
-<% end %>
 <div class="row timesheet-header">
-  <div class="small-7 columns">
+  <div class="small-6 columns">
     <div class="row">
-      <div class="small-5 columns black text-right">
+      <div class="small-6 columns black text-right">
         Candidate Name:
       </div>
-      <div class="small-7 columns">
+      <div class="small-6 first columns">
         <% present current_member_profile do |member_profile_presenter| %>
           <%= member_profile_presenter.full_name %>
         <% end %>
-
       </div>
     </div>
     <div class="row">
-      <div class="small-5 columns black text-right">
+      <div class="small-6 columns black text-right">
         Reporting to:
       </div>
-      <div class="small-7 columns">
+      <div class="small-6 columns">
 
       </div>
     </div>
     <div class="row">
-      <div class="small-5 columns black text-right">
+      <div class="small-6 columns black text-right">
         Job Title:
       </div>
-      <div class="small-7 columns">
+      <div class="small-6 columns">
 
       </div>
     </div>
     <div class="row">
-      <div class="small-5 columns black text-right">
+      <div class="small-6 columns black text-right">
         Band / Grade:
       </div>
-      <div class="small-7 columns">
+      <div class="small-6 columns">
 
       </div>
     </div>
     <div class="row">
-      <div class="small-5 columns black text-right">
+      <div class="small-6 columns black text-right">
         Name of Trust / Hospital:
       </div>
-      <div class="small-7 columns">
+      <div class="small-6 columns">
 
       </div>
     </div>
     <div class="row">
-      <div class="small-5 columns black text-right">
+      <div class="small-6 columns black text-right">
         Ward / Department:
       </div>
-      <div class="small-7 columns">
+      <div class="small-6 columns">
 
       </div>
     </div>
     <div class="row">
-      <div class="small-5 columns black text-right">
+      <div class="small-6 columns black text-right">
         Booking / Timesheet No:
       </div>
-      <div class="small-7 columns">
+      <div class="small-6 columns">
         <strong class="timesheet-number">
           <%= @timesheet.id %>
         </strong>
       </div>
     </div>
   </div>
-  <div class="small-5 columns">
+  <div class="small-5 small-offset-1 columns">
     <%= wicked_pdf_image_tag "components/pdf/black-logo.jpg" %>
 
     <p class="address">
       <span class="name">NL Group Healthcare</span><br/>
-      The Riverside Building, Livingstone Road, Hessle,
-      East Riding of Yorkshire, HU13 0DZ<br/>
+      The Riverside Building, Livingstone Road, <br />
+      Hessle, East Riding of Yorkshire, HU13 0DZ<br/>
       Registered Company Number: 04295083<br/>
       NL Group Healthcare is part of NL Group Limited
     </p>
@@ -87,35 +83,40 @@
   </div>
 </div>
 
-
-<div class="timesheet-receive-details">
-  <div class="row">
-    <div class="small-7 columns">
-      Email: <span class="timesheet-send-method"><%= global_site_settings["Email"] %></span>
-    </div>
-    <div class="small-5 columns">
-      Fax: <span class="timesheet-send-method"><%= global_site_settings["Fax"] %></span>
-    </div>
-  </div>
-  <div class="row">
-    <div class="small-12 columns">
-      <p>
-        Timesheets must be received by 16:00 on Tuesday by Fax, Post or Email (Scans only NOT Photographs!)
-      </p>
+<div class="row collapse">
+  <div class="small-12 columns">
+    <div class="timesheet-receive-details">
+      <div class="row collapse">
+        <div class="small-7 columns">
+          Email: <span class="timesheet-send-method"><%= global_site_settings["Email"] %></span>
+        </div>
+        <div class="small-5 columns">
+          Fax: <span class="timesheet-send-method"><%= global_site_settings["Fax"] %></span>
+        </div>
+      </div>
+      <div class="row collapse">
+        <div class="small-12 columns">
+          <p>
+            Timesheets must be received by 16:00 on Tuesday by Fax, Post or Email (Scans only NOT Photographs!)
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 <div class="timesheet-timetable">
-  <div class="row collapse headings">
-    <div class="small-1 columns">
+  <div class="row headings">
+    <div class="small-2 columns">
 
     </div>
     <div class="small-2 columns">
-      Date DD/MM/YYYY
+      Date<br />
+      DD/MM/YYYY
     </div>
     <div class="small-1 columns">
-      Start Time
+      Start <br />
+      Time
     </div>
     <div class="small-1 columns">
       Finish Time
@@ -127,20 +128,22 @@
       Break Finish
     </div>
     <div class="small-1 columns">
-      Hours Worked
+      <strong>Hours Worked</strong>
     </div>
     <div class="small-2 columns">
       Booking Reference Number / notes
     </div>
-    <div class="small-2 columns">
+    <div class="small-2 columns end">
       Authorised Signature
     </div>
   </div>
 
   <% Date::DAYNAMES.rotate.each do |day| %>
-    <div class="row collapse day">
-      <div class="small-1 columns">
-        <%= day %>
+    <div class="row collapse days">
+      <div class="small-2 columns">
+        <div class="day-name">
+         <%= day %>
+        </div>
       </div>
       <div class="small-2 columns">
 
@@ -163,28 +166,30 @@
       <div class="small-2 columns">
 
       </div>
-      <div class="small-2 columns">
+      <div class="small-2 columns end">
 
       </div>
     </div>
   <% end %>
 
-  <div class="row">
-    <div class="small-4 columns">
-      Please Use 24 hour clock
-    </div>
-    <div class="small-3 columns">
-      Total Hours Worked
-    </div>
+  <div class="hours-worked">
+    <div class="row">
+      <div class="small-5 columns">
+        <p>Please Use 24 hour clock</p>
+      </div>
+      <div class="small-2 text-right columns">
+        Total Hours Worked
+      </div>
 
-    <div class="small-4 small-offset-1 columns">
-      &nbsp;
+      <div class="small-1 white columns end">
+        &nbsp;
+      </div>
     </div>
   </div>
 </div>
 
 <div class="row">
-  <div class="small-6 columns">
+  <div class="small-6 columns small-print clients-small-print">
     <h3>
       To be completed by Head of Department / Authorised Signatory <strong>(after last shift detailed above)</strong>
     </h3>
@@ -207,22 +212,22 @@
       nhsfraud@nhsprotect.gsi.gov.uk
     </p>
 
-    <div class="row">
+    <div class="row line">
       <div class="small-12 columns">
         Signature
       </div>
     </div>
-    <div class="row">
+    <div class="row line">
       <div class="small-12 columns">
         Print Name
       </div>
     </div>
-    <div class="row">
+    <div class="row line">
       <div class="small-12 columns">
         Position
       </div>
     </div>
-    <div class="row">
+    <div class="row line">
       <div class="small-12 columns">
         Date
       </div>
@@ -234,7 +239,7 @@
       receipt. We agree to be bound by the terms and conditions of business.
     </p>
   </div>
-  <div class="small-6 columns">
+  <div class="small-6 columns small-print">
     <h3>
       To be completed by Agency Worker
     </h3>
@@ -251,17 +256,17 @@
       prosecution of fraud.
     </p>
 
-    <div class="row">
+    <div class="row line">
       <div class="small-12 columns">
         Signature
       </div>
     </div>
-    <div class="row">
+    <div class="row line">
       <div class="small-12 columns">
         Print Name
       </div>
     </div>
-    <div class="row">
+    <div class="row line">
       <div class="small-12 columns">
         Date
       </div>

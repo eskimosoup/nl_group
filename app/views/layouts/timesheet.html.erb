@@ -5,14 +5,17 @@
   <!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
   <!--[if (gt IE 9)|!(IE)]><!--> <html class=""> <!--<![endif]-->
   <head>
-    <%= render 'layouts/shared/head' %>
-    <%= stylesheet_link_tag 'layout/timesheet', media: 'all' %>
+    <%#= render 'layouts/shared/head' %>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <%= wicked_pdf_stylesheet_link_tag  'application' %>
+    <%= wicked_pdf_stylesheet_link_tag  'layout/pdf' %>
+    <%= wicked_pdf_stylesheet_link_tag  'layout/timesheet' %>
   </head>
 
   <body>
     <%= yield %>
 
-    <%= javascript_include_tag 'application' %>
+    <%= wicked_pdf_javascript_include_tag  'application' %>
 
     <%= yield :footer %>
   </body>
