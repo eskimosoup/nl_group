@@ -2,7 +2,7 @@ class TimesheetPresenter < BasePresenter
   presents :timesheet
 
   def created_at
-    h.l timesheet.created_at
+    h.l timesheet.created_at, format: :long
   end
 
   def download_link
