@@ -1,0 +1,9 @@
+<div class="row collapse module-list-index <%= cycle('odd', 'even') %>" data-equalizer="module-list" id="item_<%= workable_stage_presenter.id %>">
+  <div class="small-10 columns" data-equalizer-watch="module-list">
+    <%= workable_stage_presenter.name %>
+  </div>
+
+  <div class="small-2 columns" data-equalizer-watch="module-list">
+    <%= workable_stage_presenter.toggle_pull_candidates %>
+  </div>
+</div>
