@@ -4,6 +4,20 @@
 
     <%= button_to "Create Timesheet", member_area_timesheets_path %>
 
+    <div class="timesheet-headers">
+      <div class="row">
+        <div class="small-4 columns">
+          <strong class="field-title">Created at</strong>
+        </div>
+        <div class="small-4 columns">
+          <strong class="field-title">ID</strong>
+        </div>
+        <div class="small-4 columns">
+          <strong class="field-title">Download</strong>
+        </div>
+      </div>
+    </div>
+
     <%= render(@timesheets) || "Currently no timesheets" %>
   </div>
 </div>

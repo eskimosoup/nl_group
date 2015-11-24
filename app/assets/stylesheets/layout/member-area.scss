@@ -16,9 +16,14 @@
   }
 }
 
-.member-address {
+.member-address,
+.timesheet {
   padding: em(10px) 0;
   border-bottom: 1px dotted $dark-grey;
+}
+
+.timesheet-headers {
+  margin: em(10px) auto 0;
 }
 
 .secondary-header {
