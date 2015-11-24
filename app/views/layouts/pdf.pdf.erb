@@ -6,16 +6,11 @@
 <!--[if (gt IE 9)|!(IE)]><!--> <html class=""> <!--<![endif]-->
   <head>
     <%= render 'layouts/shared/head' %>
-    <%= stylesheet_link_tag 'layout/pdf', media: 'all' %>
+    <%= wicked_pdf_stylesheet_link_tag  'application' %>
+    <%= wicked_pdf_stylesheet_link_tag 'layout/pdf', media: 'all' %>
   </head>
 
   <body class="member-area">
-    <header class="top-header">
-      <%= link_to member_area_root_url, title: global_site_settings['Name'] do %>
-        <%= image_tag 'layout/header/logo-print.png', alt: global_site_settings['Name'], width: 163 %>
-      <% end %>
-    </header>
-
     <%= render 'shared/flash_messages' %>
 
     <%= yield %>
