@@ -1,0 +1,41 @@
+@import '../../lib/variables';
+
+body {
+  color: $dark-grey;
+  font-size: 12px;
+
+}
+
+.left {
+  float: left;
+  padding-left: 5px;
+}
+
+.right {
+  float: right;
+  padding-right: 5px;
+  text-align: right;
+}
+
+.top-header {
+  display: block;
+  padding: 40px 0 10px;
+  border-bottom: 1px solid $dark-grey;
+  overflow: hidden;
+  font-size: 12px;
+}
+
+.footer {
+  border-top: 1px solid $dark-grey;
+  padding: 10px 0 40px;
+  overflow: hidden;
+}
+
+.page,
+.topage {
+  font-size: 14px;
+}
+
+.candidate-registration {
+  color: $primary-blue;
+}

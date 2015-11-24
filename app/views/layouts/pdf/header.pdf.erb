@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= wicked_pdf_stylesheet_link_tag 'layout/pdf/header_and_footer' %>
+    <%= wicked_pdf_javascript_include_tag 'layout/pdf/header_and_footer' %>
+  </head>
+
+  <body onload="number_pages()">
+    <header class="top-header">
+      <div class="left">
+        <%= wicked_pdf_image_tag 'layout/header/logo-print.png', alt: global_site_settings['Name'], width: 163 %>
+      </div>
+
+      <div class="right">
+        <div>
+          Page
+          <strong>
+            <span class="page"></span>
+            of
+            <span class="topage"></span>
+          </strong>
+        </div>
+        NL Group <span class="candidate-registration">Candidate Registration</span><br />
+        <strong>
+          <%= candidate.title %> <%= candidate.first_name %> <%= candidate.middle_names %> <%= candidate.last_name %>
+        </strong>
+      </div>
+    </header>
+</body>
+</html>

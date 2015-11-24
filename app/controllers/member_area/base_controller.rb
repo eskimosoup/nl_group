@@ -9,7 +9,7 @@ module MemberArea
       redirect_to member_area_member_profile_url if current_member_profile.present?
     end
 
-    def application_form_overview 
+    def application_form_overview
     end
 
     def referees_and_emergency_contact
@@ -31,7 +31,11 @@ module MemberArea
       respond_to do |format|
         format.html
         format.pdf  do
-          render layout: 'pdf'
+          render pdf: "registration_data.pdf",
+               layout:'pdf',
+               #header: { html: { template: 'layouts/pdf/header.pdf.erb'} },
+               header: { content: render_to_string('layouts/pdf/header.pdf.erb', locals: { candidate: current_member_profile.basic_information }), spacing: 5 },
+               footer: { content: render_to_string('layouts/pdf/footer.pdf.erb', locals: { candidate: current_member_profile.basic_information }), spacing: 5 }
         end
       end
     end
@@ -52,7 +56,6 @@ module MemberArea
     def use_pdf_specific_template
       return unless env['Rack-Middleware-WickedPdf']
       request.format = 'pdf'
-      response.headers['Content-Type'] = 'text/html'
     end
   end
 end
