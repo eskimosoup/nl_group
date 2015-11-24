@@ -1,4 +1,16 @@
 <%= form_for [:member_area, @referee] do |f| %>
+  <% if @referee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@referees.errors.count, "error") %> prevented thie referee from being saved</h2>
+
+      <ul>
+        <% @referee.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= field_set_tag 'Details' do %>
     <div class="row">
       <div class="medium-6 columns">
@@ -37,7 +49,7 @@
           <%= f.email_field :email_address %>
         </div>
       </div>
-    </div>    
+    </div>
 
     <div class="field">
       <%= f.label :postal_address %>
