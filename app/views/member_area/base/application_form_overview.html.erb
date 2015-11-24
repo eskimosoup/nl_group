@@ -4,12 +4,24 @@
       Application form
     </h2>
 
-    <div class="form-notice">
-      <p>Review and edit the sections for your application form by using the links below.</p>
+    <% present current_member_profile do |member_profile_presenter| %>
+      <% if member_profile_presenter.member_submission? %>
+        <div class="form-notice">
+          <% present member_profile_presenter.member_submission do |member_submission_presenter| %>
+            <p>
+              Your form was submitted on: <%= member_submission_presenter.submitted_on %>
+            </p>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="form-notice">
+          <p>Review and edit the sections for your application form by using the links below.</p>
 
-      <p>You can edit your application form at any time, until it is submitted.</p>
-    </div>
+          <p>You can edit your application form at any time, until it is submitted.</p>
+        </div>
 
-    <%= render 'member_area/base/application_form_navigation' %>
+        <%= render 'member_area/base/application_form_navigation' %>
+      <% end %>
+    <% end %>
   </div>
 </div>
