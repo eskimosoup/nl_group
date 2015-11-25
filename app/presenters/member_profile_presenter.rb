@@ -86,7 +86,7 @@ class MemberProfilePresenter < BasePresenter
         dbs_check_and_work_eligibility_complete? && has_referees_and_emergency_contact?
   end
 
-  def member_submission
+  def member_submission?
     member_submission.present?
   end
 
