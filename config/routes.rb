@@ -42,30 +42,6 @@ Rails.application.routes.draw do
   root to: 'application#index'
 end
 Optimadmin::Engine.routes.draw do
-  resources :workable_stages, except: [:show] do
-    collection do
-      post 'order'
-    end
-    member do
-      get 'toggle'
-    end
-  end
-  resources :admin_messages, except: [:show] do
-    collection do
-      post 'order'
-    end
-    member do
-      get 'toggle'
-    end
-  end
-  resources :member_profiles, except: [:show] do
-    collection do
-      post 'order'
-    end
-    member do
-      get 'toggle'
-    end
-  end
   concern :orderable do
     collection do
       post 'order'
@@ -85,20 +61,25 @@ Optimadmin::Engine.routes.draw do
     end
   end
 
+  resources :additional_blocks, except: [:show], concerns: [:orderable, :toggleable]
+  resources :additional_buttons, except: [:show], concerns: [:orderable, :toggleable]
+  resources :additional_paragraphs, except: [:show], concerns: [:orderable, :toggleable]
+  resources :additional_rows, except: [:show], concerns: [:orderable, :toggleable]
+  resources :additional_titles, except: [:show], concerns: [:orderable, :toggleable]
+  resources :admin_messages, except: [:show], concerns: [:orderable, :toggleable]
+  resources :clients, except: [:show], concerns: [:orderable, :toggleable, :imageable]
+  resources :frequently_asked_questions, except: [:show], concerns: [:orderable, :toggleable]
   resources :key_contacts, except: [:show], concerns: [:orderable, :toggleable]
-  resources :mandatory_training_courses, except: [:show], concerns: [:orderable, :toggleable]
-  resources :work_reasons, except: [:show], concerns: [:orderable, :toggleable, :imageable]
-  resources :team_member_teams, except: [:show], concerns: [:orderable, :toggleable]
   resources :landing_pages, except: [:show], concerns: [:orderable, :toggleable]
   resources :pages, except: :show, concerns: [:orderable, :toggleable, :imageable]
-  resources :additional_paragraphs, except: [:show], concerns: [:orderable, :toggleable]
-  resources :additional_buttons, except: [:show], concerns: [:orderable, :toggleable]
-  resources :additional_titles, except: [:show], concerns: [:orderable, :toggleable]
-  resources :additional_blocks, except: [:show], concerns: [:orderable, :toggleable]
-  resources :additional_rows, except: [:show], concerns: [:orderable, :toggleable]
+  resources :mandatory_training_courses, except: [:show], concerns: [:orderable, :toggleable]
+  resources :login_reports, only: [:new, :create]
+  resources :member_profiles, except: [:show], concerns: [:orderable, :toggleable]
   resources :resources, except: [:show], concerns: [:orderable, :toggleable]
-  resources :frequently_asked_questions, except: [:show], concerns: [:orderable, :toggleable]
-  resources :testimonials, except: [:show], concerns: [:orderable, :toggleable, :imageable]
   resources :team_members, except: [:show], concerns: [:orderable, :toggleable, :imageable]
-  resources :clients, except: [:show], concerns: [:orderable, :toggleable, :imageable]
+  resources :team_member_teams, except: [:show], concerns: [:orderable, :toggleable]
+  resources :testimonials, except: [:show], concerns: [:orderable, :toggleable, :imageable]
+  resources :workable_stages, except: [:show], concerns: [:orderable, :toggleable]
+  resources :work_reasons, except: [:show], concerns: [:orderable, :toggleable, :imageable]
+
 end

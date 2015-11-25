@@ -1,0 +1,11 @@
+<%= form_for @login_report do |f| %>
+  <div class="field">
+    <%= f.label :member_profile_id, "Member Profile" %>
+    <%= f.collection_select :member_profile_id, MemberProfile.joins(:logins).order(last_name: :asc, first_name: :asc).distinct,
+                            :id, :full_name, include_blank: "All" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
