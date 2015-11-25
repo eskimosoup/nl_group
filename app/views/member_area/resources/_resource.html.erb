@@ -1,0 +1,12 @@
+<div class="resource">
+  <% present resource do |presenter| %>
+    <div class="row">
+      <div class="small-9 columns">
+        <%= presenter.name %>
+      </div>
+      <div class="small-3 columns">
+        <%= presenter.download_link %>
+      </div>
+    </div>
+  <% end %>
+</div>

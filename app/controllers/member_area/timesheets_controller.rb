@@ -9,7 +9,7 @@ module MemberArea
     end
 
     def index
-      @timesheets = current_member_profile.timesheets
+      @timesheets = current_member_profile.timesheets.order(created_at: :desc)
     end
 
     def show
