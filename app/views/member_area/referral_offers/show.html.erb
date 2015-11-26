@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="small-12 columns">
+    <% present @referral_offer do |presenter| %>
+      <h1><%= presenter.title %></h1>
+
+      <h3>Details</h3>
+      <%= presenter.details %>
+
+      <h3>Terms and Conditions</h3>
+      <%= presenter.terms_and_conditions %>
+
+      <%= render "member_area/referrals/form" %>
+    <% end %>
+  </div>
+</div>

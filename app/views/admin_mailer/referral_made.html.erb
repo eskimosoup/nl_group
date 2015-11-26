@@ -1,0 +1,52 @@
+<table border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="font-family: Arial, sans-serif; font-size: 14px;">
+  <tr>
+    <td style="border-bottom: 3px solid #e6e7e8; color: #0072BC; font-size: 24px; font-weight: 300;
+        text-align: center; text-transform: uppercase; padding: 14px 28px;">
+      Referral Made
+    </td>
+  </tr>
+  <tr>
+    <td style="padding: 10px 0;">
+      <%= @member_profile.full_name %> has made a referral.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <table border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="font-family: Arial, sans-serif; font-size: 14px;">
+        <tr>
+          <td width="300" style="padding: 10px 0; font-weight: bold;">
+            Name
+          </td>
+          <td width="300" style="padding: 10px 0;">
+            <%= @referral.name %>
+          </td>
+        </tr>
+        <tr>
+          <td width="300" style="padding: 10px 0; font-weight: bold;">
+            Email
+          </td>
+          <td width="300" style="padding: 10px 0;">
+            <%= @referral.email %>
+          </td>
+        </tr>
+        <tr>
+          <td width="300" style="padding: 10px 0; font-weight: bold;">
+            Phone Number
+          </td>
+          <td width="300" style="padding: 10px 0;">
+            <%= @referral.phone_number %>
+          </td>
+        </tr>
+        <tr>
+          <td width="300" style="padding: 10px 0; font-weight: bold;">
+            Mobile Number
+          </td>
+          <td width="300" style="padding: 10px 0;">
+            <%= @referral.mobile_number %>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
