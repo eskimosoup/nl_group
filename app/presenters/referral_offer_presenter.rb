@@ -12,4 +12,8 @@ class ReferralOfferPresenter < BasePresenter
   def terms_and_conditions
     h.raw referral_offer.terms_and_conditions
   end
+
+  def show_link
+    h.link_to "View Offer", h.member_area_referral_offer_path(referral_offer)
+  end
 end

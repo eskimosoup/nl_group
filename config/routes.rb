@@ -31,9 +31,12 @@ Rails.application.routes.draw do
     resources :member_addresses, path: "addresses", except: [:show]
     resources :message_dismissals, path: "message-dismissal", only: [:create]
     resources :password_resets, path: "password-reset", only: [:new, :create, :edit, :update]
+    resources :referees, except: [:index, :show]
+    resources :referral_offers, path: "referral-offers", only: [:index, :show] do
+      resources :referrals, only: [:create]
+    end
     resources :resources, only: [:index]
     resources :set_passwords, path: "set-password", only: [:edit, :update]
-    resources :referees, except: [:index, :show]
     resources :timesheets, only: [:create, :index, :show]
     root to: "base#index"
   end

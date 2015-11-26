@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126104902) do
+ActiveRecord::Schema.define(version: 20151126143220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -531,6 +531,20 @@ ActiveRecord::Schema.define(version: 20151126104902) do
     t.datetime "updated_at",                          null: false
   end
 
+  create_table "referrals", force: :cascade do |t|
+    t.integer  "member_profile_id", null: false
+    t.integer  "referral_offer_id", null: false
+    t.string   "name",              null: false
+    t.string   "email"
+    t.string   "phone_number"
+    t.string   "mobile_number"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "referrals", ["member_profile_id"], name: "index_referrals_on_member_profile_id", using: :btree
+  add_index "referrals", ["referral_offer_id"], name: "index_referrals_on_referral_offer_id", using: :btree
+
   create_table "resources", force: :cascade do |t|
     t.string   "name",                      null: false
     t.string   "file",                      null: false
@@ -681,6 +695,8 @@ ActiveRecord::Schema.define(version: 20151126104902) do
   add_foreign_key "read_messages", "admin_messages", on_delete: :cascade
   add_foreign_key "read_messages", "member_profiles", on_delete: :cascade
   add_foreign_key "referees", "member_profiles", on_delete: :cascade
+  add_foreign_key "referrals", "member_profiles", on_delete: :cascade
+  add_foreign_key "referrals", "referral_offers"
   add_foreign_key "team_members", "team_member_teams"
   add_foreign_key "timesheets", "member_profiles", on_delete: :cascade
   add_foreign_key "tuberculosis_chicken_pox_checks", "member_profiles", on_delete: :cascade

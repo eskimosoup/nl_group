@@ -12,6 +12,12 @@ class AdminMailer < ApplicationMailer
       mime_type: "application/pdf",
       content: WickedPdf.new.pdf_from_string(render_to_string(pdf: "registration", template: 'member_area/base/registration_data.html.erb'))
     }
-    mail to: "george@optimised.today", subject: "#{ @member_profile.full_name } has completed their registration form"
+    mail to: ApplicationMailer.site_email, subject: "#{ @member_profile.full_name } has completed their registration form"
+  end
+
+  def referral_made(referral)
+    @referral = referral
+    @member_profile = @referral.member_profile
+    mail to: ApplicationMailer.site_email, subject: "#{ @member_profile.full_name } has made a referral"
   end
 end

@@ -23,10 +23,11 @@ RSpec.describe MemberProfile, type: :model do
     it { should have_one(:work_eligibility) }
     it { should have_many(:job_applications) }
     it { should have_many(:jobs).through(:job_applications) }
-    it { should have_many(:member_logins) }
+    it { should have_many(:logins) }
     it { should have_many(:member_addresses) }
     it { should have_many(:message_dismissals) }
     it { should have_many(:referees) }
+    it { should have_many(:referrals) }
     it { should have_many(:timesheets) }
   end
 

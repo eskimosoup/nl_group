@@ -19,6 +19,7 @@ class MemberProfile < ActiveRecord::Base
   has_many :message_dismissals
   has_many :dismissed_messages, through: :message_dismissals, source: :admin_message
   has_many :referees
+  has_many :referrals
   has_many :timesheets
 
   delegate :full_name, to: :team_member, prefix: true, allow_nil: true
