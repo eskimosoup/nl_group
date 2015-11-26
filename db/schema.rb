@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151124131448) do
+ActiveRecord::Schema.define(version: 20151126104902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -521,6 +521,15 @@ ActiveRecord::Schema.define(version: 20151124131448) do
   end
 
   add_index "referees", ["member_profile_id"], name: "index_referees_on_member_profile_id", using: :btree
+
+  create_table "referral_offers", force: :cascade do |t|
+    t.string   "title",                               null: false
+    t.text     "details"
+    t.text     "terms_and_conditions"
+    t.boolean  "display",              default: true
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
 
   create_table "resources", force: :cascade do |t|
     t.string   "name",                      null: false

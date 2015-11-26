@@ -43,6 +43,14 @@ Rails.application.routes.draw do
   root to: 'application#index'
 end
 Optimadmin::Engine.routes.draw do
+  resources :referral_offers, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+    end
+  end
   concern :orderable do
     collection do
       post 'order'
