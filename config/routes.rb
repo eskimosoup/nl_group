@@ -79,6 +79,7 @@ Optimadmin::Engine.routes.draw do
   resources :resources, except: [:show], concerns: [:orderable, :toggleable]
   resources :team_members, except: [:show], concerns: [:orderable, :toggleable, :imageable]
   resources :team_member_teams, except: [:show], concerns: [:orderable, :toggleable]
+  resources :timesheet_reports, only: [:new, :create]
   resources :testimonials, except: [:show], concerns: [:orderable, :toggleable, :imageable]
   resources :workable_stages, except: [:show], concerns: [:orderable, :toggleable]
   resources :work_reasons, except: [:show], concerns: [:orderable, :toggleable, :imageable]

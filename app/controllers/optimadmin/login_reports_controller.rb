@@ -7,7 +7,7 @@ module Optimadmin
     def create
       @login_report = LoginReport.new(login_report_params)
       if @login_report.valid?
-        send_data @login_report.to_csv, filename: "login-report-#{ Date.today }.csv"
+        send_data @login_report.to_csv, filename: @login_report.filename
       else
         render :new
       end
