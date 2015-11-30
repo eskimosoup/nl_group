@@ -14,6 +14,6 @@ class ReferralOfferPresenter < BasePresenter
   end
 
   def show_link
-    h.link_to "View Offer", h.member_area_referral_offer_path(referral_offer)
+    h.link_to "View Offer", h.member_area_referral_offer_path(referral_offer), class: 'dark-action-button'
   end
 end

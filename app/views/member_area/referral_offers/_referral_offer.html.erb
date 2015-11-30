@@ -1,7 +1,13 @@
 <div class="referral-offer">
   <% present referral_offer do |presenter| %>
-    <%= presenter.title %>
-    <%= presenter.details %>
+    <div class="referral-offer-title">
+      <%= presenter.title %>
+    </div>
+
+    <div class="referral-offer-details">
+      <%= presenter.details %>
+    </div>
+    
     <%= presenter.show_link %>
   <% end %>
 </div>
