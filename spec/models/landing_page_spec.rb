@@ -9,4 +9,14 @@ RSpec.describe LandingPage, type: :model do
     it { should validate_uniqueness_of(:suggested_url).allow_blank.case_insensitive.with_message("is already taken, leave blank to generate automatically") }
   end
 
+  describe "associations", :association do
+    it { should have_many(:landing_page_contents) }
+    it { should have_many(:why_work_reasons) }
+    it { should have_many(:landing_page_why_works).through(:why_work_reasons) }
+    it { should have_many(:landing_page_testimonials) }
+    it { should have_many(:testimonials).through(:landing_page_testimonials) }
+    it { should have_many(:landing_page_faqs) }
+    it { should have_many(:frequently_asked_questions).through(:landing_page_faqs) }
+  end
+
 end

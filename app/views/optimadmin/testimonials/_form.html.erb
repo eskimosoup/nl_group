@@ -51,7 +51,7 @@
 
       <div class="field">
         <%= f.label :video_embed_code %><br>
-        <%= f.text_area :video_embed_code, class: 'tinymce' %>
+        <%= f.text_area :video_embed_code %>
       </div>
     <% end %>
 
@@ -60,6 +60,16 @@
     <% end %>
 
     <%= field_set_tag nil, id: 'tabs-3' do %>
+      <%= field_set_tag "Landing Pages" do %>
+        <div class="field">
+          <%= f.collection_check_boxes :landing_page_ids, LandingPage.order(name: :asc), :id, :name do |b| %>
+            <%= b.label %>
+            <%= b.check_box %>
+            <br/>
+          <% end %>
+        </div>
+      <% end %>
+
       <div class="field">
         <%= f.label :display %><br>
         <%= f.check_box :display %>

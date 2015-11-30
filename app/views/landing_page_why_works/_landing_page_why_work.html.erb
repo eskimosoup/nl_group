@@ -1,0 +1,9 @@
+<div class="small-6 columns">
+  <% present landing_page_why_work do |presenter| %>
+    <div class="<%= presenter.classes %>">
+      <div class="title"><%= presenter.title %></div>
+
+      <%= presenter.content %>
+    </div>
+  <% end %>
+</div>

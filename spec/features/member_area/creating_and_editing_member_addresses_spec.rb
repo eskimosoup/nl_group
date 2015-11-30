@@ -5,6 +5,8 @@ RSpec.feature "creating and updating member addresses", type: :feature do
 
   it "should allow creation of addresses" do
     login_to_member_area_with(member_profile.email, "password")
+
+    click_link "Application form"
     click_link "Address History"
 
     expect(current_path).to eq(member_area_member_addresses_path)
@@ -25,6 +27,8 @@ RSpec.feature "creating and updating member addresses", type: :feature do
   it "should allow editing of addresses" do
     address = create(:member_address, member_profile: member_profile)
     login_to_member_area_with(member_profile.email, "password")
+
+    click_link "Application form"
     click_link "Address History"
 
     expect(current_path).to eq(member_area_member_addresses_path)

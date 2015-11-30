@@ -1,5 +1,13 @@
 class LandingPage < ActiveRecord::Base
 
+  has_many :landing_page_contents
+  has_many :why_work_reasons
+  has_many :landing_page_why_works, through: :why_work_reasons
+  has_many :landing_page_testimonials
+  has_many :testimonials, through: :landing_page_testimonials
+  has_many :landing_page_faqs
+  has_many :frequently_asked_questions, through: :landing_page_faqs
+
   extend FriendlyId
   friendly_id :slug_candidates, use: [:slugged, :history]
 

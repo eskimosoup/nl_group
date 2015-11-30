@@ -1,0 +1,28 @@
+<%= render 'optimadmin/shared/header/main_title', title: 'Manage Landing Page Why Works' %>
+
+<div class="main-content">
+  <div class="row module-header collapse">
+    <%= render 'optimadmin/shared/module/index/new_item', title: 'Landing Page Why Work', object: LandingPageWhyWork, path: new_landing_page_why_work_path %>
+    <%= render 'optimadmin/shared/search_form' %>
+    <%= render 'optimadmin/shared/module/index/pagination' %>
+    <!--
+      <%= render 'optimadmin/shared/module/index/order', options: [['Username', 'username']] %>
+    -->
+    <%= render 'optimadmin/shared/module/index/recycle_bin', items: @landing_page_why_works.size, path: root_url %>
+  </div>
+
+  <div class="row collapse module-list-index header">
+    <%= list_item('large-1 hide-for-medium-down'){ link_to octicon('settings') } %>
+
+    <%= list_item('small-8'){ 'Title' } %>
+    <%= list_item { 'Display' } %>
+    <%= list_item { 'Edit' } %>
+
+    <%= list_item('large-1 hide-for-medium-down text-center last'){ 'Delete' } %>
+  </div>
+
+  <div class='module-sortable' data-module="LandingPageWhyWork">
+    <%= render partial: 'landing_page_why_work', collection: @landing_page_why_works, as: :landing_page_why_work_presenter %>
+  </div>
+  <%= paginate @landing_page_why_works %>
+</div>

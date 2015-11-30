@@ -21,6 +21,6 @@ RSpec.feature "Logging into and out of the member area", type: :feature do
   it "should allow users to logout" do
     login_to_member_area_with(member_profile.email, "password")
     click_link "Logout"
-    expect(current_path).to eq(member_area_root_path)
+    expect(current_path).to eq(member_area_login_path)
   end
 end

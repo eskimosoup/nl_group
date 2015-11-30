@@ -47,7 +47,8 @@ module Optimadmin
     end
 
     def landing_page_params
-      params.require(:landing_page).permit(:name, :suggested_url)
+      params.require(:landing_page).permit(:name, :suggested_url, landing_page_why_work_ids: [], testimonial_ids: [],
+      frequently_asked_question_ids: [])
     end
   end
 end

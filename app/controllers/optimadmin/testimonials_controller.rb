@@ -48,7 +48,8 @@ module Optimadmin
     end
 
     def testimonial_params
-      params.require(:testimonial).permit(:forename, :surname, :role, :image, :content, :video_embed_code, :display)
+      params.require(:testimonial).permit(:forename, :surname, :role, :image, :content, :video_embed_code, :display,
+      landing_page_ids: [])
     end
   end
 end

@@ -1,0 +1,25 @@
+<div class="testimonial">
+  <div class="row">
+    <% present testimonial do |presenter| %>
+      <div class="small-2 columns">
+        <%= presenter.show_image(alt: presenter.name, class: "photo") %>
+      </div>
+
+      <div class="small-10 columns">
+        <div class="content">
+          "<%= presenter.content %>"
+        </div>
+
+        <div class="author">
+          <%= presenter.name %>
+          -
+          <%= testimonial.role %>
+        </div>
+
+        <div class="date">
+          <%#= presenter.date(format: :short) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

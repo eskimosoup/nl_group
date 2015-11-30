@@ -5,7 +5,7 @@ RSpec.feature "Changing password", type: :feature do
 
   it "allows user to change password" do
     login_to_member_area_with(member_profile.email, "password")
-    click_link "member-profile"
+
     click_link "Edit Profile"
 
     expect(current_path).to eq(edit_member_area_member_profile_path)
@@ -21,7 +21,7 @@ RSpec.feature "Changing password", type: :feature do
 
   it "causes errors if password doesn't match confirmation" do
     login_to_member_area_with(member_profile.email, "password")
-    click_link "member-profile"
+
     click_link "Edit Profile"
 
     expect(current_path).to eq(edit_member_area_member_profile_path)

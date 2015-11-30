@@ -39,7 +39,6 @@
       </div>
 
       <ul class="content-category-list">
-        <%= module_link(model: LandingPage, path: landing_pages_path, content: "Landing Pages") %>
         <%= module_link(model: Page, path: pages_path) %>
         <%= module_link(model: TeamMember, path: team_members_path, content: "Team Members") %>
         <%= module_link(content: "Team Member Teams", model: TeamMemberTeam, path: team_member_teams_path) %>
@@ -58,6 +57,17 @@
         <%= module_link(content: "Login Reports", model: LoginReport, path: new_login_report_path) %>
         <%= module_link(content: "Timesheet Reports", model: TimesheetReport, path: new_timesheet_report_path) %>
         <%= module_link(content: "Mandatory Training Course", model: MandatoryTrainingCourse, path: mandatory_training_courses_path) %>
+      </ul>
+
+
+      <div class="content-category-type">
+        Manage Landing Page Content
+      </div>
+
+      <ul class="content-category-list">
+        <%= module_link(model: LandingPage, path: landing_pages_path, content: "Landing Pages") %>
+        <%= module_link(content: "Landing Page Sections", model: LandingPageContent, path: landing_page_contents_path) %>
+        <%= module_link(content: "Landing Page Why Work", model: LandingPageWhyWork, path: landing_page_why_works_path) %>
       </ul>
     </div>
   </div>

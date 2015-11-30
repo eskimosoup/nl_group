@@ -1,0 +1,13 @@
+<section class="testimonials">
+  <h3 class="text-center">
+    <%= testimonials.title %>
+  </h3>
+
+  <p class="text-center">
+    <%= raw testimonials.content %>
+  </p>
+
+  <div class="testimonials-slider">
+    <%= render partial: "testimonials/landing_page_testimonial", collection: @testimonials, as: :testimonial if @testimonials %>
+  </div>
+</section>

@@ -5,7 +5,7 @@ RSpec.describe TimesheetPresenter, type: :presenter do
   subject{ TimesheetPresenter.new(object: timesheet, view_template: view) }
 
   it "#created_at" do
-    expect(subject.created_at).to eq(l(timesheet.created_at))
+    expect(subject.created_at).to eq(l(timesheet.created_at, format: :long))
   end
 
   it "#download_link" do

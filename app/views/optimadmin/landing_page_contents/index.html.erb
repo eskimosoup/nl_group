@@ -1,0 +1,22 @@
+<%= render 'optimadmin/shared/header/main_title', title: 'Manage Landing Page Contents' %>
+
+<div class="main-content">
+  <div class="row module-header collapse">
+    <%= render 'optimadmin/shared/module/index/new_item', title: 'Landing Page Content', object: LandingPageContent, path: new_landing_page_content_path %>
+    <%= render 'optimadmin/shared/search_form' %>
+    <%= render 'optimadmin/shared/module/index/recycle_bin', items: @landing_page_contents.size, path: root_url %>
+  </div>
+
+  <div class="row collapse module-list-index header">
+    <%= list_item ('large-5 small-4'){ 'Title' } %>
+    <%= list_item ('small-4'){ 'Landing Page' } %>
+    <%= list_item { 'Display' } %>
+    <%= list_item { 'Edit' } %>
+
+    <%= list_item('large-1 hide-for-medium-down text-center last'){ 'Delete' } %>
+  </div>
+
+  <div class='module-sortable' data-module="LandingPageContent">
+    <%= render partial: 'landing_page_content', collection: @landing_page_contents, as: :landing_page_content_presenter %>
+  </div>
+</div>

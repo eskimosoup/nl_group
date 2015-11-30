@@ -1,50 +1,55 @@
 <%= form_for(@landing_page) do |f| %>
-<% if @landing_page.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@landing_page.errors.count, "error") %> prohibited this landing_page from being saved:</h2>
+  <% if @landing_page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@landing_page.errors.count, "error") %> prohibited this landing_page from being saved:</h2>
 
-    <ul>
-      <% @landing_page.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
-  
-
-  <div class="tabs prevent-flash">
-    <ul class="tab-list">
-      <li><a href="#tabs-1">Content</a></li>
-      <li><a href="#tabs-2">Media</a></li>
-      <li><a href="#tabs-3">Settings</a></li>
-      <li>
-        <%= link_to '#', class: 'destroy-tabs right', data: { class: 'tabs' } do %>
-          <%= octicon('chevron-down') %>
+      <ul>
+        <% @landing_page.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
         <% end %>
-      </li>
-    </ul>
+      </ul>
+    </div>
+  <% end %>
 
-    <%= field_set_tag nil, id: 'tabs-1' do %>
-            <div class="field">
-        <%= f.label :name %><br>
-        <%= f.text_field :name %>
-      </div>
-            <div class="field">
-        <%= f.label :suggested_url %><br>
-        <%= f.text_field :suggested_url %>
-      </div>
-      
-      
-          <% end %>
-
-    <%= field_set_tag nil, id: 'tabs-2' do %>
-      
-          <% end %>
-
-    <%= field_set_tag nil, id: 'tabs-3' do %>
-          <% end %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
   </div>
+
+  <div class="field">
+    <%= f.label :suggested_url %><br>
+    <%= f.text_field :suggested_url %>
+  </div>
+
+  <%= field_set_tag "Landing Page Why Works" do %>
+    <div class="field">
+      <%= f.collection_check_boxes :landing_page_why_work_ids, LandingPageWhyWork.order(title: :asc), :id, :title do |b| %>
+        <%= b.label %>
+        <%= b.check_box %>
+        <br/>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= field_set_tag "Testimonials" do %>
+    <div class="field">
+      <%= f.collection_check_boxes :testimonial_ids, Testimonial.order(surname: :asc, forename: :asc), :id, :full_name do |b| %>
+        <%= b.label %>
+        <%= b.check_box %>
+        <br/>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= field_set_tag "FAQs" do %>
+    <div class="field">
+      <%= f.collection_check_boxes :frequently_asked_question_ids, FrequentlyAskedQuestion.order(question: :asc), :id, :question do |b| %>
+        <%= b.label %>
+        <%= b.check_box %>
+        <br/>
+      <% end %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit %>
