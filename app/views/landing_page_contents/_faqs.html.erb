@@ -11,7 +11,8 @@
     <div class="small-12 columns" data-animation-type="fadeInUp" data-animation-delay="500">
       <ul class="frequently-asked-questions-list">
         <%= render partial: 'frequently_asked_questions/landing_page_frequently_asked_question',
-                   collection: @frequently_asked_questions, as: :frequently_asked_question %>
+                   collection: @landing_page_facade.frequently_asked_questions,
+                   as: :frequently_asked_question if @landing_page_facade.frequently_asked_questions %>
       </ul>
     </div>
   </div>

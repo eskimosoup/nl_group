@@ -8,6 +8,7 @@
   </p>
 
   <div class="testimonials-slider">
-    <%= render partial: "testimonials/landing_page_testimonial", collection: @testimonials, as: :testimonial if @testimonials %>
+    <%= render partial: "testimonials/landing_page_testimonial", collection: @landing_page_facade.testimonials,
+               as: :testimonial if @landing_page_facade.testimonials %>
   </div>
 </section>
