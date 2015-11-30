@@ -1,0 +1,27 @@
+.referral-offer {
+  background: $grey;
+  border: 2px solid $white;
+  color: $dark-grey;
+  margin: em(5px) 0;
+  padding: em(5px);
+
+  .dark-action-button {
+    margin: 0 0 em(2px);
+    padding: em(5px) em(15px);
+  }
+}
+
+.referral-offer-title {
+  background: darken($grey, 5%);
+  font-size: em(16px);
+  font-weight: $proxima-nova-bold;
+  padding: em(15px) em(5px);
+}
+
+.referral-offer-details {
+  margin: em(10px) 0;
+
+  p {
+    margin: 0;
+  }
+}
