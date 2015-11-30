@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Updating A Page", type: :feature, js: true do
+RSpec.feature "Updating A Landing Page", type: :feature, js: true do
   subject!(:landing_page) { create(:landing_page) }
   it "should allow a page to be updated" do
     login_to_admin_with("optimised", "optipoipoip")

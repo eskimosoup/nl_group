@@ -1,0 +1,19 @@
+<section class="faqs">
+  <h3 class="text-center">
+    <%= faqs.title %>
+  </h3>
+
+  <p class="text-center">
+    <%= raw faqs.content %>
+  </p>
+
+  <div class="row">
+    <div class="small-12 columns" data-animation-type="fadeInUp" data-animation-delay="500">
+      <ul class="frequently-asked-questions-list">
+        <%= render partial: 'frequently_asked_questions/landing_page_frequently_asked_question',
+                   collection: @frequently_asked_questions, as: :frequently_asked_question %>
+      </ul>
+    </div>
+  </div>
+
+</section>

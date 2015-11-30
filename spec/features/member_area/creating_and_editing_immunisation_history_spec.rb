@@ -5,6 +5,8 @@ RSpec.feature "Creating and editing immunisation history", type: :feature do
 
   it "should allow creation and editing of immunisation history" do
     login_to_member_area_with(member_profile.email, "password")
+
+    click_link "Application form"
     click_link "Occupational Health Screening"
     click_link "New Immunisation History"
 

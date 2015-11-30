@@ -46,7 +46,7 @@ Rails.application.routes.draw do
   root to: 'application#index'
 end
 Optimadmin::Engine.routes.draw do
-  resources :referral_offers, except: [:show] do
+  resources :landing_page_why_works, except: [:show] do
     collection do
       post 'order'
     end
@@ -54,6 +54,7 @@ Optimadmin::Engine.routes.draw do
       get 'toggle'
     end
   end
+
   concern :orderable do
     collection do
       post 'order'
@@ -73,6 +74,8 @@ Optimadmin::Engine.routes.draw do
     end
   end
 
+  resources :landing_page_contents, except: [:show], concerns: [:orderable, :toggleable]
+  resources :referral_offers, except: [:show], concerns: [:orderable, :toggleable]
   resources :additional_blocks, except: [:show], concerns: [:orderable, :toggleable]
   resources :additional_buttons, except: [:show], concerns: [:orderable, :toggleable]
   resources :additional_paragraphs, except: [:show], concerns: [:orderable, :toggleable]

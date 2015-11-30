@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126143220) do
+ActiveRecord::Schema.define(version: 20151130122117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -261,6 +261,49 @@ ActiveRecord::Schema.define(version: 20151126143220) do
     t.datetime "workable_created_at"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+  end
+
+  create_table "landing_page_contents", force: :cascade do |t|
+    t.integer  "landing_page_id"
+    t.string   "title",                          null: false
+    t.text     "content"
+    t.string   "area"
+    t.boolean  "display",         default: true
+    t.integer  "position",        default: 0,    null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  add_index "landing_page_contents", ["landing_page_id"], name: "index_landing_page_contents_on_landing_page_id", using: :btree
+
+  create_table "landing_page_faqs", force: :cascade do |t|
+    t.integer  "landing_page_id"
+    t.integer  "frequently_asked_question_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "landing_page_faqs", ["frequently_asked_question_id"], name: "index_landing_page_faqs_on_frequently_asked_question_id", using: :btree
+  add_index "landing_page_faqs", ["landing_page_id"], name: "index_landing_page_faqs_on_landing_page_id", using: :btree
+
+  create_table "landing_page_testimonials", force: :cascade do |t|
+    t.integer  "landing_page_id"
+    t.integer  "testimonial_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "landing_page_testimonials", ["landing_page_id"], name: "index_landing_page_testimonials_on_landing_page_id", using: :btree
+  add_index "landing_page_testimonials", ["testimonial_id"], name: "index_landing_page_testimonials_on_testimonial_id", using: :btree
+
+  create_table "landing_page_why_works", force: :cascade do |t|
+    t.string   "title",                      null: false
+    t.string   "reason_type",                null: false
+    t.text     "content",                    null: false
+    t.boolean  "display",     default: true
+    t.integer  "position",    default: 0
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "landing_pages", force: :cascade do |t|
@@ -629,6 +672,16 @@ ActiveRecord::Schema.define(version: 20151126143220) do
 
   add_index "visited_countries", ["tuberculosis_chicken_pox_check_id"], name: "index_visited_countries_on_tuberculosis_chicken_pox_check_id", using: :btree
 
+  create_table "why_work_reasons", force: :cascade do |t|
+    t.integer  "landing_page_id"
+    t.integer  "landing_page_why_work_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "why_work_reasons", ["landing_page_id"], name: "index_why_work_reasons_on_landing_page_id", using: :btree
+  add_index "why_work_reasons", ["landing_page_why_work_id"], name: "index_why_work_reasons_on_landing_page_why_work_id", using: :btree
+
   create_table "work_eligibilities", force: :cascade do |t|
     t.integer  "member_profile_id"
     t.string   "passport_number",                       null: false
@@ -679,6 +732,11 @@ ActiveRecord::Schema.define(version: 20151126143220) do
   add_foreign_key "job_applications", "jobs", on_delete: :cascade
   add_foreign_key "job_applications", "member_profiles", on_delete: :cascade
   add_foreign_key "job_locations", "jobs", on_delete: :cascade
+  add_foreign_key "landing_page_contents", "landing_pages"
+  add_foreign_key "landing_page_faqs", "frequently_asked_questions", on_delete: :cascade
+  add_foreign_key "landing_page_faqs", "landing_pages", on_delete: :cascade
+  add_foreign_key "landing_page_testimonials", "landing_pages", on_delete: :cascade
+  add_foreign_key "landing_page_testimonials", "testimonials", on_delete: :cascade
   add_foreign_key "logins", "member_profiles", on_delete: :cascade
   add_foreign_key "member_addresses", "member_profiles", on_delete: :cascade
   add_foreign_key "member_mandatory_trainings", "mandatory_training_courses", on_delete: :cascade
@@ -701,5 +759,7 @@ ActiveRecord::Schema.define(version: 20151126143220) do
   add_foreign_key "timesheets", "member_profiles", on_delete: :cascade
   add_foreign_key "tuberculosis_chicken_pox_checks", "member_profiles", on_delete: :cascade
   add_foreign_key "visited_countries", "tuberculosis_chicken_pox_checks", on_delete: :cascade
+  add_foreign_key "why_work_reasons", "landing_page_why_works", on_delete: :cascade
+  add_foreign_key "why_work_reasons", "landing_pages", on_delete: :cascade
   add_foreign_key "work_eligibilities", "member_profiles", on_delete: :cascade
 end

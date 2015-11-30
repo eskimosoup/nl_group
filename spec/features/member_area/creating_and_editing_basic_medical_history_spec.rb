@@ -5,6 +5,9 @@ RSpec.feature "Creating and editing a basic medical history", type: :feature do
 
   it "should allow creation and updating" do
     login_to_member_area_with(member_profile.email, "password")
+
+    click_link "Application form"
+
     click_link "Occupational Health Screening"
 
     click_link "New Basic Medical History"

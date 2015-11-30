@@ -4,6 +4,8 @@ RSpec.feature "Creating and editing tuberculosis chicken pox checks", type: :fea
   let!(:member_profile){ create(:member_profile) }
   it "should allow creation and editing" do
     login_to_member_area_with(member_profile.email, "password")
+
+    click_link "Application form"
     click_link "Occupational Health Screening"
     click_link "Tuberculosis and Chicken Pox Information"
 

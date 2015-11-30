@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Destroying A Page", type: :feature, js: true do
+RSpec.feature "Destroying A Landing Page", type: :feature, js: true do
   subject!(:landing_page) { create(:landing_page) }
   it "should allow a page to be destroyed" do
     login_to_admin_with("optimised", "optipoipoip")

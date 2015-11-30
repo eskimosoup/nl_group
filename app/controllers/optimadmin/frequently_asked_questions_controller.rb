@@ -46,7 +46,7 @@ module Optimadmin
     end
 
     def frequently_asked_question_params
-      params.require(:frequently_asked_question).permit(:question, :answer, :display)
+      params.require(:frequently_asked_question).permit(:question, :answer, :display, landing_page_ids: [])
     end
   end
 end

@@ -5,6 +5,9 @@ RSpec.feature "Creating and editing emergency contacts", type: :feature do
 
   it "should allow creation and editing of referees" do
     login_to_member_area_with(member_profile.email, "password")
+
+    click_link "Application form"
+
     click_link "Referees and Emergency Contacts"
 
     click_link "New emergency contact"

@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="small-8 columns">
+    <h1><%= introduction.title %></h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-5 columns content">
+    <%= raw introduction.content %>
+
+    <div class="register-interest-button">
+      <%= link_to 'Register Your Interest', '#new-register-interest' %>
+      <%= link_to (image_tag 'downward-arrow.png'), '#new-register-interest', class: 'arrow' %>
+    </div>
+  </div>
+
+  <div class="small-7 columns">
+    <iframe src="https://player.vimeo.com/video/124523548?title=0&byline=0&portrait=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  </div>
+</div>
