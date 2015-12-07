@@ -13,14 +13,15 @@
         <li>
           <%= link_to "Messages (#{ current_member_profile.unread_admin_messages.size })", member_area_admin_messages_path %>
         </li>
-
-        <li>
-          <%= link_to "Resources", member_area_resources_path %>
-        </li>
-
-        <li>
-          <%= link_to "Timesheets", member_area_timesheets_path %>
-        </li>
+        <% if current_member_profile.active? %>
+          <li>
+            <%= link_to "Resources", member_area_resources_path %>
+          </li>
+ 
+          <li>
+            <%= link_to "Timesheets", member_area_timesheets_path %>
+          </li>
+        <% end %>
 
         <li>
           <%= link_to "Referral Offers", member_area_referral_offers_path %>
