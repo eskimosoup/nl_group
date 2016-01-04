@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :team_member do
     team_member_team
-    
+
     forename "Joe"
     surname "Bloggs"
 
