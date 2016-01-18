@@ -11,6 +11,6 @@ class AdditionalRowPresenter < BasePresenter
   end
 
   def anchor
-    additional_row.custom_path.gsub('/', '')
+    additional_row.custom_path.tr('/#', '')
   end
 end
