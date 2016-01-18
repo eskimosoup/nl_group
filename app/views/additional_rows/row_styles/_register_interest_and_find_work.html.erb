@@ -1,0 +1,24 @@
+<%= content_for :footer do %>
+<script>
+  $(function() {
+    $('.register-interest-and-find-work .columns').matchHeight();
+  });
+</script>
+<% end %>
+<div id="<%= additional_row_presenter.anchor %>" class="register-interest-and-find-work">
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="primary-title">
+        <%= additional_row_presenter.visible_title.split('. ')[0] %>.
+
+        <span class="primary-title-accent">
+          <%= additional_row_presenter.visible_title.split('. ')[1] %>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row collapse small-uncollapse">
+    <%= render partial: "additional_rows/additional_block", collection: BaseCollectionPresenter.new(collection: additional_row_presenter.additional_blocks, view_template: self, presenter: AdditionalBlockPresenter), as: :additional_block_presenter, locals: { additional_row_presenter: additional_row_presenter } %>
+  </div>
+</div>

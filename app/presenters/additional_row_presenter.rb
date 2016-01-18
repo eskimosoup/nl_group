@@ -1,6 +1,6 @@
 class AdditionalRowPresenter < BasePresenter
   presents :additional_row
-  delegate :id, :name, to: :additional_row
+  delegate :id, :name, :visible_title, to: :additional_row
 
   def additional_blocks
     additional_row.additional_blocks.displayed.positioned
@@ -11,6 +11,6 @@ class AdditionalRowPresenter < BasePresenter
   end
 
   def anchor
-    additional_row.custom_path
+    additional_row.custom_path.gsub('/', '')
   end
 end

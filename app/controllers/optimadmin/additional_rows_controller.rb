@@ -42,11 +42,11 @@ module Optimadmin
 
 
     def set_additional_row
-      @additional_row = AdditionalRow.find(params[:id])
+      @additional_row = AdditionalRow.friendly.find(params[:id])
     end
 
     def additional_row_params
-      params.require(:additional_row).permit(:name, :style, :display, :maximum_content_blocks)
+      params.require(:additional_row).permit(:name, :visible_title, :style, :display, :maximum_content_blocks)
     end
   end
 end

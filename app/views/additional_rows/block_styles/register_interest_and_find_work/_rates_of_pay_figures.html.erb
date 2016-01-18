@@ -1,0 +1,39 @@
+<%= content_for :footer do %>
+  <script>
+    $(document).on('submit', '.job-location-search', function() {
+      var jobLocationSearchInput = $('.job-location-search-input').val();
+      $('#contact_location').val(jobLocationSearchInput);
+      $('a[href=#contact_name]').click();
+      return false;
+    });
+  </script>
+<% end %>
+<div class="medium-6 columns">
+  <div class="small-branded-content-box thick-border text-center" data-animation-type='fadeInUp'>
+    <div class="rates-of-pay-section-title">
+      Available Roles
+    </div>
+
+    <div class="rate-title small-margin">
+      ODP
+
+      <div class="rate-title-secondary-information">
+        Rates
+      </div>
+    </div>
+
+    <div class="rate-amount">
+      £26.00 ˜ £53.00*
+    </div>
+
+    <div class="rate-time no-margin">
+      per hour
+    </div>
+
+
+    <%= form_tag '', class: 'job-location-search' do %>
+      <%= text_field_tag :location, nil, placeholder: 'Find a Job Near You', class: 'job-location-search-input' %>
+      <%= submit_tag '', class: 'job-location-search-submit' %>
+    <% end %>
+  </div>
+</div>

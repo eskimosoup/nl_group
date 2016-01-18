@@ -1,0 +1,16 @@
+.primary-title {
+  color: $primary-blue;
+  font-size: em(22px);
+  font-weight: $proxima-nova-bold;
+  margin: em(34px, 22px) 0 em(27px, 22px);
+}
+
+.primary-title-accent {
+  color: $light-green;
+  display: block;
+  font-weight: $proxima-nova-bold;
+
+  @include media('>=tablet') {
+    display: inline;
+  }
+}

@@ -30,6 +30,10 @@
         <%= f.label :name %><br>
         <%= f.text_field :name %>
       </div>
+            <div class="field">
+        <%= f.label :visible_title %> <%= module_tooltip('This is shown on the front end in some rows', 'The visible title is the row title visible to the user, when the row style supports it.') %><br>
+        <%= f.text_field :visible_title %>
+      </div>
       <div class="field">
   <%= f.label :style %><br>
   <%= f.select :style, AdditionalRow::STYLES.map{|x| [x.humanize, x]}, include_blank: 'Default' %>
