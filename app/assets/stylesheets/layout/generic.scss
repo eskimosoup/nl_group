@@ -28,3 +28,18 @@
     padding: em(182px) 0 0;
   }
 }
+
+.register-interest-and-find-work {
+  @include media('<tablet') {
+    margin: em(80px) 0 em(15px);
+  }
+
+  .branded-content-box-small-typography,
+  .small-branded-content-box {
+    height: 100%;
+
+    @include media('<tablet') {
+      margin: 0 0 em(15px);
+    }
+  }
+}

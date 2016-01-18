@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   before_action :global_site_settings, :load_objects
   #before_action { raise request.path.to_yaml }
 
+  include AdditionalContentHelper
+
   def index
     @presented_additional_contents = collection_presenter(AdditionalRow.displayed.positioned)
     @presented_testimonials = collection_presenter(Testimonial.displayed.positioned)

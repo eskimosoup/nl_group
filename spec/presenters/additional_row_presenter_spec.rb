@@ -7,6 +7,7 @@ RSpec.describe AdditionalRowPresenter, type: :presenter, additional_content: tru
   describe "delegations", :delegation do
     it { should delegate_method(:name).to(:additional_row) }
     it { should delegate_method(:id).to(:additional_row) }
+    it { should delegate_method(:visible_title).to(:additional_row) }
   end
 
   describe "standard additional blocks" do

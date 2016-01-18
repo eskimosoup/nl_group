@@ -1,0 +1,24 @@
+.job-location-search {
+  background: $white;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: em(40px) auto em(43px);
+  width: 90%;
+
+  input[type='text'] {
+    background: $white image-url('components/icons/location.png') 9px center no-repeat;
+    border: 0;
+    float: left;
+    padding: em(9px) em(9px) em(9px) em(28px);
+    color: $dark-grey;
+    width: 87%;
+  }
+
+  input[type='submit'] {
+    background: $light-green image-url('components/icons/search-icon.png') center no-repeat;
+    border: 2px solid $white;
+    float: left;
+    padding: em(11px) em(9px);
+    width: 13%;
+  }
+}

@@ -33,6 +33,47 @@
   }
 }
 
+.branded-content-box-small-typography {
+  @include links($white, $white, $white, $white);
+  background: $dark-blue image-url('components/content-boxes/medium-border.jpg') bottom left repeat-x;
+  padding: em(46px) em(57px) em(56px);
+
+  @include media('<desktop') {
+    padding: em(22px) em(11px) em(32px);
+  }
+
+  &.form {
+    margin: em(20px) 0;
+  }
+
+  p,
+  label {
+    color: $white;
+    font-size: em(16px);
+    line-height: 1.16;
+    margin: 0 0 em(27px);
+
+    @include media('>=tablet') {
+      font-size: em(14px);
+    }
+  }
+
+  p:first-of-type {
+    color: $light-green;
+    font-size: em(18px);
+  }
+
+  h1 {
+    color: $white;
+  }
+
+  .green-action-button {
+    background: $light-green;
+    font-size: em(14px);
+    padding: em(18px, 14px) em(18px, 14px);
+  }
+}
+
 .small-branded-content-box {
   background: $dark-grey image-url('components/content-boxes/small-border.png') bottom left repeat-x;
   color: $white;
@@ -50,9 +91,13 @@
   input[type='password'] {
     color: $dark-grey;
   }
-  
+
   input[type='submit'] {
     background: $primary-blue;
+  }
+
+  &.thick-border {
+    background-image: image-url('components/content-boxes/medium-border.jpg');
   }
 }
 
