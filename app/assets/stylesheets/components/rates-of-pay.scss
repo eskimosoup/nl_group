@@ -17,6 +17,52 @@
   }
 }
 
+.rates-of-pay-content-box {
+  background: $bright-light-blue;
+  padding: em(24px) 0 em(26px);
+}
+
+.rates-of-pay-slide {
+  margin: 0;
+
+  .slick-prev {
+    left: 0;
+    z-index: 2;
+
+    &:before {
+      background: image-url('components/icons/rates-of-pay-left.png') no-repeat;
+      content: '';
+      display: block;
+      height: 22px;
+      width: 13px;
+    }
+  }
+
+  .slick-next {
+    right: 0;
+    z-index: 2;
+
+    &:before {
+      background: image-url('components/icons/rates-of-pay-right.png') no-repeat;
+      content: '';
+      display: block;
+      height: 22px;
+      width: 13px;
+    }
+  }
+}
+
+.rates-of-pay-data {
+  color: $white;
+  list-style: none;
+  padding: 0 0 0 em(48px);
+  text-align: left;
+
+  span {
+    color: $dark-blue;
+  }
+}
+
 .rates-of-pay-section-title {
   color: $light-green;
   font-size: em(24px);

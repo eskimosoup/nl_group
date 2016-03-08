@@ -21,13 +21,34 @@
   }
   @if $visited {
     &:visited {
-      color: $visited; } }
+      color: $visited;
+    }
+  }
   @if $focus {
     &:focus {
-      color: $focus; } }
+      color: $focus;
+    }
+  }
   @if $hover {
     &:hover {
-      color: $hover; } }
+      color: $hover;
+    }
+  }
   @if $active {
     &:active {
-      color: $active; } } }
+      color: $active;
+    }
+  }
+}
+
+@mixin clearfix {
+  &::before,
+  &::after {
+    content: '';
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+  }
+}

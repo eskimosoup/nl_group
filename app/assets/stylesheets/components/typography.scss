@@ -1,8 +1,10 @@
 .primary-title {
-  color: $primary-blue;
-  font-size: em(22px);
+  color: $dark-blue;
+  font-size: em(31px);
   font-weight: $proxima-nova-bold;
-  margin: em(34px, 22px) 0 em(27px, 22px);
+  line-height: 1.2;
+  margin: em(60px, 31px) 0 em(32px, 31px);
+  text-align: center;
 }
 
 .primary-title-accent {

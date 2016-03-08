@@ -1,9 +1,40 @@
 .top-header {
   background: $white;
-  padding: em(40px) 0 em(32px);
+  padding: em(40px) 0 0;
 
   @include media('<tablet') {
     padding: em(10px) 0;
+  }
+}
+
+.top-header-logo {
+  display: inline-block;
+}
+
+.top-header-tagline {
+  color: $dark-blue;
+  display: inline-block;
+  font-family: $roboto;
+  font-size: em(12px);
+  font-weight: $roboto-light;
+  line-height: 1;
+  margin: em(20px, 12px) 0 0 em(25px, 12px);
+}
+
+
+.header-email,
+.header-telephone {
+  color: $green;
+  font-size: em(14px);
+  text-align: right;
+
+  strong,
+  a {
+    color: $dark-blue;
+  }
+
+  a {
+    text-decoration: none;
   }
 }
 
@@ -49,6 +80,7 @@
     top: 0;
 
     &.scroll {
+      /*
       .top-header {
         margin: 0;
         padding: em(10px) 0 em(8px);
@@ -63,6 +95,7 @@
         -moz-transition: all 0.3s;
         transition: all 0.3s;
       }
+      */
     }
   }
 }
