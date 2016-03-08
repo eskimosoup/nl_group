@@ -1,5 +1,6 @@
 .team {
   background: $pale-light-blue;
+  min-height: 748px;
   padding: em(72px) 0;
   position: relative;
 
@@ -14,18 +15,17 @@
     text-align: left;
   }
 
-  .dark-action-button {
+  .green-action-button {
     margin: em(38px) 0 0;
   }
 }
 
 .home-team-members {
-  background: image-url('components/team-members/background.png') top right no-repeat;
   position: absolute;
   right: 0;
-  top: -240px;
+  top: 0;
   width: 684px;
-  height: 869px;
+  height: 748px;
 
   @include media('<1200px') {
     position: static;
@@ -50,27 +50,27 @@
   }
 
   .team-members-row-0 {
-    top: 186px;
+    top: 93px;
   }
 
   .team-members-row-1 {
-    top: 279px;
+    top: 186px;
   }
 
   .team-members-row-2 {
-    top: 372px;
+    top: 279px;
   }
 
   .team-members-row-3 {
-    top: 467px;
+    top: 372px;
   }
 
   .team-members-row-4 {
-    top: 562px;
+    top: 466px;
   }
 
   .team-members-row-5 {
-    top: 657px;
+    top: 559px;
   }
 }
 
@@ -114,6 +114,6 @@
   margin: em(10px) em(20px);
 
   @include media('<desktop') {
-    margin: em(10px); 
+    margin: em(10px);
   }
 }

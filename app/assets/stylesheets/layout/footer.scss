@@ -3,11 +3,11 @@
 }
 
 .primary-footer {
-  background: image-url('components/contact-us/squares.png') top left no-repeat;
+  background: image-url('layout/footer/graphic.jpg') -150px 100% no-repeat;
   padding: em(50px) 0;
 
   .columns {
-    background: $white;
+    //background: $white;
   }
 
   h5 {

@@ -1,10 +1,10 @@
 <div class="row collapse small-uncollapse"  data-animation-type='fadeInUp'>
   <div class="medium-2 columns">
     <div class="testimonial-image">
-      <%= link_to (image_tag 'components/icons/play-icon.png', alt: 'Play video', class: 'testimonial-play-video'), '#',
+      <%= link_to (image_tag 'components/icons/testimonial-video-icon.png', alt: 'Play video', class: 'testimonial-play-video-icon'), '#',
                   title: testimonial_presenter.name, class: "css-animated-hover testimonial-video-link-#{testimonial_presenter.id}",
                   data: { class: 'tada' } if testimonial_presenter.video_embed_code.present? %>
-      <%= testimonial_presenter.show_image(alt: testimonial_presenter.name, class: 'testimonial-thumbnail') %>
+      <%#= testimonial_presenter.show_image(alt: testimonial_presenter.name, class: 'testimonial-thumbnail') %>
     </div>
   </div>
 
@@ -35,7 +35,7 @@
     </div>
 
     <div class="testimonial-action-button">
-      <%= additional_block_presenter.presented_button(0) if defined?(additional_block_presenter) %>
+      <%= additional_block_presenter.presented_button(0, { }, 'green-action-button') if defined?(additional_block_presenter) %>
     </div>
   </div>
 </div>

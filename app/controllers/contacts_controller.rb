@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.valid?
       ContactMailer.new_contact(@contact).deliver_now
-      redirect_to new_contact_url, notice: "Thank you for contacting us"
+      redirect_to new_contact_url, notice: 'Thank you for contacting us'
     else
       render :new
     end
