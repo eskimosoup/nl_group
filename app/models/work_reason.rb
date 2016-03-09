@@ -1,6 +1,6 @@
 # Reasons to work for NL Group
 class WorkReason < ActiveRecord::Base
-  THEMES = %w( light_green dark_blue dark_green light_blue )
+  THEMES = %w( green dark_blue ).freeze
 
   mount_uploader :image, WorkReasonUploader
   validates :title, :image, :summary, :colour, presence: true
