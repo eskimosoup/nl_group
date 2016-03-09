@@ -1,4 +1,6 @@
-<%= form_for @contact do |f| %>
+<%= form_for @contact, url: root_path(anchor: 'new_contact') do |f| %>
+  <%= render 'shared/flash_messages' %>
+
   <% if @contact.errors.any? %>
     <div id="error_explanation">
       <h2>
