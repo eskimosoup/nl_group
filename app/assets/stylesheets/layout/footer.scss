@@ -21,6 +21,16 @@
     margin: 0 0 em(40px, 27px);
   }
 
+  a {
+    color: $dark-blue;
+    font-weight: $proxima-nova-bold;
+    text-decoration: none;
+  }
+
+  strong {
+    color: $dark-blue;
+  }
+
   p {
     font-size: em(16px);
   }
