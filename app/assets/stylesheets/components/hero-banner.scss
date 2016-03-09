@@ -34,3 +34,42 @@
     }
   }
 }
+
+.register-interest-content {
+  @include clearfix;
+
+  @include media('>=tablet') {
+    width: 75%;
+    margin: 0 auto;
+
+    ul {
+      float: left;
+      font-size: em(13px);
+      color: $dark-grey;
+      list-style: none;
+      width: 50%;
+    }
+
+    li {
+      margin: 0 em(23px) em(23px) 0;
+      min-height: 33px;
+      padding-left: 33px;
+      position: relative;
+
+      &:before {
+        background: image-url('components/home-content/list-tick.png') no-repeat;
+        content: '';
+        height: 23px;
+        left: 0;
+        position: absolute;
+        width: 23px;
+      }
+    }
+  }
+}
+
+.rates-of-pay-hero {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}

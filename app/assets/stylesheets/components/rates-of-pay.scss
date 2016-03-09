@@ -17,6 +17,52 @@
   }
 }
 
+.rates-of-pay-content-box {
+  background: $bright-light-blue;
+  padding: em(24px) 0 em(26px);
+}
+
+.rates-of-pay-slide {
+  margin: 0;
+
+  .slick-prev {
+    left: 0;
+    z-index: 2;
+
+    &:before {
+      background: image-url('components/icons/rates-of-pay-left.png') no-repeat;
+      content: '';
+      display: block;
+      height: 22px;
+      width: 13px;
+    }
+  }
+
+  .slick-next {
+    right: 0;
+    z-index: 2;
+
+    &:before {
+      background: image-url('components/icons/rates-of-pay-right.png') no-repeat;
+      content: '';
+      display: block;
+      height: 22px;
+      width: 13px;
+    }
+  }
+}
+
+.rates-of-pay-data {
+  color: $white;
+  list-style: none;
+  padding: 0 0 0 em(48px);
+  text-align: left;
+
+  span {
+    color: $dark-blue;
+  }
+}
+
 .rates-of-pay-section-title {
   color: $light-green;
   font-size: em(24px);
@@ -34,7 +80,7 @@
 .rate-title {
   font-size: em(19px);
   line-height: 1;
-  margin: em(80px, 19px) 0 em(20px, 19px);
+  margin: em(50px, 19px) 0 em(12px, 19px);
 
   &.small-margin {
     margin-top: em(18px, 19px);
@@ -47,16 +93,15 @@
   margin: em(17px, 15px) 0 0;
 }
 
-.rate-amount {
-  font-size: em(32px);
-  font-weight: $proxima-nova-bold;
+.rate-amount,
+.rate-time {
+  font-size: em(19px);
   line-height: 1;
+  margin: 0 0 em(10px, 19px);
 }
 
 .rate-time {
-  font-size: em(12px);
-  line-height: 1;
-  margin: 0 0 em(100px, 12px);
+  margin: 0 0 em(40px, 19px);
 
   &.no-margin {
     margin: 0;
@@ -64,7 +109,12 @@
 }
 
 .rate-small-print {
-  margin: em(40px) 0;
+  margin: em(40px) auto;
+  width: 100%;
+
+  @include media('>=tablet') {
+    width: 75%;
+  }
 
   p {
     font-weight: $proxima-nova-light;

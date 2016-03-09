@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby "2.2.3"
+# ruby '2.2.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails', '4.2.5.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -39,9 +39,8 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  #gem 'spring'
+  # gem 'spring'
 end
-
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
@@ -69,14 +68,12 @@ group :development do
   gem 'dotenv-rails', '~> 2.0', '>= 2.0.2'
 end
 
-
 source 'https://rails-assets.org' do
   gem 'rails-assets-slick.js'
   gem 'rails-assets-colorbox'
 end
 
-#gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git', branch: 'master'
-gem 'optimadmin', path: '../optimadmin'
+gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git', branch: 'master'
 gem 'workable', '~> 2.0'
 gem 'friendly_id', '~> 5.1'
 gem 'cocoon', '~> 1.2', '>= 1.2.6'

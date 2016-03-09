@@ -1,9 +1,13 @@
-<div class="medium-6 columns">
-  <%= additional_block_presenter.presented_block do %>
-    <%= additional_block_presenter.presented_paragraph %>
+<div class="row collapse small-uncollapse">
+  <div class="small-12 columns">
+    <%= additional_block_presenter.presented_block do %>
+      <div class="register-interest-content">
+        <%= additional_block_presenter.presented_paragraph %>
+      </div>
 
-    <div class="text-center">
-      <%= additional_block_presenter.presented_button(0) %>
-    </div>
-  <% end %>
+      <div class="text-center">
+        <%= additional_block_presenter.presented_button(0) %>
+      </div>
+    <% end %>
+  </div>
 </div>

@@ -1,4 +1,5 @@
 .testimonials {
+  background: $dark-blue image-url('components/content-boxes/testimonial-background.png') center right no-repeat;
   padding: em(45px) 0 em(52px);
 
   @include media('<tablet') {
@@ -18,41 +19,11 @@
     }
   }
 
-  &.first {
-    border-top: 6px  solid $lighter-blue;
-    background: image-url('components/home-content/top-squares.png') bottom left no-repeat,
-                image-url('layout/home/plain-bokeh-background.jpg') top left no-repeat,
-                $light-blue;
-
-    @include media('<tablet') {
-      background: image-url('layout/home/plain-bokeh-background.jpg') top left no-repeat,
-                  $light-blue;
-    }
-  }
-
   &.inner {
     border-top: 6px  solid $lighter-blue;
     background: image-url('layout/home/plain-bokeh-background.jpg') top left no-repeat,
                 $light-blue;
     margin: em(10px) 0;
-  }
-
-  &.second {
-    background: image-url('components/content-boxes/large-border.png') top left repeat-x,
-                image-url('layout/home/nlgroup-logo.png') top right no-repeat,
-                image-url('layout/home/building-background.jpg') top left no-repeat,
-                $primary-blue;
-    padding-top: em(68px);
-
-    @include media('<1200px') {
-      background: image-url('components/content-boxes/large-border.png') top left repeat-x,
-                  image-url('layout/home/building-background.jpg') top left no-repeat,
-                  $primary-blue;
-    }
-  }
-
-  &.third {
-    background: $light-blue image-url('layout/home/bokeh-background.jpg') center no-repeat;
   }
 }
 
@@ -108,4 +79,8 @@
   top: 0;
   left: 15px;
   opacity: .8;
+}
+
+.testimonial-play-video-icon {
+  margin: em(24px) 0 0;
 }

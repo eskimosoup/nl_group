@@ -75,7 +75,8 @@
 }
 
 .small-branded-content-box {
-  background: $dark-grey image-url('components/content-boxes/small-border.png') bottom left repeat-x;
+  //background: $dark-grey image-url('components/content-boxes/small-border.png') bottom left repeat-x;
+  background: $bright-light-blue;
   color: $white;
   padding: em(15px);
 
@@ -97,7 +98,7 @@
   }
 
   &.thick-border {
-    background-image: image-url('components/content-boxes/medium-border.jpg');
+    // background-image: image-url('components/content-boxes/medium-border.jpg');
   }
 }
 

@@ -41,7 +41,7 @@ if (Modernizr.mq('only screen and (min-width: 768px)') && !$('html').hasClass('i
       tolerance: 0,
       toggleClass: 'onScreen',
       doIn: animateIn,
-      doOut: animateOut
+      //doOut: animateOut
     });
   });
 
