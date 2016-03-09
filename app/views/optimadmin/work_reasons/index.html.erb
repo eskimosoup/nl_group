@@ -37,8 +37,8 @@
     <%= list_item('large-1 hide-for-medium-down text-center last'){ 'Delete' } %>
   </div>
 
-  <!-- <div class='module-sortable' data-module="WorkReason"> -->
+  <div class='module-sortable' data-module="WorkReason">
   <%= render partial: 'work_reason', collection: @work_reasons, as: :work_reason_presenter %>
-  <!-- </div> -->
+  </div>
   <%= paginate @work_reasons %>
 </div>
