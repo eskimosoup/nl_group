@@ -21,6 +21,7 @@
 //= require components/clients-slider.js
 //= require components/sticky-scroll.js
 //= require components/member-area-forms
+//= require components/active-class
 //= require vendor/matchheight.js
 //= require vendor/uncomment.js
 //= require cocoon

@@ -28,8 +28,8 @@
     text-decoration: none;
 
     &:hover,
-    &:active {
-    // &.active {
+    &:active,
+    &.active {
       background: $green;
     }
   }
