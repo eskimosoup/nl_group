@@ -33,8 +33,7 @@ $(window).scroll(function() {
   if (lastId !== id) {
     lastId = id;
     // Set/remove active class
-    menuItems
-      .removeClass('active')
-      .end().filter('[href="/#' + id + '"]').addClass('active');
+    menuItems.removeClass('active');
+    $('[href="/#' + id + '"]').addClass('active');
   }
 });
