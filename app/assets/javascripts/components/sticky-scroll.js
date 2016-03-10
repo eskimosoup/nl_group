@@ -42,8 +42,10 @@ $(document).on('click', 'a.smooth-scroll', function() {
   return false;
 });
 
+/*
 if (Modernizr.mq('only screen and (min-width: 1200px)')) {
   $(window).scroll(function() {
     updateScroll();
   });
 }
+*/
