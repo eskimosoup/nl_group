@@ -18,7 +18,7 @@ var lastId,
 // Bind to scroll
 $(window).scroll(function() {
   // Get container scroll position
-  var fromTop = $(this).scrollTop() - topMenuHeight;
+  var fromTop = $(this).scrollTop() + topMenuHeight;
 
   // Get id of current scroll item
   var cur = scrollItems.map(function() {
@@ -32,8 +32,9 @@ $(window).scroll(function() {
 
   if (lastId !== id) {
     lastId = id;
+    console.log('[href="/#' + id + '"]')
     // Set/remove active class
     menuItems.removeClass('active');
-    $('[href="/#' + id + '"]').addClass('active');
+      $('[href="/#' + id + '"]').addClass('active');
   }
 });
