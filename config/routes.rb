@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :pages, only: :show
-  resources :contacts, only: [:new, :create]
+  resources :contacts, only: [:new, :create] do
+    collection do
+      get '/remote', to: 'contacts#remote'
+    end
+  end
   resources :team_members, only: [:index, :show], path: 'team-members'
   resources :testimonials, only: [:index]
   resources :jobs, only: [:index]
@@ -47,6 +51,14 @@ Rails.application.routes.draw do
   root to: 'application#index'
 end
 Optimadmin::Engine.routes.draw do
+  resources :available_roles, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+    end
+  end
   resources :landing_page_why_works, except: [:show] do
     collection do
       post 'order'

@@ -10,7 +10,7 @@ class TeamMemberPresenter < BasePresenter
   end
 
   def name
-    [forename, surname].join(" ")
+    [forename, surname].join(' ')
   end
 
   def role
@@ -30,7 +30,7 @@ class TeamMemberPresenter < BasePresenter
   end
 
   def profile_preview
-    h.link_to small_image(alt: name), team_member, class: 'colorbox css-animated-hover', data: { class: 'tada' } if team_member.image.present?
+    h.link_to small_image(alt: name), team_member, class: 'colorbox css-animated-hover', rel: 'gallery', data: { class: 'tada' } if team_member.image.present?
   end
 
   def index_profile_preview
@@ -38,26 +38,26 @@ class TeamMemberPresenter < BasePresenter
   end
 
   def homepage_classes(outer_loop: nil, inner_loop: nil)
-    classes = ["small-2", "columns"]
+    classes = ['large-2', 'columns']
     classes.push(*homepage_loop_classes(outer_loop, inner_loop)) if outer_loop || inner_loop
-    classes.compact.join(" ")
+    classes.compact.join(' ')
   end
 
   private
 
   def homepage_loop_classes(outer_loop, inner_loop)
     loop_classes = []
-    loop_classes <<  "small-offset-2" if homepage_offset_2?(outer_loop, inner_loop)
-    loop_classes << "small-offset-4" if homepage_offset_4?(outer_loop, inner_loop)
-    loop_classes << "small-offset-6" if homepage_offset_6?(outer_loop)
-    loop_classes << "end" if homepage_end?(outer_loop, inner_loop)
+    loop_classes << 'large-offset-2' if homepage_offset_2?(outer_loop, inner_loop)
+    loop_classes << 'large-offset-4' if homepage_offset_4?(outer_loop, inner_loop)
+    loop_classes << 'large-offset-6' if homepage_offset_6?(outer_loop)
+    loop_classes << 'end' if homepage_end?(outer_loop, inner_loop)
     loop_classes
   end
 
   def homepage_offset_2?(outer_loop, inner_loop)
-    if inner_loop == 1 && [0,1].include?(outer_loop)
+    if inner_loop == 1 && [0, 1].include?(outer_loop)
       true
-    elsif outer_loop == 2 && [0,2].include?(inner_loop)
+    elsif outer_loop == 2 && [0, 2].include?(inner_loop)
       true
     elsif outer_loop == 3 && inner_loop == 1
       true
@@ -75,7 +75,7 @@ class TeamMemberPresenter < BasePresenter
   end
 
   def homepage_end?(outer_loop, inner_loop)
-    if outer_loop == inner_loop && [1,2,3].include?(outer_loop)
+    if outer_loop == inner_loop && [1, 2, 3].include?(outer_loop)
       true
     elsif outer_loop == 2 && inner_loop == 3
       true

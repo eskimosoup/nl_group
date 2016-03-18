@@ -25,6 +25,20 @@
                 $light-blue;
     margin: em(10px) 0;
   }
+
+  .slick-slider {
+    margin: 0;
+  }
+
+  .slick-next {
+    right: 105px;
+    z-index: 2;
+  }
+
+  .slick-prev {
+    left: 105px;
+    z-index: 2;
+  }
 }
 
 .testimonial-content {
@@ -83,4 +97,22 @@
 
 .testimonial-play-video-icon {
   margin: em(24px) 0 0;
+}
+
+.view-more-testimonials {
+  color: $white;
+  display: block;
+  margin: em(25px) 0 0;
+  text-align: center;
+  text-decoration: none;
+
+  &:link,
+  &:visited {
+    color: $white;
+  }
+
+  &:hover,
+  &:active {
+    color: $lighter-blue;
+  }
 }

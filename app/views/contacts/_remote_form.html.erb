@@ -1,0 +1,4 @@
+<%= form_for @contact, url: contacts_path, remote: true, authenticity_token: true do |f| %>
+  <%= render 'shared/flash_messages' %>
+  <%= render 'contacts/form_fields', f: f %>
+<% end %>

@@ -1,0 +1,4 @@
+$('#remote-contact-form').replaceWith('<%= j render 'contacts/remote' %>')
+<% if @contact.valid? %>
+  $('#new_contact .field input, #new_contact textarea').val('');
+<% end %>
