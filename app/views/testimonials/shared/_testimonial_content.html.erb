@@ -1,10 +1,9 @@
 <div class="row collapse small-uncollapse"  data-animation-type='fadeInUp'>
   <div class="medium-2 columns">
     <div class="testimonial-image">
-      <%= link_to (image_tag 'components/icons/testimonial-video-icon.png', alt: 'Play video', class: 'testimonial-play-video-icon'), '#',
+      <%= link_to (testimonial_presenter.show_image(alt: testimonial_presenter.name, class: 'testimonial-thumbnail')), '#',
                   title: testimonial_presenter.name, class: "css-animated-hover testimonial-video-link-#{testimonial_presenter.id}",
                   data: { class: 'tada' } if testimonial_presenter.video_embed_code.present? %>
-      <%#= testimonial_presenter.show_image(alt: testimonial_presenter.name, class: 'testimonial-thumbnail') %>
     </div>
   </div>
 
@@ -22,7 +21,7 @@
       <%= testimonial_presenter.name %>, <%= testimonial_presenter.role %>
     </div>
 
-    <%= link_to "Watch Video", '#', class: "testimonial-watch-video-link testimonial-video-link-#{testimonial_presenter.id}", title: testimonial_presenter.name  %>
+    <%#= link_to "Watch Video", '#', class: "testimonial-watch-video-link testimonial-video-link-#{testimonial_presenter.id}", title: testimonial_presenter.name  %>
 
     <div class="hide">
       <div id="testimonial-video-<%= testimonial_presenter.id %>" class="testimonial-video-wrap">
