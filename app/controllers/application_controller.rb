@@ -2,7 +2,8 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  before_action :global_site_settings, :load_objects, :load_contact
+  before_action :global_site_settings, :load_objects
+  before_action :load_contact, only: :index
   # before_action { raise request.path.to_yaml }
 
   include AdditionalContentHelper
@@ -11,7 +12,8 @@ class ApplicationController < ActionController::Base
     @presented_additional_contents = collection_presenter(AdditionalRow.displayed.positioned)
     @presented_testimonials = collection_presenter(Testimonial.displayed.positioned)
     @presented_clients = collection_presenter(Client.displayed)
-    @presented_team_members = collection_presenter(TeamMember.displayed.positioned + TeamMember.displayed.positioned + TeamMember.displayed.positioned + TeamMember.displayed.positioned + TeamMember.displayed.positioned + TeamMember.displayed.positioned + TeamMember.displayed.positioned + TeamMember.displayed.positioned + TeamMember.displayed.positioned + TeamMember.displayed.positioned + TeamMember.displayed.positioned + TeamMember.displayed.positioned + TeamMember.displayed.positioned + TeamMember.displayed.positioned + TeamMember.displayed.positioned + TeamMember.displayed.positioned + TeamMember.displayed.positioned + TeamMember.displayed.positioned + TeamMember.displayed.positioned + TeamMember.displayed.positioned)
+    @presented_available_roles = collection_presenter(AvailableRole.displayed)
+    @presented_team_members = collection_presenter(TeamMember.displayed.positioned)
     @presented_frequently_asked_questions = collection_presenter(FrequentlyAskedQuestion.ordered.displayed)
     @presented_work_reasons = collection_presenter(WorkReason.positioned.displayed)
     render layout: 'home'

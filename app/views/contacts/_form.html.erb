@@ -1,44 +1,5 @@
 <%= form_for @contact, url: root_path(anchor: 'new_contact') do |f| %>
   <%= render 'shared/flash_messages' %>
-
-  <% if @contact.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize @contact.errors.count, "error" %> prevented your message from sending
-      </h2>
-      <ul>
-        <% @contact.errors.full_messages.each do |msg| %>
-          <li>
-            <%= msg %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-  </div>
-
-  <div class="field">
-    <%= f.label :phone_number %>
-    <%= f.phone_field :phone_number %>
-  </div>
-
-  <div class="field">
-    <%= f.label :message %>
-    <%= f.text_area :message %>
-  </div>
-
-  <%= f.hidden_field :location %>
-
-  <div class="actions">
-    <%= f.submit "Send a message", class: 'right' %>
-  </div>
+  
+  <%= render 'contacts/form_fields', f: f %>
 <% end %>

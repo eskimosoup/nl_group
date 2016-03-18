@@ -37,6 +37,14 @@ $(function() {
       height: '70%',
       maxHeight: '960px'
     });
+
+    $('.colorbox-iframe').colorbox({
+      width: '70%',
+      iframe: true,
+      maxWidth: '960px',
+      height: '70%',
+      maxHeight: '960px'
+    });
   } else {
     $('.home-team-members .colorbox').attr('href', '');
   }

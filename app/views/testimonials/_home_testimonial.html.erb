@@ -1,14 +1,40 @@
 <%= content_for :footer do %>
   <script>
     $(function() {
+      $(".testimonial-slide-<%= testimonial_presenter.id %>:first-of-type").removeClass('hide');
       $(".testimonial-video-link-<%= testimonial_presenter.id %>").colorbox({
         inline: true,
         href: "#testimonial-video-<%= testimonial_presenter.id %>",
         onOpen: function() { $('#testimonial-video-<%= testimonial_presenter.id %>').uncomment(); }
       });
     })
+
+    $(document).on('click', '.testimonials-slick-<%= additional_block_presenter.id %>', function() {
+      $(this).addClass('visibility-hidden');
+      
+      var groupId = $(this).data('testimonials-group');
+      var $slick = $('.testimonials-group-' + groupId + ' .testimonials-slick');
+      $('.testimonials-group-' + groupId + ' .hide').removeClass('hide');
+
+      $slick.on('init', function(event, slick) {
+        slick.slickNext();
+      });
+
+      $slick.slick({
+        autoplay: false,
+        arrows: true,
+        slidesToShow: 1
+      });
+
+      return false;
+    });
   </script>
 <% end %>
-<section class="testimonials">
-  <%= render partial: 'testimonials/shared/testimonial_content', locals: { testimonial_presenter: testimonial_presenter, additional_block_presenter: additional_block_presenter } %>
+<section class="testimonials testimonials-group-<%= additional_block_presenter.id %>">
+  <div class="testimonials-slick">
+    <%= render partial: 'testimonials/shared/testimonial_content', locals: { testimonial_presenter: testimonial_presenter, additional_block_presenter: additional_block_presenter } %>
+    <%= render partial: 'testimonials/shared/testimonial_content', collection: @presented_testimonials.reject{ |x| x == testimonial_presenter }, as: :testimonial_presenter, locals: { additional_block_presenter: additional_block_presenter } %>
+  </div>
+
+  <%= link_to 'View more testimonials', '#', class: "view-more-testimonials testimonials-slick-#{additional_block_presenter.id}", data: { testimonials_group: additional_block_presenter.id } %>
 </section>

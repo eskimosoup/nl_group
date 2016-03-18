@@ -23,21 +23,16 @@
 
         <div class="row">
           <div class="medium-6 columns">
-
             <div class="rates-of-pay-slide">
-              <ul class="rates-of-pay-data">
-                <li>
-                  Available Roles: <span>ODP</span>
-                </li>
-
-                <li>
-                  Rates: <span>£26.00 ˜ £53.00* per hour</span>
-                </li>
-              </ul>
+              <%= render partial: 'available_roles/hero_available_role', collection: @presented_available_roles, as: :available_role_presenter %>
             </div>
           </div>
 
-          <div class="medium-6 columns">
+          <div class="medium-2 columns">
+            <%= additional_block_presenter.presented_button(0, { }, 'colorbox-iframe') %>
+          </div>
+
+          <div class="medium-4 columns">
             <%= form_tag '', class: 'job-location-search' do %>
               <%= text_field_tag :location, nil, placeholder: 'Find a Job Near You', class: 'job-location-search-input' %>
               <%= submit_tag '', class: 'job-location-search-submit' %>

@@ -2,12 +2,12 @@
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'capybara/rspec'
-#require 'capybara/poltergeist'
+# require 'capybara/poltergeist'
 
 require 'shoulda-matchers'
 require 'database_cleaner'
@@ -15,6 +15,7 @@ require 'support/mailer_macros'
 require 'support/site_settings_macros'
 require 'support/optimadmin_macros'
 require 'support/member_area_macros'
+require 'support/controller_helpers'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -51,7 +52,7 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
-    #FactoryGirl.create(:landing_page)
+    # FactoryGirl.create(:landing_page)
   end
 
   config.before(:each) do |example|
@@ -86,6 +87,7 @@ RSpec.configure do |config|
   config.include Capybara::DSL, type: :feature
   config.include MailerMacros
   config.include SiteSettingsMacros
+  config.include ControllerHelpers
   config.include OptimadminMacros, type: :feature
   config.include MemberAreaMacros, type: :feature
   config.before(:each, type: :feature) { reset_email }
