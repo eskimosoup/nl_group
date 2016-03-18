@@ -11,7 +11,7 @@
 
     $(document).on('click', '.testimonials-slick-<%= additional_block_presenter.id %>', function() {
       $(this).addClass('visibility-hidden');
-      
+
       var groupId = $(this).data('testimonials-group');
       var $slick = $('.testimonials-group-' + groupId + ' .testimonials-slick');
       $('.testimonials-group-' + groupId + ' .hide').removeClass('hide');
@@ -31,10 +31,14 @@
   </script>
 <% end %>
 <section class="testimonials testimonials-group-<%= additional_block_presenter.id %>">
-  <div class="testimonials-slick">
-    <%= render partial: 'testimonials/shared/testimonial_content', locals: { testimonial_presenter: testimonial_presenter, additional_block_presenter: additional_block_presenter } %>
-    <%= render partial: 'testimonials/shared/testimonial_content', collection: @presented_testimonials.reject{ |x| x == testimonial_presenter }, as: :testimonial_presenter, locals: { additional_block_presenter: additional_block_presenter } %>
-  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="testimonials-slick">
+        <%= render partial: 'testimonials/shared/testimonial_content', locals: { testimonial_presenter: testimonial_presenter, additional_block_presenter: additional_block_presenter } %>
+        <%= render partial: 'testimonials/shared/testimonial_content', collection: @presented_testimonials.reject{ |x| x == testimonial_presenter }, as: :testimonial_presenter, locals: { additional_block_presenter: additional_block_presenter } %>
+      </div>
 
-  <%= link_to 'View more testimonials', '#', class: "view-more-testimonials testimonials-slick-#{additional_block_presenter.id}", data: { testimonials_group: additional_block_presenter.id } %>
+      <%= link_to 'View more testimonials', '#', class: "view-more-testimonials testimonials-slick-#{additional_block_presenter.id}", data: { testimonials_group: additional_block_presenter.id } %>
+    </div>
+  </div>
 </section>

@@ -1,12 +1,14 @@
 <div class="testimonial-slide-<%= testimonial_presenter.id %> hide">
   <div class="row collapse small-uncollapse">
     <div class="medium-2 columns">
-      <div class="testimonial-image">
-        <%= link_to (image_tag 'components/icons/play-icon.png', alt: 'Play video', class: 'testimonial-play-video'), '#',
-                    title: testimonial_presenter.name, class: "css-animated-hover testimonial-video-link-#{testimonial_presenter.id}",
-                    data: { class: 'tada' } if testimonial_presenter.video_embed_code.present? %>
-        <%= testimonial_presenter.show_image(alt: testimonial_presenter.name, class: 'testimonial-thumbnail') %>
-      </div>
+      <% if testimonial_presenter.video_embed_code.present? && testimonial_presenter.show_image.present? %>
+        <div class="testimonial-image">
+          <%= link_to (image_tag 'components/icons/play-icon.png', alt: 'Play video', class: 'testimonial-play-video'), '#',
+                      title: testimonial_presenter.name, class: "css-animated-hover testimonial-video-link-#{testimonial_presenter.id}",
+                      data: { class: 'tada' } %>
+          <%= testimonial_presenter.show_image(alt: testimonial_presenter.name, class: 'testimonial-thumbnail') %>
+        </div>
+      <% end %>
     </div>
 
     <div class="medium-10 columns">

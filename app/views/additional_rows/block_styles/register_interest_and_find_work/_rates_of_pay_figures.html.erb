@@ -22,14 +22,10 @@
       <div class="rates-of-pay-content-box thick-border text-center" data-animation-type='fadeInUp'>
 
         <div class="row">
-          <div class="medium-6 columns">
+          <div class="medium-8 columns">
             <div class="rates-of-pay-slide">
               <%= render partial: 'available_roles/hero_available_role', collection: @presented_available_roles, as: :available_role_presenter %>
             </div>
-          </div>
-
-          <div class="medium-2 columns">
-            <%= additional_block_presenter.presented_button(0, { }, 'colorbox-iframe') %>
           </div>
 
           <div class="medium-4 columns">
