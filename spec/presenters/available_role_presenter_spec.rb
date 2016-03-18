@@ -7,5 +7,6 @@ RSpec.describe AvailableRolePresenter, type: :presenter, available_role: true do
   describe 'delegations', :delegation do
     it { should delegate_method(:title).to(:available_role) }
     it { should delegate_method(:rates_of_pay).to(:available_role) }
+    it { should delegate_method(:workable_link).to(:available_role) }
   end
 end

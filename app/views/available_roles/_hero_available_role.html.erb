@@ -1,9 +1,19 @@
-<ul class="rates-of-pay-data">
-  <li>
-    Available Roles: <span><%= available_role_presenter.title %></span>
-  </li>
+<div class="row">
+  <div class="medium-8 columns">
+    <%= link_to available_role_presenter.workable_link do %>
+      <ul class="rates-of-pay-data">
+        <li>
+          <%= available_role_presenter.title %>
+        </li>
 
-  <li>
-    Rates: <span><%= available_role_presenter.rates_of_pay %></span>
-  </li>
-</ul>
+        <li>
+          <%= available_role_presenter.rates_of_pay %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+
+  <div class="medium-4 columns">
+    <%= link_to 'Apply now', available_role_presenter.workable_link, class: 'green-action-button colorbox-iframe'  %>
+  </div>
+</div>

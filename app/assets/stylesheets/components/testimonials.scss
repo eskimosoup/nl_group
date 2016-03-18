@@ -30,14 +30,32 @@
     margin: 0;
   }
 
-  .slick-next {
-    right: 105px;
+  .slick-prev {
+    top: 33%;
+    left: -25px;
     z-index: 2;
+
+    &:before {
+      background: image-url('components/icons/small-arrow-left.png') no-repeat;
+      content: '';
+      display: block;
+      height: 22px;
+      width: 13px;
+    }
   }
 
-  .slick-prev {
-    left: 105px;
+  .slick-next {
+    top: 33%;
+    right: -25px;
     z-index: 2;
+
+    &:before {
+      background: image-url('components/icons/small-arrow-right.png') no-repeat;
+      content: '';
+      display: block;
+      height: 22px;
+      width: 13px;
+    }
   }
 }
 

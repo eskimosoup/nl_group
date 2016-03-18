@@ -1,11 +1,13 @@
 <div class="medium-4 columns">
   <div class="small-branded-content-box"  data-animation-type='fadeInUp'>
-    <div class="rate-title">
-      <%= available_role_presenter.title %>
-    </div>
+    <%= link_to available_role_presenter.workable_link do %>
+      <div class="rate-title">
+        <%= available_role_presenter.title %>
+      </div>
 
-    <div class="rate-amount">
-      <%= available_role_presenter.rates_of_pay %>
-    </div>
+      <div class="rate-amount">
+        <%= available_role_presenter.rates_of_pay %>
+      </div>
+    <% end %>
   </div>
 </div>

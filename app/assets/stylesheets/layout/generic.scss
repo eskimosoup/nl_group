@@ -15,17 +15,18 @@
     padding: em(160px) 0 0;
   }
 
-  .colorbox-content {
-    background: image-url('components/contact-us/upside-down-squares.png') bottom right no-repeat;
-    height: 100%;
-
-    .row {
-      background: $white;
-    }
-  }
-
   .home-content {
     padding: em(120px) 0 0;
+  }
+}
+
+
+.colorbox-content {
+  background: image-url('components/contact-us/upside-down-squares.png') bottom right no-repeat;
+  height: 100%;
+
+  .row {
+    background: $white;
   }
 }
 
