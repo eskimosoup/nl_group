@@ -9,9 +9,12 @@ var lastId,
   menuItems = topMenu.find('.menu-link'),
   // Anchors corresponding to menu items
   scrollItems = menuItems.map(function() {
-    var item = $($(this).attr('href').replace('/', ''));
-    if (item.length) {
-      return item;
+    var href = $(this).attr('href');
+    if(href.indexOf('#') === 1) {
+      var item = $(href.replace('/', ''));
+      if (item.length) {
+        return item;
+      }
     }
   });
 
