@@ -33,4 +33,12 @@
       <%= render 'contacts/form' %>
     </div>
   </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <ul class="footer-navigation-links">
+        <%= nested_menu_items(menu_items: @header_menu.menu_items) %>
+      </ul>
+    </div>
+  </div>
 </footer>

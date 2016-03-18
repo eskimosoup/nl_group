@@ -44,6 +44,7 @@ class ApplicationController < ActionController::Base
 
   def load_objects
     @header_menu = Optimadmin::Menu.new(name: 'header')
+    @footer_menu = Optimadmin::Menu.new(name: 'footer')
     @contact = Contact.new
   end
 
