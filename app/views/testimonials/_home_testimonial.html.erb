@@ -14,7 +14,7 @@
 
       var groupId = $(this).data('testimonials-group');
       var $slick = $('.testimonials-group-' + groupId + ' .testimonials-slick');
-      $('.testimonials-group-' + groupId + ' .hide').removeClass('hide');
+      $('.testimonials-group-' + groupId + ' .hide:not(.video.hide)').removeClass('hide');
 
       $slick.on('init', function(event, slick) {
         slick.slickNext();
