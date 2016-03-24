@@ -24,7 +24,7 @@ class MenuItemPresenter < BasePresenter
   private
 
   def smooth_scroll?
-    if destination && destination.include?("#")
+    if (destination.is_a? String) && destination.include?("#")
       true
     else
       false
