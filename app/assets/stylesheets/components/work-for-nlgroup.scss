@@ -1,6 +1,5 @@
 .work-for-nlgroup {
   @include media('>1024px') {
-    background: image-url('components/home-content/bottom-squares.png') top left no-repeat;
     padding: em(53px) 0 em(75px);
   }
   padding: em(26px) 0;
