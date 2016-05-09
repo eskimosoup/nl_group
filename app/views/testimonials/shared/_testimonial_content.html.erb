@@ -8,6 +8,10 @@
                       data: { class: 'tada' } %>
           <%= testimonial_presenter.show_image(alt: testimonial_presenter.name, class: 'testimonial-thumbnail') %>
         </div>
+      <% elsif testimonial_presenter.video_embed_code.blank? && testimonial_presenter.show_image.present? %>
+        <div class="testimonial-image">
+          <%= testimonial_presenter.show_image(alt: testimonial_presenter.name, class: 'testimonial-thumbnail') %>
+        </div>
       <% end %>
     </div>
 
