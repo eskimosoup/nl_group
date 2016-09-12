@@ -47,6 +47,7 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.5.0'
   gem 'shoulda-matchers', '~> 2.8.0'
   gem 'shoulda-callback-matchers'
+  gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 end
 
 group :test do
@@ -65,7 +66,6 @@ group :development do
   gem 'flamegraph', '~> 0.1.0'
   gem 'stackprof', '~> 0.2.7'
   gem 'bullet', '~> 4.14.7'
-  gem 'dotenv-rails', '~> 2.0', '>= 2.0.2'
 end
 
 source 'https://rails-assets.org' do

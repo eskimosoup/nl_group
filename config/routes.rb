@@ -87,6 +87,7 @@ Optimadmin::Engine.routes.draw do
     end
   end
 
+  post 'workable-pull', to: 'workable_pulls#create', as: :workable_pull
   resources :landing_page_contents, except: [:show], concerns: [:orderable, :toggleable]
   resources :referral_offers, except: [:show], concerns: [:orderable, :toggleable]
   resources :additional_blocks, except: [:show], concerns: [:orderable, :toggleable]
