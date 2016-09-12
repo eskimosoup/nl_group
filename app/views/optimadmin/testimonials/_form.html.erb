@@ -62,14 +62,20 @@
     <%= field_set_tag nil, id: 'tabs-3' do %>
       <%= field_set_tag "Landing Pages" do %>
         <div class="field">
-          <%= f.collection_check_boxes :landing_page_ids, LandingPage.order(name: :asc), :id, :name do |b| %>
-            <%= b.label %>
-            <%= b.check_box %>
-            <br/>
-          <% end %>
+          <%= f.label :landing_page_ids %>
+          <%= f.select(
+            :landing_page_ids, LandingPage.order(:name).pluck(:name, :id),
+            {}, { class: 'multiselect', multiple: true }
+          ) %>
         </div>
       <% end %>
 
+      <%= render(
+        partial: 'optimadmin/shared/audience_form_select',
+        locals: {
+          f: f,
+        }
+      ) %>
       <div class="field">
         <%= f.label :display %><br>
         <%= f.check_box :display %>

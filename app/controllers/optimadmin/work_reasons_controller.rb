@@ -48,7 +48,10 @@ module Optimadmin
     end
 
     def work_reason_params
-      params.require(:work_reason).permit(:position, :title, :image, :remote_image_url, :image_cache, :remove_image, :summary, :colour, :display)
+      params.require(:work_reason).permit(
+        :position, :title, :image, :remote_image_url, :image_cache, :remove_image,
+        :summary, :colour, :display, audience_ids: []
+      )
     end
   end
 end

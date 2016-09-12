@@ -1,0 +1,9 @@
+<div class="field">
+  <%= f.label :audience_ids %>
+  <%= f.select(
+    :audience_ids,
+    Audience.order(:name).pluck(:name, :id),
+    {},
+    { class: 'multiselect', multiple: true }
+  ) %>
+</div>

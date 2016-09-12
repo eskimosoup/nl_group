@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Creating a FAQ", type: :feature, js: true do
+RSpec.describe "Creating a FAQ", type: :feature do
   it "should allow creating of faqs" do
     login_to_admin_with("optimised", "optipoipoip")
 
@@ -11,12 +11,11 @@ RSpec.describe "Creating a FAQ", type: :feature, js: true do
     expect(current_path).to eq(optimadmin.new_frequently_asked_question_path)
 
     fill_in "Question", with: "Some Question?"
-    tiny_mce_fill_in "frequently_asked_question_answer", with: "My answer"
+    fill_in "Answer", with: "My answer"
 
     click_button "Create Frequently asked question"
 
     expect(current_path).to eq(optimadmin.frequently_asked_questions_path)
     expect(page).to have_content "Frequently asked question was successfully created."
-
   end
 end

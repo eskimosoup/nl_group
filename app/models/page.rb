@@ -4,6 +4,10 @@ class Page < ActiveRecord::Base
 
   mount_uploader :image, PageUploader
 
+  def self.layouts
+    %w{ home care_seekers job_seekers }
+  end
+
   before_save :store_image, if: Proc.new{|page| page.remote_image_url.blank? }
   # before_save :store_file, if: Proc.new{|page| page.remote_file_url.blank? }
 
@@ -11,6 +15,7 @@ class Page < ActiveRecord::Base
 
   validates :title, :content, presence: true
   validates :suggested_url, allow_blank: true, uniqueness: { case_sensitive: false, message: 'is already taken, leave blank to generate automatically' }
+  validates :layout, inclusion: { in: Page.layouts }
 
   def slug_candidates
     [
@@ -28,9 +33,6 @@ class Page < ActiveRecord::Base
     "{:controller => '/pages', :action => 'show', :id => '#{self.slug}'}"
   end
 
-  def self.layouts
-    %w{ application }
-  end
 
   def self.styles
     %w{ basic }

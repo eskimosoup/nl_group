@@ -17,6 +17,9 @@ RSpec.describe ReferralOfferPresenter, type: :presenter do
   end
 
   it "#show_link" do
-    expect(subject.show_link).to eq(link_to "View Offer", member_area_referral_offer_path(referral_offer))
+    link = link_to "View Offer", member_area_referral_offer_path(referral_offer),
+      class: 'dark-action-button'
+
+    expect(subject.show_link).to eq(link)
   end
 end

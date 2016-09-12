@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160531084412) do
+ActiveRecord::Schema.define(version: 20160908150629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,6 +106,38 @@ ActiveRecord::Schema.define(version: 20160531084412) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  create_table "audiences", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "audiences", ["name"], name: "index_audiences_on_name", unique: true, using: :btree
+
+  create_table "audiences_frequently_asked_questions", id: false, force: :cascade do |t|
+    t.integer "audience_id",                  null: false
+    t.integer "frequently_asked_question_id", null: false
+  end
+
+  add_index "audiences_frequently_asked_questions", ["audience_id", "frequently_asked_question_id"], name: "aud_faq", using: :btree
+  add_index "audiences_frequently_asked_questions", ["frequently_asked_question_id", "audience_id"], name: "faq_aud", using: :btree
+
+  create_table "audiences_testimonials", id: false, force: :cascade do |t|
+    t.integer "audience_id",    null: false
+    t.integer "testimonial_id", null: false
+  end
+
+  add_index "audiences_testimonials", ["audience_id", "testimonial_id"], name: "index_audiences_testimonials_on_audience_id_and_testimonial_id", using: :btree
+  add_index "audiences_testimonials", ["testimonial_id", "audience_id"], name: "index_audiences_testimonials_on_testimonial_id_and_audience_id", using: :btree
+
+  create_table "audiences_work_reasons", id: false, force: :cascade do |t|
+    t.integer "audience_id",    null: false
+    t.integer "work_reason_id", null: false
+  end
+
+  add_index "audiences_work_reasons", ["audience_id", "work_reason_id"], name: "index_audiences_work_reasons_on_audience_id_and_work_reason_id", using: :btree
+  add_index "audiences_work_reasons", ["work_reason_id", "audience_id"], name: "index_audiences_work_reasons_on_work_reason_id_and_audience_id", using: :btree
 
   create_table "available_roles", force: :cascade do |t|
     t.integer  "position"

@@ -1,0 +1,47 @@
+<%= form_for @audience do |f| %>
+  <%= render(
+    partial: 'optimadmin/shared/errors',
+    locals: {
+      object: @audience
+    }
+  ) if @audience.errors.any? %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.select :name, Audience::NAMES %>
+  </div>
+
+  <div class="field">
+    <%= f.label :testimonial_ids %>
+    <%= f.select(
+      :testimonial_ids,
+      Testimonial.order(:forename, :surname).map{|x| [x.full_name, x.id] },
+      {},
+      { class: 'multiselect', multiple: true }
+    ) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :work_reason_ids %>
+    <%= f.select(
+      :work_reason_ids,
+      WorkReason.order(:title).pluck(:title, :id),
+      {},
+      { class: 'multiselect', multiple: true }
+    ) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :frequently_asked_question_ids %>
+    <%= f.select(
+      :frequently_asked_question_ids,
+      FrequentlyAskedQuestion.order(:question).pluck(:question, :id),
+      {},
+      { class: 'multiselect', multiple: true }
+    ) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -95,6 +95,7 @@ Optimadmin::Engine.routes.draw do
   resources :additional_rows, except: [:show], concerns: [:orderable, :toggleable]
   resources :additional_titles, except: [:show], concerns: [:orderable, :toggleable]
   resources :admin_messages, except: [:show], concerns: [:orderable, :toggleable]
+  resources :audiences, except: [:show]
   resources :clients, except: [:show], concerns: [:orderable, :toggleable, :imageable]
   resources :frequently_asked_questions, except: [:show], concerns: [:orderable, :toggleable]
   resources :key_contacts, except: [:show], concerns: [:orderable, :toggleable]

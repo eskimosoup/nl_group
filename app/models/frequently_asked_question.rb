@@ -1,5 +1,6 @@
 class FrequentlyAskedQuestion < ActiveRecord::Base
 
+  has_and_belongs_to_many :audiences
   has_many :landing_page_faqs
   has_many :landing_pages, through: :landing_page_faqs
 

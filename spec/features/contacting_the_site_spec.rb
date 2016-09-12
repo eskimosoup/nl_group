@@ -12,7 +12,6 @@ RSpec.feature "Contacting The Site", type: :feature do
     fill_in "Message", with: "I am contacting you..."
     click_button "Send"
 
-    expect(current_path).to eq(new_contact_path)
     expect(page).to have_content("Thank you for contacting us")
     expect(last_email.to).to include(site_email)
   end
@@ -24,7 +23,6 @@ RSpec.feature "Contacting The Site", type: :feature do
     click_button "Send"
 
     expect(page).to have_content("prevented your message from sending")
-    expect(current_path).to eq(contacts_path)
     expect(last_email).to eq(nil)
   end
 end

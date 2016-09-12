@@ -40,13 +40,14 @@ module Optimadmin
 
   private
 
-
     def set_frequently_asked_question
       @frequently_asked_question = FrequentlyAskedQuestion.find(params[:id])
     end
 
     def frequently_asked_question_params
-      params.require(:frequently_asked_question).permit(:question, :answer, :display, landing_page_ids: [])
+      params.require(:frequently_asked_question).permit(
+        :question, :answer, :display, landing_page_ids: [], audience_ids: [],
+      )
     end
   end
 end

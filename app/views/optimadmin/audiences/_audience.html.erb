@@ -1,0 +1,16 @@
+<div class="row collapse module-list-index <%= cycle('odd', 'even') %>"
+  data-equalizer="module-list" id="item-<%= audience.id %>">
+  <div class="large-10 small-4 columns"
+    data-equalizer-watch="module-list">
+    <%= audience.name %>
+  </div>
+
+  <div class="large-1 small-4 columns" data-equalizer-watch="module-list">
+    <%=  link_to octicon('pencil').html_safe, edit_audience_path(audience), class: 'menu-item-control' %>
+  </div>
+
+  <div class="large-1 hide-for-medium-down columns last" data-equalizer-watch="module-list">
+    <%= link_to octicon('trash_can').html_safe, audience_path(audience), method: :delete,
+      data: { confirm: 'Are you sure?' }, class: 'menu-item-control' %>
+  </div>
+</div>

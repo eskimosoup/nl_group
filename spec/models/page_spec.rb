@@ -6,6 +6,7 @@ RSpec.describe Page, type: :model do
     it { should validate_presence_of(:title) }
     it { should validate_presence_of(:content) }
     it { should validate_uniqueness_of(:suggested_url).allow_blank.case_insensitive.with_message("is already taken, leave blank to generate automatically") }
+    it { should validate_inclusion_of(:layout).in_array(Page.layouts) }
   end
 
   #describe "associations", :association do
@@ -39,4 +40,5 @@ RSpec.describe Page, type: :model do
       expect(page.should_generate_new_friendly_id?).to be false
     end
   end
+
 end

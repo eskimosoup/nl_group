@@ -1,7 +1,9 @@
 require 'rails_helper'
 
-RSpec.feature "Creating A Team Member", type: :feature, js: true do
+RSpec.feature "Creating A Team Member", type: :feature do
   it "should allow a client to be created" do
+    team = create(:team_member_team, name: 'Blah')
+
     login_to_admin_with("optimised", "optipoipoip")
     click_link "Team Members"
     expect(current_path).to eq(optimadmin.team_members_path)
@@ -13,8 +15,7 @@ RSpec.feature "Creating A Team Member", type: :feature, js: true do
     fill_in "Role", with: "Supreme Ruler"
     fill_in "Email", with: "joe.bloggs@example.com"
     fill_in "Phone", with: "01234 567890"
-    click_link "Media"
-    attach_file("team_member_image", File.join(Rails.root, "spec/support/images/landscape_image.jpg"))
+    select team.name, from: "Team member team"
     click_button "Create Team member"
 
     expect(current_path).to eq(optimadmin.team_members_path)

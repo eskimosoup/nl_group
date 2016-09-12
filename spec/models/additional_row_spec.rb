@@ -12,10 +12,6 @@ RSpec.describe AdditionalRow, type: :model, additional_content: true do
     it { should have_many(:additional_blocks).dependent(:destroy) }
   end
 
-  describe "delegations", :association do
-    it { should delegate_method(:url_helpers).to('Rails.application.routes') }
-  end
-
   describe "scopes", :scope do
     let(:additional_row) { create(:additional_row) }
     let(:hidden_additional_row) { create(:additional_row, display: false) }

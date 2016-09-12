@@ -15,10 +15,6 @@ RSpec.describe AdditionalRowPresenter, type: :presenter, additional_content: tru
       expect(additional_row_presenter.style).to eq(additional_row.style)
     end
 
-    it "returns the anchor friendly string" do
-      expect(additional_row_presenter.anchor).to eq(additional_row.custom_path)
-    end
-
     it "returns the displayed, positioned blocks" do
       expect(additional_row_presenter.additional_blocks).to eq(additional_row.additional_blocks.displayed.positioned)
     end

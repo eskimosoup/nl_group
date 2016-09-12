@@ -1,17 +1,15 @@
 <%= form_for(@frequently_asked_question) do |f| %>
-<% if @frequently_asked_question.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@frequently_asked_question.errors.count, "error") %> prohibited this frequently_asked_question from being saved:</h2>
+  <% if @frequently_asked_question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@frequently_asked_question.errors.count, "error") %> prohibited this frequently_asked_question from being saved:</h2>
 
-    <ul>
-      <% @frequently_asked_question.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
-
+      <ul>
+        <% @frequently_asked_question.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <div class="tabs prevent-flash">
     <ul class="tab-list">
@@ -40,13 +38,20 @@
     <%= field_set_tag nil, id: 'tabs-2' do %>
       <%= field_set_tag "Landing Pages" do %>
         <div class="field">
-          <%= f.collection_check_boxes :landing_page_ids, LandingPage.order(name: :asc), :id, :name do |b| %>
-            <%= b.label %>
-            <%= b.check_box %>
-            <br/>
-          <% end %>
+          <%= f.label :landing_page_ids %>
+          <%= f.select(
+            :landing_page_ids, LandingPage.order(:name).pluck(:name, :id),
+            {}, { class: 'multiselect', multiple: true }
+          ) %>
         </div>
       <% end %>
+
+      <%= render(
+        partial: 'optimadmin/shared/audience_form_select',
+        locals: {
+          f: f,
+        }
+      ) %>
 
       <div class="field">
         <%= f.label :display %><br>

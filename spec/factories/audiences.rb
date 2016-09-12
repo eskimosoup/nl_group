@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :team_member_team do
+  factory :audience do
     name "MyString"
   end
 

@@ -2,6 +2,7 @@ class Testimonial < ActiveRecord::Base
 
   mount_uploader :image, TestimonialUploader
 
+  has_and_belongs_to_many :audiences
   has_many :landing_page_testimonials
   has_many :landing_pages, through: :landing_page_testimonials
 
