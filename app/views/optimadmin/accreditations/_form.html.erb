@@ -1,0 +1,29 @@
+<%= form_for @accreditation do |f| %>
+  <%= render(
+    partial: 'optimadmin/shared/errors',
+    locals: {
+      object: @accreditation
+    }
+  ) if @accreditation.errors.any? %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <%= f.image_field :logo %>
+
+  <div class="field">
+    <%= f.label :link %>
+    <%= f.url_field :link %>
+  </div>
+
+  <div class="field">
+    <%= f.label :display %>
+    <%= f.check_box :display %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

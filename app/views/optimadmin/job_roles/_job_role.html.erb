@@ -1,6 +1,6 @@
 <div class="row collapse module-list-index <%= cycle('odd', 'even') %>"
   data-equalizer="module-list" id="item-<%= job_role.id %>">
-  <%= present job_role do |presenter| %>
+  <% present job_role do |presenter| %>
     <div class="large-10 small-4 columns"
       data-equalizer-watch="module-list">
       <%= job_role.title %>

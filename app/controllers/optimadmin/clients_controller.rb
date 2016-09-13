@@ -1,7 +1,7 @@
 module Optimadmin
   class ClientsController < Optimadmin::ApplicationController
     before_action :set_client, only: [:show, :edit, :update, :destroy]
-    
+
     edit_images_for Client, [[:logo, { show: ['fill', 132, 132] }]]
 
     def index

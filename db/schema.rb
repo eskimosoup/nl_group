@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160913095006) do
+ActiveRecord::Schema.define(version: 20160913112206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accreditations", force: :cascade do |t|
+    t.string   "name",                      null: false
+    t.string   "logo"
+    t.string   "link"
+    t.integer  "position",   default: 1,    null: false
+    t.boolean  "display",    default: true, null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "accreditations", ["position"], name: "index_accreditations_on_position", using: :btree
 
   create_table "additional_animations", force: :cascade do |t|
     t.integer  "additional_block_id"
