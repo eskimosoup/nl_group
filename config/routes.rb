@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :job_roles, only: [:index]
 
   post '/', to: 'application#index'
+  get ':id', to: 'audiences#show', as: :audience, constraints: AudienceConstraint.new
   get ':id', to: 'landing_pages#show', as: :landing_page, constraints: LandingPageConstraint.new
 
   namespace :member_area, path: 'member-area' do
@@ -49,7 +50,7 @@ Rails.application.routes.draw do
 
   mount Optimadmin::Engine => '/admin'
 
-  root to: 'application#index'
+  root to: 'homes#show'
 end
 Optimadmin::Engine.routes.draw do
   resources :available_roles, except: [:show] do
