@@ -1,0 +1,22 @@
+<%= form_for @contact_enquiry_type do |f| %>
+  <%= render(
+    partial: 'optimadmin/shared/errors',
+    locals: {
+      object: @contact_enquiry_type
+    }
+  ) if @contact_enquiry_type.errors.any? %>
+
+  <div class="field">
+    <%= f.label :enquiry_type %>
+    <%= f.text_field :enquiry_type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :display %>
+    <%= f.check_box :display %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

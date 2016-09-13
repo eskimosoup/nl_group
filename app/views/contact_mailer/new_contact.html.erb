@@ -49,6 +49,20 @@
       </td>
     </tr>
   <% end %>
+  <% if @contact.enquiry_type.present? %>
+    <tr>
+      <td style="color: #000;
+          font-family: Arial, sans-serif;
+          font-size: 14px;
+          display: inline-block;
+          line-height: 14px;
+          margin: 0;
+          padding: 10px 0;
+      ">
+        <%= @contact.enquiry_type %>
+      </td>
+    </tr>
+  <% end %>
   <tr>
     <td style="color: #000;
         font-family: Arial, sans-serif;

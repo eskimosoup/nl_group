@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160908150629) do
+ActiveRecord::Schema.define(version: 20160913095006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -195,6 +195,15 @@ ActiveRecord::Schema.define(version: 20160908150629) do
     t.datetime "updated_at",                null: false
   end
 
+  create_table "contact_enquiry_types", force: :cascade do |t|
+    t.string   "enquiry_type",                null: false
+    t.boolean  "display",      default: true, null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "contact_enquiry_types", ["enquiry_type"], name: "index_contact_enquiry_types_on_enquiry_type", unique: true, using: :btree
+
   create_table "dbs_checks", force: :cascade do |t|
     t.integer  "member_profile_id"
     t.boolean  "enhanced_dbs_completed_before",    null: false
@@ -292,6 +301,15 @@ ActiveRecord::Schema.define(version: 20160908150629) do
   end
 
   add_index "job_locations", ["job_id"], name: "index_job_locations_on_job_id", using: :btree
+
+  create_table "job_roles", force: :cascade do |t|
+    t.string   "title",                     null: false
+    t.text     "summary"
+    t.string   "link"
+    t.boolean  "display",    default: true, null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "jobs", force: :cascade do |t|
     t.string   "workable_id"

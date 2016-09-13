@@ -1,0 +1,22 @@
+<div class="row collapse module-list-index <%= cycle('odd', 'even') %>"
+  data-equalizer="module-list" id="item-<%= contact_enquiry_type.id %>">
+
+  <%= present contact_enquiry_type do |presenter| %>
+    <div class="large-9 small-4 columns"
+      data-equalizer-watch="module-list">
+      <%= contact_enquiry_type.enquiry_type %>
+    </div>
+
+    <div class="large-1 small-4 columns" data-equalizer-watch="module-list">
+      <%= presenter.toggle_link %>
+    </div>
+
+    <div class="large-1 small-4 columns" data-equalizer-watch="module-list">
+      <%= presenter.edit_link %>
+    </div>
+
+    <div class="large-1 hide-for-medium-down columns last" data-equalizer-watch="module-list">
+      <%= presenter.delete_link %>
+    </div>
+  <% end %>
+</div>

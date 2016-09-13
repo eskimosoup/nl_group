@@ -1,0 +1,32 @@
+<%= form_for @job_role do |f| %>
+  <%= render(
+    partial: 'optimadmin/shared/errors',
+    locals: {
+      object: @job_role
+    }
+  ) if @job_role.errors.any? %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :summary %>
+    <%= f.text_area :summary, class: 'tinymce' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :link %>
+    <%= f.url_field :link %>
+  </div>
+
+  <div class="field">
+    <%= f.label :display %>
+    <%= f.check_box :display %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

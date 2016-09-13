@@ -1,0 +1,24 @@
+<%= render 'optimadmin/shared/header/main_title', title: 'Manage Contact Enquiry Types' %>
+
+<div class="main-content">
+  <div class="row module-header collapse">
+    <%= render 'optimadmin/shared/module/index/new_item', title: 'Contact Enquiry Type',
+      object: JobRole, path: new_contact_enquiry_type_path %>
+    <%= render 'optimadmin/shared/module/index/recycle_bin',
+      items: @contact_enquiry_types.size, path: root_url %>
+  </div>
+
+  <div class="row collapse module-list-index header">
+    <%= list_item 'large-9 small-4' do %>
+      <%= link_to octicon('chevron-down'), '#',
+        class: 'helper-link index-list-expand-all',
+        data: { this_class: 'octicon-chevron-up octicon-chevron-down' } %>
+      Title
+    <% end %>
+    <%= list_item { 'Display' } %>
+    <%= list_item { 'Edit' } %>
+    <%= list_item('large-1 hide-for-medium-down text-center last') { 'Delete' } %>
+  </div>
+
+  <%= render partial: 'optimadmin/contact_enquiry_types/contact_enquiry_type', collection: @contact_enquiry_types %>
+</div>

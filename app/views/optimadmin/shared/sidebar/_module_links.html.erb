@@ -43,6 +43,7 @@
       </div>
 
       <ul class="content-category-list">
+        <%= link_to 'Contact Enquiry Types', contact_enquiry_types_path %>
         <%= module_link(model: Page, path: pages_path) %>
         <%= module_link(model: TeamMember, path: team_members_path, content: "Team Members") %>
         <%= module_link(content: "Team Member Teams", model: TeamMemberTeam, path: team_member_teams_path) %>
@@ -53,6 +54,7 @@
       </div>
 
       <ul class="content-category-list">
+        <%= link_to "Job Roles", job_roles_path %>
         <%= module_link(content: "Referral Offer", model: ReferralOffer, path: referral_offers_path) %>
         <%= module_link(content: "Workable Stage", model: WorkableStage, path: workable_stages_path) %>
         <%= module_link(model: Resource, path: resources_path) %>

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :team_members, only: [:index, :show], path: 'team-members'
   resources :testimonials, only: [:index]
   resources :jobs, only: [:index]
+  resources :job_roles, only: [:index]
 
   post '/', to: 'application#index'
   get ':id', to: 'landing_pages#show', as: :landing_page, constraints: LandingPageConstraint.new
@@ -98,7 +99,9 @@ Optimadmin::Engine.routes.draw do
   resources :admin_messages, except: [:show], concerns: [:orderable, :toggleable]
   resources :audiences, except: [:show]
   resources :clients, except: [:show], concerns: [:orderable, :toggleable, :imageable]
+  resources :contact_enquiry_types, except: [:show], concerns: [:toggleable]
   resources :frequently_asked_questions, except: [:show], concerns: [:orderable, :toggleable]
+  resources :job_roles, except: [:show], concerns: [:toggleable]
   resources :key_contacts, except: [:show], concerns: [:orderable, :toggleable]
   resources :landing_pages, except: [:show], concerns: [:orderable, :toggleable]
   resources :pages, except: :show, concerns: [:orderable, :toggleable, :imageable]
