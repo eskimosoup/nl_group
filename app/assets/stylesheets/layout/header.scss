@@ -1,3 +1,9 @@
+.home .top-header {
+  border-bottom: 5px solid $dark-blue;
+  margin-bottom: em(34px);
+  padding-bottom: em(34px);
+}
+
 .top-header {
   background: $white;
   padding: em(40px) 0 0;
@@ -36,6 +42,14 @@
   a {
     text-decoration: none;
   }
+}
+
+.header-telephone-option {
+  color: $bright-light-blue;
+  display: inline-block;
+  font-size: em(11px);
+  margin: 0 0 0 em(20px);
+  text-transform: uppercase;
 }
 
 .telephone {

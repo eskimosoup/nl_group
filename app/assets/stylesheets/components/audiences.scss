@@ -1,0 +1,73 @@
+.audience {
+  border-style: solid;
+  border-width: 5px;
+  display: block;
+  margin: 0 em(5px);
+  overflow: hidden;
+  padding: em(17px) 0 0;
+  text-align: center;
+  text-decoration: none;
+}
+
+.audience-title {
+  border: 0;
+  border-radius: 40px;
+  font-size: em(18px);
+  font-weight: $proxima-nova-bold;
+  margin: 0 em(9px, 18px) em(17px, 18px);
+  padding: em(22px, 18px) em(45px, 18px);
+  text-transform: inherit;
+}
+
+.audience-work-reasons {
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  padding: em(67px) 0 em(34px);
+}
+
+.dark-blue {
+  border-color: $dark-blue;
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: $white;
+  }
+
+  .audience-title,
+  .audience-work-reasons {
+    background: $dark-blue;
+    color: $white;
+  }
+
+  .audience-work-reasons {
+    background-image: image-url('components/home-content/nlgroup-logo-light-blue.png');
+    background-position: center 34px;
+    background-repeat: no-repeat;
+  }
+}
+
+.green {
+  border-color: $green;
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: $dark-blue;
+  }
+
+  .audience-title,
+  .audience-work-reasons {
+    background: $green;
+    color: $dark-blue;
+  }
+
+  .audience-work-reasons {
+    background-image: image-url('components/home-content/nlgroup-logo-dark-blue.png');
+    background-position: center 34px;
+    background-repeat: no-repeat;
+  }
+}

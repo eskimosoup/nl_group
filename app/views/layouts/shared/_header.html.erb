@@ -1,26 +1,4 @@
 <div class="fixed-wrap">
-  <header class="top-header">
-    <div class="row">
-      <div class="small-6 medium-8 columns">
-        <%= link_to (current_page?(root_path) ? root_url : member_area_root_url), title: global_site_settings['Name'], class: 'top-header-logo' do %>
-          <%= image_tag 'layout/header/logo.png', alt: global_site_settings['Name'] %>
-        <% end %>
-        <div class="top-header-tagline">
-          Recruiting excellence in Healthcare.
-        </div>
-      </div>
-
-      <div class="small-6 medium-4 columns">
-        <%= link_to (image_tag 'components/icons/hamburger.svg', alt: 'Menu'), '#', title: 'Toggle Menu', class: 'hamburger-icon toggle-class show-for-small', data: { container: '.primary-navigation', class: 'hide-for-small' } %>
-        <div class="header-telephone">
-          Tel: <strong><%= global_site_settings['Phone'] %></strong>
-        </div>
-        <div class="header-email">
-          Email: <strong><%= mail_to global_site_settings['Email'] %></strong>
-        </div>
-      </div>
-    </div>
-  </header>
-
+  <%= render 'layouts/shared/header_branding' %>
   <%= render 'layouts/shared/header_navigation' %>
 </div>

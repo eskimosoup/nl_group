@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160913112206) do
+ActiveRecord::Schema.define(version: 20160921132348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,6 +99,16 @@ ActiveRecord::Schema.define(version: 20160913112206) do
     t.string   "suggested_url"
     t.string   "visible_title"
   end
+
+  create_table "additional_rows_audiences", force: :cascade do |t|
+    t.integer  "audience_id",       null: false
+    t.integer  "additional_row_id", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "additional_rows_audiences", ["additional_row_id"], name: "index_additional_rows_audiences_on_additional_row_id", using: :btree
+  add_index "additional_rows_audiences", ["audience_id"], name: "index_additional_rows_audiences_on_audience_id", using: :btree
 
   create_table "additional_titles", force: :cascade do |t|
     t.integer  "additional_block_id"
@@ -799,6 +809,8 @@ ActiveRecord::Schema.define(version: 20160913112206) do
   add_foreign_key "additional_blocks", "additional_rows"
   add_foreign_key "additional_buttons", "additional_blocks"
   add_foreign_key "additional_paragraphs", "additional_blocks"
+  add_foreign_key "additional_rows_audiences", "additional_rows"
+  add_foreign_key "additional_rows_audiences", "audiences"
   add_foreign_key "additional_titles", "additional_blocks"
   add_foreign_key "basic_informations", "member_profiles", on_delete: :cascade
   add_foreign_key "basic_medical_histories", "member_profiles", on_delete: :cascade

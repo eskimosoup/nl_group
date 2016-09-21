@@ -1,18 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe AdditionalRow, type: :model, additional_content: true do
-  describe "validations", :validation do
+  describe 'validations', :validation do
     subject(:additional_row) { build(:additional_row) }
     it { should validate_presence_of(:name) }
     it { should validate_inclusion_of(:style).allow_blank(true).in_array(AdditionalRow::STYLES) }
-    it { should validate_uniqueness_of(:suggested_url).allow_blank.case_insensitive.with_message("is already taken, leave blank to generate automatically") }
+    it { should validate_uniqueness_of(:suggested_url).allow_blank.case_insensitive.with_message('is already taken, leave blank to generate automatically') }
   end
 
-  describe "associations", :association do
+  describe 'associations', :association do
     it { should have_many(:additional_blocks).dependent(:destroy) }
+    it { should have_many(:additional_rows_audiences).dependent(:destroy).class_name('::AdditionalRow::Audience') }
+    it { should have_many(:audiences).through(:additional_rows_audiences) }
   end
 
-  describe "scopes", :scope do
+  describe 'scopes', :scope do
     let(:additional_row) { create(:additional_row) }
     let(:hidden_additional_row) { create(:additional_row, display: false) }
 
@@ -24,12 +26,12 @@ RSpec.describe AdditionalRow, type: :model, additional_content: true do
   describe 'methods', :methods do
     let(:additional_row) { create(:additional_row) }
 
-    context "responds to its custom path" do
+    context 'responds to its custom path' do
       it { expect(additional_row).to respond_to(:custom_path) }
     end
 
-    context "executes custom path method correctly" do
-      it "shows a custom path" do
+    context 'executes custom path method correctly' do
+      it 'shows a custom path' do
         expect(additional_row.custom_path).to eq("#{root_path}##{additional_row.slug}")
       end
     end

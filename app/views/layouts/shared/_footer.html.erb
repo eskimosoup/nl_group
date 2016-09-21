@@ -34,11 +34,5 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="small-12 columns">
-      <ul class="footer-navigation-links">
-        <%= nested_menu_items(menu_items: @footer_menu.menu_items) %>
-      </ul>
-    </div>
-  </div>
+  <%= render 'layouts/shared/footer_accreditations_and_navigation' %>
 </footer>

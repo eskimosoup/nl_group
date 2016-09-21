@@ -1,0 +1,22 @@
+.our-carers-provide-content {
+  text-align: center;
+}
+
+.our-carers-provide-title {
+  background: image-url('components/icons/person-icon.png') left center no-repeat;
+  border: 0;
+  color: $white;
+  display: inline-block;
+  font-size: em(21px);
+  font-weight: $proxima-nova-bold;
+  margin: 0 0 rem(20px);
+  padding: 0 0 0 em(16px);
+  text-transform: inherit;
+}
+
+.our-carers-provide-slide {
+  color: $white;
+  margin: 0 auto;
+  padding: em(8px) 0;
+  width: 90%;
+}

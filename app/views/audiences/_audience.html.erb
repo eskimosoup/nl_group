@@ -1,13 +1,20 @@
-<%= content_tag :div, class: home_audience_classes(audience) do %>
-  <%= link_to audience_path(audience) do %>
-    <h2><%= I18n.t(home_audience_title(audience)) %></h2>
-    <%= image_tag home_audience_image(audience), alt: audience.name, title: audience.name %>
-    <ul>
+<div class="small-12 large-6 columns">
+  <%= link_to audience_path(audience), class: home_audience_classes(audience), title: I18n.t(home_audience_title(audience)) do %>
+    <h2 class="audience-title">
+      <%= I18n.t(home_audience_title(audience)) %>
+    </h2>
+
+    <%= image_tag home_audience_image(audience),
+                  alt: audience.name,
+                  title: audience.name,
+                  class: 'audience-image' %>
+
+    <ul class="audience-work-reasons">
       <% audience.work_reasons.each do |work_reason| %>
-        <li>
+        <li class="audience-work-reason">
           <%= work_reason.title %>
         </li>
       <% end %>
     </ul>
   <% end %>
-<% end %>
+</div>

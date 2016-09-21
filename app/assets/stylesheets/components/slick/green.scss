@@ -1,0 +1,23 @@
+.green-slick-arrows {
+  li {
+    button::before {
+      color: $white;
+    }
+
+    &.slick-active button::before {
+      color: $green;
+    }
+  }
+
+  .slick-prev {
+    &::before {
+      background: image-url('components/icons/small-arrow-left-green.png') no-repeat;
+    }
+  }
+
+  .slick-next {
+    &::before {
+      background: image-url('components/icons/small-arrow-right-green.png') no-repeat;
+    }
+  }
+}
