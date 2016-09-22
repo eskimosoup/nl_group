@@ -1,0 +1,24 @@
+.footer-navigation-title {
+  font-size: em(18px);
+  font-weight: $proxima-nova-bold;
+  margin: 0 0 em(8px);
+}
+
+.footer-navigation-links {
+  margin: 0 0 em(25px);
+
+  li {
+    margin: em(7px) 0;
+  }
+
+  a {
+    color: $dark-grey;
+    display: block;
+    font-size: em(16px);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

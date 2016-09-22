@@ -1,1 +1,5 @@
-<%= render partial: 'testimonials/home_testimonial', locals: { testimonial_presenter: @presented_testimonials.send(cycle('first', 'second', 'third', name: 'object')), additional_block_presenter: additional_block_presenter } if @presented_testimonials %>
+<%= render partial: 'testimonials/home_testimonial',
+           locals: {
+              presented_testimonials: @presented_testimonials,
+              additional_block_presenter: additional_block_presenter
+           } if @presented_testimonials %>

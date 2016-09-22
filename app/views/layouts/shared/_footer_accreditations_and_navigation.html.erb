@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="small-12 columns">
+    <ul class="footer-accreditations">
+      <li>
+        <%= image_tag 'layout/footer/accreditations/london-procurement-programme.jpg',
+                      alt: 'London Procurement Programme' %>
+      </li>
+      <li>
+        <%= image_tag 'layout/footer/accreditations/iso.jpg',
+                      alt: 'The British Assessment Bureau ISO 9001' %>
+      </li>
+      <li>
+        <%= image_tag 'layout/footer/accreditations/cqc.jpg',
+                      alt: 'Care Quality Commission' %>
+      </li>
+      <li>
+        <%= image_tag 'layout/footer/accreditations/ccs.jpg',
+                      alt: 'Crown Commercial Service' %>
+      </li>
+      <li>
+        <%= image_tag 'layout/footer/accreditations/rec-medical.jpg',
+                      alt: 'REC Medical' %>
+      </li>
+      <li>
+        <%= image_tag 'layout/footer/accreditations/rec-member.jpg',
+                      alt: 'REC Member' %>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="row">
+
+  <% if @footer_homecare_menu.menu_items.present? %>
+    <div class="medium-4 columns">
+      <div class="footer-navigation-title">
+        Arranging Homecare
+      </div>
+
+      <ul class="footer-navigation-links">
+        <%= nested_menu_items(menu_items: @footer_homecare_menu.menu_items) %>
+      </ul>
+    </div>
+  <% end %>
+  <% if @footer_about_menu.menu_items.present? %>
+    <div class="medium-4 columns">
+      <div class="footer-navigation-title">
+        About NLG Homecare
+      </div>
+
+      <ul class="footer-navigation-links">
+        <%= nested_menu_items(menu_items: @footer_about_menu.menu_items) %>
+      </ul>
+    </div>
+  <% end %>
+  <% if @footer_jobs_menu.menu_items.present? %>
+    <div class="medium-4 columns">
+      <div class="footer-navigation-title">
+        Homecare Jobs at NLG
+      </div>
+
+      <ul class="footer-navigation-links">
+        <%= nested_menu_items(menu_items: @footer_jobs_menu.menu_items) %>
+      </ul>
+    </div>
+  <% end %>
+</div>

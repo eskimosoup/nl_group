@@ -1,1 +1,3 @@
-<h1><%= @audience.name %></h1>
+<%= render partial: 'additional_rows/additional_row',
+           collection: @presented_additional_contents,
+           as: :additional_row_presenter %>

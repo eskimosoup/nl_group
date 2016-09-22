@@ -1,0 +1,13 @@
+<div class="small-12 columns">
+  <%= content_tag :h2, additional_block_presenter.presented_title, class: 'homecare-value-intro-title' if additional_block_presenter.presented_title.present? %>
+
+  <% if additional_block_presenter.presented_paragraph.present? %>
+    <div class="homecare-value-intro-content">
+      <%= additional_block_presenter.presented_block do %>
+        <%= additional_block_presenter.presented_paragraph %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= additional_block_presenter.presented_button(0) %>
+</div>

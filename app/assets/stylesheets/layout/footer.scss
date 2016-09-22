@@ -3,35 +3,41 @@
 }
 
 .primary-footer {
-  background: image-url('layout/footer/graphic.jpg') -150px 100% no-repeat;
-  padding: em(50px) 0;
-
-  .columns {
-    //background: $white;
-  }
+  margin: rem(50px) 0;
 
   h5 {
-    color: $primary-blue;
-    border-bottom: 3px solid $grey;
-    font-size: em(27px);
-    font-weight: $proxima-nova-light;
+    @include dark-content-box-title;
     text-align: center;
-    text-transform: uppercase;
-    padding: 0 0 em(22px, 27px);
-    margin: 0 0 em(40px, 27px);
   }
 
   a {
-    color: $dark-blue;
+    color: $white;
     font-weight: $proxima-nova-bold;
     text-decoration: none;
   }
 
-  strong {
+  input[type='text'],
+  input[type='tel'],
+  input[type='email'],
+  textarea,
+  select {
+    background: $blue-grey;
     color: $dark-blue;
+    padding: em(12px);
+  }
+
+  strong,
+  label,
+  p {
+    color: $white;
   }
 
   p {
     font-size: em(16px);
   }
+}
+
+.primary-footer-contact-area {
+  background: $dark-blue;
+  padding: em(50px) 0;
 }

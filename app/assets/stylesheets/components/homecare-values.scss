@@ -1,0 +1,24 @@
+.homecare-value-intro-title {
+  @include standard-content-box-title;
+}
+
+.homecare-value-intro-content p {
+  font-size: 18px;
+  margin: 0 em(19px, 18px) em(50px, 18px);
+}
+
+.homecare-value-title {
+  border-bottom: 3px solid $dark-blue;
+  font-size: 21px;
+  font-weight: $proxima-nova-bold;
+  margin: 0 0 em(20px, 21px);
+  padding: 0 0 em(21px, 21px);
+  text-transform: inherit;
+}
+
+.homecare-value-content {
+  p {
+    color: $light-grey;
+    font-size: 14px;
+  }
+}

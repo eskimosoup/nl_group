@@ -1,6 +1,7 @@
 .testimonials {
   background: $dark-blue image-url('components/content-boxes/testimonial-background.png') center right no-repeat;
   padding: em(45px) 0 em(52px);
+  text-align: center;
 
   @include media('<tablet') {
     padding: em(15px) 0;
@@ -26,36 +27,8 @@
     margin: em(10px) 0;
   }
 
-  .slick-slider {
-    margin: 0;
-  }
-
-  .slick-prev {
-    top: 33%;
-    left: -25px;
-    z-index: 2;
-
-    &:before {
-      background: image-url('components/icons/small-arrow-left.png') no-repeat;
-      content: '';
-      display: block;
-      height: 22px;
-      width: 13px;
-    }
-  }
-
-  .slick-next {
-    top: 33%;
-    right: -25px;
-    z-index: 2;
-
-    &:before {
-      background: image-url('components/icons/small-arrow-right.png') no-repeat;
-      content: '';
-      display: block;
-      height: 22px;
-      width: 13px;
-    }
+  .slick-dots {
+    position: static;
   }
 }
 
@@ -63,11 +36,11 @@
   @extend %clearfix;
   clear: left;
   margin: em(5px) 0;
+  padding: em(30px) 0 em(15px);
+}
 
-  .testimonial-quote-mark {
-    float: right;
-    margin: 0 em(15px) 0 0;
-  }
+.testimonial-quote-mark {
+  margin: 0 auto;
 }
 
 .testimonial-thumbnail {

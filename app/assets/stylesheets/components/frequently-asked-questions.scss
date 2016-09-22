@@ -1,31 +1,15 @@
 .frequently-asked-questions {
-  background: $dark-blue;
   padding: em(56px) 0 em(64px);
 
   h4 {
-    color: $white;
-    border-bottom: 3px solid $grey;
-    font-size: em(27px);
-    font-weight: $proxima-nova-light;
-    text-transform: uppercase;
-    padding: 0 0 em(24px, 27px);
-    margin: 0 0 em(42px, 27px);
+    @include standard-content-box-title;
   }
 
   p {
-    color: $white;
+    color: $dark-blue;
     font-size: em(18px);
     font-weight: $proxima-nova-light;
     line-height: 1.25;
-  }
-
-  .frequently-asked-questions-reveal {
-    font-size: em(22px, 18px);
-    font-weight: $proxima-nova-bold;
-  }
-
-  strong {
-    color: $light-blue;
   }
 }
 
@@ -38,21 +22,20 @@
   }
 
   li {
-    color: $white;
-    position: relative;
     padding: em(6px) 0 0 em(52px);
+    position: relative;
     margin: 0 0 em(27px);
 
     a {
-      @include link-colors($white);
+      @include link-colors($dark-blue);
       text-decoration: none;
     }
 
     &:before {
       @include border-radius(50%);
       content: 'Q';
-      background: $white;
-      color: $dark-green;
+      background: $light-blue;
+      color: $white;
       width: 32px;
       height: 32px;
       line-height: 32px;
@@ -66,4 +49,8 @@
       font-size: em(14px);
     }
   }
+}
+
+.frequently-asked-questions-button {
+  margin: em(50px) 0 0;
 }

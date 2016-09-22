@@ -1,78 +1,63 @@
 .team {
-  background: $pale-light-blue;
-  min-height: 748px;
   padding: em(72px) 0;
-  position: relative;
+  background: $dark-blue;
+  text-align: center;
 
   h4 {
-    color: $primary-blue;
-    font-weight: $proxima-nova-bold;
-    font-size: em(38px);
-    margin:  0 0 em(28px, 38px);
-    border: 0;
-    padding: 0;
-    text-transform: none;
-    text-align: left;
+    @include dark-content-box-title;
   }
 
   .green-action-button {
-    margin: em(38px) 0 0;
+    color: $dark-blue;
+    margin: em(18px) 0 0;
+
+    &:hover,
+    &:active {
+      color: $white;
+    }
   }
 }
 
-.home-team-members {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 684px;
-  height: 748px;
+.team-member-index {
+  display: block;
+  margin: em(10px) em(20px) em(43px);
+}
 
-  @include media('<1200px') {
-    position: static;
+.team-member-index-image {
+  border: 3px solid $primary-blue;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.team-member-index-name {
+  color: $white;
+  font-size: em(18px);
+  margin: em(15px, 18px) 0 0;
+}
+
+.team-member-index-role {
+  color: $white;
+  font-size: em(14px);
+  font-weight: $proxima-nova-semibold;
+  margin: em(15px, 14px) 0 0;
+}
+
+.team-member-index-email {
+  color: $light-blue;
+  display: block;
+  margin: em(28px) 0 0;
+
+  &:visited,
+  &:link {
+    color: $light-blue;
   }
 
-  @include media('<tablet') {
-    margin-top: em(40px);
-    width: auto;
-    height: auto;
-  }
-
-  .row {
-    @include media('>=tablet') {
-      position: absolute;
-      left: 111px;
-      max-width: 573px;
-    }
-
-    @include media('<tablet') {
-      position: static;
-    }
-  }
-
-  .team-members-row-0 {
-    top: 93px;
-  }
-
-  .team-members-row-1 {
-    top: 186px;
-  }
-
-  .team-members-row-2 {
-    top: 279px;
-  }
-
-  .team-members-row-3 {
-    top: 372px;
-  }
-
-  .team-members-row-4 {
-    top: 466px;
-  }
-
-  .team-members-row-5 {
-    top: 559px;
+  &:hover,
+  &:active {
+    color: $white;
   }
 }
+
 
 .team-member-name {
   border-bottom: 0;
@@ -106,14 +91,5 @@
 .team-member-profile {
   p:first-of-type {
     margin-top: 0;
-  }
-}
-
-.team-member-index {
-  display: inline-block;
-  margin: em(10px) em(20px);
-
-  @include media('<desktop') {
-    margin: em(10px);
   }
 }

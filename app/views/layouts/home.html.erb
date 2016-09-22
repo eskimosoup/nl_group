@@ -9,12 +9,18 @@
   </head>
 
   <body>
-    <%= render 'layouts/shared/header' %>
+    <div class="fixed-wrap home">
+      <%= render 'layouts/shared/header_branding' %>
+    </div>
 
     <div class="home-content">
       <%= render 'shared/flash_messages' %>
 
       <%= yield %>
+    </div>
+
+    <div class="footer-accreditations-home">
+      <%= render 'layouts/shared/footer_accreditations_and_navigation' %>
     </div>
 
     <%= javascript_include_tag 'application' %>

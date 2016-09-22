@@ -1,18 +1,14 @@
 <%= form_for(@additional_row) do |f| %>
-<% if @additional_row.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@additional_row.errors.count, "error") %> prohibited this additional_row from being saved:</h2>
-
-    <ul>
-      <% @additional_row.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
-
-
+  <% if @additional_row.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@additional_row.errors.count, "error") %> prohibited this additional_row from being saved:</h2>
+      <ul>
+        <% @additional_row.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div class="tabs prevent-flash">
     <ul class="tab-list">
       <li><a href="#tabs-1">Content</a></li>
@@ -24,43 +20,41 @@
         <% end %>
       </li>
     </ul>
-
     <%= field_set_tag nil, id: 'tabs-1' do %>
-            <div class="field">
+      <div class="field">
         <%= f.label :name %><br>
         <%= f.text_field :name %>
       </div>
-            <div class="field">
+      <div class="field">
         <%= f.label :visible_title %> <%= module_tooltip('This is shown on the front end in some rows', 'The visible title is the row title visible to the user, when the row style supports it.') %><br>
         <%= f.text_field :visible_title %>
       </div>
       <div class="field">
-  <%= f.label :style %><br>
-  <%= f.select :style, AdditionalRow::STYLES.map{|x| [x.humanize, x]}, include_blank: 'Default' %>
-</div>
-  <% if @current_administrator.role == 'master' %>
-  <div class="field">
-    <%= f.label :maximum_content_blocks %><br>
-    <%= f.number_field :maximum_content_blocks %>
-  </div>
-  <% end %>
-
-
-          <% end %>
-
-    <%#= field_set_tag nil, id: 'tabs-2' do %>
-
-          <%# end %>
-
-    <%= field_set_tag nil, id: 'tabs-3' do %>
-            <div class="field">
-        <%= f.label :display %><br>
-        <%= f.check_box :display %>
+        <%= f.label :style %><br>
+        <%= f.select :style, AdditionalRow::STYLES.map{|x| [x.humanize, x]}, include_blank: 'Default' %>
       </div>
-          <% end %>
-  </div>
+      <% if @current_administrator.role == 'master' %>
+        <div class="field">
+          <%= f.label :maximum_content_blocks %><br>
+          <%= f.number_field :maximum_content_blocks %>
+        </div>
+      <% end %>
+    <% end %>
+    <%#= field_set_tag nil, id: 'tabs-2' do %>
+      <%# end %>
+      <%= field_set_tag nil, id: 'tabs-3' do %>
+        <div class="field">
+          <%= f.label :audience_ids, 'Audiences' %>
+          <%= f.select :audience_ids, Audience.pluck(:name, :id), {}, multiple: true, class: 'multiselect' %>
+        </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+        <div class="field">
+          <%= f.label :display %><br>
+          <%= f.check_box :display %>
+        </div>
+      <% end %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>

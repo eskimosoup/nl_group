@@ -1,4 +1,15 @@
-<h1><%= I18n.t('views.homepage.h1') %></h1>
+<%= content_for :footer do %>
+  <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight.js' %>
+  <script>
+    $(window).load(function() {
+      $('.audience').matchHeight();
+    });
+  </script>
+<% end %>
+
+<h1 class="home-page-title">
+  <%= I18n.t('views.homepage.h1') %>
+</h1>
 
 <div class="row">
   <%= render @facade.audiences %>

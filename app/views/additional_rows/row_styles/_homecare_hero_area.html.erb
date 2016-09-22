@@ -1,0 +1,15 @@
+<div id="<%= additional_row_presenter.anchor %>" class="register-interest-and-find-work">
+  <div class="row">
+    <div class="small-12 medium-10 medium-centered columns">
+      <div class="primary-title">
+        <%= additional_row_presenter.visible_title.split('. ')[0] %>
+
+        <span class="primary-title-accent">
+          <%= additional_row_presenter.visible_title.split('. ')[1] %>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <%= render partial: "additional_rows/additional_block", collection: BaseCollectionPresenter.new(collection: additional_row_presenter.additional_blocks, view_template: self, presenter: AdditionalBlockPresenter), as: :additional_block_presenter, locals: { additional_row_presenter: additional_row_presenter } %>
+</div>

@@ -1,0 +1,20 @@
+<%= content_for :footer do %>
+  <script>
+    $(document).ready(function() {
+      $('.team-members-index-slider').slick({
+        slidesToShow: 3,
+        slidesToScroll: 3
+      });
+    });
+  </script>
+<% end %>
+
+<div class="row">
+  <div class="small-12 columns">
+    <div class="team-members-index-slider shared-slick-arrows green-slick-arrows">
+      <%= render partial: 'team_members/team_member',
+                 collection: @presented_team_members,
+                 as: :team_member_presenter %>
+    </div>
+  </div>
+</div>

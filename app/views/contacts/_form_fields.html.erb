@@ -14,32 +14,32 @@
 <% end %>
 
 <div class="field">
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%#= f.label :name %>
+  <%= f.text_field :name, placeholder: 'Name' %>
 </div>
 
 <div class="field">
-  <%= f.label :email %>
-  <%= f.email_field :email %>
+  <%#= f.label :enquiry_type %>
+  <%= f.select :enquiry_type, ContactEnquiryType.displayed.order(:enquiry_type).pluck(:enquiry_type), prompt: 'Enquiry type' %>
 </div>
 
 <div class="field">
-  <%= f.label :phone_number %>
-  <%= f.phone_field :phone_number %>
+  <%#= f.label :email %>
+  <%= f.email_field :email, placeholder: 'Email' %>
 </div>
 
 <div class="field">
-  <%= f.label :message %>
-  <%= f.text_area :message %>
+  <%#= f.label :phone_number %>
+  <%= f.phone_field :phone_number, placeholder: 'Phone number' %>
 </div>
 
 <div class="field">
-  <%= f.label :enquiry_type %>
-  <%= f.select :enquiry_type, ContactEnquiryType.displayed.order(:enquiry_type).pluck(:enquiry_type) %>
+  <%#= f.label :message %>
+  <%= f.text_area :message, placeholder: 'How can we help?' %>
 </div>
 
 <%= f.hidden_field :location %>
 
 <div class="actions">
-  <%= f.submit "Send a message", class: 'right' %>
+  <%= f.submit 'Submit', class: 'green-action-button right' %>
 </div>

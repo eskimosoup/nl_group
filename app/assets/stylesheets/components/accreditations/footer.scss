@@ -1,0 +1,14 @@
+.footer-accreditations-home {
+  border-top: 5px solid $dark-blue;
+  margin-top: 67px;
+}
+
+.footer-accreditations {
+  list-style: none;
+  margin: em(70px) 0 em(55px);
+
+  li {
+    display: inline-block;
+    margin: 0 33px 0 0;
+  }
+}

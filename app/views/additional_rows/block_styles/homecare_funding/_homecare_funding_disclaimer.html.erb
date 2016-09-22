@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="small-12 columns">
+    <div class="home-care-funding-disclaimer">
+      <%= content_tag :h2, additional_block_presenter.presented_title, class: 'homecare-value-intro-title' if additional_block_presenter.presented_title.present? %>
+
+      <% if additional_block_presenter.presented_paragraph.present? %>
+        <div class="homecare-value-intro-content">
+          <%= additional_block_presenter.presented_block do %>
+            <%= additional_block_presenter.presented_paragraph %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
