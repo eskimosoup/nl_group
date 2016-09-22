@@ -1,7 +1,9 @@
-<%= additional_block_presenter.presented_block do %>
-  <h4><%= additional_block_presenter.presented_title %></h4>
+<div class="row">
+  <div class="medium-12 columns">
+    <%= additional_block_presenter.presented_block do %>
+      <h4><%= additional_block_presenter.presented_title %></h4>
 
-  <%= additional_block_presenter.presented_paragraph %>
-
-  <%= additional_block_presenter.presented_button(0, { }, 'green-action-button colorbox-iframe') %>
-<% end %>
+      <%= additional_block_presenter.presented_paragraph %>
+    <% end %>
+  </div>
+</div>

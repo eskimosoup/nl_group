@@ -20,7 +20,14 @@
         <%#= render partial: 'testimonials/shared/testimonial_content', collection: @presented_testimonials.reject{ |x| x == testimonial_presenter }, as: :testimonial_presenter, locals: { additional_block_presenter: additional_block_presenter } %>
       </div>
 
-      <%= link_to 'View more testimonials', '#', class: "view-more-testimonials testimonials-slick-#{additional_block_presenter.id}", data: { testimonials_group: additional_block_presenter.id } %>
+
+      <% if defined?(additional_block_presenter) %>
+        <div class="testimonial-action-button">
+          <%= additional_block_presenter.presented_button(0, { }, 'blue-action-button colorbox-iframe') %>
+        </div>
+      <% end %>
+
+      <%#= link_to 'View more testimonials', '#', class: "view-more-testimonials testimonials-slick-#{additional_block_presenter.id}", data: { testimonials_group: additional_block_presenter.id } %>
     </div>
   </div>
 </section>

@@ -12,12 +12,16 @@
   .slick-prev {
     &::before {
       background: image-url('components/icons/small-arrow-left-green.png') no-repeat;
+      height: 22px;
+      width: 13px;
     }
   }
 
   .slick-next {
     &::before {
       background: image-url('components/icons/small-arrow-right-green.png') no-repeat;
+      height: 22px;
+      width: 13px;
     }
   }
 }

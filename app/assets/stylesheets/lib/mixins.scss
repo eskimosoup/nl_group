@@ -1,3 +1,23 @@
+@mixin dark-content-box-title {
+  border-bottom: 3px solid $white;
+  color: $white;
+  font-size: em(24px);
+  font-weight: $proxima-nova-bold;
+  margin: 0 0 em(21px, 24px);
+  padding: 0 0 em(15px, 24px);
+  text-transform: inherit;
+}
+
+@mixin standard-content-box-title {
+  border-bottom: 3px solid $dark-blue;
+  color: $dark-blue;
+  font-size: 24px;
+  font-weight: $proxima-nova-bold;
+  margin: 0 0 em(30px, 24px);
+  padding: 0 0 em(21px, 24px);
+  text-transform: inherit;
+}
+
 // https://github.com/Compass/compass/blob/stable/core/stylesheets/compass/typography/links/_link-colors.scss
 
 // Set all the colors for a link with one mixin call.

@@ -20,6 +20,8 @@ class AdditionalRow < ActiveRecord::Base
     register_interest_and_find_work
 
     homecare_hero_area
+    homecare_values
+    homecare_funding
   ).freeze
   validates :style, allow_blank: true, inclusion: { in: STYLES }
 

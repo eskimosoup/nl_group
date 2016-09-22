@@ -2,14 +2,9 @@
   padding: em(50px) 0;
 
   h2 {
-    border-bottom: 3px solid $grey;
-    color: $primary-blue;
-    font-size: em(27px);
-    font-weight: $proxima-nova-light;
-    text-align: center;
-    text-transform: uppercase;
-    padding: 0 0 em(24px, 27px);
-    margin: 0 0 em(24px, 27px);
+    @include media('>=tablet') {
+      padding: 0 em(140px, 24px) em(35px, 24px);
+    }
   }
 
   p {
@@ -17,7 +12,7 @@
   }
 
   .slick-slider {
-    margin: 0;
+    margin: em(40px) 0 0;
   }
 
   .slick-dots {
@@ -27,6 +22,7 @@
 
 .clients-list {
   list-style: none;
+  margin: em(40px) 0 0;
 
   img {
     filter: grayscale(100%);
@@ -36,5 +32,6 @@
     -o-filter: grayscale(100%);
     -webkit-filter: grayscale(1);
     margin: 0 auto;
+    padding: 0 em(20px);
   }
 }

@@ -1,5 +1,20 @@
 <div class="team-member-index">
-  <% present team_member do |team_member_presenter| %>
-    <%= team_member_presenter.index_profile_preview %>
-  <% end %>
+  <%= team_member_presenter.profile_preview(
+              team_member_presenter.index_image(
+                alt: team_member_presenter.name,
+                class: 'team-member-index-image'
+              )
+            ) %>
+
+  <div class="team-member-index-name">
+    <%= team_member_presenter.name %>
+  </div>
+
+  <div class="team-member-index-role">
+    <%= team_member_presenter.role %>
+  </div>
+
+  <%= team_member_presenter.email(class: 'team-member-index-email') %>
+
+  <%= team_member_presenter.profile_preview('Click for more information', 'green-action-button') %>
 </div>

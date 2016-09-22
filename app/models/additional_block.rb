@@ -15,12 +15,17 @@ class AdditionalBlock < ActiveRecord::Base
     'rates_of_pay_figures',
     'clients_slider',
     # Homecare
-    'homecare_carers_provide_slider'
+    'homecare_carers_provide_slider',
+    'homecare_value',
+    'homecare_funding_disclaimer',
+    'button_only',
+    'team_members'
   ].freeze
   CLASSES = [
     ['Light action', 'light-action-button'],
     ['Dark action', 'dark-action-button'],
     ['Green action', 'green-action-button'],
+    ['Blue action', 'blue-action-button'],
     ['Rates of pay introduction', 'rates-of-pay-introduction'],
     ['Rates of pay small print', 'rates-small-print'],
     ['Branded content box', 'branded-content-box'],
