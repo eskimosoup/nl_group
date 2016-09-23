@@ -20,7 +20,7 @@
 .green-action-button,
 input[type='submit'].green-action-button {
   @extend %action-button;
-  @include link-colors($white, $grey, $white, $white, $white);
+  @include link-colors($dark-blue, $dark-blue, $dark-blue, $dark-blue, $dark-blue);
   background: $green;
 
   &:hover {
