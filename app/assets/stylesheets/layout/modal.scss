@@ -1,0 +1,59 @@
+.modal-wrap {
+  background: rgba($black, .75);
+  left: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.modal-wrap-content {
+  background: $primary-blue;
+  -webkit-filter: blur(0);
+  left: 50%;
+  padding: em(12px);
+  position: relative;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1080px;
+}
+
+.modal-team-member-content {
+  background: $white;
+  color: $dark-blue;
+  padding: em(97px) em(82px) em(46px);
+}
+
+.modal-team-member-filter {
+  padding: em(28px) em(58px);
+}
+
+.modal-team-member-name {
+  font-size: em(18px);
+}
+
+.modal-team-member-role {
+  font-size: em(14px);
+}
+
+.modal-team-member-biography {
+  p {
+    color: $dark-grey;
+    font-size: em(15px);
+    line-height: 1.86;
+  }
+}
+
+.modal-team-member-email {
+  color: $dark-blue;
+  font-size: em(14px);
+  margin: em(11px, 14px) 0;
+
+  &:link,
+  &:visited,
+  &:active,
+  &:hover {
+    color: $dark-blue;
+  }
+}
