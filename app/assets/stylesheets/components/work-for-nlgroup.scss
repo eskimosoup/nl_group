@@ -2,7 +2,7 @@
   background: $dark-blue;
 
   @include media('>1024px') {
-    padding: em(53px) 0 em(75px);
+    padding: em(53px) 0 0;
   }
   padding: em(26px) 0;
   text-align: center;
