@@ -11,7 +11,7 @@ module Optimadmin
     def create
       @audience = Audience.new(audience_params)
       if @audience.save
-        redirect_to audiences_path, notice: "Audience successfully created"
+        redirect_to audiences_path, notice: 'Audience successfully created'
       else
         render :new
       end
@@ -24,7 +24,7 @@ module Optimadmin
     def update
       @audience = find_audience
       if @audience.update(audience_params)
-        redirect_to audiences_path, notice: "Audience successfully updated"
+        redirect_to audiences_path, notice: 'Audience successfully updated'
       else
         render :edit
       end
@@ -33,7 +33,7 @@ module Optimadmin
     def destroy
       audience = find_audience
       audience.destroy
-      redirect_to audiences_path, notice: "Audience successfully destroyed"
+      redirect_to audiences_path, notice: 'Audience successfully destroyed'
     end
 
     private
@@ -45,7 +45,7 @@ module Optimadmin
     def audience_params
       params.require(:audience).permit(
         :name, testimonial_ids: [], frequently_asked_question_ids: [],
-        work_reason_ids: [],
+               work_reason_ids: []
       )
     end
   end
