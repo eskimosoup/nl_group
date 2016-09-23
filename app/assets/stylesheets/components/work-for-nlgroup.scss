@@ -65,7 +65,7 @@ $reason-colour-names: green dark-blue green dark-blue;
     padding: em(88px, 21px) em(20px, 21px) em(40px, 21px);
 
     a {
-      @include link-colors($white, $white, $white, $white);
+      @include link-colors($dark-blue, $dark-blue, $dark-blue, $dark-blue);
       text-decoration: none;
     }
   }
