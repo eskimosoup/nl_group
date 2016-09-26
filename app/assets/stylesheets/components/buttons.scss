@@ -9,6 +9,10 @@
   @include media('<tablet') {
     padding: em(9px, 16px) em(12px, 16px);
   }
+
+  &.compact {
+    padding: em(9px, 16px) em(12px, 16px);
+  }
 }
 
 .light-action-button {
@@ -43,4 +47,8 @@ input[type='submit'].green-action-button {
   @extend %action-button;
   @include link-colors($white, $light-blue, $white, $white, $white);
   background: $dark-grey;
+}
+
+.expand-truncation {
+  margin: 0 0 em(10px);
 }
