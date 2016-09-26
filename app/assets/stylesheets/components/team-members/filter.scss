@@ -1,0 +1,50 @@
+.modal-team-member-filter {
+  color: $dark-blue;
+  font-size: em(18px);
+}
+
+.modal-team-member-filter-type-list {
+  display: inline-block;
+  list-style: none;
+  margin: 0 0 em(26px, 18px);
+
+  li {
+    display: inline-block;
+    margin: 0 em(5px, 18px);
+  }
+}
+
+.modal-team-members-list {
+  min-height: 115px;
+}
+
+.team-member-filter-link {
+  border-radius: 15px;
+  color: $white;
+  display: block;
+  padding: em(2px, 18px) em(15px, 18px);
+  text-decoration: none;
+
+  &.first {
+    background: $dark-blue;
+
+    &:hover {
+      background: lighten($dark-blue, 10%);
+    }
+  }
+
+  &.second {
+    background: $blue-pastel;
+
+    &:hover {
+      background: lighten($blue-pastel, 10%);
+    }
+  }
+
+  &:link,
+  &:visited,
+  &:active,
+  &:hover {
+    color: $white;
+  }
+}

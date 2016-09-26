@@ -1,0 +1,5 @@
+<%= content_tag :li, (link_to team_member_team.name,
+          team_member_team,
+          remote: true,
+          class: "team-member-filter-link #{cycle('first', 'second')}",
+          title: team_member_team.name) if team_member_team.team_members.present? %>

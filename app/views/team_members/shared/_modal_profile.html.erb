@@ -1,0 +1,23 @@
+<div class="row">
+  <% present @team_member do |team_member_presenter| %>
+    <div class="medium-6 columns">
+      <div class="modal-team-member-name">
+        <%= team_member_presenter.name %>
+      </div>
+
+      <div class="modal-team-member-role">
+        <%= team_member_presenter.role %>
+      </div>
+
+      <div class="modal-team-member-biography">
+        <%= team_member_presenter.profile %>
+      </div>
+
+      <%= team_member_presenter.email %>
+    </div>
+
+    <div class="medium-6 columns text-right">
+      <%= team_member_presenter.show_image(alt: team_member_presenter.name) %>
+    </div>
+  <% end %>
+</div>
