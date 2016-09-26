@@ -1,3 +1,7 @@
+<%= content_for :footer do %>
+  <%= javascript_include_tag 'components/homecare-values.js' %>
+<% end %>
+
 <%= render partial: 'additional_rows/additional_row',
            collection: @presented_additional_contents,
            as: :additional_row_presenter %>
