@@ -31,8 +31,9 @@ class TeamMemberPresenter < BasePresenter
 
   def profile_preview(text = 'Click for more information', classes = '')
     h.link_to text, team_member,
-              class: "colorbox #{classes}",
-              rel: 'gallery'
+              class: "team-member-modal-toggle #{classes}",
+              rel: 'gallery',
+              remote: true
   end
 
   def index_profile_preview

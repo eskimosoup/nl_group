@@ -1,44 +1,34 @@
-<!--
-  <div class="modal-wrap">
-    <div class="modal-wrap-content">
-      <div class="modal-team-member-content">
-        <div class="row">
-          <div class="medium-6 columns">
-            <div class="modal-team-member-name">
-              Adam Ward MIRP, Cert RP
-            </div>
+<div class="modal-wrap">
+  <div class="modal-wrap-content">
+    <%= link_to 'x', '#',
+                    class: 'modal-close-button toggle-class',
+                    title: 'Close modal',
+                    data: {
+                      container: '.modal-wrap.visible',
+                      class: 'visible',
+                      return: false
+                    } %>
 
-            <div class="modal-team-member-role">
-              Registered Manager
-            </div>
+    <div class="modal-team-member-content">
+      Loading...
+    </div>
 
-            <div class="modal-team-member-biography">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                sodales sodales elit, ut faucibus purus facilisis bibendum. Duis
-                scelerisque est metus, sed vulputate leo varius sed. Aliquam cursus
-                ex magna, quis dapibus metus dictum vitae. Quisque est tortor,
-                finibus sed enim eleifend, volutpat luctus tellus. Nam fringilla
-                lorem arcu, quis feugiat metus porttitor sed. Etiam viverra, tellus
-                eget placerat pretium, dui ex vehicula ligula, quis volutpat libero
-                elit et sem. Aenean in ornare tellus. Nunc congue finibus vulputate.
-                Aliquam nec elit aliquam, volutpat nulla at, efficitur nulla. Donec
-                suscipit id nisl nec dapibus.
-              </p>
-            </div>
+    <div class="modal-team-member-filter-wrap">
+      <div class="modal-team-member-filter">
+        Filter by:
 
-            <%= mail_to 'adam@example.com', 'adam@example.com', class: 'modal-team-member-email' %>
-          </div>
-
-          <div class="medium-6 columns text-right">
-            <%= image_tag 'http://placehold.it/364x364' %>
-          </div>
-        </div>
+        <%= content_tag :ul,
+              (render partial: 'team_member_teams/modal_link',
+                     collection: @team_member_teams,
+                     as: :team_member_team),
+            class: 'modal-team-member-filter-type-list' if @team_member_teams.present? %>
       </div>
 
-      <div class="modal-team-member-filter">
-
+      <div class="modal-team-members-list">
+        <%= render partial: 'team_members/shared/modal_preview',
+                   collection: @presented_team_members,
+                   as: :team_member_presenter %>
       </div>
     </div>
   </div>
--->
+</div>

@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   resources :pages, only: :show
+
   resources :contacts, only: [:new, :create] do
     collection do
       get '/remote', to: 'contacts#remote'
     end
   end
+
+  resources :team_member_teams, only: :show, path: 'team-member-teams'
   resources :team_members, only: [:index, :show], path: 'team-members'
   resources :testimonials, only: [:index]
   resources :jobs, only: [:index]
@@ -53,6 +56,8 @@ Rails.application.routes.draw do
   root to: 'homes#show'
 end
 Optimadmin::Engine.routes.draw do
+  get 'team_member_teams/show'
+
   resources :available_roles, except: [:show] do
     collection do
       post 'order'

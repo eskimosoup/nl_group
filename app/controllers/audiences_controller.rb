@@ -9,6 +9,7 @@ class AudiencesController < ApplicationController
     @presented_team_members = collection_presenter(TeamMember.displayed.positioned)
     @presented_frequently_asked_questions = collection_presenter(@audience.frequently_asked_questions.ordered.displayed)
     @presented_work_reasons = collection_presenter(WorkReason.positioned.displayed)
+    @team_member_teams = TeamMemberTeam.includes(:team_members).displayed
   end
 
   private
