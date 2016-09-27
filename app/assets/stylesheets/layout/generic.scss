@@ -2,13 +2,15 @@
   display: block;
 }
 
+/*
 @include media('<desktop') {
   .inner-content {
     padding: em(80px) 0 0;
   }
 }
+*/
 
-@include media('>=desktop') {
+@include media('>desktop') {
   .inner-content {
     // A little hacky, but colorbox positiong screws up otherwise
     // background: image-url('components/contact-us/squares.png') 0 em(142px) no-repeat;

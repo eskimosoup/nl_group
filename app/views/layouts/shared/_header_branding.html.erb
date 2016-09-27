@@ -9,17 +9,26 @@
     <div class="small-6 medium-4 columns">
       <%= link_to (image_tag 'components/icons/hamburger.svg', alt: 'Menu'), '#', title: 'Toggle Menu', class: 'hamburger-icon toggle-class show-for-small', data: { container: '.primary-navigation', class: 'hide-for-small' } %>
       <div class="header-telephone">
-        Tel:
-        <strong>
-          <%= global_site_settings['Phone'] %>
-        </strong>
+          Tel:
 
-        <span class="header-telephone-option">
-          Option 3
+        <span class="header-contact-value">
+          <strong>
+            <%= global_site_settings['Phone'] %>
+          </strong>
+
+          <span class="header-telephone-option">
+            Option 3
+          </span>
         </span>
       </div>
       <div class="header-email">
-        Email: <strong><%= mail_to global_site_settings['Email'] %></strong>
+        Email:
+
+        <span class="header-contact-value">
+          <strong>
+            <%= mail_to global_site_settings['Email'] %>
+          </strong>
+        </span>
       </div>
     </div>
   </div>

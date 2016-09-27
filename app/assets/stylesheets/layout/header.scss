@@ -44,11 +44,15 @@
   }
 }
 
+.header-contact-value {
+  display: inline-block;
+  width: 145px;
+}
+
 .header-telephone-option {
   color: $bright-light-blue;
   display: inline-block;
   font-size: em(11px);
-  margin: 0 0 0 em(20px);
   text-transform: uppercase;
 }
 
