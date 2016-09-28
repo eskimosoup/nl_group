@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :audience do
-    name "MyString"
+    name 'Care Seekers'
   end
-
 end
