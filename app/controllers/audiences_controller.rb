@@ -1,6 +1,6 @@
 class AudiencesController < ApplicationController
   def show
-    @audience = Audience.find(params[:id])
+    @audience = Audience.friendly.find(params[:id])
     @header_menu = find_navigation
     @presented_additional_contents = collection_presenter(@audience.additional_rows.displayed.positioned)
     @presented_testimonials = collection_presenter(@audience.testimonials.displayed.positioned)

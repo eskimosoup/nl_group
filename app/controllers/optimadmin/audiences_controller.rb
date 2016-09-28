@@ -39,13 +39,14 @@ module Optimadmin
     private
 
     def find_audience
-      Audience.find(params[:id])
+      Audience.friendly.find(params[:id])
     end
 
     def audience_params
       params.require(:audience).permit(
-        :name, testimonial_ids: [], frequently_asked_question_ids: [],
-               work_reason_ids: []
+        :name, :suggested_url,
+        testimonial_ids: [], frequently_asked_question_ids: [],
+        work_reason_ids: []
       )
     end
   end
