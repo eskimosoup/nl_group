@@ -1,5 +1,4 @@
 class LandingPage < ActiveRecord::Base
-
   has_many :landing_page_contents
   has_many :why_work_reasons
   has_many :landing_page_why_works, through: :why_work_reasons
@@ -16,9 +15,9 @@ class LandingPage < ActiveRecord::Base
 
   def slug_candidates
     [
-        :suggested_url,
-        :name,
-        [:suggested_url, :name]
+      :suggested_url,
+      :name,
+      [:suggested_url, :name]
     ]
   end
 
