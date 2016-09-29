@@ -1,5 +1,7 @@
 module Optimadmin
   class LandingPagesController < Optimadmin::ApplicationController
+    load_and_authorize_resource
+
     before_action :set_landing_page, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -39,8 +41,7 @@ module Optimadmin
       redirect_to landing_pages_url, notice: 'Landing page was successfully destroyed.'
     end
 
-  private
-
+    private
 
     def set_landing_page
       @landing_page = LandingPage.friendly.find(params[:id])
@@ -48,7 +49,7 @@ module Optimadmin
 
     def landing_page_params
       params.require(:landing_page).permit(:name, :suggested_url, landing_page_why_work_ids: [], testimonial_ids: [],
-      frequently_asked_question_ids: [])
+                                                                  frequently_asked_question_ids: [])
     end
   end
 end

@@ -1,4 +1,5 @@
 class Optimadmin::ContactEnquiryTypesController < Optimadmin::ApplicationController
+  load_and_authorize_resource
   def index
     @contact_enquiry_types = ContactEnquiryType.all
   end

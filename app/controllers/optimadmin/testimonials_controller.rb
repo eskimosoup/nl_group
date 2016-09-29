@@ -1,5 +1,6 @@
 module Optimadmin
   class TestimonialsController < Optimadmin::ApplicationController
+    load_and_authorize_resource
     before_action :set_testimonial, only: [:show, :edit, :update, :destroy]
 
     edit_images_for Testimonial, [[:image, { show: ['fill', 107, 107] }]]
@@ -40,8 +41,7 @@ module Optimadmin
       redirect_to testimonials_url, notice: 'Testimonial was successfully destroyed.'
     end
 
-  private
-
+    private
 
     def set_testimonial
       @testimonial = Testimonial.find(params[:id])
@@ -50,7 +50,7 @@ module Optimadmin
     def testimonial_params
       params.require(:testimonial).permit(
         :forename, :surname, :role, :image, :content, :video_embed_code, :display,
-        landing_page_ids: [], audience_ids: [],
+        landing_page_ids: [], audience_ids: []
       )
     end
   end

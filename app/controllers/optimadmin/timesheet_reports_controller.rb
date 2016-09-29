@@ -1,5 +1,6 @@
 module Optimadmin
   class TimesheetReportsController < Optimadmin::ApplicationController
+    load_and_authorize_resource
     def new
       @timesheet_report = TimesheetReport.new
     end

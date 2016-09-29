@@ -1,5 +1,7 @@
 module Optimadmin
   class LandingPageWhyWorksController < Optimadmin::ApplicationController
+    load_and_authorize_resource
+
     before_action :set_landing_page_why_work, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -38,8 +40,7 @@ module Optimadmin
       redirect_to landing_page_why_works_url, notice: 'Landing page why work was successfully destroyed.'
     end
 
-  private
-
+    private
 
     def set_landing_page_why_work
       @landing_page_why_work = LandingPageWhyWork.find(params[:id])

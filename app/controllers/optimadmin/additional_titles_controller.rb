@@ -1,5 +1,6 @@
 module Optimadmin
   class AdditionalTitlesController < Optimadmin::ApplicationController
+    load_and_authorize_resource
     before_action :set_additional_title, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -42,8 +43,7 @@ module Optimadmin
       redirect_to additional_blocks_url(additional_row_id: @additional_row_id), notice: 'Additional title was successfully destroyed.'
     end
 
-  private
-
+    private
 
     def set_additional_title
       @additional_title = AdditionalTitle.find(params[:id])

@@ -21,41 +21,34 @@
     <div class="large-12 small-8 left content-categories columns">
       <%= button_to 'Pull from Workable', workable_pull_path %>
 
-      <div class="content-category-type">
-        Manage Home Page Content
-      </div>
+      <%= content_tag :div, 'Manage Home Page Content', class: 'content-category-type' if can? :manage, Audience %>
 
       <ul id="modules" class="content-category-list">
-        <%= link_to 'Audiences', audiences_path %>
+        <%= module_link(model: Audience, path: audiences_path) %>
         <%= module_link(content: "Available Roles", model: AvailableRole, path: available_roles_path) %>
         <%= module_link(model: FrequentlyAskedQuestion, path: frequently_asked_questions_path, content: "FAQs") %>
         <%= module_link(model: Testimonial, path: testimonials_path) %>
         <%= module_link(model: Client, path: clients_path) %>
         <%= module_link(content: "Reasons to Work for Us", model: WorkReason, path: work_reasons_path) %>
         <%= module_link(content: "Additional Content", model: AdditionalRow, path: additional_rows_path) %>
-        <% if can? :manage, Optimadmin::MenuItem %>
-          <li><%= link_to 'Site Navigation', menu_items_path %></li>
-        <% end %>
+        <%= module_link(content: "Site Navigation", model: Optimadmin::MenuItem, path: menu_items_path) %>
       </ul>
 
-      <div class="content-category-type">
-        Manage Other Content
-      </div>
+      <%= content_tag :div, 'Manage Other Content', class: 'content-category-type' if can? :manage, Page %>
 
       <ul class="content-category-list">
-        <%= link_to "Accreditations", accreditations_path %>
-        <%= link_to 'Contact Enquiry Types', contact_enquiry_types_path %>
+        <%= module_link(model: Accreditation, path: accreditations_path) %>
+        <%= module_link(content: 'Contact Enquiry Types', model: ContactEnquiryType, path: contact_enquiry_types_path) %>
         <%= module_link(model: Page, path: pages_path) %>
         <%= module_link(model: TeamMember, path: team_members_path, content: "Team Members") %>
         <%= module_link(content: "Team Member Teams", model: TeamMemberTeam, path: team_member_teams_path) %>
       </ul>
 
-      <div class="content-category-type">
-        Manage Candidates
-      </div>
+
+      <%= content_tag :div, 'Manage Candidates', class: 'content-category-type' if can? :manage, ReferralOffer %>
 
       <ul class="content-category-list">
-        <%= link_to "Job Roles", job_roles_path %>
+        <%= module_link(content: 'Job Roles', model: JobRole, path: job_roles_path) %>
         <%= module_link(content: "Referral Offer", model: ReferralOffer, path: referral_offers_path) %>
         <%= module_link(content: "Workable Stage", model: WorkableStage, path: workable_stages_path) %>
         <%= module_link(model: Resource, path: resources_path) %>
@@ -66,10 +59,7 @@
         <%= module_link(content: "Mandatory Training Course", model: MandatoryTrainingCourse, path: mandatory_training_courses_path) %>
       </ul>
 
-
-      <div class="content-category-type">
-        Manage Landing Page Content
-      </div>
+      <%= content_tag :div, 'Manage Landing Page Content', class: 'content-category-type' if can? :manage, LandingPage %>
 
       <ul class="content-category-list">
         <%= module_link(model: LandingPage, path: landing_pages_path, content: "Landing Pages") %>

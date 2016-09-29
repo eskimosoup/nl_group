@@ -1,5 +1,6 @@
 module Optimadmin
   class TeamMemberTeamsController < Optimadmin::ApplicationController
+    load_and_authorize_resource
     before_action :set_team_member_team, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -38,8 +39,7 @@ module Optimadmin
       redirect_to team_member_teams_url, notice: 'Team member team was successfully destroyed.'
     end
 
-  private
-
+    private
 
     def set_team_member_team
       @team_member_team = TeamMemberTeam.find(params[:id])

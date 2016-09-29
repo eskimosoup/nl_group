@@ -70,10 +70,18 @@
   }
 }
 
-.modal-team-member-content {
+.modal-content {
   background: $white;
   color: $dark-blue;
   padding: em(97px) em(82px) em(46px);
+
+  h2 {
+    border: 0;
+    font-size: em(36px);
+    font-weight: $proxima-nova-semibold;
+    margin-top: 0;
+    text-align: center;
+  }
 }
 
 .modal-team-member-filter-wrap {

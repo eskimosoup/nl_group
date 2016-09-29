@@ -5,44 +5,56 @@
       object: @audience
     }
   ) if @audience.errors.any? %>
-
   <div class="field">
-    <%= f.label :name %>
+    <%= f.label :name %><br />
     <%= f.select :name, Audience::NAMES %>
   </div>
-
-  <div class="field">
-    <%= f.label :testimonial_ids %>
-    <%= f.select(
-      :testimonial_ids,
-      Testimonial.order(:forename, :surname).map{|x| [x.full_name, x.id] },
-      {},
-      { class: 'multiselect', multiple: true }
-    ) %>
+  <div class="tabs prevent-flash">
+    <ul class="tab-list">
+      <li><a href="#tabs-1">Content</a></li>
+      <li><a href="#tabs-2">Settings</a></li>
+    </ul>
+    <%= field_set_tag nil, id: 'tabs-1' do %>
+      <div class="field">
+        <%= f.label :title %> <%= module_tooltip('This is shown on the website', 'This text appears at the top of the content block on the homepage') %><br />
+        <%= f.text_field :title %>
+      </div>
+      <div class="field">
+        <%= f.label :summary_text %><br />
+        <%= f.text_area :summary_text %>
+      </div>
+      <%= render 'optimadmin/shared/suggested_url_field', f: f %>
+    <% end %>
+    <%= field_set_tag nil, id: 'tabs-2' do %>
+      <div class="field">
+        <%= f.label :testimonial_ids %>
+        <%= f.select(
+          :testimonial_ids,
+          Testimonial.order(:forename, :surname).map{|x| [x.full_name, x.id] },
+          {},
+          { class: 'multiselect', multiple: true }
+        ) %>
+      </div>
+      <div class="field">
+        <%= f.label :work_reason_ids %>
+        <%= f.select(
+          :work_reason_ids,
+          WorkReason.order(:title).pluck(:title, :id),
+          {},
+          { class: 'multiselect', multiple: true }
+        ) %>
+      </div>
+      <div class="field">
+        <%= f.label :frequently_asked_question_ids %>
+        <%= f.select(
+          :frequently_asked_question_ids,
+          FrequentlyAskedQuestion.order(:question).pluck(:question, :id),
+          {},
+          { class: 'multiselect', multiple: true }
+        ) %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :work_reason_ids %>
-    <%= f.select(
-      :work_reason_ids,
-      WorkReason.order(:title).pluck(:title, :id),
-      {},
-      { class: 'multiselect', multiple: true }
-    ) %>
-  </div>
-
-  <div class="field">
-    <%= f.label :frequently_asked_question_ids %>
-    <%= f.select(
-      :frequently_asked_question_ids,
-      FrequentlyAskedQuestion.order(:question).pluck(:question, :id),
-      {},
-      { class: 'multiselect', multiple: true }
-    ) %>
-  </div>
-
-  <%= render 'optimadmin/shared/suggested_url_field', f: f %>
-
   <div class="actions">
     <%= f.submit %>
   </div>

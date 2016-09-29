@@ -1,5 +1,7 @@
 module Optimadmin
   class MemberProfilesController < Optimadmin::ApplicationController
+    load_and_authorize_resource
+
     before_action :set_member_profile, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -38,15 +40,16 @@ module Optimadmin
       redirect_to member_profiles_url, notice: 'Member profile was successfully destroyed.'
     end
 
-  private
-
+    private
 
     def set_member_profile
       @member_profile = MemberProfile.find(params[:id])
     end
 
     def member_profile_params
-      params.require(:member_profile).permit(:email, :team_member_id, :active)
+      params.require(:member_profile).permit(
+        :email, :team_member_id, :active, :submission_locked
+      )
     end
   end
 end

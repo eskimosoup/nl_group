@@ -14,9 +14,8 @@ Rails.application.routes.draw do
   resources :job_roles, only: [:index]
 
   post '/', to: 'application#index'
-  # https://gist.github.com/matenia/1908782
-  get ':id', to: 'audiences#show', as: :audience # , constraints: AudienceConstraint.new
-  # get ':id', to: 'landing_pages#show', as: :landing_page, constraints: LandingPageConstraint.new
+  get ':id', to: 'audiences#show', as: :audience, constraints: AudienceConstraint.new
+  get ':id', to: 'landing_pages#show', as: :landing_page, constraints: LandingPageConstraint.new
 
   namespace :member_area, path: 'member-area' do
     resources :sessions, only: [:new, :create, :destroy]

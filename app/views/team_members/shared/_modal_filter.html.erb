@@ -1,0 +1,9 @@
+<div class="modal-team-member-filter">
+  Filter by:
+
+  <%= content_tag :ul,
+        (render partial: 'team_member_teams/modal_link',
+               collection: @team_member_teams,
+               as: :team_member_team),
+      class: 'modal-team-member-filter-type-list' if @team_member_teams.present? %>
+</div>

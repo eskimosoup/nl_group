@@ -1,0 +1,40 @@
+<%= additional_block_presenter.presented_button(
+    0,
+    {
+      data: {
+        class: 'visible',
+        container: ".modal-wrap-#{additional_block_presenter.id}",
+        return: false
+        }
+      },
+      'toggle-class'
+    ) %>
+
+<%= content_for :footer do %>
+  <div class="modal-wrap modal-wrap-<%= additional_block_presenter.id %>">
+    <div class="modal-wrap-content">
+      <%= link_to 'x', '#',
+                      class: 'modal-close-button toggle-class',
+                      title: 'Close modal',
+                      data: {
+                        container: '.modal-wrap.visible',
+                        class: 'visible',
+                        return: false
+                      } %>
+
+      <div class="modal-content">
+        <div class="row">
+          <div class="medium-10 columns medium-centered">
+            <%= content_tag :h2, additional_block_presenter.presented_title if additional_block_presenter.presented_title.present? %>
+
+            <% if additional_block_presenter.presented_paragraph.present? %>
+              <%= additional_block_presenter.presented_block do %>
+                <%= additional_block_presenter.presented_paragraph %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

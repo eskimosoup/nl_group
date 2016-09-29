@@ -1,5 +1,7 @@
 module Optimadmin
   class WorkableStagesController < Optimadmin::ApplicationController
+    load_and_authorize_resource
+
     before_action :set_workable_stage, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -38,8 +40,7 @@ module Optimadmin
       redirect_to workable_stages_url, notice: 'Workable stage was successfully destroyed.'
     end
 
-  private
-
+    private
 
     def set_workable_stage
       @workable_stage = WorkableStage.find(params[:id])

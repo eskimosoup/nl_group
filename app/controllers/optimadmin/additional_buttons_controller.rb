@@ -1,5 +1,6 @@
 module Optimadmin
   class AdditionalButtonsController < Optimadmin::ApplicationController
+    load_and_authorize_resource
     before_action :set_additional_button, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -42,8 +43,7 @@ module Optimadmin
       redirect_to additional_buttons_url(additional_block_id: @additional_block_id), notice: 'Additional button was successfully destroyed.'
     end
 
-  private
-
+    private
 
     def set_additional_button
       @additional_button = AdditionalButton.find(params[:id])

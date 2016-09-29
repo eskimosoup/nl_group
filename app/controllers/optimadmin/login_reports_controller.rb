@@ -1,5 +1,7 @@
 module Optimadmin
   class LoginReportsController < Optimadmin::ApplicationController
+    load_and_authorize_resource
+
     def new
       @login_report = LoginReport.new
     end

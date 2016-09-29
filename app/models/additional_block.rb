@@ -17,6 +17,7 @@ class AdditionalBlock < ActiveRecord::Base
     # Homecare
     'homecare_carers_provide_slider',
     'homecare_value',
+    'homecare_funding_button_popup',
     'homecare_funding_disclaimer',
     'button_only',
     'team_members'

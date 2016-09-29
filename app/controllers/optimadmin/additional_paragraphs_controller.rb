@@ -1,5 +1,6 @@
 module Optimadmin
   class AdditionalParagraphsController < Optimadmin::ApplicationController
+    load_and_authorize_resource
     before_action :set_additional_paragraph, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -42,8 +43,7 @@ module Optimadmin
       redirect_to additional_blocks_url(additional_row_id: @additional_row_id), notice: 'Additional paragraph was successfully destroyed.'
     end
 
-  private
-
+    private
 
     def set_additional_paragraph
       @additional_paragraph = AdditionalParagraph.find(params[:id])

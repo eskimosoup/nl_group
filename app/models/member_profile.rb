@@ -1,5 +1,4 @@
 class MemberProfile < ActiveRecord::Base
-
   belongs_to :team_member
   has_one :basic_information
   has_one :basic_medical_history
@@ -30,7 +29,7 @@ class MemberProfile < ActiveRecord::Base
   has_secure_password(validations: false)
   validate :password_present, on: :update
   validates :password, length: { maximum: ActiveModel::SecurePassword::MAX_PASSWORD_LENGTH_ALLOWED },
-            confirmation: { allow_blank: true }
+                       confirmation: { allow_blank: true }
 
   before_create do
     generate_token(:auth_token)
@@ -51,6 +50,10 @@ class MemberProfile < ActiveRecord::Base
 
   def unread_admin_messages
     @admin_messages ||= AdminMessage.displayed.unread_by_member(dismissed_message_ids)
+  end
+
+  def lock_submission
+    update_attributes(submission_locked: true)
   end
 
   private

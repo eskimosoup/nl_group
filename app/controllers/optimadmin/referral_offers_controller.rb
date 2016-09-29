@@ -1,5 +1,6 @@
 module Optimadmin
   class ReferralOffersController < Optimadmin::ApplicationController
+    load_and_authorize_resource
     before_action :set_referral_offer, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -38,8 +39,7 @@ module Optimadmin
       redirect_to referral_offers_url, notice: 'Referral offer was successfully destroyed.'
     end
 
-  private
-
+    private
 
     def set_referral_offer
       @referral_offer = ReferralOffer.find(params[:id])
