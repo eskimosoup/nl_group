@@ -73,7 +73,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-colorbox'
 end
 
-gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git', branch: 'master'
+# gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git', branch: 'master'
+gem 'optimadmin', path: '../optimadmin'
 gem 'workable', '~> 2.0'
 gem 'friendly_id', '~> 5.1'
 gem 'cocoon', '~> 1.2', '>= 1.2.6'

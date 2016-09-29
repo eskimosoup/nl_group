@@ -33,6 +33,10 @@ class AdditionalRow < ActiveRecord::Base
 
   delegate :url_helpers, to: 'Rails.application.routes'
 
+  def custom_menu_item_name
+    "#{name} #{"(#{audiences.pluck(:name).join(', ')})" if audiences.present?}"
+  end
+
   def custom_path
     "#{url_helpers.root_path}##{slug}"
   end
