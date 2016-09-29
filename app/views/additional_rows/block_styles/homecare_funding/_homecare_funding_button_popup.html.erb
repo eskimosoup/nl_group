@@ -7,7 +7,7 @@
         return: false
         }
       },
-      'toggle-class'
+      "#{'toggle-class' if additional_block_presenter.presented_buttons[0].classes.include? 'green-action-button'}"
     ) %>
 
 <%= content_for :footer do %>
