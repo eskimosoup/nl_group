@@ -39,7 +39,7 @@ $(function() {
       maxHeight: '960px'
     });
 
-    $('.colorbox-iframe').colorbox({
+    $('.colorbox-iframe, a[href="/contacts/remote"]').colorbox({
       width: '70%',
       iframe: true,
       maxWidth: '960px',

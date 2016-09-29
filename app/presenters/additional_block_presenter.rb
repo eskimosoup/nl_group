@@ -43,6 +43,14 @@ class AdditionalBlockPresenter < BasePresenter
     h.link_to button.button_text, button.button_link, options.merge(animation_data(button.additional_animation))
   end
 
+  def presented_buttons
+    buttons = []
+    additional_block.additional_buttons.displayed.positioned.each do |button|
+      buttons.push(button)
+    end
+    buttons
+  end
+
   private
 
   def animate_content(object, &_block)
@@ -60,14 +68,6 @@ class AdditionalBlockPresenter < BasePresenter
     else
       {}
     end
-  end
-
-  def presented_buttons
-    buttons = []
-    additional_block.additional_buttons.displayed.positioned.each do |button|
-      buttons.push(button)
-    end
-    buttons
   end
 
   def presented_block_wrap(additional_block, &_content)

@@ -48,6 +48,7 @@ class ApplicationController < ActionController::Base
     @footer_jobs_menu = Optimadmin::Menu.new(name: 'footer_jobs')
     @footer_homecare_menu = Optimadmin::Menu.new(name: 'footer_homecare')
     @footer_about_menu = Optimadmin::Menu.new(name: 'footer_about')
+    @presented_accreditations = collection_presenter(Accreditation.displayed.positioned)
     @contact = Contact.new
   end
 

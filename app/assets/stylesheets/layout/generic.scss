@@ -38,6 +38,11 @@
     background: image-url('layout/home/staff-background.jpg') center -10px no-repeat;
     padding: 0 0 em(190px);
     position: relative;
+
+    &.homecare {
+      background: image-url('layout/home/homecare-patients-1.jpg') center left no-repeat,
+                  image-url('layout/home/homecare-patients-2.jpg') center right no-repeat;
+    }
   }
 
   @include media('<tablet') {
@@ -52,4 +57,8 @@
       margin: 0 0 em(15px);
     }
   }
+}
+
+#cboxTitle {
+  color: $white;
 }

@@ -1,31 +1,8 @@
 <div class="row">
   <div class="small-12 columns">
-    <ul class="footer-accreditations">
-      <li>
-        <%= image_tag 'layout/footer/accreditations/london-procurement-programme.jpg',
-                      alt: 'London Procurement Programme' %>
-      </li>
-      <li>
-        <%= image_tag 'layout/footer/accreditations/iso.jpg',
-                      alt: 'The British Assessment Bureau ISO 9001' %>
-      </li>
-      <li>
-        <%= image_tag 'layout/footer/accreditations/cqc.jpg',
-                      alt: 'Care Quality Commission' %>
-      </li>
-      <li>
-        <%= image_tag 'layout/footer/accreditations/ccs.jpg',
-                      alt: 'Crown Commercial Service' %>
-      </li>
-      <li>
-        <%= image_tag 'layout/footer/accreditations/rec-medical.jpg',
-                      alt: 'REC Medical' %>
-      </li>
-      <li>
-        <%= image_tag 'layout/footer/accreditations/rec-member.jpg',
-                      alt: 'REC Member' %>
-      </li>
-    </ul>
+    <%= content_tag :ul, (render partial: 'accreditations/accreditation',
+               collection: @presented_accreditations,
+               as: :presented_accreditation), class: 'footer-accreditations' if @presented_accreditations.present? %>
   </div>
 </div>
 

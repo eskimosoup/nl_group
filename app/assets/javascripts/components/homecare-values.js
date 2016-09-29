@@ -29,7 +29,7 @@ $(document).ready(function() {
 
   $('.homecare-value-content[data-truncated=true]').each(function() {
     var html = $(this).html();
-    var button = '<a href="#" class="dark-action-button compact expand-truncation">More</a>';
+    var button = '<a href="#" class="green-action-button compact expand-truncation">More</a>';
     $(this).html(html + button);
   });
 });
