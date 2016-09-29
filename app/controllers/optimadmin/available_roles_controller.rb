@@ -1,5 +1,6 @@
 module Optimadmin
   class AvailableRolesController < Optimadmin::ApplicationController
+    load_and_authorize_resource
     before_action :set_available_role, only: [:show, :edit, :update, :destroy]
 
     def index

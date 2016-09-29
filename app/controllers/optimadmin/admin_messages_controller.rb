@@ -1,5 +1,6 @@
 module Optimadmin
   class AdminMessagesController < Optimadmin::ApplicationController
+    load_and_authorize_resource
     before_action :set_admin_message, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -38,8 +39,7 @@ module Optimadmin
       redirect_to admin_messages_url, notice: 'Admin message was successfully destroyed.'
     end
 
-  private
-
+    private
 
     def set_admin_message
       @admin_message = AdminMessage.find(params[:id])

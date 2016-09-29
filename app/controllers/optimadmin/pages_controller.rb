@@ -1,5 +1,7 @@
 module Optimadmin
   class PagesController < Optimadmin::ApplicationController
+    load_and_authorize_resource
+
     before_action :set_page, only: [:show, :edit, :update, :destroy]
 
     edit_images_for Page, [[:image, { show: ['fit', 200, 200] }]]
@@ -40,8 +42,7 @@ module Optimadmin
       redirect_to pages_url, notice: 'Page was successfully destroyed.'
     end
 
-  private
-
+    private
 
     def set_page
       @page = Page.friendly.find(params[:id])

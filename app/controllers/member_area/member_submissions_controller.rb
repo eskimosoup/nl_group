@@ -7,8 +7,9 @@ module MemberArea
     def create
       @member_submission = current_member_profile.build_member_submission(member_submission_params)
       if @member_submission.save
+        current_member_profile.lock_submission
         AdminMailer.registration_complete(current_member_profile).deliver_now
-        redirect_to member_area_member_profile_path, notice: "Submission completed"
+        redirect_to member_area_member_profile_path, notice: 'Submission completed'
       else
         render :new
       end

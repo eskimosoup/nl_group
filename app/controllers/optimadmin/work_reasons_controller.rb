@@ -1,5 +1,7 @@
 module Optimadmin
   class WorkReasonsController < Optimadmin::ApplicationController
+    load_and_authorize_resource
+
     before_action :set_work_reason, only: [:show, :edit, :update, :destroy]
 
     edit_images_for WorkReason, [[:image, { show: ['fit', 40, 40] }]]
@@ -40,8 +42,7 @@ module Optimadmin
       redirect_to work_reasons_url, notice: 'Work reason was successfully destroyed.'
     end
 
-  private
-
+    private
 
     def set_work_reason
       @work_reason = WorkReason.find(params[:id])

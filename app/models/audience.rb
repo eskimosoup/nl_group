@@ -15,6 +15,7 @@ class Audience < ActiveRecord::Base
   friendly_id :slug_candidates, use: [:slugged, :history]
 
   validates :name, presence: true, uniqueness: true, inclusion: { in: NAMES }
+  validates :title, presence: true
 
   def slug_candidates
     [

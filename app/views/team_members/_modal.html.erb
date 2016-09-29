@@ -1,5 +1,5 @@
-<div class="modal-wrap">
-  <div class="modal-wrap-content">
+<div class="modal-wrap modal-wrap-team-member">
+  <div class="modal-wrap-content modal-wrap-team-member-content">
     <%= link_to 'x', '#',
                     class: 'modal-close-button toggle-class',
                     title: 'Close modal',
@@ -9,20 +9,12 @@
                       return: false
                     } %>
 
-    <div class="modal-team-member-content">
+    <div class="modal-team-member-content modal-content">
       Loading...
     </div>
 
     <div class="modal-team-member-filter-wrap">
-      <div class="modal-team-member-filter">
-        Filter by:
-
-        <%= content_tag :ul,
-              (render partial: 'team_member_teams/modal_link',
-                     collection: @team_member_teams,
-                     as: :team_member_team),
-            class: 'modal-team-member-filter-type-list' if @team_member_teams.present? %>
-      </div>
+      <%= render 'team_members/shared/modal_filter' if @team_member_teams.present? && @team_member_teams.size > 1 %>
 
       <div class="modal-team-members-list">
         <%= render partial: 'team_members/shared/modal_preview',

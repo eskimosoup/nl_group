@@ -1,5 +1,7 @@
 module Optimadmin
   class MandatoryTrainingCoursesController < Optimadmin::ApplicationController
+    load_and_authorize_resource
+
     before_action :set_mandatory_training_course, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -38,8 +40,7 @@ module Optimadmin
       redirect_to mandatory_training_courses_url, notice: 'Mandatory training course was successfully destroyed.'
     end
 
-  private
-
+    private
 
     def set_mandatory_training_course
       @mandatory_training_course = MandatoryTrainingCourse.find(params[:id])

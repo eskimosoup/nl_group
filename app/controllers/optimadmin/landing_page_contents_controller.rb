@@ -1,5 +1,7 @@
 module Optimadmin
   class LandingPageContentsController < Optimadmin::ApplicationController
+    load_and_authorize_resource
+
     before_action :set_landing_page_content, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -38,8 +40,7 @@ module Optimadmin
       redirect_to landing_page_contents_url, notice: 'Landing page content was successfully destroyed.'
     end
 
-  private
-
+    private
 
     def set_landing_page_content
       @landing_page_content = LandingPageContent.find(params[:id])

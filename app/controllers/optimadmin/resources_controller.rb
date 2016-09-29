@@ -1,5 +1,6 @@
 module Optimadmin
   class ResourcesController < Optimadmin::ApplicationController
+    load_and_authorize_resource
     before_action :set_resource, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -38,8 +39,7 @@ module Optimadmin
       redirect_to resources_url, notice: 'Resource was successfully destroyed.'
     end
 
-  private
-
+    private
 
     def set_resource
       @resource = Resource.find(params[:id])

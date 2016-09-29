@@ -1,5 +1,6 @@
 module Optimadmin
   class AdditionalBlocksController < Optimadmin::ApplicationController
+    load_and_authorize_resource
     before_action :set_additional_block, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -42,8 +43,7 @@ module Optimadmin
       redirect_to additional_blocks_url(additional_row_id: @row_id), notice: 'Additional block was successfully destroyed.'
     end
 
-  private
-
+    private
 
     def set_additional_block
       @additional_block = AdditionalBlock.find(params[:id])

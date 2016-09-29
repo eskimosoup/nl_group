@@ -1,5 +1,7 @@
 module Optimadmin
   class JobRolesController < Optimadmin::ApplicationController
+    load_and_authorize_resource
+
     def index
       @job_roles = JobRole.order(:title)
     end

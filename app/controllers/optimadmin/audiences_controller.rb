@@ -1,5 +1,7 @@
 module Optimadmin
   class AudiencesController < Optimadmin::ApplicationController
+    load_and_authorize_resource
+
     def index
       @audiences = Audience.order(:name)
     end
@@ -44,7 +46,7 @@ module Optimadmin
 
     def audience_params
       params.require(:audience).permit(
-        :name, :suggested_url,
+        :name, :suggested_url, :title, :summary_text,
         testimonial_ids: [], frequently_asked_question_ids: [],
         work_reason_ids: []
       )

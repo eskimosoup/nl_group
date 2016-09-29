@@ -10,47 +10,47 @@ class MemberProfilePresenter < BasePresenter
   end
 
   def profile_link
-    h.link_to email, h.member_area_member_profile_path, id: "member-profile"
+    h.link_to email, h.member_area_member_profile_path, id: 'member-profile'
   end
 
   def edit_profile_link
-    h.link_to "Edit Profile", h.edit_member_area_member_profile_path, id: "edit-member-profile"
+    h.link_to 'Edit Profile', h.edit_member_area_member_profile_path, id: 'edit-member-profile'
   end
 
   def basic_information_link
-    h.link_to "About You", basic_information_path, class: active_class(basic_information_path)
+    h.link_to 'About You', basic_information_path, class: active_class(basic_information_path)
   end
 
   def work_eligibility_link
-    h.link_to "Eligibility To Work", work_eligibility_path, class: active_class(work_eligibility_path)
+    h.link_to 'Eligibility To Work', work_eligibility_path, class: active_class(work_eligibility_path)
   end
 
   def addresses_link
-    h.link_to "Address History", addresses_path, class: active_class(addresses_path)
+    h.link_to 'Address History', addresses_path, class: active_class(addresses_path)
   end
 
   def member_qualification_link
-    h.link_to "Qualifications", qualification_path, class: active_class(qualification_path)
+    h.link_to 'Qualifications', qualification_path, class: active_class(qualification_path)
   end
 
   def member_training_link
-    h.link_to "Training", training_path, class: active_class(training_path)
+    h.link_to 'Training', training_path, class: active_class(training_path)
   end
 
   def referee_and_emergency_contact_link
-    h.link_to "Referees and Emergency Contacts", referee_and_emergency_contact_path, class: active_class(referee_and_emergency_contact_path)
+    h.link_to 'Referees and Emergency Contacts', referee_and_emergency_contact_path, class: active_class(referee_and_emergency_contact_path)
   end
 
   def occupational_health_screening_link
-    h.link_to "Occupational Health Screening", occupational_health_screening_path, class: active_class(occupational_health_screening_path)
+    h.link_to 'Occupational Health Screening', occupational_health_screening_path, class: active_class(occupational_health_screening_path)
   end
 
   def dbs_check_link
-    h.link_to "DBS Check", dbs_check_path, class: active_class(dbs_check_path)
+    h.link_to 'DBS Check', dbs_check_path, class: active_class(dbs_check_path)
   end
 
   def payment_information_link
-    h.link_to "Payment Information", payment_information_path, class: active_class(payment_information_path)
+    h.link_to 'Payment Information', payment_information_path, class: active_class(payment_information_path)
   end
 
   def progress_icon(method)
@@ -83,11 +83,12 @@ class MemberProfilePresenter < BasePresenter
 
   def ready_to_submit?
     payment_information? && occupational_health_complete? && general_information_complete? && training_and_qualification_complete? &&
-        dbs_check_and_work_eligibility_complete? && has_referees_and_emergency_contact?
+      dbs_check_and_work_eligibility_complete? && has_referees_and_emergency_contact?
   end
 
   def member_submission?
-    member_submission.present?
+    # member_submission.present?
+    member_profile.submission_locked?
   end
 
   def member_submission

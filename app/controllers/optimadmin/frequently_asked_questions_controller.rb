@@ -1,5 +1,6 @@
 module Optimadmin
   class FrequentlyAskedQuestionsController < Optimadmin::ApplicationController
+    load_and_authorize_resource
     before_action :set_frequently_asked_question, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -38,7 +39,7 @@ module Optimadmin
       redirect_to frequently_asked_questions_url, notice: 'Frequently asked question was successfully destroyed.'
     end
 
-  private
+    private
 
     def set_frequently_asked_question
       @frequently_asked_question = FrequentlyAskedQuestion.find(params[:id])
@@ -46,7 +47,7 @@ module Optimadmin
 
     def frequently_asked_question_params
       params.require(:frequently_asked_question).permit(
-        :question, :answer, :display, landing_page_ids: [], audience_ids: [],
+        :question, :answer, :display, landing_page_ids: [], audience_ids: []
       )
     end
   end

@@ -1,5 +1,6 @@
 module Optimadmin
   class ClientsController < Optimadmin::ApplicationController
+    load_and_authorize_resource
     before_action :set_client, only: [:show, :edit, :update, :destroy]
 
     edit_images_for Client, [[:logo, { show: ['fill', 132, 132] }]]
@@ -40,8 +41,7 @@ module Optimadmin
       redirect_to clients_url, notice: 'Client was successfully destroyed.'
     end
 
-  private
-
+    private
 
     def set_client
       @client = Client.find(params[:id])

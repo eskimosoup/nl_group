@@ -1,5 +1,6 @@
 module Optimadmin
   class AdditionalRowsController < Optimadmin::ApplicationController
+    load_and_authorize_resource
     before_action :set_additional_row, only: [:show, :edit, :update, :destroy]
 
     def index

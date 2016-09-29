@@ -1,5 +1,6 @@
 module Optimadmin
   class AccreditationsController < Optimadmin::ApplicationController
+    load_and_authorize_resource
     edit_images_for Accreditation, [[:logo, { show: ['fill', 132, 132] }]]
 
     def index
