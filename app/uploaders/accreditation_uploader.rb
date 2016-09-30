@@ -1,5 +1,5 @@
 class AccreditationUploader < Optimadmin::ImageUploader
   version :show do
-    process resize_to_fill: [156, 156]
+    process resize_to_fit: [9999, 80]
   end
 end
