@@ -5,10 +5,10 @@ class Page < ActiveRecord::Base
   mount_uploader :image, PageUploader
 
   def self.layouts
-    %w{ home care_seekers job_seekers }
+    %w( application home care_seekers job_seekers )
   end
 
-  before_save :store_image, if: Proc.new{|page| page.remote_image_url.blank? }
+  before_save :store_image, if: proc { |page| page.remote_image_url.blank? }
   # before_save :store_file, if: Proc.new{|page| page.remote_file_url.blank? }
 
   scope :displayed, -> { where(display: true) }
@@ -30,12 +30,11 @@ class Page < ActiveRecord::Base
   end
 
   def route
-    "{:controller => '/pages', :action => 'show', :id => '#{self.slug}'}"
+    "{:controller => '/pages', :action => 'show', :id => '#{slug}'}"
   end
 
-
   def self.styles
-    %w{ basic }
+    %w( basic )
   end
 
   def store_image
