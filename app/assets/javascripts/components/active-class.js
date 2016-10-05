@@ -4,7 +4,7 @@
 // Cache selectors
 var lastId,
   topMenu = $(".fixed-wrap"),
-  topMenuHeight = topMenu.height(),
+  topMenuHeight = topMenu.height() - 10,
   // All list items
   menuItems = topMenu.find('.menu-link'),
   // Anchors corresponding to menu items
