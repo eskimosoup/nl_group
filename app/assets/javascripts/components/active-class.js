@@ -37,6 +37,6 @@ $(window).scroll(function() {
     lastId = id;
     // Set/remove active class
     menuItems.removeClass('active');
-      $('[href="/#' + id + '"]').addClass('active');
+      $('[href="#' + id + '"]').addClass('active');
   }
 });
