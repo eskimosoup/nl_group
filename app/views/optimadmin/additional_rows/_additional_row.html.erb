@@ -1,37 +1,33 @@
 <div class="row collapse module-list-index <%= cycle('odd', 'even') %>" data-equalizer="module-list" id="item_<%= additional_row_presenter.id %>">
-
-
-
-    <div class="large-1 hide-for-medium-down columns" data-equalizer-watch="module-list">
-      <span class="drag-helper"></span>
+  <div class="large-1 hide-for-medium-down columns" data-equalizer-watch="module-list">
+    <span class="drag-helper"></span>
   </div>
-
-    <div class="large-3 small-8 columns" data-equalizer-watch="module-list">
-
+  <div class="large-3 small-8 columns" data-equalizer-watch="module-list">
     <%= additional_row_presenter.name %>
   </div>
-
-    <div class="large-3 small-8 columns" data-equalizer-watch="module-list">
-
+  <div class="large-3 small-8 columns" data-equalizer-watch="module-list">
     <%= additional_row_presenter.style %>
   </div>
-
-
-      <div class="large-2 small-8 columns" data-equalizer-watch="module-list">
-
-      <%= additional_row_presenter.edit_content_blocks %>
-    </div>
-
+  <div class="large-2 small-8 columns" data-equalizer-watch="module-list">
+    <%= additional_row_presenter.edit_content_blocks %>
+  </div>
   <div class="large-1 small-4 columns" data-equalizer-watch="module-list">
     <%= additional_row_presenter.toggle_link %>
   </div>
-
-
   <div class="large-1 small-4 columns" data-equalizer-watch="module-list">
     <%= additional_row_presenter.edit_link %>
   </div>
-
   <div class="large-1 hide-for-medium-down columns last" data-equalizer-watch="module-list">
     <%= additional_row_presenter.delete_link %>
   </div>
+
+  <% if additional_row_presenter.audiences? %>
+    <div class="small-12 module-list-additional-row columns">
+      <div class="row collapse" id="index-list-<%= additional_row_presenter.id %>">
+        <div class="large-12 columns">
+          <%= additional_row_presenter.row_audiences %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

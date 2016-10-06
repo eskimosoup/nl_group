@@ -1,11 +1,9 @@
 <%= content_for :footer do %>
   <script>
     $(document).ready(function() {
-      $('.our-carers-provide-slide').slick({
+      $('.job-seekers-slide').slick({
         autoplay: true,
         autoplaySpeed: 4000,
-        slidesToShow: 4,
-        slidesToScroll: 4,
         dots: true
       });
     });
@@ -19,8 +17,10 @@
           <%= additional_block_presenter.presented_title %>
         </h2>
 
-        <div class="our-carers-provide-slide white-slick-arrows shared-slick-arrows">
-          <%= additional_block_presenter.presented_paragraph %>
+        <div class="job-seekers-slide white-slick-arrows shared-slick-arrows">
+          <%= render partial: 'job_roles/slide',
+                     collection: @presented_job_roles,
+                     as: :job_role %>
         </div>
       </div>
     </div>

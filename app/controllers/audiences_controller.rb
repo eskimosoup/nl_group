@@ -6,6 +6,7 @@ class AudiencesController < ApplicationController
     @presented_testimonials = collection_presenter(@audience.testimonials.displayed.positioned)
     @presented_clients = collection_presenter(Client.displayed)
     @presented_available_roles = collection_presenter(AvailableRole.displayed)
+    @presented_job_roles = JobRole.displayed
     @presented_team_members = collection_presenter(TeamMember.displayed.positioned)
     @presented_frequently_asked_questions = collection_presenter(@audience.frequently_asked_questions.ordered.displayed)
     @presented_work_reasons = collection_presenter(@audience.work_reasons.positioned.displayed)
