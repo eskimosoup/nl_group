@@ -39,9 +39,14 @@
     padding: 0 0 em(190px);
     position: relative;
 
-    &.homecare {
+    &.care-seekers {
       background: image-url('layout/home/homecare-patients-1.jpg') center left no-repeat,
                   image-url('layout/home/homecare-patients-2.jpg') center right no-repeat;
+    }
+
+    &.job-seekers {
+      background: image-url('layout/home/job-seekers-left.jpg') center left no-repeat,
+                  image-url('layout/home/job-seekers-right.jpg') center right no-repeat;
     }
   }
 

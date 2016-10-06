@@ -20,3 +20,29 @@
   padding: em(8px) 0;
   width: 90%;
 }
+
+.job-seekers-slide-content {
+  color: $white;
+
+  @include media('>=768px') {
+    padding: 0 em(20px);
+  }
+
+  a {
+    &:link,
+    &:visited {
+      color: $white;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $white;
+    }
+  }
+}
+
+.job-role-slide-title {
+  font-size: em(16px);
+  font-weight: $proxima-nova-bold;
+}

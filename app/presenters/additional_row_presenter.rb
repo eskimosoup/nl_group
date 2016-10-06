@@ -13,4 +13,8 @@ class AdditionalRowPresenter < BasePresenter
   def anchor
     additional_row.custom_path.tr('/#', '')
   end
+
+  def audience_name_style
+    additional_row.audiences.first.name.parameterize.tr('_', '-')
+  end
 end

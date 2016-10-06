@@ -1,0 +1,7 @@
+<div class="job-seekers-slide-content">
+  <% if job_role.link.present? %>
+    <%= link_to (render 'job_roles/shared/slide_content', job_role: job_role), job_role.link %>
+  <% else %>
+    <%= render 'job_roles/shared/slide_content', job_role: job_role %>
+  <% end %>
+</div>
