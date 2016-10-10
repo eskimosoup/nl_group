@@ -38,7 +38,11 @@ class AdditionalRow < ActiveRecord::Base
   end
 
   def custom_path
-    "#{url_helpers.root_path}##{slug}"
+    if audiences.size == 1
+      "/#{audiences.first.slug}##{slug}"
+    else
+      "#{url_helpers.root_path}##{slug}"
+    end
   end
 
   def slug_candidates
