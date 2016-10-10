@@ -16,7 +16,7 @@ class AudiencesController < ApplicationController
   private
 
   def find_navigation
-    Optimadmin::Menu.new(name: @audience.name.downcase.tr(' ', '_'))
+    Optimadmin::Menu.new(name: @audience.navigation_menu_name)
   rescue
     nil
   end

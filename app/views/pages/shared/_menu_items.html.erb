@@ -1,0 +1,14 @@
+<% # FIXME: This isn't a great thing to do %>
+<%= content_for :footer do %>
+  <script>
+    $(document).ready(function() {
+      var href;
+
+      $('.primary-navigation-links a[href^="/#"]').each(function() {
+        href = $(this).attr('href');
+        href = href.replace('/#', '/<%= @audience.slug %>#');
+        $(this).attr('href', href);
+      });
+    });
+  </script>
+<% end %>

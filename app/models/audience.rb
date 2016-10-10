@@ -17,6 +17,10 @@ class Audience < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true, inclusion: { in: NAMES }
   validates :title, presence: true
 
+  def navigation_menu_name
+    name.downcase.tr(' ', '_')
+  end
+
   def slug_candidates
     [
       :suggested_url,
